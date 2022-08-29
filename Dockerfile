@@ -1,2 +1,3 @@
 FROM nginx
-COPY public-html /usr/share/nginx/html
+COPY public-html /var/www/public-html
+COPY nginx.conf /etc/nginx/nginx.conf

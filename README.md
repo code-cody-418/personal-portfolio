@@ -9,5 +9,5 @@ docker build -t nginx-image .
 
 2. Build the container
 ```
-docker run --name nginx-container -d -p 80:80 nginx-image
+    docker run --name nginx-container -d -p 80:80 nginx-image
 ```
