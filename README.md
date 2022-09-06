@@ -11,3 +11,8 @@ docker build -t nginx-image .
 ```
     docker run --name nginx-container -d -p 80:80 nginx-image
 ```
+
+## Additional Commands
+- `docker container exec -it container-name /bin/bash`
+
+- `sudo docker rm nginx-container`
