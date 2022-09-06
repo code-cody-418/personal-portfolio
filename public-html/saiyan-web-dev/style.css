@@ -1,0 +1,70 @@
+body {
+    background-color: #212529;
+}
+
+.changeFlexGrow {
+    flex-grow: 0 !important;
+}
+
+.removeBlue {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+@font-face {
+    font-family: "Saiyan-Sans";
+    src: url("Saiyan-Sans.ttf") format("truetype");
+    font-display: block;
+}
+
+.saiyanFont {
+    font-family: "Saiyan-Sans", serif;
+}
+
+.captainComicFont {
+    font-family: captain-comic, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.uppercutFont {
+    font-family: uppercut-angle, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.backgroundIMG {
+    background-image: url("./imgs/pwp-background-placeholder.png");
+    background-color: transparent;
+}
+
+.backgroundIMGSize {
+    width: 100vw;
+}
+
+.highlight-text-purple {
+    color: #9488f1;
+}
+
+.backgroundSecondaryColor {
+    background-color: #8a7eee;
+}
+
+.custom-text-about-me {
+    line-height: 1.75em;
+}
+
+.alienBubble {
+    width: 40vw;
+}
+
+@media (max-width: 768px) {
+    .alienBubble {
+        width: 85vw;
+    }
+}
+
+.footer {
+    height: 5vh;
+    background-color: #212529;
+}
