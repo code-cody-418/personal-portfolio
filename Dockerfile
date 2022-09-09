@@ -16,8 +16,8 @@ RUN npm run build
 
 # nginx 
 FROM nginx:1.22
-COPY public-html/saiyan-web-dev /var/www/public-html/saiyan-web-dev
+# COPY public-html/saiyan-web-dev /var/www/public-html/saiyan-web-dev
 COPY --from=stars-floating /home/node/public-html/stars-floating/dist /var/www/public-html/stars-floating
 COPY --from=personal-portfolio /home/node/public-html/personal-portfolio /var/www/public-html/personal-portfolio
-COPY nginx.conf /etc/nginx/nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 CMD ["nginx", "-g", "daemon off;"]
