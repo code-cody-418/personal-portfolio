@@ -45,7 +45,7 @@ export const ContactFormContents = (props) => {
                     <div className="form-row">
                         <div className="col">
                             <div className="form-group form-text-color">
-                                <label htmlFor="contactFormName">Name</label>
+                                <label htmlFor="name">Name</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <div className="input-group-text">
@@ -53,18 +53,18 @@ export const ContactFormContents = (props) => {
                                     </div>
                                     <input
                                         className="form-control"
-                                        name="contactFormName"
+                                        name="name"
                                         type="text"
-                                        value={values.contactFormName}
+                                        value={values.name}
                                         placeholder="Enter Name"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
                                 </div>
                                 {
-                                    errors.contactFormName && touched.contactFormName && (
+                                    errors.name && touched.name && (
                                         <div className="alert alert-danger">
-                                            {errors.contactFormName}
+                                            {errors.name}
                                         </div>
                                     )
                                 }
@@ -73,7 +73,7 @@ export const ContactFormContents = (props) => {
 
                         <div className="col">
                             <div className="form-group form-text-color">
-                                <label htmlFor="contactFormEmail">Email</label>
+                                <label htmlFor="email">Email</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <div className="input-group-text">
@@ -81,18 +81,18 @@ export const ContactFormContents = (props) => {
                                     </div>
                                     <input
                                         className="form-control"
-                                        name="contactFormEmail"
+                                        name="email"
                                         type="email"
-                                        value={values.contactFormEmail}
+                                        value={values.email}
                                         placeholder="Enter Email"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
                                 </div>
                                 {
-                                    errors.contactFormEmail && touched.contactFormEmail && (
+                                    errors.email && touched.email && (
                                         <div className="alert alert-danger">
-                                            {errors.contactFormEmail}
+                                            {errors.email}
                                         </div>
                                     )
                                 }
@@ -102,7 +102,7 @@ export const ContactFormContents = (props) => {
                     <div className="row">
                         <div className="col">
                             <div className="form-group form-text-color">
-                                <label htmlFor="contactFormSubject">Subject</label>
+                                <label htmlFor="subject">Subject</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <div className="input-group-text">
@@ -110,18 +110,18 @@ export const ContactFormContents = (props) => {
                                     </div>
                                     <input
                                         className="form-control"
-                                        name="contactFormSubject"
+                                        name="subject"
                                         type="text"
-                                        value={values.contactFormSubject}
+                                        value={values.subject}
                                         placeholder="Enter Subject"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                     />
                                 </div>
                                 {
-                                    errors.contactFormSubject && touched.contactFormSubject && (
+                                    errors.subject && touched.subject && (
                                         <div className="alert alert-danger">
-                                            {errors.contactFormSubject}
+                                            {errors.subject}
                                         </div>
                                     )
                                 }
@@ -131,7 +131,7 @@ export const ContactFormContents = (props) => {
                     <div className="row">
                         <div className="col">
                             <div className="form-group form-text-color">
-                                <label htmlFor="contactFormMessage">Message</label>
+                                <label htmlFor="message">Message</label>
                                 <div className="input-group">
                                     <div className="input-group-prepend">
                                         <div className="input-group-text">
@@ -139,9 +139,9 @@ export const ContactFormContents = (props) => {
                                     </div>
                                     <textarea
                                         className="form-control"
-                                        name="contactFormMessage"
+                                        name="message"
                                         // type="text"
-                                        value={values.contactFormMessage}
+                                        value={values.message}
                                         placeholder="Enter Message"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
@@ -149,9 +149,9 @@ export const ContactFormContents = (props) => {
                                     />
                                 </div>
                                 {
-                                    errors.contactFormMessage && touched.contactFormMessage && (
+                                    errors.message && touched.message && (
                                         <div className="alert alert-danger">
-                                            {errors.contactFormMessage}
+                                            {errors.message}
                                         </div>
                                     )
                                 }

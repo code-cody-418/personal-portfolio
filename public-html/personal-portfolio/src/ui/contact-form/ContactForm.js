@@ -8,28 +8,28 @@ import {ContactFormContents} from "./ContactFormContents";
 export const ContactForm = () => {
 
     const contactForm = {
-        contactFormName: "",
-        contactFormEmail: "",
-        contactFormSubject: "",
-        contactFormMessage: "",
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
     }
 
     const validator = Yup.object().shape({
-        contactFormName: Yup.string()
+        name: Yup.string()
             .required("Name is required"),
-        contactFormEmail: Yup.string()
+        email: Yup.string()
             .required("Email is required"),
-        contactFormSubject: Yup.string()
+        subject: Yup.string()
             .required("Subject is required"),
-        contactFormMessage: Yup.string()
+        message: Yup.string()
             .required("Message is required")
     })
 
     const submitContactForm = (values, {resetForm, setStatus}) => {
-        httpConfig.post("/apis/contact-form/", values)
+        httpConfig.post("/apis/", values)
             .then(reply => {
                 let { message, type } = reply
-
+                console.log(reply);
                 if(reply.status === 200 ) {
                     resetForm()
                 }
