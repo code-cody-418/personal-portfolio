@@ -1,0 +1,285 @@
+/*personalized color palette*/
+.colorPalette {
+    color: #7a2402;
+    color: #c26336;
+    color: #f3d1b4;
+    color: #c10000;
+}
+.colorPalette2 {
+    color: #A8D8EA;
+    color: #AA96DA;
+    color: #FCBAD3;
+    color: #FFFFD2;
+}
+.donateButton {
+    background-color: #FCBAD3;
+    color: black;
+    border: 0;
+}
+
+.donateButton:hover {
+    background-color: #A8D8EA;
+    color: black;
+}
+
+.customNavbar {
+    background: rgb(168, 216, 234);
+    background: radial-gradient(circle, rgba(168, 216, 234, 1) 0%, rgba(170, 150, 218, 1) 50%, rgba(255, 255, 255, 1) 100%);
+
+}
+
+.mainHeaders {
+    color: black;
+
+}
+
+/*08CBC3FF*/
+
+/*2*/
+@font-face {
+    font-family: 'goldLeaf';
+    src: url('../fonts/GoldleafBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*1*/
+@font-face {
+    font-family: 'gingar';
+    src: url('../fonts/GingarBread.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'momCake';
+    src: url('../fonts/Momcake.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Delicetrial';
+    src: url('../fonts/DelicetrialRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.titleHeaders {
+    font-family: 'Delicetrial', sans-serif;
+    font-size: 5em;
+    /*color: #08cbc3;*/
+    color: black;
+    /*text-shadow: 1px 1px 2px black;*/
+}
+
+.titleText {
+    font-family: 'Delicetrial', sans-serif;
+    font-size: 1.5em;
+    color: black;
+}
+
+.mainText {
+    color: black;
+}
+
+.startImage {
+    /*width: 978px;*/
+    height: 20rem;
+    opacity: 75%;
+}
+
+.whyDonateBox {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.backgroundImage {
+    background-image: url("../images/clothes-rack.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /*width: 100vw;*/
+    height: 100vh;
+    /*opacity: 50%;*/
+}
+
+.backgroundText {
+    text-align: center !important;
+    height: 75vh;
+}
+
+.footer {
+    height: 30px;
+}
+
+.navBarTitle {
+    font-family: gingar, sans-serif;
+}
+
+.bigDonateButton {
+    width: 12em;
+    height: 8em;
+    /*margin-top: 1em;*/
+}
+
+.aboutMeText {
+    width: 75%;
+}
+
+/*_______________________________________________________*/
+/*media query section*/
+/*_______________________________________________________*/
+
+/*when screen is less than 775px*/
+@media screen and (max-width: 775px) {
+    .backgroundImage {
+        height: 20vh;
+    }
+
+    .backgroundText {
+        height: 25vh;
+    }
+
+    .titleHeaders {
+        font-size: 3em;
+    }
+}
+
+/*ipad responsiveness*/
+@media screen and (max-width: 900px) and (max-height: 1100px) {
+    .backgroundImage {
+        height: 35vh;
+    }
+
+    .backgroundText {
+        height: 25vh;
+    }
+
+    .titleHeaders {
+        font-size: 3em;
+        margin-top: 0.5em;
+    }
+    .navBarTitle {
+        font-size: 0.7em;
+    }
+    .bigDonateButton {
+        width: 9em;
+        height: 6em;
+        /*margin-top: 1em;*/
+    }
+    .aboutMeText {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .titleHeaders {
+        font-size: 2em;
+    }
+    .titleText {
+        font-size: 1rem;
+    }
+}
+
+/*Mobile View when screen is less than 500px*/
+@media screen and (max-width: 500px) {
+    .backgroundImage {
+        height: 20vh;
+    }
+    .titleHeaders {
+        font-size: 1.8em;
+    }
+    .titleText {
+        font-size: 1.3em;
+    }
+    .startDonationAnimation {
+        width: 50% !important;
+    }
+    .afterDonationAnimation {
+        width: 50% !important;
+    }
+    .bigDonateButton {
+        width: 6em;
+        height: 4em;
+        /*margin-top: 1em;*/
+    }
+    .aboutMeText {
+        width: 100%;
+    }
+}
+
+/*_______________________________________________________*/
+/*animations section*/
+/*_______________________________________________________*/
+
+.startDonationAnimation {
+    animation-duration: 10s;
+    animation-name: startDonation;
+    animation-iteration-count: infinite;
+    width: 35%;
+    /*position: absolute;*/
+    z-index: 100;
+    opacity: 0;
+}
+
+@keyframes startDonation {
+    from {
+        margin-left: 0%;
+        /*width: 35%;*/
+        opacity: 1;
+    }
+    50% {
+        margin-left: 70%;
+        /*width: 35%;*/
+        opacity: 1;
+    }
+    60% {
+        margin-left: 70%;
+        /*width: 35%;*/
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+.afterDonationAnimation {
+    animation-duration: 10s;
+    /*animation-delay: 15s;*/
+    animation-name: afterDonation;
+    animation-iteration-count: infinite;
+    /*position: absolute;*/
+    z-index: 100;
+    /*margin-left: 60%;*/
+    width: 35%;
+    opacity: 0;
+}
+
+@keyframes afterDonation {
+    from {
+        margin-left: 0%;
+        /*width: 25%;*/
+        opacity: 0;
+    }
+
+    50% {
+        margin-left: 0%;
+        /*width: 25%;*/
+        opacity: 0;
+    }
+
+    51% {
+        margin-left: 0%;
+        /*width: 25%;*/
+        opacity: 1;
+    }
+
+    to {
+        margin-left: 50%;
+        /*width: 25%;*/
+        opacity: 1;
+    }
+
+}

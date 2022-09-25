@@ -1,0 +1,31 @@
+.background-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.form-text-color {
+    color: black !important;
+}
+
+h1 {
+    font-family: "Californian FB";
+}
+
+h2 {
+    font-family: "Californian FB";
+}
+
+.submitButton {
+    background-color: #FCBAD3 ;
+    color: black;
+    border: 0;
+}
+
+.submitButton:hover {
+    background-color: #A8D8EA;
+    color: black;
+}
