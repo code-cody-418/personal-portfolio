@@ -10,7 +10,7 @@ export const ProjectsListText = () => {
     const {projectsTextSize} = useResponsive3d()
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
+        const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,

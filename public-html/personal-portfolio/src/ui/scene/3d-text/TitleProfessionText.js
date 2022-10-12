@@ -17,7 +17,7 @@ export const TitleProfessionText = () => {
     const {professionSize, professionTitleSize, professionXPosition, professionYPosition, professionTitleXPosition, professionTitleYPosition} = useResponsive3d()
 
     const FontConfig = ({text, position, rotation, uniqueColor, uniqueSize, uniqueMaterial}) => {
-        const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
+        const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,

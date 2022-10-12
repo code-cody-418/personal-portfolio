@@ -17,7 +17,7 @@ export const SkillsListText = () => {
     const { skillsTextSize } = useResponsive3d()
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
+        const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
@@ -114,10 +114,6 @@ export const SkillsListText = () => {
 
         return (
             <>
-                {/*<Blender*/}
-                {/*    position={[19, 0, 0]}*/}
-                {/*    rotation={[0, -1.570796, 0]}*/}
-                {/*/>*/}
                 <group
                     //this group moves the whole list
                     position = {[skillsTextXPosition, skillsTextYPosition, skillsTextZPosition]}>
