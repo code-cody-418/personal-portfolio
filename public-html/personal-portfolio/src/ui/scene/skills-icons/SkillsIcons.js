@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Box, useTexture} from "@react-three/drei";
+import {useTexture} from "@react-three/drei";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 export const SkillsIcons = ({iconState}) => {
@@ -31,7 +31,7 @@ export const SkillsIcons = ({iconState}) => {
             setCurrentIcon(githubIcon)
         }
         // console.log("icon state", iconState)
-    }, [iconState])
+    }, [iconState, bootstrapIcon, githubIcon, dockerIcon, reduxIcon, expressIcon, reactIcon])
 
     //sets responsive behavior
     const { skillsIconSize, skillsIconZPositionSize } = useResponsive3d()

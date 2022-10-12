@@ -33,18 +33,14 @@ export const ProjectsExamples = ({exampleState}) => {
             setCurrentExample(alienGramExample)
         }
         // console.log("icon state", iconState)
-    }, [exampleState])
+    }, [exampleState, alienGramExample, expNinjaExample, saiyanWebDevExample])
 
 
     const {
         projectsExampleSize,
         projectsExampleYPosition,
         projectsExampleZPosition,
-        projectsExampleYRotation,
-        projectsExpNinjaExampleSize,
-        projectsExpNinjaExampleYPosition,
-        projectsExpNinjaExampleZPosition,
-        projectsExpNinjaExampleYRotation
+        projectsExampleYRotation
     } = useResponsive3d()
 
     return (
@@ -65,12 +61,6 @@ export const ProjectsExamples = ({exampleState}) => {
                     />
                 </mesh>
             </group>
-            {/*<Kakashi*/}
-            {/*    position={[-19, projectsExpNinjaExampleYPosition, projectsExpNinjaExampleZPosition]}*/}
-            {/*    rotation={[0, projectsExpNinjaExampleYRotation, 0]}*/}
-            {/*    expNinjaVisible={expNinjaVisible}*/}
-            {/*/>*/}
-
         </>
     )
 }

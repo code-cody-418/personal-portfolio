@@ -13,7 +13,7 @@ export default function Headset(props) {
   const { actions } = useAnimations(animations, group)
 
   //sets finger movement
-  const [action, setAction] = useState("headsetMove")
+  const [action] = useState("headsetMove")
 
   useEffect(() => {
     actions[action].reset().fadeIn(0.5).play()

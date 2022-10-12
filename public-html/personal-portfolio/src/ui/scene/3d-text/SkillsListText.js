@@ -1,7 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
-import Blender from "../Blender";
 import {SkillsIcons} from "../skills-icons/SkillsIcons";
 import {Interactive} from "@react-three/xr";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
@@ -108,7 +107,7 @@ export const SkillsListText = () => {
                     setBootstrapColor(startingColor)
                 }
             }
-        }, [iconState, thirtySeconds])
+        }, [iconState, thirtySeconds, timerOnOff])
 
 
         const { skillsTextXPosition, skillsTextYPosition, skillsTextZPosition } = useResponsive3d()

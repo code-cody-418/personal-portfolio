@@ -84,7 +84,7 @@ export const ProjectsListText = () => {
                     setExpNinjaColor(startingColor)
                 }
             }
-        }, [exampleState, thirtySeconds])
+        }, [exampleState, thirtySeconds, timerOnOff])
 
         //sets cursor on hover
         const [hovered, setHovered] = useState(false)

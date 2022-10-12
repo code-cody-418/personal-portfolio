@@ -13,7 +13,7 @@ export default function HandModel(props) {
   const { actions } = useAnimations(animations, group)
 
     //sets finger movement
-    const [action, setAction] = useState("fingerMove")
+    const [action] = useState("fingerMove")
 
     useEffect(() => {
         actions[action].reset().fadeIn(0.5).play()

@@ -1,9 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
-import Blender from "../Blender";
-import {SkillsIcons} from "../skills-icons/SkillsIcons";
-import {Interactive} from "@react-three/xr";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 //
@@ -33,7 +30,7 @@ export const TitleProfessionText = () => {
                 bevelOffset: 0,
                 bevelSegments: 5
             }),
-            [font]
+            [font, uniqueSize]
         );
         const mesh = useRef();
         return (
@@ -62,7 +59,7 @@ export const TitleProfessionText = () => {
         let startingColor = "#ea2e6f"
 
         //allows each skill to change color
-        const [textColor, setTextColor] = useState(startingColor)
+        const [textColor] = useState(startingColor)
 
         //Functionality to 30 second timer
         const [thirtySeconds, setThirtySeconds] = useState(30)
@@ -113,7 +110,7 @@ export const TitleProfessionText = () => {
                     setTimerOnOff(false)
                 }
             }
-        }, [textState, thirtySeconds])
+        }, [textState, thirtySeconds, timerOnOff])
 
 
         return (

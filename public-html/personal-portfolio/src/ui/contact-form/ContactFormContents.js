@@ -1,5 +1,4 @@
 import React from "react";
-import {FormDebugger} from "./FormDebugger";
 import "./form-style.css"
 import video from "./contact-form-video-10mb.mp4"
 import {useHistory} from "react-router";
@@ -11,15 +10,10 @@ export const ContactFormContents = (props) => {
         values,
         errors,
         touched,
-        dirty,
-        isSubmitting,
         handleChange,
         handleBlur,
-        handleSubmit,
-        handleReset
+        handleSubmit
     } = props
-
-    // console.log("status", status.type, status.message)
 
     let history = useHistory();
 
@@ -140,7 +134,6 @@ export const ContactFormContents = (props) => {
                                     <textarea
                                         className="form-control"
                                         name="message"
-                                        // type="text"
                                         value={values.message}
                                         placeholder="Enter Message"
                                         onChange={handleChange}
@@ -175,13 +168,11 @@ export const ContactFormContents = (props) => {
                         </div>
 
                     </div>
-                    {/*<FormDebugger {...props} />*/}
                 </form>
                 {
                     status && (<div className={status.type}>{status.message}</div>)
                 }
             </div>
-
         </>
     )
 }

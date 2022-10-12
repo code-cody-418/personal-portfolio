@@ -2,8 +2,6 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
-import {Contact} from "../../Contact";
-
 
 export const TitleText = () => {
 
@@ -56,7 +54,7 @@ export const TitleText = () => {
         // console.log("titlePostion", titleXPosition)
 
         //hover cursor change
-        const [hovered, setHovered] = useState(false)
+        const [hovered] = useState(false)
         useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 
         return (
