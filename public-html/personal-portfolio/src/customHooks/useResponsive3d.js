@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-// A responsive hook that returns sizes and positions as a number for 3D objects to be mobile Responcive
+// A responsive hook that returns sizes and positions as a number for 3D objects to be mobile Responsive
 
 export const useResponsive3d = () => {
   //This is the window Width in which responsive behavior will occur
@@ -10,9 +10,6 @@ export const useResponsive3d = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   const xr = navigator.xr;
-
-  //   console.log("is xr on?", xr)
-  // console.log('width', width);
 
   //these states change based on the breakpoints
   //variables for the title page
