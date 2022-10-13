@@ -4,12 +4,8 @@ import {useLoader} from "@react-three/fiber";
 import {SkillsIcons} from "../skills-icons/SkillsIcons";
 import {Interactive} from "@react-three/xr";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
-
-//
-// /Basaro_Regular.json
-// /Ranille-Normal-Regular.json
-// /Roboto-Slab-Bold.json
-// /Saiyan-Sans-Regular.json
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { Responsive } from "../../../constructor/Responsive";
 
 
 export const SkillsListText = () => {

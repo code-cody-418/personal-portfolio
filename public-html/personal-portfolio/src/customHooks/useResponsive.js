@@ -19,6 +19,7 @@ export const useResponsive = (responsiveData) => {
     desktopSize,
     desktopPositionX,
     desktopPositionY,
+    desktopPositionZ,
     desktopSubSize,
     desktopSubPositionX,
     desktopSubPositionY,
@@ -26,6 +27,7 @@ export const useResponsive = (responsiveData) => {
     mobileSize,
     mobilePositionX,
     mobilePositionY,
+    mobilePositionZ,
     mobileSubSize,
     mobileSubPositionX,
     mobileSubPositionY,
@@ -35,6 +37,7 @@ export const useResponsive = (responsiveData) => {
   const [size, setSize] = useState(desktopSize);
   const [positionX, setPositionX]= useState(desktopPositionX)
   const [positionY, setPositionY]= useState(desktopPositionY)
+  const [positionZ, setPositionZ]= useState(desktopPositionZ)
   const [subSize, setSubSize] = useState(desktopSubSize);
   const [subPositionX, setSubPositionX]= useState(desktopSubPositionX)
   const [subPositionY, setSubPositionY]= useState(desktopSubPositionY)
@@ -43,12 +46,12 @@ export const useResponsive = (responsiveData) => {
   //sets the sizes and positions of 3d objects based on the size of the window, breaking point, and passed values
   useEffect(() => {
     const handleResize = () => {
-      console.log("called");
       if (breakpoint < width) {
         //desktop positioning
         setSize(desktopSize);
         setPositionX(desktopPositionX)
         setPositionY(desktopPositionY)
+        setPositionZ(desktopPositionZ)
         setSubSize(desktopSubSize)
         setSubPositionX(desktopSubPositionX)
         setSubPositionY(desktopSubPositionY)
@@ -58,6 +61,7 @@ export const useResponsive = (responsiveData) => {
         setSize(mobileSize);
         setPositionX(mobilePositionX)
         setPositionY(mobilePositionY)
+        setPositionZ(mobilePositionZ)
         setSubSize(mobileSubSize)
         setSubPositionX(mobileSubPositionX)
         setSubPositionY(mobileSubPositionY)
@@ -65,11 +69,12 @@ export const useResponsive = (responsiveData) => {
       }
     };
     handleResize();
-  }, [width, desktopSize, desktopPositionX, desktopPositionY, desktopSubSize, desktopSubPositionX, desktopSubPositionY, desktopGroupY, mobileSize, mobilePositionX, mobilePositionY, mobileSubSize, mobileSubPositionX, mobileSubPositionY, mobileGroupY]);
+  }, [width, desktopSize, desktopPositionX, desktopPositionY, desktopPositionZ, desktopSubSize, desktopSubPositionX, desktopSubPositionY, desktopGroupY, mobileSize, mobilePositionX, mobilePositionY, mobilePositionZ, mobileSubSize, mobileSubPositionX, mobileSubPositionY, mobileGroupY]);
   return {
     size,
     positionX,
     positionY,
+    positionZ,
     subSize,
     subPositionX,
     subPositionY,
