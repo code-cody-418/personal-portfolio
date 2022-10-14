@@ -1,28 +1,29 @@
 import React, {useMemo, useRef} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
-import {useResponsive3d} from "../../../customHooks/useResponsive3d";
-
-
-//Extra fonts
-// /Basaro_Regular.json
-
-// /Sunmore-Slant-Free-Regular.json
-// /Ranille-Normal-Regular.json
-// /Roboto-Slab-Bold.json
-// /Saiyan-Sans-Regular.json
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { Responsive } from "../../../constructor/Responsive";
 
 export const ProjectsTitleText = () => {
+    const responsiveData = new Responsive();
+    responsiveData.desktopSize = 5;
+    responsiveData.desktopPositionX = -20;
+    responsiveData.desktopPositionY = 7;
+    responsiveData.desktopPositionZ = 10
+    
+    responsiveData.mobileSize = 3.5;
+    responsiveData.mobilePositionX = -20;
+    responsiveData.mobilePositionY = 11;
+    responsiveData.mobilePositionZ = 7.5
 
-    const { projectsTitleSize } = useResponsive3d()
-
+    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
     const FontConfig = ({text, position, rotation}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: projectsTitleSize,
+                size: size,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -47,16 +48,13 @@ export const ProjectsTitleText = () => {
     }
 
     const TitleText = () => {
-
-        const { projectsTitleXPosition, projectsTitleYPosition, projectsTitleZPosition } = useResponsive3d()
-
         return (
             <>
                 <group
                 >
                     <FontConfig
                         text="Projects"
-                        position={[projectsTitleXPosition, projectsTitleYPosition, projectsTitleZPosition]}
+                        position={[positionX, positionY, positionZ]}
                         rotation={[0, 1.570796, 0]}
                     />
                 </group>

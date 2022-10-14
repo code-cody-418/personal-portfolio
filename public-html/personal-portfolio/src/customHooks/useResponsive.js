@@ -20,28 +20,44 @@ export const useResponsive = (responsiveData) => {
     desktopPositionX,
     desktopPositionY,
     desktopPositionZ,
+
     desktopSubSize,
+    desktopSubWidth,
+    desktopSubHeight,
     desktopSubPositionX,
     desktopSubPositionY,
+    desktopSubPositionZ,
+
     desktopGroupY,
+
     mobileSize,
     mobilePositionX,
     mobilePositionY,
     mobilePositionZ,
+
     mobileSubSize,
+    mobileSubWidth,
+    mobileSubHeight,
     mobileSubPositionX,
     mobileSubPositionY,
+    mobileSubPositionZ,
+
     mobileGroupY,
   } = responsiveData;
 
   const [size, setSize] = useState(desktopSize);
-  const [positionX, setPositionX]= useState(desktopPositionX)
-  const [positionY, setPositionY]= useState(desktopPositionY)
-  const [positionZ, setPositionZ]= useState(desktopPositionZ)
+  const [positionX, setPositionX] = useState(desktopPositionX);
+  const [positionY, setPositionY] = useState(desktopPositionY);
+  const [positionZ, setPositionZ] = useState(desktopPositionZ);
+
   const [subSize, setSubSize] = useState(desktopSubSize);
-  const [subPositionX, setSubPositionX]= useState(desktopSubPositionX)
-  const [subPositionY, setSubPositionY]= useState(desktopSubPositionY)
-  const [groupY, setGroupY]= useState(desktopGroupY)
+  const [subWidth, setSubWidth] = useState(desktopSubWidth);
+  const [subHeight, setSubHeight] = useState(desktopSubHeight);
+  const [subPositionX, setSubPositionX] = useState(desktopSubPositionX);
+  const [subPositionY, setSubPositionY] = useState(desktopSubPositionY);
+  const [subPositionZ, setSubPositionZ] = useState(desktopSubPositionZ);
+
+  const [groupY, setGroupY] = useState(desktopGroupY);
 
   //sets the sizes and positions of 3d objects based on the size of the window, breaking point, and passed values
   useEffect(() => {
@@ -49,35 +65,79 @@ export const useResponsive = (responsiveData) => {
       if (breakpoint < width) {
         //desktop positioning
         setSize(desktopSize);
-        setPositionX(desktopPositionX)
-        setPositionY(desktopPositionY)
-        setPositionZ(desktopPositionZ)
-        setSubSize(desktopSubSize)
-        setSubPositionX(desktopSubPositionX)
-        setSubPositionY(desktopSubPositionY)
-        setGroupY(desktopGroupY)
+        setPositionX(desktopPositionX);
+        setPositionY(desktopPositionY);
+        setPositionZ(desktopPositionZ);
+
+        setSubSize(desktopSubSize);
+        setSubWidth(desktopSubWidth);
+        setSubHeight(desktopSubHeight);
+        setSubPositionX(desktopSubPositionX);
+        setSubPositionY(desktopSubPositionY);
+        setSubPositionZ(desktopSubPositionZ);
+
+        setGroupY(desktopGroupY);
       } else if (breakpoint > width) {
         //mobile positioning
         setSize(mobileSize);
-        setPositionX(mobilePositionX)
-        setPositionY(mobilePositionY)
-        setPositionZ(mobilePositionZ)
-        setSubSize(mobileSubSize)
-        setSubPositionX(mobileSubPositionX)
-        setSubPositionY(mobileSubPositionY)
-        setGroupY(mobileGroupY)
+        setPositionX(mobilePositionX);
+        setPositionY(mobilePositionY);
+        setPositionZ(mobilePositionZ);
+
+        setSubSize(mobileSubSize);
+        setSubWidth(mobileSubWidth);
+        setSubHeight(mobileSubHeight);
+        setSubPositionX(mobileSubPositionX);
+        setSubPositionY(mobileSubPositionY);
+        setSubPositionZ(mobileSubPositionZ);
+
+        setGroupY(mobileGroupY);
       }
     };
     handleResize();
-  }, [width, desktopSize, desktopPositionX, desktopPositionY, desktopPositionZ, desktopSubSize, desktopSubPositionX, desktopSubPositionY, desktopGroupY, mobileSize, mobilePositionX, mobilePositionY, mobilePositionZ, mobileSubSize, mobileSubPositionX, mobileSubPositionY, mobileGroupY]);
+  }, [
+    width,
+    desktopSize,
+    desktopPositionX,
+    desktopPositionY,
+    desktopPositionZ,
+
+    desktopSubSize,
+    desktopSubWidth,
+    desktopSubHeight,
+    desktopSubPositionX,
+    desktopSubPositionY,
+    desktopSubPositionZ,
+
+    desktopGroupY,
+
+    mobileSize,
+    mobilePositionX,
+    mobilePositionY,
+    mobilePositionZ,
+
+    mobileSubSize,
+    mobileSubWidth,
+    mobileSubHeight,
+    mobileSubPositionX,
+    mobileSubPositionY,
+    mobileSubPositionZ,
+
+    mobileGroupY,
+  ]);
   return {
     size,
     positionX,
     positionY,
     positionZ,
+
     subSize,
+    subWidth,
+    subHeight,
     subPositionX,
     subPositionY,
-    groupY
+    subPositionZ,
+
+    groupY,
   };
 };

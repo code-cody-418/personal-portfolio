@@ -3,21 +3,30 @@ import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {SkillsIcons} from "../skills-icons/SkillsIcons";
 import {Interactive} from "@react-three/xr";
-import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 
 
 export const SkillsListText = () => {
+    const responsiveData = new Responsive();
+    responsiveData.desktopSize = 1.5;
+    responsiveData.desktopPositionX = 0;
+    responsiveData.desktopPositionY = 0;
+    responsiveData.desktopPositionZ = -15
+    
+    responsiveData.mobileSize = 1.5;
+    responsiveData.mobilePositionX = 0;
+    responsiveData.mobilePositionY = 0;
+    responsiveData.mobilePositionZ = -8
 
-    const { skillsTextSize } = useResponsive3d()
+    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
         const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: skillsTextSize,
+                size: size,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: false,
@@ -105,14 +114,11 @@ export const SkillsListText = () => {
             }
         }, [iconState, thirtySeconds, timerOnOff])
 
-
-        const { skillsTextXPosition, skillsTextYPosition, skillsTextZPosition } = useResponsive3d()
-
         return (
             <>
                 <group
                     //this group moves the whole list
-                    position = {[skillsTextXPosition, skillsTextYPosition, skillsTextZPosition]}>
+                    position = {[positionX, positionY, positionZ]}>
                     <group
                         onPointerEnter={() => {
                             setIconState("reactActive")

@@ -2,19 +2,30 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {ProjectsExamples} from "../ProjectsExamples";
-import {useResponsive3d} from "../../../customHooks/useResponsive3d";
-
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { Responsive } from "../../../constructor/Responsive";
 
 export const ProjectsListText = () => {
+    const responsiveData = new Responsive();
+    responsiveData.desktopSize = 2.5;
+    responsiveData.desktopPositionX = 0;
+    responsiveData.desktopPositionY = 0;
+    responsiveData.desktopPositionZ = 0
+    
+    responsiveData.mobileSize = 1.5;
+    responsiveData.mobilePositionX = 0;
+    responsiveData.mobilePositionY = 5;
+    responsiveData.mobilePositionZ = -2
 
-    const {projectsTextSize} = useResponsive3d()
+    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
+
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
         const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: projectsTextSize,
+                size: size,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -90,12 +101,10 @@ export const ProjectsListText = () => {
         const [hovered, setHovered] = useState(false)
         useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 
-        const {projectsTextXPosition, projectsTextYPosition, projectsTextZPosition} = useResponsive3d()
-
         return (
             <>
                 <group
-                    position={[projectsTextXPosition, projectsTextYPosition, projectsTextZPosition]}
+                    position={[positionX, positionY, positionZ]}
 
                 >
                     <group
