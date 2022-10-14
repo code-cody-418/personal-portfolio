@@ -53,7 +53,7 @@ export const ProjectsTitleText = () => {
                 <group
                 >
                     <FontConfig
-                        text="Projects"
+                        text="Websites"
                         position={[positionX, positionY, positionZ]}
                         rotation={[0, 1.570796, 0]}
                     />

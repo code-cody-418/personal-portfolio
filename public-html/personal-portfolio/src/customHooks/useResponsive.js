@@ -20,6 +20,7 @@ export const useResponsive = (responsiveData) => {
     desktopPositionX,
     desktopPositionY,
     desktopPositionZ,
+    desktopRotationY,
 
     desktopSubSize,
     desktopSubWidth,
@@ -34,6 +35,7 @@ export const useResponsive = (responsiveData) => {
     mobilePositionX,
     mobilePositionY,
     mobilePositionZ,
+    mobileRotationY,
 
     mobileSubSize,
     mobileSubWidth,
@@ -49,6 +51,7 @@ export const useResponsive = (responsiveData) => {
   const [positionX, setPositionX] = useState(desktopPositionX);
   const [positionY, setPositionY] = useState(desktopPositionY);
   const [positionZ, setPositionZ] = useState(desktopPositionZ);
+  const [rotationY, setRotationY] = useState(desktopRotationY)
 
   const [subSize, setSubSize] = useState(desktopSubSize);
   const [subWidth, setSubWidth] = useState(desktopSubWidth);
@@ -68,6 +71,7 @@ export const useResponsive = (responsiveData) => {
         setPositionX(desktopPositionX);
         setPositionY(desktopPositionY);
         setPositionZ(desktopPositionZ);
+        setRotationY(desktopRotationY)
 
         setSubSize(desktopSubSize);
         setSubWidth(desktopSubWidth);
@@ -83,6 +87,7 @@ export const useResponsive = (responsiveData) => {
         setPositionX(mobilePositionX);
         setPositionY(mobilePositionY);
         setPositionZ(mobilePositionZ);
+        setRotationY(mobileRotationY)
 
         setSubSize(mobileSubSize);
         setSubWidth(mobileSubWidth);
@@ -101,6 +106,7 @@ export const useResponsive = (responsiveData) => {
     desktopPositionX,
     desktopPositionY,
     desktopPositionZ,
+    desktopRotationY,
 
     desktopSubSize,
     desktopSubWidth,
@@ -115,6 +121,7 @@ export const useResponsive = (responsiveData) => {
     mobilePositionX,
     mobilePositionY,
     mobilePositionZ,
+    mobileRotationY,
 
     mobileSubSize,
     mobileSubWidth,
@@ -130,6 +137,7 @@ export const useResponsive = (responsiveData) => {
     positionX,
     positionY,
     positionZ,
+    rotationY,
 
     subSize,
     subWidth,

@@ -4,6 +4,7 @@ export class Responsive {
         this.desktopPositionX = null
         this.desktopPositionY = null
         this.desktopPositionX = null
+        this.desktopRotationY = null
 
         this.desktopSubSize = null
         this.desktopSubWidth = null
@@ -18,6 +19,7 @@ export class Responsive {
         this.mobilePositionX = null
         this.mobilePositionY = null
         this.mobilePositionX = null
+        this.mobileRotationY = null
 
         this.mobileSubSize = null
         this.mobileSubWidth = null
