@@ -25,5 +25,10 @@ export default [
         name: 'dragonModel',
         type: 'gltfModel',
         path: 'models/dragon/Dragon.gltf'
+    },
+    {
+        name: 'chest01',
+        type: 'draco',
+        path: 'models/chests/Chest01.gltf'
     }
 ]
