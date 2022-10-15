@@ -28,7 +28,7 @@ export default [
     },
     {
         name: 'chest01',
-        type: 'draco',
+        type: 'gltfModel',
         path: 'models/chests/Chest01.gltf'
     }
 ]

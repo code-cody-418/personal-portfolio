@@ -1,5 +1,6 @@
 import Experience from "../Experience.js";
 import Dragon from './Enemies/Dragon.js';
+import Chest01 from "./Environment/Chests/Chest-01.js";
 import Environment from './Environment/Environment.js';
 import Helpers from '../Helpers/Helpers.js'
 
@@ -12,6 +13,7 @@ export default class World {
         //Once the resources is loaded
         this.resources.on('ready', () => {
             this.dragon = new Dragon()
+            this.chest01 = new Chest01()
             this.environment = new Environment()
             this.helpers = new Helpers()
         })
