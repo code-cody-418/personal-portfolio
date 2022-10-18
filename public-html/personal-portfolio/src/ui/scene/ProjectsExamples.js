@@ -30,15 +30,15 @@ export const ProjectsExamples = ({ exampleState }) => {
 
   //determines which icon is showing
   useEffect(() => {
-    if (exampleState === "saiyanWebDevActive") {
+    if (exampleState === "projectOneActive") {
       setCurrentExample(saiyanWebDevExample);
       setCurrentExampleVisible(true);
       // setExpNinjaVisible(false)
-    } else if (exampleState === "expNinjaActive") {
+    } else if (exampleState === "projectTwoActive") {
       setCurrentExampleVisible(true);
       setCurrentExample(expNinjaExample);
       // setExpNinjaVisible(true)
-    } else if (exampleState === "alienGramActive") {
+    } else if (exampleState === "projectThreeActive") {
       // setExpNinjaVisible(false)
       setCurrentExampleVisible(true);
       setCurrentExample(alienGramExample);
