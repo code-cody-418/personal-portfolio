@@ -7,7 +7,7 @@ import { Responsive } from "../../../constructor/Responsive";
 
 export const ProjectsListText = () => {
     const responsiveData = new Responsive();
-    responsiveData.desktopSize = 2.5;
+    responsiveData.desktopSize = 1.8;
     responsiveData.desktopPositionX = 0;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 0
@@ -51,9 +51,9 @@ export const ProjectsListText = () => {
     const ListText = () => {
        
         //Project Text
-        const projectTextOne = "Project One"
-        const projectTextTwo = "Project Two"
-        const projectTextThree = "Project Three"
+        const projectTextOne = "NN DPM"
+        const projectTextTwo = "SW Bakery"
+        const projectTextThree = "Clothing Bank"
 
         //set the state of the example image
         const [exampleState, setExampleState] = useState(null)
@@ -113,7 +113,7 @@ export const ProjectsListText = () => {
 
                 >
                     <group
-                        onClick={() => window.open("https://saiyanwebdev.com/")}
+                        onClick={() => window.open("http://www.dpm.navajo-nsn.gov/")}
                         onPointerOver={() => {
                             setTimerOnOff(false)
                             setProjectOneColor("#2779F6")
@@ -134,7 +134,7 @@ export const ProjectsListText = () => {
                         />
                     </group>
                     <group
-                        onClick={() => window.open("https://expninja.com/")}
+                        onClick={() => window.open("https://southwestbakery505.com/")}
                         onPointerOver={() => {
                             setTimerOnOff(false)
                             setProjectTwoColor("#2779F6")
@@ -155,7 +155,7 @@ export const ProjectsListText = () => {
                         />
                     </group>
                     <group
-                        onClick={() => window.open("http://143.198.234.16/")}
+                        onClick={() => window.open("https://monsterslayer.org/")}
                         onPointerOver={() => {
                             setTimerOnOff(false)
                             setProjectThreeColor("#2779F6")
