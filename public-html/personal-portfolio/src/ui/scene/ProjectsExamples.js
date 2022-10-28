@@ -5,7 +5,7 @@ import { Responsive } from "../../constructor/Responsive";
 
 export const ProjectsExamples = ({ exampleState }) => {
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 14;
+  responsiveData.desktopSize = 12;
   responsiveData.desktopPositionY = 0;
   responsiveData.desktopPositionZ = 18;
   responsiveData.desktopRotationY = 2.3
@@ -19,9 +19,10 @@ export const ProjectsExamples = ({ exampleState }) => {
     useResponsive(responsiveData);
 
   //loads textures for the examples
-  const saiyanWebDevExample = useTexture("/saiyanwebdev-example.png");
-  const alienGramExample = useTexture("/aliengram-example.png");
-  const expNinjaExample = useTexture("/expNinja-example.png");
+  const exampleOne = useTexture("/dpm-example.jpg");
+  const exampleTwo = useTexture("/sw-bakery-example.jpg");
+  const exampleThree = useTexture("/monster-slayer-clothing-example.jpg");
+
 
   //sets state for the current example to be shown
   const [currentExample, setCurrentExample] = useState(null);
@@ -31,20 +32,20 @@ export const ProjectsExamples = ({ exampleState }) => {
   //determines which icon is showing
   useEffect(() => {
     if (exampleState === "projectOneActive") {
-      setCurrentExample(saiyanWebDevExample);
+      setCurrentExample(exampleOne);
       setCurrentExampleVisible(true);
       // setExpNinjaVisible(false)
     } else if (exampleState === "projectTwoActive") {
       setCurrentExampleVisible(true);
-      setCurrentExample(expNinjaExample);
+      setCurrentExample(exampleTwo);
       // setExpNinjaVisible(true)
     } else if (exampleState === "projectThreeActive") {
       // setExpNinjaVisible(false)
       setCurrentExampleVisible(true);
-      setCurrentExample(alienGramExample);
+      setCurrentExample(exampleThree);
     }
     // console.log("icon state", iconState)
-  }, [exampleState, alienGramExample, expNinjaExample, saiyanWebDevExample]);
+  }, [exampleState, exampleThree, exampleTwo, exampleOne]);
 
   return (
     <>
