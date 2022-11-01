@@ -12,6 +12,9 @@ import Mouse01 from "../tutorial/Mouse01";
 import HandModel from "../tutorial/Hand-model";
 import Headset from "../tutorial/Headset01";
 import "../../ui/scene/sceneStyle.css";
+import {Walls} from "./walls/Walls"
+import { EmployersTitleText } from "./3d-text/EmployersTitleText";
+import { EmployersListText } from "./3d-text/EmployersListText";
 
 export const ThreeDScene = () => {
   return (
@@ -32,8 +35,8 @@ export const ThreeDScene = () => {
             minPolarAngle={1.5708}
             maxPolarAngle={1.5708}
             // horizontal angle limit
-            minAzimuthAngle={-1.57}
-            maxAzimuthAngle={1.57}
+            // minAzimuthAngle={-1.57}
+            // maxAzimuthAngle={1.57}
           />
 
           <ambientLight intensity={1} />
@@ -70,6 +73,9 @@ export const ThreeDScene = () => {
                 <SkillsListText />
               </group>
 
+              <EmployersTitleText />
+              <EmployersListText />
+
               {/*<ReferenceCenter/>*/}
               {/*<ReferenceProject/>*/}
               {/*<ReferenceSkills/>*/}
@@ -84,7 +90,7 @@ export const ThreeDScene = () => {
                 fade
               />
 
-              {/*<Walls/>*/}
+              <Walls/>
             </group>
         </VRCanvas>
       </Suspense>
