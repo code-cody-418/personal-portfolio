@@ -2,19 +2,30 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {ProjectsExamples} from "../ProjectsExamples";
-import {useResponsive3d} from "../../../customHooks/useResponsive3d";
-
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { Responsive } from "../../../constructor/Responsive";
 
 export const ProjectsListText = () => {
+    const responsiveData = new Responsive();
+    responsiveData.desktopSize = 1.8;
+    responsiveData.desktopPositionX = 0;
+    responsiveData.desktopPositionY = 0;
+    responsiveData.desktopPositionZ = 0
+    
+    responsiveData.mobileSize = 1.5;
+    responsiveData.mobilePositionX = 0;
+    responsiveData.mobilePositionY = 5;
+    responsiveData.mobilePositionZ = -2
 
-    const {projectsTextSize} = useResponsive3d()
+    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
+
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
         const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: projectsTextSize,
+                size: size,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -38,17 +49,22 @@ export const ProjectsListText = () => {
         )
     }
     const ListText = () => {
+       
+        //Project Text
+        const projectTextOne = "NN DPM"
+        const projectTextTwo = "SW Bakery"
+        const projectTextThree = "Clothing Bank"
 
-        //set the state of the icon
+        //set the state of the example image
         const [exampleState, setExampleState] = useState(null)
 
         //color of text before being changed
         const startingColor = "rgb(122,158,248)"
 
         //allows each skill to change color
-        const [saiyanWebDevColor, setSaiyanWebDevColor] = useState(startingColor)
-        const [expNinjaColor, setExpNinjaColor] = useState(startingColor)
-        const [alienGramColor, setAlienGramColor] = useState(startingColor)
+        const [projectOneColor, setProjectOneColor] = useState(startingColor)
+        const [projectTwoColor, setProjectTwoColor] = useState(startingColor)
+        const [projectThreeColor, setProjectThreeColor] = useState(startingColor)
 
         //Functionality to 30 second timer
         const [thirtySeconds, setThirtySeconds] = useState(30)
@@ -71,17 +87,17 @@ export const ProjectsListText = () => {
         useEffect(() => {
             if (timerOnOff === true) {
                 if (thirtySeconds === 30) {
-                    setExampleState("saiyanWebDevActive")
-                    setSaiyanWebDevColor("#FFFFFF")
-                    setAlienGramColor(startingColor)
+                    setExampleState("projectOneActive")
+                    setProjectOneColor("#FFFFFF")
+                    setProjectThreeColor(startingColor)
                 } else if (thirtySeconds === 20) {
-                    setExampleState("expNinjaActive")
-                    setExpNinjaColor("#FFFFFF")
-                    setSaiyanWebDevColor(startingColor)
+                    setExampleState("projectTwoActive")
+                    setProjectTwoColor("#FFFFFF")
+                    setProjectOneColor(startingColor)
                 } else if (thirtySeconds === 10) {
-                    setExampleState("alienGramActive")
-                    setAlienGramColor("#FFFFFF")
-                    setExpNinjaColor(startingColor)
+                    setExampleState("projectThreeActive")
+                    setProjectThreeColor("#FFFFFF")
+                    setProjectTwoColor(startingColor)
                 }
             }
         }, [exampleState, thirtySeconds, timerOnOff])
@@ -90,75 +106,73 @@ export const ProjectsListText = () => {
         const [hovered, setHovered] = useState(false)
         useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 
-        const {projectsTextXPosition, projectsTextYPosition, projectsTextZPosition} = useResponsive3d()
-
         return (
             <>
                 <group
-                    position={[projectsTextXPosition, projectsTextYPosition, projectsTextZPosition]}
+                    position={[positionX, positionY, positionZ]}
 
                 >
                     <group
-                        onClick={() => window.open("https://saiyanwebdev.com/")}
+                        onClick={() => window.open("http://www.dpm.navajo-nsn.gov/")}
                         onPointerOver={() => {
                             setTimerOnOff(false)
-                            setSaiyanWebDevColor("#2779F6")
+                            setProjectOneColor("#2779F6")
                             setHovered(true)
-                            setExampleState("saiyanWebDevActive")
+                            setExampleState("projectOneActive")
                         }}
                         onPointerOut={() => {
                             setTimerOnOff(true)
-                            setSaiyanWebDevColor(startingColor)
+                            setProjectOneColor(startingColor)
                             setHovered(false)
                         }}
                     >
                         <FontConfig
-                            text="Saiyan Web Dev"
+                            text={projectTextOne}
                             position={[-20, 2, 10]}
                             rotation={[0, 1.570796, 0]}
-                            uniqueColor={saiyanWebDevColor}
+                            uniqueColor={projectOneColor}
                         />
                     </group>
                     <group
-                        onClick={() => window.open("https://expninja.com/")}
+                        onClick={() => window.open("https://southwestbakery505.com/")}
                         onPointerOver={() => {
                             setTimerOnOff(false)
-                            setExpNinjaColor("#2779F6")
+                            setProjectTwoColor("#2779F6")
                             setHovered(true)
-                            setExampleState("expNinjaActive")
+                            setExampleState("projectTwoActive")
                         }}
                         onPointerOut={() => {
                             setTimerOnOff(true)
-                            setExpNinjaColor(startingColor)
+                            setProjectTwoColor(startingColor)
                             setHovered(false)
                         }}
                     >
                         <FontConfig
-                            text="Exp Ninja"
+                            text={projectTextTwo}
                             position={[-20, -2, 10]}
                             rotation={[0, 1.570796, 0]}
-                            uniqueColor={expNinjaColor}
+                            uniqueColor={projectTwoColor}
                         />
                     </group>
                     <group
-                        onClick={() => window.open("http://143.198.234.16/")}
+                        onClick={() => window.open("https://monsterslayer.org/")}
                         onPointerOver={() => {
                             setTimerOnOff(false)
-                            setAlienGramColor("#2779F6")
+                            setProjectThreeColor("#2779F6")
                             setHovered(true)
-                            setExampleState("alienGramActive")
+                            setExampleState("projectThreeActive")
                         }}
                         onPointerOut={() => {
                             setTimerOnOff(true)
-                            setAlienGramColor(startingColor)
+                            setProjectThreeColor(startingColor)
                             setHovered(false)
                         }}
                     >
                         <FontConfig
-                            text="AlienGram"
+                            text={projectTextThree}
                             position={[-20, -6, 10]}
                             rotation={[0, 1.570796, 0]}
-                            uniqueColor={alienGramColor}
+                            uniqueColor={projectThreeColor}
                         />
                     </group>
                 </group>

@@ -7,17 +7,17 @@ import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 
 
-export const SkillsListText = () => {
+export const EmployersListText = () => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1.5;
-    responsiveData.desktopPositionX = 0;
+    responsiveData.desktopPositionX = 15;
     responsiveData.desktopPositionY = 0;
-    responsiveData.desktopPositionZ = -15
+    responsiveData.desktopPositionZ = 20
     
-    responsiveData.mobileSize = 1.5;
-    responsiveData.mobilePositionX = 0;
+    responsiveData.mobileSize = 1.2;
+    responsiveData.mobilePositionX = 6;
     responsiveData.mobilePositionY = 0;
-    responsiveData.mobilePositionZ = -8
+    responsiveData.mobilePositionZ = 20
 
     const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
@@ -63,8 +63,6 @@ export const SkillsListText = () => {
         const [expressColor, setExpressColor] = useState(startingColor)
         const [reduxColor, setReduxColor] = useState(startingColor)
         const [dockerColor, setDockerColor] = useState(startingColor)
-        const [bootstrapColor, setBootstrapColor] = useState(startingColor)
-        const [githubColor, setGithubColor] = useState(startingColor)
 
         //Functionality to 30 second timer
         const [thirtySeconds, setThirtySeconds] = useState(30)
@@ -84,35 +82,35 @@ export const SkillsListText = () => {
             }
         }, [thirtySeconds, timerOnOff])
 
-        useEffect(() => {
-            if (timerOnOff === true) {
-                if (thirtySeconds === 30) {
-                    setIconState("reactActive")
-                    setReactColor("#61dafb")
-                    setGithubColor(startingColor)
-                } else if (thirtySeconds === 25) {
-                    setIconState("expressActive")
-                    setExpressColor("#FFFFFF")
-                    setReactColor(startingColor)
-                } else if (thirtySeconds === 20) {
-                    setIconState("reduxActive")
-                    setReduxColor("#764abc")
-                    setExpressColor(startingColor)
-                } else if (thirtySeconds === 15) {
-                    setIconState("dockerActive")
-                    setDockerColor("#2496ed")
-                    setReduxColor(startingColor)
-                } else if (thirtySeconds === 10) {
-                    setIconState("bootstrapActive")
-                    setBootstrapColor("#7952b3")
-                    setDockerColor(startingColor)
-                } else if (thirtySeconds === 5) {
-                    setIconState("githubActive")
-                    setGithubColor("#FFF")
-                    setBootstrapColor(startingColor)
-                }
-            }
-        }, [iconState, thirtySeconds, timerOnOff])
+        // useEffect(() => {
+        //     if (timerOnOff === true) {
+        //         if (thirtySeconds === 30) {
+        //             setIconState("reactActive")
+        //             setReactColor("#61dafb")
+        //             setGithubColor(startingColor)
+        //         } else if (thirtySeconds === 25) {
+        //             setIconState("expressActive")
+        //             setExpressColor("#FFFFFF")
+        //             setReactColor(startingColor)
+        //         } else if (thirtySeconds === 20) {
+        //             setIconState("reduxActive")
+        //             setReduxColor("#764abc")
+        //             setExpressColor(startingColor)
+        //         } else if (thirtySeconds === 15) {
+        //             setIconState("dockerActive")
+        //             setDockerColor("#2496ed")
+        //             setReduxColor(startingColor)
+        //         } else if (thirtySeconds === 10) {
+        //             setIconState("bootstrapActive")
+        //             setBootstrapColor("#7952b3")
+        //             setDockerColor(startingColor)
+        //         } else if (thirtySeconds === 5) {
+        //             setIconState("githubActive")
+        //             setGithubColor("#FFF")
+        //             setBootstrapColor(startingColor)
+        //         }
+        //     }
+        // }, [iconState, thirtySeconds, timerOnOff])
 
         return (
             <>
@@ -139,9 +137,9 @@ export const SkillsListText = () => {
                             }}
                         >
                             <FontConfig
-                                text="React"
-                                position={[20, 4, 0]} //separate each new item in list by y-2
-                                rotation={[0, -1.570796, 0]}
+                                text="Navajo Nation"
+                                position={[0, 4, 0]} //separate each new item in list by y-2
+                                rotation={[0, Math.PI, 0]}
                                 uniqueColor={reactColor}
                             />
                         </Interactive>
@@ -165,9 +163,9 @@ export const SkillsListText = () => {
                             }}
                         >
                             <FontConfig
-                                text="Express"
-                                position={[20, 2, 0]}
-                                rotation={[0, -1.570796, 0]}
+                                text="Gesture"
+                                position={[0, 2, 0]}
+                                rotation={[0, Math.PI, 0]}
                                 uniqueColor={expressColor}
                             />
                         </Interactive>
@@ -195,9 +193,9 @@ export const SkillsListText = () => {
                             }}
                         >
                             <FontConfig
-                                text="Redux"
-                                position={[20, 0, 0]}
-                                rotation={[0, -1.570796, 0]}
+                                text="CNM"
+                                position={[0, 0, 0]}
+                                rotation={[0, Math.PI, 0]}
                                 uniqueColor={reduxColor}
                             />
                         </Interactive>
@@ -214,46 +212,10 @@ export const SkillsListText = () => {
                         }}
                     >
                         <FontConfig
-                            text="Docker"
-                            position={[20, -2, 0]}
-                            rotation={[0, -1.570796, 0]}
+                            text="Freelance"
+                            position={[0, -2, 0]}
+                            rotation={[0, Math.PI, 0]}
                             uniqueColor={dockerColor}
-                        />
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("bootstrapActive")
-                            setBootstrapColor("#7952b3")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setBootstrapColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <FontConfig
-                            text="Bootstrap"
-                            position={[20, -4, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={bootstrapColor}
-                        />
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("githubActive")
-                            setGithubColor("#FFF")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setGithubColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <FontConfig
-                            text="GitHub"
-                            position={[20, -6, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={githubColor}
                         />
                     </group>
                 </group>

@@ -1,24 +1,28 @@
-import React, {useMemo, useRef} from "react";
+import React, {useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
+import {Interactive} from "@react-three/xr";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 
-export const ProjectsTitleText = () => {
+export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 5;
-    responsiveData.desktopPositionX = -20;
+    responsiveData.desktopPositionX = 15;
     responsiveData.desktopPositionY = 7;
-    responsiveData.desktopPositionZ = 10
+    responsiveData.desktopPositionZ = 20
     
-    responsiveData.mobileSize = 3.5;
-    responsiveData.mobilePositionX = -20;
-    responsiveData.mobilePositionY = 11;
-    responsiveData.mobilePositionZ = 7.5
+    responsiveData.mobileSize = 2;
+    responsiveData.mobilePositionX = 6;
+    responsiveData.mobilePositionY = 7;
+    responsiveData.mobilePositionZ = 20
+  
 
     const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
-    const FontConfig = ({text, position, rotation}) => {
+    const [color, setColor] = useState("#e20e83")
+
+    const FontConfig = ({text, position, rotation, color}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
         const config = useMemo(
             () => ({
@@ -40,31 +44,40 @@ export const ProjectsTitleText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshBasicMaterial color={"#e20e83"}/>
+                        <meshBasicMaterial color={color}/>
                     </mesh>
                 </group>
             </>
         )
     }
-
     const TitleText = () => {
         return (
             <>
                 <group
+                    onClick={ () => setColor("#0000ff")}
+
                 >
-                    <FontConfig
-                        text="Websites"
-                        position={[positionX, positionY, positionZ]}
-                        rotation={[0, 1.570796, 0]}
-                    />
+                    <Interactive
+                        onSelect={() => setColor("#0000ff")}
+                        onHover={() => console.log("Hovered")}
+                    >
+                        <FontConfig
+                            text="Past Jobs"
+                            position={[positionX, positionY, positionZ]}
+                            rotation={[0, Math.PI, 0]}
+                            color={color}
+                        />
+                    </Interactive>
                 </group>
             </>
         )
     }
-
     return (
         <>
-            <TitleText/>
+        <TitleText />
         </>
     )
 }
+
+
+
