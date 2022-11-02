@@ -63,8 +63,6 @@ export const EmployersListText = () => {
         const [expressColor, setExpressColor] = useState(startingColor)
         const [reduxColor, setReduxColor] = useState(startingColor)
         const [dockerColor, setDockerColor] = useState(startingColor)
-        const [bootstrapColor, setBootstrapColor] = useState(startingColor)
-        const [githubColor, setGithubColor] = useState(startingColor)
 
         //Functionality to 30 second timer
         const [thirtySeconds, setThirtySeconds] = useState(30)
