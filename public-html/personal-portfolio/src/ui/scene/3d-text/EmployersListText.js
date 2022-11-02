@@ -10,14 +10,14 @@ import { Responsive } from "../../../constructor/Responsive";
 export const EmployersListText = () => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1.5;
-    responsiveData.desktopPositionX = 0;
-    responsiveData.desktopPositionY = -1;
-    responsiveData.desktopPositionZ = 50
+    responsiveData.desktopPositionX = 15;
+    responsiveData.desktopPositionY = 0;
+    responsiveData.desktopPositionZ = 20
     
-    responsiveData.mobileSize = 1.5;
-    responsiveData.mobilePositionX = 0;
-    responsiveData.mobilePositionY = -1;
-    responsiveData.mobilePositionZ = 50
+    responsiveData.mobileSize = 1.2;
+    responsiveData.mobilePositionX = 6;
+    responsiveData.mobilePositionY = 0;
+    responsiveData.mobilePositionZ = 20
 
     const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
@@ -138,7 +138,7 @@ export const EmployersListText = () => {
                         >
                             <FontConfig
                                 text="Navajo Nation"
-                                position={[20, 4, 0]} //separate each new item in list by y-2
+                                position={[0, 4, 0]} //separate each new item in list by y-2
                                 rotation={[0, Math.PI, 0]}
                                 uniqueColor={reactColor}
                             />
@@ -164,7 +164,7 @@ export const EmployersListText = () => {
                         >
                             <FontConfig
                                 text="Gesture"
-                                position={[20, 2, 0]}
+                                position={[0, 2, 0]}
                                 rotation={[0, Math.PI, 0]}
                                 uniqueColor={expressColor}
                             />
@@ -194,7 +194,7 @@ export const EmployersListText = () => {
                         >
                             <FontConfig
                                 text="CNM"
-                                position={[20, 0, 0]}
+                                position={[0, 0, 0]}
                                 rotation={[0, Math.PI, 0]}
                                 uniqueColor={reduxColor}
                             />
@@ -213,7 +213,7 @@ export const EmployersListText = () => {
                     >
                         <FontConfig
                             text="Freelance"
-                            position={[20, -2, 0]}
+                            position={[0, -2, 0]}
                             rotation={[0, Math.PI, 0]}
                             uniqueColor={dockerColor}
                         />
