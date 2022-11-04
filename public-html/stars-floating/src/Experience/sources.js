@@ -30,5 +30,10 @@ export default [
         name: 'chest01',
         type: 'gltfModel',
         path: 'models/chests/Chest01.gltf'
+    },
+    {
+        name: 'rock01',
+        type: 'gltfModel',
+        path: 'models/environment/rocks/rockA.glb'
     }
 ]
