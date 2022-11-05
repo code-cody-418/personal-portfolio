@@ -1,42 +1,64 @@
-import * as THREE from "three"
+import * as THREE from "three";
 import Experience from "../../../Experience";
 
 export default class Rock01 {
-    constructor() {
-        this.experience = new Experience()
-        this.scene = this.experience.scene
-        this.resources = this.experience.resources
+  constructor() {
+    this.experience = new Experience();
+    this.scene = this.experience.scene;
+    this.resources = this.experience.resources;
 
-        this.resource = this.resources.items.rock01
+    this.resource = this.resources.items.rock01;
 
-        this.count = 10
+    this.count = 10;
 
-        this.setModel()
-        this.setPosition()
+    this.setModel();
+    this.setPosition();
+  }
+
+  setModel() {
+    this.model = this.resource.scene;
+    this.geometry = this.model.children[0].geometry;
+    this.material = this.model.children[0].material;
+
+    this.instancedMesh = new THREE.InstancedMesh(
+      this.geometry,
+      this.material,
+      this.count
+    );
+
+    this.scene.add(this.instancedMesh);
+  }
+
+  setPosition() {
+    this.dummy = new THREE.Object3D();
+
+    for (let i = 0; i <= this.count; i++) {
+      if (i === 0) {
+        this.dummy.position.set(3, 0, 5);
+      } else if (i === 1) {
+        this.dummy.position.set(-10, 0, 15);
+      } else if (i === 2) {
+        this.dummy.position.set(-30, 0, 10);
+      } else if (i === 3) {
+        this.dummy.position.set(15, 0, -15);
+      } else if (i === 4) {
+        this.dummy.position.set(10, 0, 40);
+      } else if (i === 5) {
+        this.dummy.position.set(-15, 0, 30);
+      } else if (i === 6) {
+        this.dummy.position.set(-20, 0, -25);
+      } else if (i === 7) {
+        this.dummy.position.set(18, 0, -35);
+      } else if (i === 8) {
+        this.dummy.position.set(-45, 0, 10);
+      } else if (i === 9) {
+        this.dummy.position.set(8, 0, 35);
+      }
+
+      this.dummy.updateMatrix();
+
+      this.instancedMesh.setMatrixAt(i, this.dummy.matrix);
+      this.instancedMesh.needsUpdate = true;
     }
-
-    setModel() {
-        this.model = this.resource.scene
-        // this.model.scale.set(5, 5, 5)
-        // this.model.position.set(5, 0, 5)   
-        this.geometry = this.model.children[0].geometry
-        this.material = this.model.children[0].material 
-
-        this.instancedMesh = new THREE.InstancedMesh(this.geometry, this.material, this.count)
-
-        this.scene.add(this.instancedMesh)
-    }
-
-    setPosition() {
-        this.dummy = new THREE.Object3D()
-        
-        for (let i = 0; i < this.count; i++) {
-            this.dummy.position.set(i, 0, i)
-            this.dummy.updateMatrix()
-            
-            this.instancedMesh.setMatrixAt(i, this.dummy.matrix)
-
-            this.instancedMesh.needsUpdate = true
-        }
-    }
+  }
 }
