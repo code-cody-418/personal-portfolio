@@ -15,26 +15,27 @@ export default class Ground {
   }
 
   setGeometry(){
-    this.geometry = new THREE.PlaneGeometry(1000, 1000)
+    this.geometry = new THREE.PlaneGeometry(100, 100)
   }
   setTextures(){
     this.textures = {}
 
-    this.textures.color = this.resources.items.redDirtColorTexture
+    this.textures.color = this.resources.items.groundDirtStones002
     this.textures.color.encoding = THREE.sRGBEncoding
-    this.textures.color.repeat.set(20, 20)
+    this.textures.color.repeat.x = 100
+    this.textures.color.repeat.y = 100
     this.textures.color.wrapS = THREE.RepeatWrapping
     this.textures.color.wrapT = THREE.RepeatWrapping 
 
-    this.textures.normal = this.resources.items.redDirtNormalTexture
-    this.textures.normal.repeat.set(20, 20)
-    this.textures.normal.wrapS = THREE.RepeatWrapping
-    this.textures.normal.wrapT = THREE.RepeatWrapping 
+    // this.textures.normal = this.resources.items.redDirtNormalTexture
+    // this.textures.normal.repeat.set(20, 20)
+    // this.textures.normal.wrapS = THREE.RepeatWrapping
+    // this.textures.normal.wrapT = THREE.RepeatWrapping 
   }
   setMaterial(){
     this.material = new THREE.MeshStandardMaterial({
       map: this.textures.color,
-      normalMap: this.textures.normal
+      // normalMap: this.textures.normal
     })
   }
   setMesh(){
@@ -44,18 +45,4 @@ export default class Ground {
     this.mesh.name = "ground"
     this.scene.add(this.mesh)
   }
-
-  // setInstance() {
-  //   const geometry = new THREE.PlaneGeometry(1000, 1000);
-  //   const material = new THREE.MeshStandardMaterial({
-  //     color: "#876445",
-  //     metalness: 0,
-  //     roughness: 1,
-  //   });
-
-  //   this.plane = new THREE.Mesh(geometry, material);
-  //   this.plane.rotation.x = -Math.PI * 0.5;
-  //   this.plane.receiveShadow = true
-  //   this.scene.add(this.plane);
-  // }
 }
