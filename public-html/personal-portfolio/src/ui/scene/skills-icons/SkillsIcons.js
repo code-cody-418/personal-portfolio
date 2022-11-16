@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useTexture } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import ReactIcon from "./ReactIcon";
 
 export const SkillsIcons = ({ iconState }) => {
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 12;
+  responsiveData.desktopSize = 10;
   responsiveData.desktopPositionZ = 5;
 
   responsiveData.mobileSize = 6;
@@ -21,12 +22,15 @@ export const SkillsIcons = ({ iconState }) => {
   const bootstrapIcon = useTexture("/bootstrap-icon.png");
   const githubIcon = useTexture("/github-icon.png");
 
+  const [modelIcon, setModelIcon] = useState(false)
+
   const [currentIcon, setCurrentIcon] = useState(null);
 
   //determines which icon is showing
   useEffect(() => {
     if (iconState === "reactActive") {
-      setCurrentIcon(reactIcon);
+      // setModelIcon(true)
+      setCurrentIcon(reactIcon)
     } else if (iconState === "expressActive") {
       setCurrentIcon(expressIcon);
     } else if (iconState === "reduxActive") {
@@ -38,15 +42,15 @@ export const SkillsIcons = ({ iconState }) => {
     } else if (iconState === "githubActive") {
       setCurrentIcon(githubIcon);
     }
-    // console.log("icon state", iconState)
   }, [
+    modelIcon,
     iconState,
     bootstrapIcon,
     githubIcon,
     dockerIcon,
     reduxIcon,
     expressIcon,
-    reactIcon,
+    reactIcon
   ]);
 
   return (
@@ -56,14 +60,15 @@ export const SkillsIcons = ({ iconState }) => {
         rotation={[0, -1.570796, 0]}
         scale={size}
       >
-        <mesh>
+        <ReactIcon />
+        {/* <mesh>
           <planeGeometry />
           <meshStandardMaterial
             transparent={true}
             // opacity={0.5}
             map={currentIcon}
           />
-        </mesh>
+        </mesh> */}
       </group>
     </>
   );

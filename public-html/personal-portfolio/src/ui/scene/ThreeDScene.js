@@ -15,6 +15,7 @@ import "../../ui/scene/sceneStyle.css";
 import {Walls} from "./walls/Walls"
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
+import ReactIcon from "./skills-icons/ReactIcon";
 
 export const ThreeDScene = () => {
   return (
