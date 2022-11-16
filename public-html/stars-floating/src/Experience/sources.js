@@ -26,9 +26,15 @@ export default [
         type: 'gltfModel',
         path: 'models/chests/Chest01.gltf'
     },
+    //environment
     {
         name: 'rock01',
         type: 'gltfModel',
         path: 'models/environment/rocks/rockA.glb'
+    },
+    {
+        name: 'tree01',
+        type: 'gltfModel',
+        path: 'models/environment/trees/tree01.glb'
     }
 ]

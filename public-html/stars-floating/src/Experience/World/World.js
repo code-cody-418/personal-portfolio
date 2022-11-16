@@ -1,6 +1,7 @@
 import Experience from "../Experience.js";
 import Dragon from './Enemies/Dragon.js';
 import Chest01 from "./Environment/Chests/Chest-01.js";
+import Trees01 from "./Environment/Trees/Trees-01.js"
 import Rock01 from "./Environment/Rocks/Rocks-01.js";
 import Environment from './Environment/Environment.js';
 import Helpers from '../Helpers/Helpers.js'
@@ -16,6 +17,7 @@ export default class World {
             this.dragon = new Dragon()
             this.chest01 = new Chest01()
             this.rock01 = new Rock01()
+            this.tree01 = new Trees01()
             this.environment = new Environment()
             this.helpers = new Helpers()
         })
