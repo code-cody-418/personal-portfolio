@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function ReactIcon(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF(
+  const { nodes } = useGLTF(
     "https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/react-logo/model.gltf"
   );
   return (
