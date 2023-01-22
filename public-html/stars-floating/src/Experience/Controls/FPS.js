@@ -80,10 +80,10 @@ export default class FPS {
     this.direction.normalize();
 
     if (this.moveRight || this.moveLeft) {
-      this.velocity.x -= this.direction.x * 400.0 * delta;
+      this.velocity.x -= this.direction.x * 100.0 * delta;
     }
     if (this.moveForward || this.moveBackward) {
-      this.velocity.z -= this.direction.z * 400.0 * delta;
+      this.velocity.z -= this.direction.z * 100.0 * delta;
     }
 
     this.controls.moveRight(-this.velocity.x * delta);
