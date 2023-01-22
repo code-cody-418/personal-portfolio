@@ -58,6 +58,9 @@ export default class Renderer {
             .add(this.instance.shadowMap, 'type')
             .name('shadowMap Type')
             .options([THREE.PCFSoftShadowMap])
+
+            //info about the renderer including number of geometries and textures
+            // console.log(this.instance.info);
         }
 
     }
@@ -70,5 +73,4 @@ export default class Renderer {
     update() {
         this.instance.render(this.scene, this.camera.instance)
     }
-    
 }

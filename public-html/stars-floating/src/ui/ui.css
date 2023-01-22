@@ -1,0 +1,40 @@
+.container {
+    display: grid;
+    grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+    grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+    grid-template-areas: 
+    ". . . . . . . . . ."
+    "portrait . . . . . . . . ."
+    "portrait . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    "chatWindow chatWindow . . . . . . . ."
+    "chatWindow chatWindow . . . . . . . ."
+    "chatWindow chatWindow . quickBar quickBar quickBar quickBar . optionsBar optionsBar";
+}
+
+.portrait {
+    grid-area: portrait;
+    background-color: blueviolet;
+    z-index: 1;
+}
+
+.quickBar {
+    grid-area: quickBar;
+    background-color: black;
+    z-index: 1;
+}
+
+.optionsBar {
+    grid-area: optionsBar;
+    background-color: blue;
+    z-index: 1;
+}
+
+.chatWindow {
+    grid-area: chatWindow;
+    background-color: gray;
+    z-index: 1;
+}

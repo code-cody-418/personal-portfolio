@@ -1,4 +1,5 @@
 import './style.css'
+import './ui/ui.css'
 
 import Experience from './Experience/Experience.js'
 

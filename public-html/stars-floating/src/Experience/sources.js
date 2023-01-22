@@ -12,14 +12,9 @@ export default [
         ]
     },
     {
-        name: 'redDirtColorTexture',
+        name: 'groundDirtStones002',
         type: 'texture',
-        path: 'textures/red-dirt/red_mud_stones_diff_1k.jpg'
-    },
-    {
-        name: 'redDirtNormalTexture',
-        type: 'texture',
-        path: 'textures/red-dirt/red_mud_stones_nor_dx_1k.jpg'
+        path: 'textures/ground-dirt-rocky002/GroundDirtRocky002_COL_1K.jpg'
     },
     {
         name: 'dragonModel',
@@ -30,5 +25,16 @@ export default [
         name: 'chest01',
         type: 'gltfModel',
         path: 'models/chests/Chest01.gltf'
+    },
+    //environment
+    {
+        name: 'rock01',
+        type: 'gltfModel',
+        path: 'models/environment/rocks/rockA.glb'
+    },
+    {
+        name: 'tree01',
+        type: 'gltfModel',
+        path: 'models/environment/trees/tree01.glb'
     }
 ]

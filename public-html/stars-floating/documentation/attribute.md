@@ -6,3 +6,6 @@
 
 ## LandScape stuff
 - <https://kenney.nl/assets/survival-kit>
+## Ground
+`/static/textures/ground-dirt-rocky002/GroundDirtRocky002_COL_1K.jpg`
+- <https://www.poliigon.com/texture/ground-dirt-rocky-002/4573>
