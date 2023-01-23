@@ -2,6 +2,7 @@ import React from "react";
 import "./form-style.css"
 import video from "./contact-form-video-10mb.mp4"
 import {useHistory} from "react-router";
+import ReCAPTCHA from "react-google-recaptcha"
 
 
 export const ContactFormContents = (props) => {
@@ -14,6 +15,10 @@ export const ContactFormContents = (props) => {
         handleBlur,
         handleSubmit
     } = props
+
+    function onChange(value) {
+        values.recaptcha = value
+      }
 
     let history = useHistory();
 
@@ -149,6 +154,11 @@ export const ContactFormContents = (props) => {
                                     )
                                 }
                             </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <ReCAPTCHA sitekey="6LeVCBokAAAAAHkn6skYhkxRtuGYAp1ZP9wavZ8f" onChange={onChange} />
                         </div>
                     </div>
                     <div className="row">

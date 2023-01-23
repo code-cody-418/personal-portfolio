@@ -6,12 +6,12 @@ import {Formik} from "formik"
 import {ContactFormContents} from "./ContactFormContents";
 
 export const ContactForm = () => {
-
     const contactForm = {
         name: "",
         email: "",
         subject: "",
         message: "",
+        recaptcha: ""
     }
 
     const validator = Yup.object().shape({
@@ -22,7 +22,9 @@ export const ContactForm = () => {
         subject: Yup.string()
             .required("Subject is required"),
         message: Yup.string()
-            .required("Message is required")
+            .required("Message is required"),
+        recaptcha: Yup.string()
+            .required("recaptcha is required")
     })
 
     const submitContactForm = (values, {resetForm, setStatus}) => {
