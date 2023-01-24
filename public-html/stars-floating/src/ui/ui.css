@@ -6,7 +6,7 @@
     ". . . . . . . . . ."
     "portrait . . . . . . . . ."
     "portrait . . . . . . . . ."
-    ". . . . . . . . . ."
+    "portrait . . . . . . . . ."
     ". . . . . . . . . ."
     ". . . . . . . . . ."
     ". . . . . . . . . ."
@@ -17,7 +17,12 @@
 
 .portrait {
     grid-area: portrait;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+    background-image: url(./portrait/Knight_7.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* width: 100%; */
+    /* height: 100%; */
     z-index: 1;
 }
 
