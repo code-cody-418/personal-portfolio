@@ -8,10 +8,11 @@ export default class PlayerRaycaster {
     this.camera = this.experience.camera.instance;
     this.world = this.experience.world;
     this.instance = new THREE.Raycaster();
+    this.canvas = this.experience.canvas;
 
     this.currentIntersect = null;
 
-    window.addEventListener("click", () => {
+    this.canvas.addEventListener("click", () => {
       if (this.currentIntersect) {
         if (this.currentIntersect.object.name === "ground") {
           console.log("Ground is clicked!");
@@ -19,7 +20,7 @@ export default class PlayerRaycaster {
       }
     });
 
-    window.addEventListener("click", () => {
+    this.canvas.addEventListener("click", () => {
       if (this.world.chest01) {
         if (this.currentIntersect) {
           if (this.currentIntersect.object.name === "chest_1") {
