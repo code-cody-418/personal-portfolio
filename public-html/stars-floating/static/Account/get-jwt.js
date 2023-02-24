@@ -1,3 +1,7 @@
+/*
+User email and password info sent to server and receives JWt that is stored in local storage
+*/
+
 let emailInput = document.getElementById("email")
 let passwordInput = document.getElementById("password")
 let formData = document.getElementById("submitAuth")
@@ -20,8 +24,7 @@ formData.addEventListener('click', () => {
         { email: emailInput.value, password: passwordInput.value }
     )
         .then((data) => {
-            console.log(data)
-            localStorage.setItem("jwt", data.token)
+            localStorage.setItem("jwt", data.token) //saves jwt token to localstorage
         })
         .catch((error) => console.error(error))
 })
