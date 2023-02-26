@@ -8,22 +8,20 @@ import { getJwt } from './Utils/get-jwt'
 import { checkJwt } from './Utils/check-jwt'
 import { renderPage } from './Utils/render-page.js'
 
-
 //CheckJwt uses promise to check for valid jwtToken to determine which page to display
 export const pageSetup = () => {
     checkJwt()
         .then((response) => {
             let signInConfirm = response.data.body.jwtValid
-            if (signInConfirm) {
-                //Renders game
+            if (signInConfirm) { //Renders game
                 renderPage(gamePage)
                 loadGameUi()
                 const experience = new Experience(document.querySelector('canvas.webgl'))
-            } else {
-                //Renders sign-in page
+            } else { //Renders sign-in page
                 renderPage(signInPage)
                 getJwt()
             }
         })
+        .catch(error => console.log(error))
 }
 pageSetup()
