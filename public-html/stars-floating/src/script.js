@@ -7,6 +7,7 @@ import { loadGameUi } from './ui/loadGameUi'
 import { getJwt } from './Utils/get-jwt'
 import { checkJwt } from './Utils/check-jwt'
 import { renderPage } from './Utils/render-page.js'
+import { loadAccount } from './Account/load-account'
 
 //CheckJwt uses promise to check for valid jwtToken to determine which page to display
 export const pageSetup = () => {
@@ -16,6 +17,7 @@ export const pageSetup = () => {
             if (signInConfirm) { //Renders game
                 renderPage(gamePage)
                 loadGameUi()
+                loadAccount()
                 const experience = new Experience(document.querySelector('canvas.webgl'))
             } else { //Renders sign-in page
                 renderPage(signInPage)

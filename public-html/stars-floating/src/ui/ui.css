@@ -2,23 +2,23 @@
     display: grid;
     grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
     grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
-    grid-template-areas: 
-    ". . . . . . . . . ."
-    "portrait . . . . . . . . ."
-    "portrait . . . . . . . . ."
-    "portrait . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    "chatWindow chatWindow . . . . . . . ."
-    "chatWindow chatWindow . . . . . . . ."
-    "chatWindow chatWindow . quickBar quickBar quickBar quickBar . optionsBar optionsBar";
+    grid-template-areas:
+        ". . . . . . . . . ."
+        "portrait . . . . . . . . ."
+        "portrait . . . . . . . . ."
+        "portrait . . . . . . . . ."
+        ". . . . . . . . . ."
+        ". . . . . . . . . ."
+        ". . . . . . . . . ."
+        "chatWindow chatWindow . . . . . . . ."
+        "chatWindow chatWindow . . . . . . . ."
+        "chatWindow chatWindow . quickBar quickBar quickBar quickBar . optionsBar optionsBar";
 }
 
 .portrait {
     grid-area: portrait;
     /* background-color: blueviolet; */
-    background-image: url(./portrait/Knight_7.png);
+    background-image: url(./Assets/Portrait/Knight_7.png);
     background-size: 100%;
     background-repeat: no-repeat;
     /* width: 100%; */
@@ -28,9 +28,36 @@
 
 .quickBar {
     grid-area: quickBar;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     z-index: 1;
+}
+
+.actionContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.action {
+    flex: 0 1 12%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+#actionOne {
+    background-image: url("./Assets/Potions/Health_Potion_01.png"),
+    url("./Assets/Frames/Frame_Stone_01.png");
+}
+
+.actionNum {}
+
+/* Ensures the user cannot select the text */
+p {
+    user-select: none;
 }
 
 .optionsBar {
