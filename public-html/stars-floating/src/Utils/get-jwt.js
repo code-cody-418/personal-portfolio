@@ -1,6 +1,7 @@
 /*
 User email and password info sent to server and receives JWt that is stored in local storage
 */
+import { pageSetup } from "../script"
 
 export const getJwt = () => {
     let emailInput = document.getElementById("email")
@@ -27,6 +28,7 @@ export const getJwt = () => {
             .then((data) => {
                 if (data.token) {
                     localStorage.setItem("jwt", data.token) //saves jwt token to localstorage
+                    pageSetup() //renders the game after getting jwtToken
                 } else {
                     console.log(data.message)
                 }
