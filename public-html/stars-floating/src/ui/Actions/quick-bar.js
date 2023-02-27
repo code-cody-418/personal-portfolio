@@ -2,13 +2,16 @@ import { getAllAccountItems, stateAllAccountItems } from "../../Store/Account/ac
 import { store } from "../../Store/store"
 
 export const quickBarLoad = () => {
-    const quickBar = document.getElementById("quickBar")
+    const actionOne = document.getElementById("actionOne")
 
-    quickBar.addEventListener("click", () => {
+    const state = store.getState()
+    console.log(state)
+
+    actionOne.addEventListener("click", () => {
         // store.dispatch(getAllAccountItems())
         // const state = store.getState()
         // let allItems = stateAllAccountItems(state)
-        // console.log(allItems)
+        console.log(state)
     })
     return true
 }

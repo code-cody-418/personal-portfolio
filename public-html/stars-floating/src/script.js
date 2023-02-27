@@ -1,5 +1,4 @@
 import './style.css'
-import { store } from './Store/store' //initiates the redux store
 import Experience from './Experience/Experience.js'
 import { gamePage } from './Pages/game'
 import { signInPage } from './Pages/sign-in'
@@ -16,8 +15,8 @@ export const pageSetup = () => {
             let signInConfirm = response.data.body.jwtValid
             if (signInConfirm) { //Renders game
                 renderPage(gamePage)
-                loadGameUi()
                 loadAccount()
+                // loadGameUi()
                 const experience = new Experience(document.querySelector('canvas.webgl'))
             } else { //Renders sign-in page
                 renderPage(signInPage)

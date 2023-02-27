@@ -1,4 +1,4 @@
-import { getAllAccountItems, stateAllAccountItems } from "../Store/Account/accountItemsSlice"
+import { getAllAccountItems } from "../Store/Account/accountItemsSlice"
 import { store } from "../Store/store.js"
 
 export const loadAccount = () => {

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { quickBarLoad } from "../../ui/Actions/quick-bar";
 
 export const accountItemsSlice = createSlice({
     name: 'accountItems',
@@ -41,6 +42,6 @@ export const getAllAccountItems = () => async (dispatch) => {
     })
         .then((response) => response.json())
         .catch((error) => console.error(error))
-
+        quickBarLoad()
     dispatch(fetchAllItems(response.body.allAccountItems))
 }
