@@ -48,10 +48,10 @@
     background-color: black;
 }
 
-#actionOne {
+/* #actionOne {
     background-image: url("./Assets/Potions/Health_Potion_01.png"),
     url("./Assets/Frames/Frame_Stone_01.png");
-}
+} */
 
 .actionNum {}
 

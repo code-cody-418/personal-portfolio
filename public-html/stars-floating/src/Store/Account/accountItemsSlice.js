@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { quickBarLoad } from "../../ui/Actions/quick-bar";
+import { quickBarLoad } from "../../ui/Actions/quick-bar/quick-bar";
 
 export const accountItemsSlice = createSlice({
     name: 'accountItems',
@@ -27,13 +27,13 @@ export const { increment, decrement, incrementByAmount, fetchAllItems } = accoun
 
 //get the value of the state
 export const stateAllAccountItems = (state) => {
-    return state.accountItems
+    return state.accountItems.allAccountItems
 }
 
 //fetch the state with a thunk
 export const getAllAccountItems = () => async (dispatch) => {
     let jwtToken = "Bearer" + " " + localStorage.getItem("jwt")
-    
+
     const response = await fetch('http://localhost:4202/account-items/', {
         method: "GET",
         headers: {
@@ -42,6 +42,5 @@ export const getAllAccountItems = () => async (dispatch) => {
     })
         .then((response) => response.json())
         .catch((error) => console.error(error))
-        quickBarLoad()
     dispatch(fetchAllItems(response.body.allAccountItems))
 }
