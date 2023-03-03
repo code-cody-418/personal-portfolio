@@ -3,11 +3,22 @@ import { getAllAccountItems, stateAllAccountItems } from "../../../Store/Account
 
 export const quickBarLoad = () => {
     const actionOne = document.getElementById("actionOne")
+    const actions = document.getElementsByClassName("action")
+    let accountItems = []
+    console.log(actions[1])
 
     const state = store.getState()
-    console.log(state.accountItems.allAccountItems)
+    // console.log(state.accountItems.allAccountItems)
 
-    actionOne.style.backgroundImage = `url('./ui/Potions/Health_Potion_01.png'), url("./ui/Frames/Frame_Stone_01.png")`
+    accountItems = state.accountItems.allAccountItems
+    console.log(accountItems)
+
+    accountItems.forEach( (item, i) => {
+        const itemId = item.account_item_item_id
+        console.log(itemId)
+        actions[i].style.backgroundImage = `url('./ui/Items/${itemId}.png'), url("./ui/Frames/Frame_Stone_01.png")`
+    })
+
     return true
 }
 
