@@ -4,7 +4,7 @@ export const gamePage = `<div id="container" class="container">
 
   <!-- ui -->
   <div class="portrait"></div>
-  
+
   <div class="quickBar" id="quickBar">
     <div class="actionContainer">
       <div class="action" id="actionOne">
@@ -34,7 +34,57 @@ export const gamePage = `<div id="container" class="container">
     </div>
   </div>
 
-  <div class="optionsBar"></div>
+  <div class="optionsBar">
+    <div class="optionsContainer">
+      <div class="setting" id="settingOne">
+        <p>Character Screen</p>
+      </div>
+      <div class="setting" id="settingTwo">
+        <p>Crafting</p>
+      </div>
+      <div class="setting" id="settingThree">
+        <p>Bags</p>
+      </div>
+      <div class="setting" id="settingFour">
+        <p>Settings</p>
+      </div>
+    </div>
+  </div>
 
   <div class="chatWindow"></div>
+
+  <div class="inventory" id="inventory">
+    <div class="inventorySlots">
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+      <div class="inventoryItem"></div>
+    </div>
+  </div>
 </div>`

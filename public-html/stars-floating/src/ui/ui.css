@@ -19,7 +19,7 @@
     grid-area: portrait;
     /* background-color: blueviolet; */
     background-image: url(./Assets/Portrait/Knight_7.png);
-    background-size: 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     /* width: 100%; */
     /* height: 100%; */
@@ -42,10 +42,9 @@
 
 .action {
     flex: 0 1 12%;
-    height: 100%;
-    background-size: cover;
+    height: 50px;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-color: black;
 }
 
 .actionNum {}
@@ -57,12 +56,65 @@ p {
 
 .optionsBar {
     grid-area: optionsBar;
-    background-color: blue;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
     z-index: 1;
+}
+
+.optionsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.setting {
+    flex: 0 1 24%;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(./Assets/Frames/Frame_Stone_01.png);
 }
 
 .chatWindow {
     grid-area: chatWindow;
     background-color: gray;
     z-index: 1;
+}
+
+.inventory {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+    grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+    grid-template-areas:
+        ". . . . . . . . . ."
+        ". . . . . . . . . ."
+        ". . inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots . ."
+        ". . inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots . ."
+        ". . inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots . ."
+        ". . inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots . ."
+        ". . inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots . ."
+        ". . inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots inventorySlots . ."
+        ". . . . . . . . . ."
+        ". . . . . . . . . .";
+    background-color: bisque;
+    z-index: 2;
+}
+
+.inventorySlots {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-area: inventorySlots;  
+    }
+
+.inventoryItem {
+    flex: 0 1 5%;
+    background-image: url(./Assets/Frames/Frame_Stone_01.png);
+    background-size: contain;
+    height: 50px;
+    background-repeat: no-repeat;
 }

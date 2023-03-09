@@ -4,25 +4,26 @@ import { getAllAccountItems, stateAllAccountItems } from "../../../Store/Account
 export const quickBarLoad = () => {
     const actionOne = document.getElementById("actionOne")
     const actions = document.getElementsByClassName("action")
+    const bagItems = document.getElementsByClassName("inventoryItem")
     let accountItems = []
-    console.log(actions[1])
-
+    
     const state = store.getState()
-    // console.log(state.accountItems.allAccountItems)
 
     accountItems = state.accountItems.allAccountItems
-    console.log(accountItems)
 
-    accountItems.forEach( (item, i) => {
+    accountItems.forEach( item => {
         const itemId = item.account_item_item_id
-        console.log(itemId)
-        actions[i].style.backgroundImage = `url('./ui/Items/${itemId}.png'), url("./ui/Frames/Frame_Stone_01.png")`
+        const itemQuickBarNum = item.account_item_quickbar
+        const itemBagNum = item.account_item_bag 
+        // console.log(item.account_item_bag)
+        bagItems[itemBagNum].style.backgroundImage = `url('./ui/Items/${itemId}.png'), url("./ui/Frames/Frame_Stone_01.png")`
+        actions[itemQuickBarNum].style.backgroundImage = `url('./ui/Items/${itemId}.png'), url("./ui/Frames/Frame_Stone_01.png")`
     })
 
     return true
 }
 
-export const initialLoadActionListeners = () => {
+export const initQuickBarListeners = () => {
     const actionOne = document.getElementById("actionOne")
 
     actionOne.addEventListener("click", () => {
