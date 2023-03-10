@@ -1,3 +1,5 @@
+import { hideInventory, showInventory } from "./inventory/inventory.js"
+
 export const initSettingsListener = () => {
     const charSettingsElement = document.getElementById("settingOne")
     const craftingSettingsElement = document.getElementById("settingTwo")
@@ -14,7 +16,7 @@ export const initSettingsListener = () => {
     })
 
     bagsSettingsElement.addEventListener("click", () => {
-        inventoryElement.style.display = "grid"
+        showInventory()
     })
 
     settingsElement.addEventListener("click", () => {
@@ -22,6 +24,6 @@ export const initSettingsListener = () => {
     })
 
     inventoryElement.addEventListener("click", () => {
-        inventoryElement.style.display = "none"
+        hideInventory()
     })
 }
