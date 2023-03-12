@@ -36,5 +36,15 @@ export default [
         name: 'tree01',
         type: 'gltfModel',
         path: 'models/environment/trees/tree01.glb'
+    },
+    {
+        name: 'sword01',
+        type: 'gltfModel',
+        path: 'models/items/weapons/sword01.gltf'
+    },
+    {
+        name: 'testPaladin',
+        type: 'gltfModel',
+        path: 'models/npc/testPaladin.gltf'
     }
 ]

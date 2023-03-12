@@ -5,6 +5,8 @@ import Trees01 from "./Environment/Trees/Trees-01.js"
 import Rock01 from "./Environment/Rocks/Rocks-01.js";
 import Environment from './Environment/Environment.js';
 import Helpers from '../Helpers/Helpers.js'
+import Sword01 from "./Environment/Items/Weapons/Sword-01.js";
+import TestPaladin from "./NPCS/TestPaladin.js";
 
 export default class World {
     constructor(){
@@ -18,15 +20,18 @@ export default class World {
             this.chest01 = new Chest01()
             this.rock01 = new Rock01()
             this.tree01 = new Trees01()
+            this.sword01 = new Sword01()
+            this.testPaladin = new TestPaladin()
             this.environment = new Environment()
             this.helpers = new Helpers()
         })
     }
 
     update(){
-        if(this.helpers && this.dragon){
+        if(this.helpers && this.dragon && this.testPaladin){
             this.helpers.update()
             this.dragon.update()
+            this.testPaladin.update()
         }
     }
 }
