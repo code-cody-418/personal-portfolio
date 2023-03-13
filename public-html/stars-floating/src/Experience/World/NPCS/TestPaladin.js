@@ -16,6 +16,7 @@ export default class TestPaladin {
     }
     setModel() {
         this.model = this.resource.scene
+        this.model.children[0].position.set(-15, 0, 15)
 
         this.scene.add(this.model)
     }

@@ -9,6 +9,8 @@ export default class FPS {
     this.camera = this.experience.camera.instance;
     this.time = this.experience.time;
 
+    this.camera.position.set(0, 0.5, 0)
+
     this.moveForward = false;
     this.moveBackward = false;
     this.moveLeft = false;

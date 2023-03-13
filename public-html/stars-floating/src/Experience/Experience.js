@@ -11,6 +11,7 @@ import FPS from "./Controls/FPS.js";
 import Mouse from "./Utils/Mouse.js";
 import Keys from "./Utils/KeyBoard.js";
 import PlayerRaycaster from "./Raycasters/PlayerRaycaster.js";
+import MainControls from "./Controls/MainControls.js";
 
 // singleton to access the Experience
 let instance = null;
@@ -37,7 +38,7 @@ export default class Experience {
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.camera = new Camera();
-    this.fpsControls = new FPS()
+    this.controls = new MainControls()
     this.renderer = new Renderer();
     this.world = new World();
     this.playerRaycaster = new PlayerRaycaster()
@@ -59,8 +60,7 @@ export default class Experience {
   }
 
   update() {
-    // this.camera.update();
-    this.fpsControls.update()
+    this.controls.update()
     this.playerRaycaster.update()
     this.world.update();
     this.renderer.update();
