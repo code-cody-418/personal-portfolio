@@ -12,6 +12,8 @@ import Mouse from "./Utils/Mouse.js";
 import Keys from "./Utils/KeyBoard.js";
 import PlayerRaycaster from "./Raycasters/PlayerRaycaster.js";
 import MainControls from "./Controls/MainControls.js";
+import Player from "./World/Player/Player.js";
+import ThirdPersonCamera from "./Cameras/ThirdPersonCamera.js";
 
 // singleton to access the Experience
 let instance = null;
@@ -38,6 +40,8 @@ export default class Experience {
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.camera = new Camera();
+    this.player = new Player()
+    this.thirdCamera = new ThirdPersonCamera()
     this.controls = new MainControls()
     this.renderer = new Renderer();
     this.world = new World();

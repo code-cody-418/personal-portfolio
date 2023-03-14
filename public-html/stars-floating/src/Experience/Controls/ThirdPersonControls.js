@@ -1,22 +1,31 @@
 import * as THREE from "three"
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Experience from '../Experience'
-import Player from "../World/Player/Player"
 
 export default class ThirdPersonControls {
     constructor() {
         this.experience = new Experience()
-        this.canvas = this.experience.canvas
-        this.camera = this.experience.camera.instance
         this.time = this.experience.time
-        this.player = new Player().player
+        this.player = this.experience.player.instance
+        this.thirdCamera = this.experience.thirdCamera
 
-        this.controls = new OrbitControls(this.camera, this.canvas)
-        this.controls.enableDamping = true
-        this.camera.position.set(5, 10, 0);
-        this.controls.target.set(5, 0, 0)
-        this.controls.maxPolarAngle = Math.PI * 0.5
-        this.controls.minPolarAngle = Math.PI * 0.1
+           
+        // this.playerPosition.copy(this.player.position)
+        // this.playerPosition.x = this.playerPosition.x + 1
+        // this.playerPosition.y = this.playerPosition.y + 1
+
+
+        // console.log(this.player)
+
+        // this.controls = new OrbitControls(this.camera, this.canvas)
+        // this.controls.enableDamping = true
+        
+        // this.controls.target.set(this.player.position.x, this.player.position.y, this.player.position.z)
+        // this.controls.maxPolarAngle = Math.PI * 0.5
+        // this.controls.minPolarAngle = Math.PI * 0.1
+
+        // console.log(this.controls)
+
 
 
         this.moveForward = false;
@@ -69,6 +78,8 @@ export default class ThirdPersonControls {
         }
     }
 
+   
+
     update() {
         const delta = this.time.delta / 1000;
 
@@ -88,6 +99,23 @@ export default class ThirdPersonControls {
 
         this.player.translateX(this.velocity.x)
         this.player.translateZ(this.velocity.z)
-        this.controls.update()
+
+        // this.camera.translateX(this.velocity.x)
+        // this.camera.translateZ(this.velocity.z) 
+
+        // this.playerPosition.copy(this.camera.position)
+        // this.playerPosition.x = this.playerPosition.z + 3
+        // this.playerPosition.y = this.playerPosition.y + 1
+        // this.player.position.set(this.playerPosition.x, this.playerPosition.y, this.playerPosition.z)
+
+        // this.camera.position.set(this.playerPosition.x, this.playerPosition.y, this.playerPosition.z);
+
+        // this.camera.lookAt(this.player.position)
+
+        //this sets where the controls/camera look at
+        // this.controls.target.set(this.player.position.x, this.player.position.y, this.player.position.z)
+
+        // this.controls.update()
+        this.thirdCamera.update()
     }
 }
