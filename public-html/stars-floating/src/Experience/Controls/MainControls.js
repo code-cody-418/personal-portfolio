@@ -7,7 +7,7 @@ export default class MainControls {
     constructor() {
         this.experience = new Experience()
 
-        //change this.controllerSelect to change the controller Options: "orbit" || "fps"
+        //change this.controllerSelect to change the controller Options: "orbit" || "fps" || "third"
         this.controllerSelect = "third"
 
         if (this.controllerSelect === "orbit") {

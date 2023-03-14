@@ -7,8 +7,6 @@ export default class ThirdPersonCamera {
         this.camera = this.experience.camera.instance
         this.player = this.experience.player.instance
 
-        // this.camera.position.set(5, 2, 0);
-
         this.playerPosition = new THREE.Vector3()
         this.currentLookat = new THREE.Vector3()
     }
