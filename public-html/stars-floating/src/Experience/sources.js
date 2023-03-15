@@ -46,5 +46,11 @@ export default [
         name: 'testPaladin',
         type: 'gltfModel',
         path: 'models/npc/testPaladin.gltf'
+    },
+    {
+        name: 'player',
+        type: 'gltfModel',
+        path: 'models/player/player.gltf'
     }
+
 ]

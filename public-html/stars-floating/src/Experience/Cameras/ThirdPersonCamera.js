@@ -5,7 +5,7 @@ export default class ThirdPersonCamera {
     constructor() {
         this.experience = new Experience()
         this.camera = this.experience.camera.instance
-        this.player = this.experience.player.instance
+        this.player = this.experience.world.player.instance
         this.time = this.experience.time
 
         this.playerPosition = new THREE.Vector3()

@@ -7,15 +7,24 @@ import Environment from './Environment/Environment.js';
 import Helpers from '../Helpers/Helpers.js'
 import Sword01 from "./Environment/Items/Weapons/Sword-01.js";
 import TestPaladin from "./NPCS/TestPaladin.js";
+import Player from "./Player/Player.js"
+import ThirdPersonCamera from "../Cameras/ThirdPersonCamera.js";
+import MainControls from "../Controls/MainControls.js";
 
 export default class World {
-    constructor(){
+    constructor() {
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
 
         //Once the resources is loaded
         this.resources.on('ready', () => {
+            // init player and controls
+            this.player = new Player()
+            this.thirdCamera = new ThirdPersonCamera()
+            this.controls = new MainControls()
+
+            //init models
             this.dragon = new Dragon()
             this.chest01 = new Chest01()
             this.rock01 = new Rock01()
@@ -23,15 +32,21 @@ export default class World {
             this.sword01 = new Sword01()
             this.testPaladin = new TestPaladin()
             this.environment = new Environment()
+
+            //init helpers
             this.helpers = new Helpers()
         })
     }
 
-    update(){
-        if(this.helpers && this.dragon && this.testPaladin){
+    update() {
+        if (this.helpers && this.dragon && this.testPaladin) {
             this.helpers.update()
             this.dragon.update()
             this.testPaladin.update()
+
+        }
+        if (this.player && this.controls) {
+            this.controls.update()
         }
     }
 }

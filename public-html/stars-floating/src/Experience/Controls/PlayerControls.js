@@ -6,8 +6,8 @@ export default class PlayerControls {
     constructor() {
         this.experience = new Experience()
         this.time = this.experience.time
-        this.player = this.experience.player.instance
-        this.thirdCamera = this.experience.thirdCamera
+        this.player = this.experience.world.player.instance
+        this.thirdCamera = this.experience.world.thirdCamera
 
 
         this.moveForward = false;
