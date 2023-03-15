@@ -6,6 +6,7 @@ export default class ThirdPersonCamera {
         this.experience = new Experience()
         this.camera = this.experience.camera.instance
         this.player = this.experience.player.instance
+        this.time = this.experience.time
 
         this.playerPosition = new THREE.Vector3()
         this.currentLookat = new THREE.Vector3()
@@ -29,8 +30,8 @@ export default class ThirdPersonCamera {
         this.calculateIdealOffset()
         this.calculateIdealLookat()
 
-        this.playerPosition.copy(this.idealOffset)
-        this.currentLookat.copy(this.idealLookat)
+        this.playerPosition.lerp(this.idealOffset, 0.05)
+        this.currentLookat.lerp(this.idealLookat, 0.05)
 
         this.camera.position.copy(this.playerPosition)
         this.camera.lookAt(this.currentLookat)

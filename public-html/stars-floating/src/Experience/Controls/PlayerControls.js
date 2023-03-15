@@ -2,7 +2,7 @@ import * as THREE from "three"
 import Experience from '../Experience'
 
 
-export default class ThirdPersonControls {
+export default class PlayerControls {
     constructor() {
         this.experience = new Experience()
         this.time = this.experience.time
@@ -60,7 +60,7 @@ export default class ThirdPersonControls {
         }
     }
 
-   
+
 
     update() {
         const delta = this.time.delta / 1000;
@@ -73,7 +73,7 @@ export default class ThirdPersonControls {
         this.direction.normalize();
 
         if (this.moveRight || this.moveLeft) {
-            this.velocity.x -= this.direction.x * 1.0 * delta;
+            this.velocity.x += this.direction.x * 1.0 * delta;
         }
         if (this.moveForward || this.moveBackward) {
             this.velocity.z -= this.direction.z * 1.0 * delta;
@@ -81,6 +81,14 @@ export default class ThirdPersonControls {
 
         this.player.translateX(this.velocity.x)
         this.player.translateZ(this.velocity.z)
+
+        //rotate the player
+        if (this.moveRight) {
+            this.player.rotateY(.017) //1 degree rotation
+        }
+        if (this.moveLeft) {
+            this.player.rotateY(-.017) //1 degree rotation
+        }
 
         this.thirdCamera.update()
     }

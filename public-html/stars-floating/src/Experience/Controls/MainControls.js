@@ -1,7 +1,7 @@
 import Experience from "../Experience.js";
 import InitOrbitControls from "./InitOrbitControl.js";
 import FPS from "./FPS.js";
-import ThirdPersonControls from "./ThirdPersonControls.js";
+import PlayerControls from "./PlayerControls.js";
 
 export default class MainControls {
     constructor() {
@@ -17,8 +17,8 @@ export default class MainControls {
             this.fpsControls = new FPS()
             this.controller = this.fpsControls
         } else if (this.controllerSelect === "third"){
-            this.thirdPersonControls = new ThirdPersonControls()
-            this.controller = this.thirdPersonControls
+            this.playerControls = new PlayerControls()
+            this.controller = this.playerControls
         }
     }
 
