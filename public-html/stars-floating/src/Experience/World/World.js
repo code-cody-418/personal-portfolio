@@ -47,6 +47,7 @@ export default class World {
         }
         if (this.player && this.controls) {
             this.controls.update()
+            this.player.update()
         }
     }
 }

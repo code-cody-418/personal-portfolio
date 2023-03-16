@@ -6,7 +6,7 @@ export default class PlayerControls {
     constructor() {
         this.experience = new Experience()
         this.time = this.experience.time
-        this.player = this.experience.world.player.instance
+        this.player = this.experience.world.player.model
         this.thirdCamera = this.experience.world.thirdCamera
 
 
