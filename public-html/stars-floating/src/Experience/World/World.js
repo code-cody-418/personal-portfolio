@@ -10,6 +10,7 @@ import TestPaladin from "./NPCS/TestPaladin.js";
 import Player from "./Player/Player.js"
 import ThirdPersonCamera from "../Cameras/ThirdPersonCamera.js";
 import MainControls from "../Controls/MainControls.js";
+import PlayerAnimations from "./Player/PlayerAnimations.js";
 
 export default class World {
     constructor() {
@@ -22,7 +23,9 @@ export default class World {
             // init player and controls
             this.player = new Player()
             this.thirdCamera = new ThirdPersonCamera()
+            this.playerAnimations = new PlayerAnimations()
             this.controls = new MainControls()
+            
 
             //init models
             this.dragon = new Dragon()
@@ -45,9 +48,9 @@ export default class World {
             this.testPaladin.update()
 
         }
-        if (this.player && this.controls) {
+        if (this.player && this.playerAnimations && this.controls) {
+            this.playerAnimations.update()
             this.controls.update()
-            this.player.update()
         }
     }
 }

@@ -8,12 +8,14 @@ export default class PlayerControls {
         this.time = this.experience.time
         this.player = this.experience.world.player.model
         this.thirdCamera = this.experience.world.thirdCamera
+        this.playerAnimations = this.experience.world.playerAnimations
 
-
-        this.moveForward = false;
-        this.moveBackward = false;
-        this.moveLeft = false;
-        this.moveRight = false;
+        this.controlKeys = {
+            moveForward: false,
+            moveBackward: false,
+            moveLeft: false,
+            moveRight: false
+        }
 
         this.velocity = new THREE.Vector3();
         this.direction = new THREE.Vector3();
@@ -34,15 +36,22 @@ export default class PlayerControls {
     onKeyDown(e) {
         let key = e.code;
 
+        //checks for movement keys
         if (key === "KeyW") {
-            this.moveForward = true;
+            this.controlKeys.moveForward = true;
+            this.playerAnimations.playWalk("walk", 0.5)
         } else if (key === "KeyS") {
-            this.moveBackward = true;
+            this.controlKeys.moveBackward = true;
         } else if (key === "KeyA") {
-            this.moveLeft = true;
+            this.controlKeys.moveLeft = true;
         } else if (key === "KeyD") {
-            this.moveRight = true;
+            this.controlKeys.moveRight = true;
         } else if (key === "Space") {
+        }
+
+        //checks for attack
+        if (key === "KeyT") {
+            this.playerAnimations.playAnimation("chargeStrike", 0.5)
         }
     }
 
@@ -50,17 +59,16 @@ export default class PlayerControls {
         let key = e.code;
 
         if (key === "KeyW") {
-            this.moveForward = false;
+            this.controlKeys.moveForward = false;
+            this.playerAnimations.playAnimation("idle", 0.7)
         } else if (key === "KeyS") {
-            this.moveBackward = false;
+            this.controlKeys.moveBackward = false;
         } else if (key === "KeyA") {
-            this.moveLeft = false;
+            this.controlKeys.moveLeft = false;
         } else if (key === "KeyD") {
-            this.moveRight = false;
-        }
+            this.controlKeys.moveRight = false;
+        } 
     }
-
-
 
     update() {
         const delta = this.time.delta / 1000;
@@ -68,14 +76,14 @@ export default class PlayerControls {
         this.velocity.x -= this.velocity.x * 10.0 * delta;
         this.velocity.z -= this.velocity.z * 10.0 * delta;
 
-        this.direction.x = Number(this.moveRight) - Number(this.moveLeft);
-        this.direction.z = Number(this.moveForward) - Number(this.moveBackward);
+        this.direction.x = Number(this.controlKeys.moveRight) - Number(this.controlKeys.moveLeft);
+        this.direction.z = Number(this.controlKeys.moveForward) - Number(this.controlKeys.moveBackward);
         this.direction.normalize();
 
-        if (this.moveRight || this.moveLeft) {
+        if (this.controlKeys.moveRight || this.controlKeys.moveLeft) {
             this.velocity.x += this.direction.x * 1.0 * delta;
         }
-        if (this.moveForward || this.moveBackward) {
+        if (this.controlKeys.moveForward || this.controlKeys.moveBackward) {
             this.velocity.z -= this.direction.z * 1.0 * delta;
         }
 
@@ -83,10 +91,10 @@ export default class PlayerControls {
         this.player.translateZ(this.velocity.z)
 
         //rotate the player
-        if (this.moveRight) {
+        if (this.controlKeys.moveRight) {
             this.player.rotateY(.017) //1 degree rotation
         }
-        if (this.moveLeft) {
+        if (this.controlKeys.moveLeft) {
             this.player.rotateY(-.017) //1 degree rotation
         }
 
