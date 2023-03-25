@@ -50,7 +50,7 @@ export default [
     {
         name: 'player',
         type: 'gltfModel',
-        path: 'models/player/player.gltf'
+        path: 'models/player/player-01.gltf'
     }
 
 ]

@@ -39,8 +39,8 @@ export default class PlayerAnimations {
             this.animations.get("walk")
         )
 
-        this.animation.actions.chargeStrike = this.animation.mixer.clipAction(
-            this.animations.get("chargeStrike")
+        this.animation.actions.attack = this.animation.mixer.clipAction(
+            this.animations.get("attack")
         )
 
         this.animation.actions.current = this.animation.actions.idle

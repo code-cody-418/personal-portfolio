@@ -51,7 +51,7 @@ export default class PlayerControls {
 
         //checks for attack
         if (key === "KeyT") {
-            this.playerAnimations.playAnimation("chargeStrike", 0.5)
+            this.playerAnimations.playAnimation("attack", 0.5)
         }
     }
 
