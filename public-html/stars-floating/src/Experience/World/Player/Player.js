@@ -13,8 +13,9 @@ export default class Player {
 
     setModel() {
         this.model = this.resource.scene
+        this.model.name = "player"
         this.model.children[0].rotateZ(Math.PI)
-
+    
         this.scene.add(this.model)
     }
 }
