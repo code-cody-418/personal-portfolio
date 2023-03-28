@@ -35,24 +35,34 @@ export default class Rock01 {
     for (let i = 0; i <= this.count; i++) {
       if (i === 0) {
         this.dummy.position.set(3, 0, 5);
+        this.dummy.scale.set(3, 3, 3)
       } else if (i === 1) {
         this.dummy.position.set(-10, 0, 15);
+        this.dummy.scale.set(2, 2, 2)
       } else if (i === 2) {
         this.dummy.position.set(-30, 0, 10);
+        this.dummy.scale.set(3, 3, 3)
       } else if (i === 3) {
         this.dummy.position.set(15, 0, -15);
+        this.dummy.scale.set(2, 2, 2)
       } else if (i === 4) {
         this.dummy.position.set(10, 0, 40);
+        this.dummy.scale.set(3, 3, 3)
       } else if (i === 5) {
         this.dummy.position.set(-15, 0, 30);
+        this.dummy.scale.set(3, 3, 3)
       } else if (i === 6) {
         this.dummy.position.set(-20, 0, -25);
+        this.dummy.scale.set(2, 2, 2)
       } else if (i === 7) {
         this.dummy.position.set(18, 0, -35);
+        this.dummy.scale.set(2, 2, 2)
       } else if (i === 8) {
         this.dummy.position.set(-45, 0, 10);
+        this.dummy.scale.set(2, 2, 2)
       } else if (i === 9) {
         this.dummy.position.set(8, 0, 35);
+        this.dummy.scale.set(4, 4, 4)
       }
 
       this.dummy.updateMatrix();

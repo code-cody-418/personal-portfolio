@@ -30,13 +30,19 @@ export default [
     {
         name: 'rock01',
         type: 'gltfModel',
-        path: 'models/environment/rocks/rockA.glb'
+        path: 'models/environment/rocks/rock01.glb'
     },
     {
         name: 'tree01',
         type: 'gltfModel',
         path: 'models/environment/trees/tree01.glb'
     },
+    {
+        name: 'grass01',
+        type: 'gltfModel',
+        path: 'models/environment/grass/grass01.glb'
+    },
+    //player
     {
         name: 'sword01',
         type: 'gltfModel',

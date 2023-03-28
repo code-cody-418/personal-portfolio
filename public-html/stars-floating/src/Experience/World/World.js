@@ -11,6 +11,7 @@ import Player from "./Player/Player.js"
 import ThirdPersonCamera from "../Cameras/ThirdPersonCamera.js";
 import MainControls from "../Controls/MainControls.js";
 import PlayerAnimations from "./Player/PlayerAnimations.js";
+import Grass01 from "./Environment/Grass/Grass-01.js";
 
 export default class World {
     constructor() {
@@ -31,6 +32,7 @@ export default class World {
             this.dragon = new Dragon()
             this.chest01 = new Chest01()
             this.rock01 = new Rock01()
+            this.grass01 = new Grass01()
             this.tree01 = new Trees01()
             this.sword01 = new Sword01()
             this.testPaladin = new TestPaladin()
