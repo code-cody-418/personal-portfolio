@@ -42,6 +42,11 @@ export default [
         type: 'gltfModel',
         path: 'models/environment/grass/grass01.glb'
     },
+    {
+        name: 'treeHouse',
+        type: 'gltfModel',
+        path: 'models/environment/building/tree-house.gltf'
+    },
     //player
     {
         name: 'sword01',

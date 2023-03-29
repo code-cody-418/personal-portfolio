@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import Experience from "../Experience.js";
 import Dragon from './Enemies/Dragon.js';
 import Chest01 from "./Environment/Chests/Chest-01.js";
@@ -12,6 +13,7 @@ import ThirdPersonCamera from "../Cameras/ThirdPersonCamera.js";
 import MainControls from "../Controls/MainControls.js";
 import PlayerAnimations from "./Player/PlayerAnimations.js";
 import Grass01 from "./Environment/Grass/Grass-01.js";
+import Model from "./Environment/Model.js";
 
 export default class World {
     constructor() {
@@ -34,6 +36,10 @@ export default class World {
             this.rock01 = new Rock01()
             this.grass01 = new Grass01()
             this.tree01 = new Trees01()
+            //test
+            this.treeHouse = new Model("treeHouse", [15, 0, 5], [2, 2, 2])
+            // this.test02 = new Model("test two")
+
             this.sword01 = new Sword01()
             this.testPaladin = new TestPaladin()
             this.environment = new Environment()

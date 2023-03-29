@@ -9,7 +9,6 @@ export default class Grass01 {
 
         this.resource = this.resources.items.grass01
 
-        console.log(this.resource)
         this.count = 500;
 
         this.setModel();
@@ -36,8 +35,6 @@ export default class Grass01 {
         for (let i = 0; i <= this.count; i++) {
             let ranPosX = Math.floor(Math.random() * 100) - 50
             let ranPosZ = Math.floor(Math.random() * 100) - 50
-
-            console.log(ranPosX)
 
             this.dummy.position.set(ranPosX, 0, ranPosZ);
             this.dummy.scale.set(1.5, 1.5, 1.5)
