@@ -14,6 +14,7 @@ import MainControls from "../Controls/MainControls.js";
 import PlayerAnimations from "./Player/PlayerAnimations.js";
 import Grass01 from "./Environment/Grass/Grass-01.js";
 import Model from "./Environment/Model.js";
+import NpcModel from './NPCS/NpcModel.js';
 
 export default class World {
     constructor() {
@@ -36,10 +37,8 @@ export default class World {
             this.rock01 = new Rock01()
             this.grass01 = new Grass01()
             this.tree01 = new Trees01()
-            //test
             this.treeHouse = new Model("treeHouse", [15, 0, 5], [2, 2, 2])
-            // this.test02 = new Model("test two")
-
+            this.druid = new NpcModel("druid", [10, 0, 5], [1, 1, 1], "PortalOpen")
             this.sword01 = new Sword01()
             this.testPaladin = new TestPaladin()
             this.environment = new Environment()
@@ -50,10 +49,11 @@ export default class World {
     }
 
     update() {
-        if (this.helpers && this.dragon && this.testPaladin) {
+        if (this.helpers && this.dragon && this.testPaladin && this.druid) {
             this.helpers.update()
             this.dragon.update()
             this.testPaladin.update()
+            this.druid.update()
 
         }
         if (this.player && this.playerAnimations && this.controls) {

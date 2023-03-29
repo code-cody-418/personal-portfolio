@@ -62,6 +62,11 @@ export default [
         name: 'player',
         type: 'gltfModel',
         path: 'models/player/player-01.gltf'
-    }
-
+    },
+    //npc
+    {
+        name: 'druid',
+        type: 'gltfModel',
+        path: 'models/npc/druid.gltf'
+    },
 ]
