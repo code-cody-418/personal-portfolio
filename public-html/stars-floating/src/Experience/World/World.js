@@ -38,7 +38,7 @@ export default class World {
             this.grass01 = new Grass01()
             this.tree01 = new Trees01()
             this.treeHouse = new Model("treeHouse", [15, 0, 5], [2, 2, 2])
-            this.druid = new NpcModel("druid", [10, 0, 5], [1, 1, 1], "PortalOpen")
+            this.druid = new NpcModel("druid", [10, 0, 5], [1, 1, 1], "Waiting")
             this.sword01 = new Sword01()
             this.testPaladin = new TestPaladin()
             this.environment = new Environment()
