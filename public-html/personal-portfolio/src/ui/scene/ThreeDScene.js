@@ -24,7 +24,7 @@ export const ThreeDScene = () => {
           <DefaultXRControllers />
           <Hands />
 
-          <OrbitControls
+          {/* <OrbitControls
             enablePan={true}
             enableZoom={true}
             // distance of camera creation
@@ -37,12 +37,17 @@ export const ThreeDScene = () => {
             // horizontal angle limit
             // minAzimuthAngle={-1.57}
             // maxAzimuthAngle={1.57}
-          />
+          /> */}
+
+          <perspectiveCamera />
 
           <ambientLight intensity={1} />
 
-            <group>
-              <group>
+            <group onWheel={({camera}) => {
+
+                camera.rotateY(0.01)
+              }}>
+              <group >
                 <TitleText />
                 <TitleProfessionText />
                 <Mouse01
