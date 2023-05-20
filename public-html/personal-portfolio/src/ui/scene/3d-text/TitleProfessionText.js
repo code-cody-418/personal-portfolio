@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 
 export const TitleProfessionText = () => {
   //set responsive values
@@ -35,7 +36,7 @@ export const TitleProfessionText = () => {
     uniqueMaterial,
   }) => {
     const font = useLoader(
-      THREE.FontLoader,
+      FontLoader,
       "/Sunmore-Slant-Free-Regular.json"
     );
     const config = useMemo(
@@ -57,7 +58,7 @@ export const TitleProfessionText = () => {
       <>
         <group position={position} rotation={rotation}>
           <mesh ref={mesh}>
-            <textGeometry args={[text, config]} />
+            {/* <textGeometry args={[text, config]} /> */}
             {uniqueMaterial === false ? ( //conditional to determine material of text and description
               <meshStandardMaterial color={uniqueColor} />
             ) : (

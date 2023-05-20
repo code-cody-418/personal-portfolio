@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { VRCanvas, DefaultXRControllers, Hands } from "@react-three/xr";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
@@ -12,19 +11,22 @@ import Mouse01 from "../tutorial/Mouse01";
 import HandModel from "../tutorial/Hand-model";
 import Headset from "../tutorial/Headset01";
 import "../../ui/scene/sceneStyle.css";
-import {Walls} from "./walls/Walls"
+import { Walls } from "./walls/Walls"
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
+import { Canvas } from "@react-three/fiber";
+import { XR } from "@react-three/xr";
 
 export const ThreeDScene = () => {
   return (
     <>
       <Suspense fallback={<h1 className="loading">Loading...</h1>}>
-        <VRCanvas>
-          <DefaultXRControllers />
-          <Hands />
+        <Canvas>
+          <XR>
+            {/* <DefaultXRControllers />
+          <Hands /> */}
 
-          {/* <OrbitControls
+            {/* <OrbitControls
             enablePan={true}
             enableZoom={true}
             // distance of camera creation
@@ -39,14 +41,14 @@ export const ThreeDScene = () => {
             // maxAzimuthAngle={1.57}
           /> */}
 
-          <perspectiveCamera />
+            <perspectiveCamera />
 
-          <ambientLight intensity={1} />
+            <ambientLight intensity={1} />
 
-            <group onWheel={({camera}) => {
+            <group onWheel={({ camera }) => {
 
-                camera.rotateY(0.01)
-              }}>
+              camera.rotateY(0.01)
+            }}>
               <group >
                 <TitleText />
                 <TitleProfessionText />
@@ -95,9 +97,10 @@ export const ThreeDScene = () => {
                 fade
               />
 
-              <Walls/>
+              <Walls />
             </group>
-        </VRCanvas>
+          </XR>
+        </Canvas>
       </Suspense>
     </>
   );

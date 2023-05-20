@@ -5,6 +5,7 @@ import {SkillsIcons} from "../skills-icons/SkillsIcons";
 import {Interactive} from "@react-three/xr";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 
 
 export const SkillsListText = () => {
@@ -22,7 +23,7 @@ export const SkillsListText = () => {
     const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
+        const font = useLoader(FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
@@ -42,7 +43,7 @@ export const SkillsListText = () => {
             <>
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
-                        <textGeometry args={[text, config]}/>
+                        {/* <textGeometry args={[text, config]}/> */}
                         <meshStandardMaterial color={uniqueColor}/>
                     </mesh>
                 </group>

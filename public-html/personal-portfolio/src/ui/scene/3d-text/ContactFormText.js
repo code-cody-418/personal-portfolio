@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 
 export const ContactFormText = () => {
   const responsiveData = new Responsive();
@@ -33,7 +34,7 @@ export const ContactFormText = () => {
 
   const FontConfig = ({ text, position, rotation }) => {
     const font = useLoader(
-      THREE.FontLoader,
+      FontLoader,
       "/Sunmore-Slant-Free-Regular.json"
     );
     const config = useMemo(
@@ -55,7 +56,7 @@ export const ContactFormText = () => {
       <>
         <group position={position} rotation={rotation}>
           <mesh ref={mesh}>
-            <textGeometry args={[text, config]} />
+            {/* <textGeometry args={[text, config]} /> */}
             <meshBasicMaterial color={"#e20e83"} />
           </mesh>
         </group>

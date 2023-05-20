@@ -1,6 +1,8 @@
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import {App} from "./App";
 import "bootstrap/dist/css/bootstrap.css"
 
-// Use the store so that we can use it to pass information.
-ReactDOM.render(App(), document.querySelector('#root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(<App tab="home" />);

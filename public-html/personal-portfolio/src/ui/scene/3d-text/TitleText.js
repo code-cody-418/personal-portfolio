@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 
 export const TitleText = () => {
   //set responsive values
@@ -22,7 +23,7 @@ export const TitleText = () => {
   const { size, positionX, positionY, groupY } = useResponsive(responsiveData);
 
   const FontConfig = ({ text }) => {
-    const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
+    const font = useLoader(FontLoader, "/Saiyan-Sans-Regular.json");
     const config = useMemo(
       () => ({
         font: font,
@@ -43,7 +44,7 @@ export const TitleText = () => {
       <>
         <group>
           <mesh ref={mesh}>
-            <textGeometry args={[text, config]} />
+            {/* <textGeometry args={[text, config]} /> */}
             <meshNormalMaterial />
           </mesh>
         </group>

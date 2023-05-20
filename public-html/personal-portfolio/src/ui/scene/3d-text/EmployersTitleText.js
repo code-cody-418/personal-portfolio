@@ -4,6 +4,7 @@ import {useLoader} from "@react-three/fiber";
 import {Interactive} from "@react-three/xr";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 
 export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
@@ -23,7 +24,7 @@ export const EmployersTitleText = () => {
     const [color, setColor] = useState("#e20e83")
 
     const FontConfig = ({text, position, rotation, color}) => {
-        const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
+        const font = useLoader(FontLoader, "/Saiyan-Sans-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
@@ -43,7 +44,7 @@ export const EmployersTitleText = () => {
             <>
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
-                        <textGeometry args={[text, config]}/>
+                        {/* <textGeometry args={[text, config]}/> */}
                         <meshBasicMaterial color={color}/>
                     </mesh>
                 </group>

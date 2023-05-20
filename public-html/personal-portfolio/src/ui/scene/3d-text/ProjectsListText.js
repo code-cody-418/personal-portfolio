@@ -4,6 +4,7 @@ import {useLoader} from "@react-three/fiber";
 import {ProjectsExamples} from "../ProjectsExamples";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
 
 export const ProjectsListText = () => {
     const responsiveData = new Responsive();
@@ -21,7 +22,7 @@ export const ProjectsListText = () => {
 
 
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
+        const font = useLoader(FontLoader, "/Sunmore-Slant-Free-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
@@ -41,7 +42,7 @@ export const ProjectsListText = () => {
             <>
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
-                        <textGeometry args={[text, config]}/>
+                        {/* <textGeometry args={[text, config]}/> */}
                         <meshBasicMaterial color={uniqueColor}/>
                     </mesh>
                 </group>
