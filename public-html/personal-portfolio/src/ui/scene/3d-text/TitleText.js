@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { Text3D } from "@react-three/drei";
+import { FontConfig } from "./FontCofig";
 
 export const TitleText = () => {
   //set responsive values
@@ -20,26 +20,6 @@ export const TitleText = () => {
 
   const { size, positionX, positionY, groupY } = useResponsive(responsiveData);
 
-  const FontConfig = ({ text, fontType }) => {
-    return (
-      <>
-        <group>
-          <Text3D font={fontType} size={size}
-            height={0.4}
-            curveSegments={32}
-            bevelEnabled={true}
-            bevelThickness={0.03}
-            bevelSize={0.02}
-            bevelOffset={0}
-            bevelSegments={5}>
-            {text}
-            <meshNormalMaterial />
-          </Text3D>
-        </group>
-      </>
-    );
-  };
-
   const PortfolioText = () => {
     //hover cursor change
     const [hovered] = useState(false);
@@ -51,10 +31,10 @@ export const TitleText = () => {
       <>
         <group position={[0, groupY, 0]}>
           <group position={[positionX, positionY, -15]}>
-            <FontConfig text="Codys" fontType="/Saiyan-Sans-Regular.json" />
+            <FontConfig text="Codys" fontType="/Saiyan-Sans-Regular.json" size={size} />
           </group>
           <group position={[positionX, 0, -15]}>
-            <FontConfig text="Portfolio" fontType="/Saiyan-Sans-Regular.json" />
+            <FontConfig text="Portfolio" fontType="/Saiyan-Sans-Regular.json" size={size} />
           </group>
         </group>
       </>
