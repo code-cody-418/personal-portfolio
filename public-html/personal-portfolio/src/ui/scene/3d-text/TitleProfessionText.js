@@ -1,9 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import * as THREE from "three";
-import { useLoader } from "@react-three/fiber";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
+import { FontConfig } from "./FontCofig";
 
 export const TitleProfessionText = () => {
   //set responsive values
@@ -24,51 +22,8 @@ export const TitleProfessionText = () => {
   responsiveData.mobileSubPositionX = -5;
   responsiveData.mobileSubPositionY = -2;
 
-  const { size, positionX, positionY, subSize, subPositionX, subPositionY} =
+  const { size, positionX, positionY, subSize, subPositionX, subPositionY } =
     useResponsive(responsiveData);
-
-  const FontConfig = ({
-    text,
-    position,
-    rotation,
-    uniqueColor,
-    uniqueSize,
-    uniqueMaterial,
-  }) => {
-    const font = useLoader(
-      FontLoader,
-      "/Sunmore-Slant-Free-Regular.json"
-    );
-    const config = useMemo(
-      () => ({
-        font: font,
-        size: uniqueSize,
-        height: 0.2,
-        curveSegments: 32,
-        bevelEnabled: false,
-        bevelThickness: 0.03,
-        bevelSize: 0.02,
-        bevelOffset: 0,
-        bevelSegments: 5,
-      }),
-      [font, uniqueSize]
-    );
-    const mesh = useRef();
-    return (
-      <>
-        <group position={position} rotation={rotation}>
-          <mesh ref={mesh}>
-            {/* <textGeometry args={[text, config]} /> */}
-            {uniqueMaterial === false ? ( //conditional to determine material of text and description
-              <meshStandardMaterial color={uniqueColor} />
-            ) : (
-              <meshNormalMaterial />
-            )}
-          </mesh>
-        </group>
-      </>
-    );
-  };
 
   const ProfessionText = () => {
     //set the state of the icon
@@ -135,22 +90,30 @@ export const TitleProfessionText = () => {
     return (
       <>
         <group position={[0, 0, 0]}>
-          <FontConfig
-            text={textState}
-            position={[positionX, positionY, -15]} //separate each new item in list by y-2
-            rotation={[0, 0, 0]}
-            uniqueColor={textColor}
-            uniqueSize={size}
-            uniqueMaterial={false}
-          />
-          <FontConfig
-            text={descriptionState}
-            position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
-            rotation={[0, 0, 0]}
-            uniqueColor={textColor}
-            uniqueSize={subSize}
-            uniqueMaterial={true}
-          />
+          <group position={[positionX, positionY, -15]} //separate each new item in list by y-2
+            rotation={[0, 0, 0]}>
+            <FontConfig
+              text={textState}
+              fontType="/Sunmore-Slant-Free-Regular.json"
+              size={size}
+
+            // uniqueColor={textColor}
+            // uniqueSize={size}
+            // uniqueMaterial={false}
+            />
+          </group>
+          <group position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
+            rotation={[0, 0, 0]}>
+            <FontConfig
+              text={descriptionState}
+              fontType="/Sunmore-Slant-Free-Regular.json"
+              size={subSize}
+
+            // uniqueColor={textColor}
+            // uniqueSize={subSize}
+            // uniqueMaterial={true}
+            />
+          </group>
         </group>
       </>
     );
