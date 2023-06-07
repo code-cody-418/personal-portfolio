@@ -1,6 +1,6 @@
 import { Text3D } from "@react-three/drei";
 
-export const FontConfig = ({ text, fontType,size }) => {
+export const FontConfig = ({ text, fontType, size }) => {
     return (
       <>
         <group>

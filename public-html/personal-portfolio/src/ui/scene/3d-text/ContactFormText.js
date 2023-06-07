@@ -1,9 +1,7 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import * as THREE from "three";
-import { useLoader } from "@react-three/fiber";
+import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
+import { FontConfig } from "./FontConfig";
 
 export const ContactFormText = () => {
   const responsiveData = new Responsive();
@@ -32,38 +30,6 @@ export const ContactFormText = () => {
   const { size, positionX, positionY, positionZ, subWidth, subHeight, subPositionX, subPositionY, subPositionZ } =
     useResponsive(responsiveData);
 
-  const FontConfig = ({ text, position, rotation }) => {
-    const font = useLoader(
-      FontLoader,
-      "/Sunmore-Slant-Free-Regular.json"
-    );
-    const config = useMemo(
-      () => ({
-        font: font,
-        size: size,
-        height: 0.2,
-        curveSegments: 32,
-        bevelEnabled: true,
-        bevelThickness: 0.03,
-        bevelSize: 0.02,
-        bevelOffset: 0,
-        bevelSegments: 5,
-      }),
-      [font]
-    );
-    const mesh = useRef();
-    return (
-      <>
-        <group position={position} rotation={rotation}>
-          <mesh ref={mesh}>
-            {/* <textGeometry args={[text, config]} /> */}
-            <meshBasicMaterial color={"#e20e83"} />
-          </mesh>
-        </group>
-      </>
-    );
-  };
-
   const TitleText = () => {
     const [buttonColor, setButtonColor] = useState("#fff");
 
@@ -87,11 +53,13 @@ export const ContactFormText = () => {
             setButtonColor("#fff");
           }}
         >
+          <group position={[positionX, positionY, positionZ]} >
           <FontConfig
             text="Contact Me"
-            position={[positionX, positionY, positionZ]}
-            // rotation={[0, .75, 0]}
+            fontType="/Sunmore-Slant-Free-Regular.json" 
+            size={size}
           />
+          </group>
           <mesh //this is the contact form button as a Plane geometry
             position={[
               subPositionX,

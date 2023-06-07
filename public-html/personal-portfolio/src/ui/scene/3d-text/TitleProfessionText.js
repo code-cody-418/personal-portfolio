@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontConfig } from "./FontCofig";
+import { FontConfig } from "./FontConfig";
 
 export const TitleProfessionText = () => {
   //set responsive values

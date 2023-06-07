@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontConfig } from "./FontCofig";
+import { FontConfig } from "./FontConfig";
 
 export const TitleText = () => {
   //set responsive values
