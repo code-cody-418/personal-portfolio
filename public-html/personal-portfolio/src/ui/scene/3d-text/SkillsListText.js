@@ -1,12 +1,8 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
-import * as THREE from "three"
-import {useLoader} from "@react-three/fiber";
-import {SkillsIcons} from "../skills-icons/SkillsIcons";
-import {Interactive} from "@react-three/xr";
+import React, { useEffect, useState } from "react";
+import { SkillsIcons } from "../skills-icons/SkillsIcons";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
-
+import { FontConfig } from "./FontConfig";
 
 export const SkillsListText = () => {
     const responsiveData = new Responsive();
@@ -14,42 +10,13 @@ export const SkillsListText = () => {
     responsiveData.desktopPositionX = 0;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = -15
-    
+
     responsiveData.mobileSize = 1.5;
     responsiveData.mobilePositionX = 0;
     responsiveData.mobilePositionY = 0;
     responsiveData.mobilePositionZ = -8
 
-    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
-
-    const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(FontLoader, "/Sunmore-Slant-Free-Regular.json");
-        const config = useMemo(
-            () => ({
-                font: font,
-                size: size,
-                height: 0.2,
-                curveSegments: 32,
-                bevelEnabled: false,
-                bevelThickness: 0.03,
-                bevelSize: 0.02,
-                bevelOffset: 0,
-                bevelSegments: 5
-            }),
-            [font]
-        );
-        const mesh = useRef();
-        return (
-            <>
-                <group position={position} rotation={rotation}>
-                    <mesh ref={mesh}>
-                        {/* <textGeometry args={[text, config]}/> */}
-                        <meshStandardMaterial color={uniqueColor}/>
-                    </mesh>
-                </group>
-            </>
-        )
-    }
+    const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
     const ListText = () => {
 
@@ -119,7 +86,7 @@ export const SkillsListText = () => {
             <>
                 <group
                     //this group moves the whole list
-                    position = {[positionX, positionY, positionZ]}>
+                    position={[positionX, positionY, positionZ]}>
                     <group
                         onPointerEnter={() => {
                             setIconState("reactActive")
@@ -130,22 +97,15 @@ export const SkillsListText = () => {
                             setReactColor(startingColor)
                             setTimerOnOff(true)
                         }}
+                        position={[20, 4, 0]} //separate each new item in list by y-2
+                        rotation={[0, -1.570796, 0]}
                     >
-                        <Interactive
-                            // onSelect={() => setColor("#0000ff")}
-                            onHover={() => {
-                                setIconState("reactActive")
-                                setReactColor("#61dafb")
-                                setTimerOnOff(false)
-                            }}
-                        >
-                            <FontConfig
-                                text="React"
-                                position={[20, 4, 0]} //separate each new item in list by y-2
-                                rotation={[0, -1.570796, 0]}
-                                uniqueColor={reactColor}
-                            />
-                        </Interactive>
+                        <FontConfig
+                            text="React"
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={reactColor}
+                        />
                     </group>
                     <group
                         onPointerEnter={() => {
@@ -157,21 +117,15 @@ export const SkillsListText = () => {
                             setExpressColor(startingColor)
                             setTimerOnOff(true)
                         }}
+                        position={[20, 2, 0]}
+                        rotation={[0, -1.570796, 0]}
                     >
-                        <Interactive
-                            onSelect={() => {
-                                setIconState("expressActive")
-                                setExpressColor("#FFFFFF")
-                                setTimerOnOff(false)
-                            }}
-                        >
-                            <FontConfig
-                                text="Express"
-                                position={[20, 2, 0]}
-                                rotation={[0, -1.570796, 0]}
-                                uniqueColor={expressColor}
-                            />
-                        </Interactive>
+                        <FontConfig
+                            text="Express"
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={expressColor}
+                        />
                     </group>
                     <group
                         onPointerEnter={() => {
@@ -183,25 +137,15 @@ export const SkillsListText = () => {
                             setReduxColor(startingColor)
                             setTimerOnOff(true)
                         }}
+                        position={[20, 0, 0]}
+                        rotation={[0, -1.570796, 0]}
                     >
-                        <Interactive
-                            onSqueezeStart={() => {
-                                setIconState("reduxActive")
-                                setReduxColor("#764abc")
-                                setTimerOnOff(false)
-                            }}
-                            onSqueezeEnd={() => {
-                                setReduxColor(startingColor)
-                                setTimerOnOff(true)
-                            }}
-                        >
-                            <FontConfig
-                                text="Redux"
-                                position={[20, 0, 0]}
-                                rotation={[0, -1.570796, 0]}
-                                uniqueColor={reduxColor}
-                            />
-                        </Interactive>
+                        <FontConfig
+                            text="Redux"
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={reduxColor}
+                        />
                     </group>
                     <group
                         onPointerEnter={() => {
@@ -213,12 +157,14 @@ export const SkillsListText = () => {
                             setDockerColor(startingColor)
                             setTimerOnOff(true)
                         }}
+                        position={[20, -2, 0]}
+                        rotation={[0, -1.570796, 0]}
                     >
                         <FontConfig
                             text="Docker"
-                            position={[20, -2, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={dockerColor}
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={dockerColor}
                         />
                     </group>
                     <group
@@ -231,12 +177,14 @@ export const SkillsListText = () => {
                             setBootstrapColor(startingColor)
                             setTimerOnOff(true)
                         }}
+                        position={[20, -4, 0]}
+                        rotation={[0, -1.570796, 0]}
                     >
                         <FontConfig
                             text="Bootstrap"
-                            position={[20, -4, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={bootstrapColor}
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={bootstrapColor}
                         />
                     </group>
                     <group
@@ -249,12 +197,14 @@ export const SkillsListText = () => {
                             setGithubColor(startingColor)
                             setTimerOnOff(true)
                         }}
+                        position={[20, -6, 0]}
+                        rotation={[0, -1.570796, 0]}
                     >
                         <FontConfig
                             text="GitHub"
-                            position={[20, -6, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={githubColor}
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={githubColor}
                         />
                     </group>
                 </group>
@@ -267,7 +217,7 @@ export const SkillsListText = () => {
     }
     return (
         <>
-            <ListText/>
+            <ListText />
         </>
     )
 

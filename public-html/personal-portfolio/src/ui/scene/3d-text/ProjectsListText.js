@@ -1,10 +1,8 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
-import * as THREE from "three"
-import {useLoader} from "@react-three/fiber";
+import React, {useEffect, useState} from "react";
 import {ProjectsExamples} from "../ProjectsExamples";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontLoader} from "three/examples/jsm/loaders/FontLoader.js"
+import { FontConfig } from "./FontConfig";
 
 export const ProjectsListText = () => {
     const responsiveData = new Responsive();
@@ -20,35 +18,6 @@ export const ProjectsListText = () => {
 
     const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
-
-    const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(FontLoader, "/Sunmore-Slant-Free-Regular.json");
-        const config = useMemo(
-            () => ({
-                font: font,
-                size: size,
-                height: 0.2,
-                curveSegments: 32,
-                bevelEnabled: true,
-                bevelThickness: 0.03,
-                bevelSize: 0.02,
-                bevelOffset: 0,
-                bevelSegments: 5
-            }),
-            [font]
-        );
-        const mesh = useRef();
-        return (
-            <>
-                <group position={position} rotation={rotation}>
-                    <mesh ref={mesh}>
-                        {/* <textGeometry args={[text, config]}/> */}
-                        <meshBasicMaterial color={uniqueColor}/>
-                    </mesh>
-                </group>
-            </>
-        )
-    }
     const ListText = () => {
        
         //Project Text
@@ -126,12 +95,14 @@ export const ProjectsListText = () => {
                             setProjectOneColor(startingColor)
                             setHovered(false)
                         }}
+                        position={[-20, 2, 10]}
+                        rotation={[0, 1.570796, 0]}
                     >
                         <FontConfig
                             text={projectTextOne}
-                            position={[-20, 2, 10]}
-                            rotation={[0, 1.570796, 0]}
-                            uniqueColor={projectOneColor}
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={projectOneColor}
                         />
                     </group>
                     <group
@@ -147,12 +118,14 @@ export const ProjectsListText = () => {
                             setProjectTwoColor(startingColor)
                             setHovered(false)
                         }}
+                        position={[-20, -2, 10]}
+                        rotation={[0, 1.570796, 0]}
                     >
                         <FontConfig
                             text={projectTextTwo}
-                            position={[-20, -2, 10]}
-                            rotation={[0, 1.570796, 0]}
-                            uniqueColor={projectTwoColor}
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={projectTwoColor}
                         />
                     </group>
                     <group
@@ -168,12 +141,14 @@ export const ProjectsListText = () => {
                             setProjectThreeColor(startingColor)
                             setHovered(false)
                         }}
+                        position={[-20, -6, 10]}
+                        rotation={[0, 1.570796, 0]}
                     >
                         <FontConfig
                             text={projectTextThree}
-                            position={[-20, -6, 10]}
-                            rotation={[0, 1.570796, 0]}
-                            uniqueColor={projectThreeColor}
+                            fontType="/Sunmore-Slant-Free-Regular.json"
+                            size={size}
+                            color={projectThreeColor}
                         />
                     </group>
                 </group>
