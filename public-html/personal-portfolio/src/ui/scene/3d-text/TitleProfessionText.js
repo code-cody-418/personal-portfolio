@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
@@ -29,12 +29,6 @@ export const TitleProfessionText = () => {
     //set the state of the icon
     const [textState, setTextState] = useState("");
     const [descriptionState, setDescriptionState] = useState("");
-
-    //color of text before being changed
-    let startingColor = "#ea2e6f";
-
-    //allows each skill to change color
-    const [textColor] = useState(startingColor);
 
     //Functionality to 30 second timer
     const [thirtySeconds, setThirtySeconds] = useState(30);

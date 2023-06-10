@@ -1,5 +1,5 @@
-import React, { Suspense, useRef, useState } from "react";
-import { FirstPersonControls, OrbitControls, PerformanceMonitor, ScrollControls, Stars } from "@react-three/drei";
+import React, { Suspense } from "react";
+import { OrbitControls, Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { ProjectsTitleText } from "./3d-text/ProjectsTitleText";
@@ -16,6 +16,7 @@ import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
 import { XR } from "@react-three/xr";
+import { Perf } from "r3f-perf";
 
 
 
@@ -24,6 +25,7 @@ export const ThreeDScene = () => {
     <>
       <Suspense fallback={<h1 className="loading">Loading...</h1>}>
         <Canvas>
+        <Perf />
 
           <XR>
             {/* <DefaultXRControllers />
@@ -43,11 +45,6 @@ export const ThreeDScene = () => {
             // minAzimuthAngle={-1.57}
             // maxAzimuthAngle={1.57}
           />
-
-          {/* <FirstPersonControls 
-            lookVertical={false}
-            lookSpeed={0.05}
-          /> */}
 
             <ambientLight intensity={1} />
 
