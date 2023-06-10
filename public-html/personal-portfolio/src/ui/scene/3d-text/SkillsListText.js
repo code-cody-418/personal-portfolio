@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { SkillsIcons } from "../skills-icons/SkillsIcons";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
+import ReactLogo from "../skills-icons/React_logo";
 
 export const SkillsListText = () => {
     const responsiveData = new Responsive();
@@ -208,10 +208,11 @@ export const SkillsListText = () => {
                         />
                     </group>
                 </group>
-                <SkillsIcons
+                {/* <SkillsIcons
                     // position={[0, 0, 0]}
                     iconState={iconState}
-                />
+                /> */}
+                <ReactLogo />
             </>
         )
     }

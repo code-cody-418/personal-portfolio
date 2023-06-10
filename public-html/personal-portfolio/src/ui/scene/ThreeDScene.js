@@ -18,91 +18,79 @@ import { Canvas } from "@react-three/fiber";
 import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
 
-
-
 export const ThreeDScene = () => {
   return (
     <>
       <Suspense fallback={<h1 className="loading">Loading...</h1>}>
         <Canvas>
-        <Perf />
+
+          <Perf />
 
           <XR>
             {/* <DefaultXRControllers />
           <Hands /> */}
 
             <OrbitControls
-            enablePan={true}
-            enableZoom={false}
-            // distance of camera creation
-            minDistance={0}
-            maxDistance={3}
-            rotateSpeed={0.3}
-            // vertical angle limit
-            minPolarAngle={1.5708}
-            maxPolarAngle={1.5708}
+              enablePan={true}
+              enableZoom={false}
+              // distance of camera creation
+              minDistance={0}
+              maxDistance={3}
+              rotateSpeed={0.3}
+              // vertical angle limit
+              minPolarAngle={1.5708}
+              maxPolarAngle={1.5708}
             // horizontal angle limit
             // minAzimuthAngle={-1.57}
             // maxAzimuthAngle={1.57}
-          />
+            />
 
             <ambientLight intensity={1} />
 
-            <group>
-              <group>
-                <TitleText />
-                <TitleProfessionText />
-                <Mouse01
-                  position={[3, -8, -15]}
-                  rotation={[0.4, -1.3, 0.2]}
-                  scale={0.05}
-                />
-                <HandModel
-                  position={[-0.5, -6.5, -15]}
-                  rotation={[0.4, 0, 0]}
-                  scale={3}
-                />
-                <Headset
-                  position={[2, -15, -15]}
-                  // rotation={[-1.5708, 0, 0]}
-                  rotation={[0, 0, 0]}
-                  scale={1}
-                />
-              </group>
+            <TitleText />
+            <TitleProfessionText />
+            <Mouse01
+              position={[3, -8, -15]}
+              rotation={[0.4, -1.3, 0.2]}
+              scale={0.05}
+            />
+            <HandModel
+              position={[-0.5, -6.5, -15]}
+              rotation={[0.4, 0, 0]}
+              scale={3}
+            />
+            <Headset
+              position={[2, -15, -15]}
+              // rotation={[-1.5708, 0, 0]}
+              rotation={[0, 0, 0]}
+              scale={1}
+            />
 
-              <ContactFormText />
+            <ContactFormText />
 
-              
-                <group>
-                  <ProjectsTitleText />
-                  <ProjectsListText />
-                </group>
-              
+            <ProjectsTitleText />
+            <ProjectsListText />
 
-              <group position={[0, 0, 0]} rotation={[0, 0, 0]}>
-                <SkillsTitleText />
-                <SkillsListText />
-              </group>
+            <SkillsTitleText />
+            <SkillsListText />
 
-              <EmployersTitleText />
-              <EmployersListText />
+            <EmployersTitleText />
+            <EmployersListText />
 
-              {/*<ReferenceCenter/>*/}
-              {/*<ReferenceProject/>*/}
-              {/*<ReferenceSkills/>*/}
-              {/*<RightArrow/>*/}
+            {/*<ReferenceCenter/>*/}
+            {/*<ReferenceProject/>*/}
+            {/*<ReferenceSkills/>*/}
+            {/*<RightArrow/>*/}
 
-              <Stars
-                radius={100}
-                depth={50}
-                count={5000}
-                factor={4}
-                saturation={0}
-                fade
-              />
-
-              <Walls />
-            </group>
+            <Stars
+              radius={100}
+              depth={50}
+              count={5000}
+              factor={4}
+              saturation={0}
+              fade
+            />
+            <Walls />
           </XR>
         </Canvas>
       </Suspense>
