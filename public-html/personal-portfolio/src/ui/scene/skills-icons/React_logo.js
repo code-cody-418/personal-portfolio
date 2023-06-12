@@ -17,7 +17,7 @@ export default function ReactLogo({ ...props }) {
   useFrame(({ clock }) => {
     const ticks = clock.getElapsedTime()
 
-    logo.current.rotation.y = ticks
+    logo.current.rotation.y = ticks / 2
   })
   return (
     <group

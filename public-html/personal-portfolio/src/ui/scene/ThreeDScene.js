@@ -45,7 +45,8 @@ export const ThreeDScene = () => {
             // maxAzimuthAngle={1.57}
             />
 
-            <ambientLight intensity={1} />
+            <ambientLight intensity={0.5} />
+            {/* <directionalLight color={"0xffffff"} intensity={100} /> */}
 
             <TitleText />
             <TitleProfessionText />
@@ -77,6 +78,7 @@ export const ThreeDScene = () => {
             <EmployersTitleText />
             <EmployersListText />
 
+          
             {/*<ReferenceCenter/>*/}
             {/*<ReferenceProject/>*/}
             {/*<ReferenceSkills/>*/}

@@ -9,13 +9,13 @@ export const ProjectsTitleText = () => {
     responsiveData.desktopPositionX = -20;
     responsiveData.desktopPositionY = 7;
     responsiveData.desktopPositionZ = 10
-    
+
     responsiveData.mobileSize = 3.5;
     responsiveData.mobilePositionX = -20;
     responsiveData.mobilePositionY = 11;
     responsiveData.mobilePositionZ = 7.5
 
-    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
+    const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
     const TitleText = () => {
         return (
@@ -26,7 +26,7 @@ export const ProjectsTitleText = () => {
                 >
                     <FontConfig
                         text="Websites"
-                        fontType="/Saiyan-Sans-Regular.json" 
+                        fontType="/Saiyan-Sans-Regular.json"
                         size={size}
                     />
                 </group>
@@ -36,7 +36,7 @@ export const ProjectsTitleText = () => {
 
     return (
         <>
-            <TitleText/>
+            <TitleText />
         </>
     )
 }

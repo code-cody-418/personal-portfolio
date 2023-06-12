@@ -221,6 +221,4 @@ export const SkillsListText = () => {
             <ListText />
         </>
     )
-
-
 }

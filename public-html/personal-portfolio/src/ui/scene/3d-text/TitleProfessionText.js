@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const TitleProfessionText = () => {
   //set responsive values
@@ -25,10 +26,14 @@ export const TitleProfessionText = () => {
   const { size, positionX, positionY, subSize, subPositionX, subPositionY } =
     useResponsive(responsiveData);
 
+  let purpleTexture = useTexture("/textures/purple_08_matCap.png")
+  let texture02 = useTexture("/textures/purple_09_matCap.png")
+
   const ProfessionText = () => {
     //set the state of the icon
     const [textState, setTextState] = useState("");
     const [descriptionState, setDescriptionState] = useState("");
+    const [descriptionTexture, setDescriptionTexture] = useState(purpleTexture)
 
     //Functionality to 30 second timer
     const [thirtySeconds, setThirtySeconds] = useState(30);
@@ -57,25 +62,8 @@ export const TitleProfessionText = () => {
         } else if (thirtySeconds === 26) {
           setTextState("Full Stack Website");
         } else if (thirtySeconds === 24) {
-          setDescriptionState("Creator");
-        } else if (thirtySeconds === 22) {
-          setDescriptionState("Designer");
-        } else if (thirtySeconds === 20) {
           setDescriptionState("Developer");
-        } else if (thirtySeconds === 18) {
-          setDescriptionState("Creator");
-        } else if (thirtySeconds === 16) {
-          setDescriptionState("Designer");
-        } else if (thirtySeconds === 14) {
-          setDescriptionState("Developer");
-        } else if (thirtySeconds === 12) {
-          setDescriptionState("Creator");
-        } else if (thirtySeconds === 10) {
-          setDescriptionState("Designer");
-        } else if (thirtySeconds === 8) {
-          setDescriptionState("Developer");
-        } else if (thirtySeconds === 6) {
-          setDescriptionState("Creator");
+          setDescriptionTexture(texture02)
           setTimerOnOff(false);
         }
       }
@@ -90,10 +78,7 @@ export const TitleProfessionText = () => {
               text={textState}
               fontType="/Sunmore-Slant-Free-Regular.json"
               size={size}
-
-            // uniqueColor={textColor}
-            // uniqueSize={size}
-            // uniqueMaterial={false}
+              texture={purpleTexture}
             />
           </group>
           <group position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
@@ -102,10 +87,7 @@ export const TitleProfessionText = () => {
               text={descriptionState}
               fontType="/Sunmore-Slant-Free-Regular.json"
               size={subSize}
-
-            // uniqueColor={textColor}
-            // uniqueSize={subSize}
-            // uniqueMaterial={true}
+              texture={descriptionTexture}
             />
           </group>
         </group>
