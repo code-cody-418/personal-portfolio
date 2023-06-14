@@ -12,7 +12,7 @@ export const TitleProfessionText = () => {
   responsiveData.desktopPositionY = -5;
 
   responsiveData.desktopSubSize = 1;
-  responsiveData.desktopSubPositionX = 6;
+  responsiveData.desktopSubPositionX = -0.5;
   responsiveData.desktopSubPositionY = -5;
 
   responsiveData.mobileSize = 0.7;
@@ -56,11 +56,11 @@ export const TitleProfessionText = () => {
     useEffect(() => {
       if (timerOnOff === true) {
         if (thirtySeconds === 30) {
-          setTextState("Full ");
+          setTextState("");
         } else if (thirtySeconds === 28) {
-          setTextState("Full Stack ");
+          setTextState("Full ");
         } else if (thirtySeconds === 26) {
-          setTextState("Full Stack Website");
+          setTextState("Full Stack");
         } else if (thirtySeconds === 24) {
           setDescriptionState("Developer");
           setDescriptionTexture(texture02)

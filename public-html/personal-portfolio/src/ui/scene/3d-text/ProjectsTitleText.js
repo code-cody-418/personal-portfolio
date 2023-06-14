@@ -2,6 +2,7 @@ import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const ProjectsTitleText = () => {
     const responsiveData = new Responsive();
@@ -17,6 +18,8 @@ export const ProjectsTitleText = () => {
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
+    let loadedTexture = useTexture("/textures/purple_08_matCap.png")
+
     const TitleText = () => {
         return (
             <>
@@ -28,6 +31,7 @@ export const ProjectsTitleText = () => {
                         text="Websites"
                         fontType="/Saiyan-Sans-Regular.json"
                         size={size}
+                        texture={loadedTexture}
                     />
                 </group>
             </>

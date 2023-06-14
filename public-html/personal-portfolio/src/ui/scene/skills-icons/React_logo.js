@@ -9,6 +9,8 @@ title: React logo
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import { Responsive } from '../../../constructor/Responsive'
+import { useResponsive } from '../../../customHooks/useResponsive'
 
 export default function ReactLogo({ ...props }) {
   const logo = useRef()
@@ -19,12 +21,24 @@ export default function ReactLogo({ ...props }) {
 
     logo.current.rotation.y = ticks / 2
   })
+
+  const responsiveData = new Responsive();
+  responsiveData.desktopSize = 1;
+  responsiveData.desktopPositionZ = 6;
+  responsiveData.desktopPositionY = 0
+
+  responsiveData.mobileSize = 0.8;
+  responsiveData.mobilePositionZ = 0;
+  responsiveData.mobilePositionY = -12
+
+  const { size, positionZ, positionY } = useResponsive(responsiveData);
+
   return (
     <group
       ref={logo}
-      position={[20, 0, 6]}
+      position={[20, positionY, positionZ]}
       rotation={[0, -1.570796, 1.5]}
-      scale={1}>
+      scale={size}>
       <mesh geometry={nodes['React-Logo_Material002_0'].geometry} material={materials['Material.002']} />
     </group>
   )

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const ContactFormText = () => {
   const responsiveData = new Responsive();
@@ -30,8 +31,12 @@ export const ContactFormText = () => {
   const { size, positionX, positionY, positionZ, subWidth, subHeight, subPositionX, subPositionY, subPositionZ } =
     useResponsive(responsiveData);
 
+  let loadedTexture = useTexture("/textures/purple_08_matCap.png")
+  let defaultButtonTexture = useTexture("/textures/blue_03_matCap.png")
+  let selectedButtonTexture = useTexture("/textures/purple_09_matCap.png")
+
   const TitleText = () => {
-    const [buttonColor, setButtonColor] = useState("#fff");
+    const [buttonColor, setButtonColor] = useState(defaultButtonTexture);
 
     //hover cursor change
     const [hovered, setHovered] = useState(false);
@@ -46,19 +51,20 @@ export const ContactFormText = () => {
           onClick={() => (window.location = "/contact-form")}
           onPointerOver={() => {
             setHovered(true);
-            setButtonColor("#24a0ed");
+            setButtonColor(selectedButtonTexture);
           }}
           onPointerOut={() => {
             setHovered(false);
-            setButtonColor("#fff");
+            setButtonColor(defaultButtonTexture);
           }}
         >
           <group position={[positionX, positionY, positionZ]} >
-          <FontConfig
-            text="Contact Me"
-            fontType="/Sunmore-Slant-Free-Regular.json" 
-            size={size}
-          />
+            <FontConfig
+              text="Contact Me"
+              fontType="/Sunmore-Slant-Free-Regular.json"
+              size={size}
+              texture={loadedTexture}
+            />
           </group>
           <mesh //this is the contact form button as a Plane geometry
             position={[
@@ -68,10 +74,10 @@ export const ContactFormText = () => {
             ]}
           >
             <planeGeometry
-              attach="geometry"
               args={[subWidth, subHeight]}
             />
-            <meshBasicMaterial color={buttonColor} attach="material" />
+            {/* <meshBasicMaterial color={buttonColor} attach="material" /> */}
+            <meshMatcapMaterial matcap={buttonColor}/>
           </mesh>
         </group>
       </>

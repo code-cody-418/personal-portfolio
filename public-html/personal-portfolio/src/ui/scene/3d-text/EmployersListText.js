@@ -2,6 +2,7 @@ import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const EmployersListText = () => {
     const responsiveData = new Responsive();
@@ -17,6 +18,8 @@ export const EmployersListText = () => {
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
+    let loadedTexture = useTexture("/textures/purple_08_matCap.png")
+
     const ListText = () => {
         return (
             <>
@@ -30,6 +33,7 @@ export const EmployersListText = () => {
                             text="Navajo Nation"
                             fontType="/Sunmore-Slant-Free-Regular.json"
                             size={size}
+                            texture={loadedTexture}
                         />
                     </group>
 
@@ -40,6 +44,7 @@ export const EmployersListText = () => {
                             text="Gesture"
                             fontType="/Sunmore-Slant-Free-Regular.json"
                             size={size}
+                            texture={loadedTexture}
                         />
                     </group>
                     <group
@@ -49,6 +54,7 @@ export const EmployersListText = () => {
                             text="CNM"
                             fontType="/Sunmore-Slant-Free-Regular.json"
                             size={size}
+                            texture={loadedTexture}
                         />
                     </group>
 
@@ -59,6 +65,7 @@ export const EmployersListText = () => {
                             text="Freelance"
                             fontType="/Sunmore-Slant-Free-Regular.json"
                             size={size}
+                            texture={loadedTexture}
                         />
                     </group>
                 </group>

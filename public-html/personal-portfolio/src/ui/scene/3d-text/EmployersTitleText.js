@@ -2,6 +2,7 @@ import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
@@ -15,8 +16,9 @@ export const EmployersTitleText = () => {
     responsiveData.mobilePositionY = 7;
     responsiveData.mobilePositionZ = 20
 
-
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
+
+    let loadedTexture = useTexture("/textures/purple_08_matCap.png")
 
     const TitleText = () => {
         return (
@@ -25,7 +27,12 @@ export const EmployersTitleText = () => {
                     position={[positionX, positionY, positionZ]}
                     rotation={[0, Math.PI, 0]}
                 >
-                    <FontConfig text="Past Jobs" fontType="/Saiyan-Sans-Regular.json" size={size} />
+                    <FontConfig 
+                        text="Past Employers" 
+                        fontType="/Saiyan-Sans-Regular.json" 
+                        size={size} 
+                        texture={loadedTexture}
+                    />
                 </group>
             </>
         )
