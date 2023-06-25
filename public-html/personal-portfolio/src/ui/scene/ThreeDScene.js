@@ -48,8 +48,9 @@ export const ThreeDScene = () => {
             <ambientLight intensity={0.5} />
             {/* <directionalLight color={"0xffffff"} intensity={100} /> */}
 
-            <TitleText />
-            <TitleProfessionText />
+              <TitleText />
+              <TitleProfessionText />
+
             <Mouse01
               position={[3, -8, -15]}
               rotation={[0.4, -1.3, 0.2]}
@@ -78,7 +79,7 @@ export const ThreeDScene = () => {
             <EmployersTitleText />
             <EmployersListText />
 
-          
+
             {/*<ReferenceCenter/>*/}
             {/*<ReferenceProject/>*/}
             {/*<ReferenceSkills/>*/}

@@ -19,7 +19,7 @@ export const SkillsListText = () => {
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
-    let loadedTexture = useTexture("/textures/purple_08_matCap.png")
+    let loadedTexture = useTexture("/textures/blue_09_matCap.png")
 
     const ListText = () => {
         return (

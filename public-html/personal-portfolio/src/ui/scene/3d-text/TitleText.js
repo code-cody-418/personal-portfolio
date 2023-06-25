@@ -29,7 +29,7 @@ export const TitleText = () => {
     useEffect(
       () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
       [hovered]
-    );
+    );    
     return (
       <>
         <group position={[0, groupY, 0]}>

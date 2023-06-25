@@ -18,7 +18,7 @@ export const ProjectsListText = () => {
 
     const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
 
-    let defaultTexture = useTexture("/textures/purple_08_matCap.png")
+    let defaultTexture = useTexture("/textures/blue_09_matCap.png")
     let selectedTexture = useTexture("/textures/blue_01_matCap.png")
 
     const ListText = () => {
