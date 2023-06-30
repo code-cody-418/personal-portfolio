@@ -17,10 +17,22 @@ import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
 import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
+import { useModalStore } from "../utils/store";
+import { MyModal } from "../modal/MyModal";
 
 export const ThreeDScene = () => {
+  //Modal functions to show modal and to set state of what to display
+  const handleShow = useModalStore((state) => state.showModal)
+  const setModalTitle = useModalStore((state) => state.setModalTitle)
+
+  const handleOnClick = (title) => {
+    setModalTitle(title)
+    handleShow()
+  }
   return (
     <>
+      <MyModal />
+
       <Suspense fallback={<h1 className="loading">Loading...</h1>}>
         <Canvas>
 
@@ -48,9 +60,11 @@ export const ThreeDScene = () => {
             <ambientLight intensity={0.5} />
             {/* <directionalLight color={"0xffffff"} intensity={100} /> */}
 
+            <group onClick={() => handleOnClick("Portfolio")}>
               <TitleText />
               <TitleProfessionText />
-
+            </group>
+            
             <Mouse01
               position={[3, -8, -15]}
               rotation={[0.4, -1.3, 0.2]}
@@ -70,11 +84,15 @@ export const ThreeDScene = () => {
 
             <ContactFormText />
 
-            <ProjectsTitleText />
-            <ProjectsListText />
+            <group onClick={() => handleOnClick("Project")}>
+              <ProjectsTitleText />
+              <ProjectsListText />
+            </group>
 
+            {/* <group onClick={setModalTitle}> */}
             <SkillsTitleText />
             <SkillsListText />
+            {/* </group> */}
 
             <EmployersTitleText />
             <EmployersListText />

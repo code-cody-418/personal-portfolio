@@ -20,7 +20,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "three": "^0.152.2",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "zustand": "^4.3.8"
   },
   "scripts": {
     "start": "react-scripts start",
