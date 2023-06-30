@@ -19,6 +19,7 @@ import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
 import { useModalStore } from "../utils/store";
 import { MyModal } from "../modal/MyModal";
+import { modalInfo } from "../modal/modalInfo"
 
 export const ThreeDScene = () => {
   //Modal functions to show modal and to set state of what to display
@@ -29,6 +30,8 @@ export const ThreeDScene = () => {
     setModalTitle(title)
     handleShow()
   }
+
+  console.log(modalInfo)
   return (
     <>
       <MyModal />
@@ -60,11 +63,11 @@ export const ThreeDScene = () => {
             <ambientLight intensity={0.5} />
             {/* <directionalLight color={"0xffffff"} intensity={100} /> */}
 
-            <group onClick={() => handleOnClick("Portfolio")}>
+            <group onClick={() => handleOnClick(modalInfo.aboutMe.title)}>
               <TitleText />
               <TitleProfessionText />
             </group>
-            
+
             <Mouse01
               position={[3, -8, -15]}
               rotation={[0.4, -1.3, 0.2]}
@@ -84,15 +87,15 @@ export const ThreeDScene = () => {
 
             <ContactFormText />
 
-            <group onClick={() => handleOnClick("Project")}>
+            <group onClick={() => handleOnClick(modalInfo.projects.title)}>
               <ProjectsTitleText />
               <ProjectsListText />
             </group>
 
-            {/* <group onClick={setModalTitle}> */}
-            <SkillsTitleText />
-            <SkillsListText />
-            {/* </group> */}
+            <group onClick={() => handleOnClick(modalInfo.skills.title)}>
+              <SkillsTitleText />
+              <SkillsListText />
+            </group>
 
             <EmployersTitleText />
             <EmployersListText />
