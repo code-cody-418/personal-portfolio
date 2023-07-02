@@ -96,10 +96,8 @@ export const ThreeDScene = () => {
               <ProjectsListText />
             </group>
 
-            <group onClick={() => handleOnClick(skillOneInfo.title)}>
-              <SkillsTitleText />
-              <SkillsListText />
-            </group>
+            <SkillsTitleText />
+            <SkillsListText />
 
             <EmployersTitleText />
             <EmployersListText />

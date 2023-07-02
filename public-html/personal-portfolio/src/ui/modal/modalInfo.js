@@ -19,6 +19,12 @@ export const skillOneInfo = {
     description: "This is skills description"
 }
 
+export const skillTestInfo = {
+    title: "Test Skill",
+    subTitle: "Skill Test subtitle",
+    description: "This is skills Test description"
+}
+
 // Work Experience
 export const dpmExperience = {
     title: "Navajo Nation Department of Personnel Management",

@@ -8,8 +8,9 @@ export const MyModal = () => {
 
     // Modal contents
     const modalTitle = useModalStore((state) => state.modalTitle)
-    const modalDescription = useModalStore((state) => state.modalDescription)
     const modalSubTitle = useModalStore((state => state.modalSubTitle))
+    const modalDescription = useModalStore((state) => state.modalDescription)
+    
     return (
         <>
             <Modal show={modalState} onHide={handleClose}>
