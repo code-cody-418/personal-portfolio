@@ -1,9 +1,7 @@
 import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontConfig } from "./FontConfig";
 import ReactLogo from "../skills-icons/React_logo";
-import { useTexture } from "@react-three/drei";
 import { PortfolioText } from "./PortfolioText";
 import { ModalInfo } from "../../../constructor/ModalInfo";
 
@@ -24,27 +22,41 @@ export const SkillsListText = () => {
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
     //Object Constructor that sets values for the modal for each Text Object
-    const testInfo = new ModalInfo()
-    testInfo.title = "Test Skill"
-    testInfo.subTitle = "Skill Test subtitle"
-    testInfo.description = "This is skills Test description"
+    const etlInfo = new ModalInfo()
+    etlInfo.title = "Extract, Transform, and Load"
+    etlInfo.subTitle = "Preparing Data for New Systems"
+    etlInfo.description = "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
 
-    let loadedTexture = useTexture("/textures/blue_09_matCap.png")
+    const dataInt = new ModalInfo()
+    dataInt.title = "Data Integration"
+    dataInt.subTitle = "Synchronizing Data"
+    dataInt.description = "Gesture synchronized data between two Salesforce and Google Firebase"
+
     return (
         <>
             <group //this group moves the whole list
                 position={[positionX, positionY, positionZ]}
             >
                 < PortfolioText
-                    text={"Test"}
+                    text={"ETL"}
                     xPosition={20}
-                    yPosition={-8} //separate each new item in list by y-2
+                    yPosition={4} //separate each new item in list by y-2
                     zPosition={0}
                     yRotation={-1.570796}
                     size={size}
-                    modalInfo={testInfo}
+                    modalInfo={etlInfo}
                 />
-                <group
+
+                < PortfolioText
+                    text={"Data Integration"}
+                    xPosition={20}
+                    yPosition={2} //separate each new item in list by y-2
+                    zPosition={0}
+                    yRotation={-1.570796}
+                    size={size}
+                    modalInfo={dataInt}
+                />
+                {/* <group
                     position={[20, 4, 0]} //separate each new item in list by y-2
                     rotation={[0, -1.570796, 0]}
                 >
@@ -112,7 +124,7 @@ export const SkillsListText = () => {
                         size={size}
                         texture={loadedTexture}
                     />
-                </group>
+                </group> */}
             </group>
             {/* <SkillsIcons
                     // position={[0, 0, 0]}
