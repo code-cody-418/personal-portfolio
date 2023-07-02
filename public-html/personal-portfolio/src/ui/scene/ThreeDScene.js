@@ -19,19 +19,22 @@ import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
 import { useModalStore } from "../utils/store";
 import { MyModal } from "../modal/MyModal";
-import { modalInfo } from "../modal/modalInfo"
+import { aboutMeInfo, projectOneInfo, skillOneInfo } from "../modal/modalInfo"
 
 export const ThreeDScene = () => {
   //Modal functions to show modal and to set state of what to display
   const handleShow = useModalStore((state) => state.showModal)
   const setModalTitle = useModalStore((state) => state.setModalTitle)
+  const setModalDescription = useModalStore((state) => state.setModalDescription)
+  const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
 
-  const handleOnClick = (title) => {
-    setModalTitle(title)
+  const handleOnClick = (modalTitle, modalDescription, modalSubTitle) => {
+    console.log(modalSubTitle)
+    setModalTitle(modalTitle)
+    setModalDescription(modalDescription)
+    setModalSubTitle(modalSubTitle)
     handleShow()
   }
-
-  console.log(modalInfo)
   return (
     <>
       <MyModal />
@@ -63,7 +66,7 @@ export const ThreeDScene = () => {
             <ambientLight intensity={0.5} />
             {/* <directionalLight color={"0xffffff"} intensity={100} /> */}
 
-            <group onClick={() => handleOnClick(modalInfo.aboutMe.title)}>
+            <group onClick={() => handleOnClick(aboutMeInfo.title)}>
               <TitleText />
               <TitleProfessionText />
             </group>
@@ -87,12 +90,14 @@ export const ThreeDScene = () => {
 
             <ContactFormText />
 
-            <group onClick={() => handleOnClick(modalInfo.projects.title)}>
+            <group
+              onClick={() => handleOnClick(projectOneInfo.title, projectOneInfo.description, projectOneInfo.subTitle)}
+            >
               <ProjectsTitleText />
               <ProjectsListText />
             </group>
 
-            <group onClick={() => handleOnClick(modalInfo.skills.title)}>
+            <group onClick={() => handleOnClick(skillOneInfo.title)}>
               <SkillsTitleText />
               <SkillsListText />
             </group>
