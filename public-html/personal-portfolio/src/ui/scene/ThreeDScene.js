@@ -29,7 +29,6 @@ export const ThreeDScene = () => {
   const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
 
   const handleOnClick = (modalTitle, modalDescription, modalSubTitle) => {
-    console.log(modalSubTitle)
     setModalTitle(modalTitle)
     setModalDescription(modalDescription)
     setModalSubTitle(modalSubTitle)

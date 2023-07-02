@@ -1,6 +1,7 @@
 // Objects that store dynamic modal info for each clickable item 
 export const aboutMeInfo = {
     title: "About Me",
+    subTitle: "subtitle about me",
     description: "This is about me description"
 }
 
@@ -14,6 +15,7 @@ export const projectOneInfo = {
 // Skills
 export const skillOneInfo = {
     title: "Skills",
+    subTitle: "Skill ONe subtitle",
     description: "This is skills description"
 }
 

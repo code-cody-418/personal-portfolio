@@ -10,7 +10,6 @@ export const MyModal = () => {
     const modalTitle = useModalStore((state) => state.modalTitle)
     const modalDescription = useModalStore((state) => state.modalDescription)
     const modalSubTitle = useModalStore((state => state.modalSubTitle))
-    console.log(modalSubTitle)
     return (
         <>
             <Modal show={modalState} onHide={handleClose}>

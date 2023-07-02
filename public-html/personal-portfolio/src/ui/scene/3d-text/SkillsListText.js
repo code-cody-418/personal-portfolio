@@ -82,7 +82,6 @@ export const SkillsListText = () => {
                             fontType="/Sunmore-Slant-Free-Regular.json"
                             size={size}
                             texture={loadedTexture}
-
                         />
                     </group>
                     <group
