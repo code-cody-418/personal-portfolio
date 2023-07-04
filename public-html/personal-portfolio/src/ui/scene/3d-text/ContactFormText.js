@@ -35,58 +35,49 @@ export const ContactFormText = () => {
   let defaultButtonTexture = useTexture("/textures/blue_03_matCap.png")
   let selectedButtonTexture = useTexture("/textures/purple_09_matCap.png")
 
-  const TitleText = () => {
-    const [buttonColor, setButtonColor] = useState(defaultButtonTexture);
+  const [buttonColor, setButtonColor] = useState(defaultButtonTexture);
 
-    //hover cursor change
-    const [hovered, setHovered] = useState(false);
-    useEffect(
-      () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
-      [hovered]
-    );
-
-    return (
-      <>
-        <group
-          onClick={() => (window.location = "/contact-form")}
-          onPointerOver={() => {
-            setHovered(true);
-            setButtonColor(selectedButtonTexture);
-          }}
-          onPointerOut={() => {
-            setHovered(false);
-            setButtonColor(defaultButtonTexture);
-          }}
-        >
-          <group position={[positionX, positionY, positionZ]} >
-            <FontConfig
-              text="Contact Me"
-              fontType="/Sunmore-Slant-Free-Regular.json"
-              size={size}
-              texture={loadedTexture}
-            />
-          </group>
-          <mesh //this is the contact form button as a Plane geometry
-            position={[
-              subPositionX,
-              subPositionY,
-              subPositionZ,
-            ]}
-          >
-            <planeGeometry
-              args={[subWidth, subHeight]}
-            />
-            {/* <meshBasicMaterial color={buttonColor} attach="material" /> */}
-            <meshMatcapMaterial matcap={buttonColor}/>
-          </mesh>
-        </group>
-      </>
-    );
-  };
+  //hover cursor change
+  const [hovered, setHovered] = useState(false);
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
 
   return (
     <>
-      <TitleText />
+      <group
+        onClick={() => (window.location = "/contact-form")}
+        onPointerOver={() => {
+          setHovered(true);
+          setButtonColor(selectedButtonTexture);
+        }}
+        onPointerOut={() => {
+          setHovered(false);
+          setButtonColor(defaultButtonTexture);
+        }}
+      >
+        <group position={[positionX, positionY, positionZ]} >
+          <FontConfig
+            text="Contact Me"
+            fontType="/Sunmore-Slant-Free-Regular.json"
+            size={size}
+            texture={loadedTexture}
+          />
+        </group>
+        <mesh //this is the contact form button as a Plane geometry
+          position={[
+            subPositionX,
+            subPositionY,
+            subPositionZ,
+          ]}
+        >
+          <planeGeometry
+            args={[subWidth, subHeight]}
+          />
+          <meshMatcapMaterial matcap={buttonColor} />
+        </mesh>
+      </group>
     </>
   );
 };

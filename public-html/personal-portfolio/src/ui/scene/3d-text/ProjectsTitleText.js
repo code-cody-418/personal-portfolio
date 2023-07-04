@@ -11,9 +11,9 @@ export const ProjectsTitleText = () => {
     responsiveData.desktopPositionY = 7;
     responsiveData.desktopPositionZ = 10
 
-    responsiveData.mobileSize = 3.5;
+    responsiveData.mobileSize = 2;
     responsiveData.mobilePositionX = -20;
-    responsiveData.mobilePositionY = 11;
+    responsiveData.mobilePositionY = 7;
     responsiveData.mobilePositionZ = 7.5
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);

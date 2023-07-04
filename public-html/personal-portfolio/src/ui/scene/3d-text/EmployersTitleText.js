@@ -14,7 +14,7 @@ export const EmployersTitleText = () => {
     responsiveData.mobileSize = 2;
     responsiveData.mobilePositionX = 20;
     responsiveData.mobilePositionY = 7;
-    responsiveData.mobilePositionZ = 6;
+    responsiveData.mobilePositionZ = -8;
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
@@ -27,7 +27,7 @@ export const EmployersTitleText = () => {
                 rotation={[0, -1.570796, 0]}
             >
                 <FontConfig
-                    text="Past Employers"
+                    text="Past Employment"
                     fontType="/Saiyan-Sans-Regular.json"
                     size={size}
                     texture={loadedTexture}

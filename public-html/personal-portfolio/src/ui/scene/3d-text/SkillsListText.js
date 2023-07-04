@@ -14,7 +14,7 @@ export const SkillsListText = () => {
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 20
 
-    responsiveData.mobileSize = 1.5;
+    responsiveData.mobileSize = 1.2;
     responsiveData.mobilePositionX = 6;
     responsiveData.mobilePositionY = 0;
     responsiveData.mobilePositionZ = 20

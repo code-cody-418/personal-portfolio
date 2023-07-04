@@ -7,14 +7,14 @@ export const ProjectsListText = () => {
     let yStart = 6 //Value that is the first y coordinate for the map
 
     const responsiveData = new Responsive();
-    responsiveData.desktopSize = 1.8;
+    responsiveData.desktopSize = 1.5;
     responsiveData.desktopPositionX = 0;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 0
 
-    responsiveData.mobileSize = 1.5;
+    responsiveData.mobileSize = 1.2;
     responsiveData.mobilePositionX = 0;
-    responsiveData.mobilePositionY = 5;
+    responsiveData.mobilePositionY = 0;
     responsiveData.mobilePositionZ = -2
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
