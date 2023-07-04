@@ -4,7 +4,7 @@ import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
 import { useTexture } from "@react-three/drei";
 
-export const ProjectsTitleText = () => {
+export const StacksTitleText = () => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 5;
     responsiveData.desktopPositionX = -20;

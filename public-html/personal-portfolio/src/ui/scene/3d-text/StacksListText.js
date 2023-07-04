@@ -3,7 +3,7 @@ import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { PortfolioText } from "./PortfolioText";
 
-export const ProjectsListText = () => {
+export const StacksListText = () => {
     let yStart = 6 //Value that is the first y coordinate for the map
 
     const responsiveData = new Responsive();

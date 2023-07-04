@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
-import { ProjectsTitleText } from "./3d-text/ProjectsTitleText";
-import { ProjectsListText } from "./3d-text/ProjectsListText";
+import { StacksTitleText } from "./3d-text/StacksTitleText";
+import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { TitleProfessionText } from "./3d-text/TitleProfessionText";
 import { ContactFormText } from "./3d-text/ContactFormText";
@@ -72,8 +72,8 @@ export const ThreeDScene = () => {
 
             <ContactFormText />
 
-            <ProjectsTitleText />
-            <ProjectsListText />
+            <StacksTitleText />
+            <StacksListText />
 
             <SkillsTitleText />
             <SkillsListText />
