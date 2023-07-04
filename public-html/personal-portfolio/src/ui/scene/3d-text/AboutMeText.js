@@ -20,13 +20,13 @@ export const AboutMeText = () => {
 
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
-  responsiveData.mobilePositionY = -10;
+  responsiveData.mobilePositionY = -7;
   responsiveData.mobilePositionZ = -15;
 
   responsiveData.mobileSubWidth = 11
   responsiveData.mobileSubHeight = 2
   responsiveData.mobileSubPositionX = -0.5;
-  responsiveData.mobileSubPositionY = -9.5;
+  responsiveData.mobileSubPositionY = -6.5;
   responsiveData.mobileSubPositionZ = -15
 
   const { size, positionX, positionY, positionZ, subWidth, subHeight, subPositionX, subPositionY, subPositionZ } =
@@ -59,6 +59,7 @@ export const AboutMeText = () => {
        handleShow()
    }
 
+   // To change about me Info simply change the modalInfo Object below
    const modalInfo = {
       title: "About Me",
       subTitle: "Preparing Data for New Systems",
