@@ -11,7 +11,6 @@ import Mouse01 from "../tutorial/Mouse01";
 import HandModel from "../tutorial/Hand-model";
 import Headset from "../tutorial/Headset01";
 import "../../ui/scene/sceneStyle.css";
-import { Walls } from "./walls/Walls"
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
@@ -82,11 +81,6 @@ export const ThreeDScene = () => {
             <EmployersTitleText />
             <EmployersListText />
 
-            {/*<ReferenceCenter/>*/}
-            {/*<ReferenceProject/>*/}
-            {/*<ReferenceSkills/>*/}
-            {/*<RightArrow/>*/}
-
             <Stars
               radius={100}
               depth={50}
@@ -95,7 +89,6 @@ export const ThreeDScene = () => {
               saturation={0}
               fade
             />
-            <Walls />
           </XR>
         </Canvas>
       </Suspense>
