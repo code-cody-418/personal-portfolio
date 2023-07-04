@@ -16,7 +16,7 @@ export const Walls = () => {
                 // visible={wallVisible}
                 visible={ false }
             >
-                <planeBufferGeometry attach='geometry' args={[60, 60]}/>
+                <planeGeometry attach='geometry' args={[60, 60]}/>
                 <meshStandardMaterial attach='material' color={"#554b4b"} />
             </mesh>
 
@@ -26,7 +26,7 @@ export const Walls = () => {
                 position={[-20,-1, 0]}
                 visible={wallVisible}
             >
-                <planeBufferGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
+                <planeGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
                 <meshStandardMaterial attach='material' color={wallColor} />
             </mesh>
 
@@ -36,7 +36,7 @@ export const Walls = () => {
                 position={[20, -1, 0]}
                 visible={wallVisible}
             >
-                <planeBufferGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
+                <planeGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
                 <meshStandardMaterial attach='material' color={wallColor} />
             </mesh>
 
@@ -46,7 +46,7 @@ export const Walls = () => {
                 position={[0, -1, -15]}
                 visible={wallVisible}
             >
-                <planeBufferGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
+                <planeGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
                 <meshStandardMaterial attach='material' color={"#000"} />
             </mesh>
 
@@ -56,7 +56,7 @@ export const Walls = () => {
                 position={[0, -1, 50]}
                 visible={wallVisible}
             >
-                <planeBufferGeometry attach='geometry' args={[wallHeight, wallWidth]} />
+                <planeGeometry attach='geometry' args={[wallHeight, wallWidth]} />
                 <meshStandardMaterial attach='material' color={wallColor} />
             </mesh>
         </>

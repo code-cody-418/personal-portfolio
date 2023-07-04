@@ -82,7 +82,6 @@ export const ThreeDScene = () => {
             <EmployersTitleText />
             <EmployersListText />
 
-
             {/*<ReferenceCenter/>*/}
             {/*<ReferenceProject/>*/}
             {/*<ReferenceSkills/>*/}

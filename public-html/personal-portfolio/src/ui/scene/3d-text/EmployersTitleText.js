@@ -7,14 +7,14 @@ import { useTexture } from "@react-three/drei";
 export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 5;
-    responsiveData.desktopPositionX = 15;
+    responsiveData.desktopPositionX = 20;
     responsiveData.desktopPositionY = 7;
-    responsiveData.desktopPositionZ = 20
+    responsiveData.desktopPositionZ = -15;
 
     responsiveData.mobileSize = 2;
-    responsiveData.mobilePositionX = 6;
+    responsiveData.mobilePositionX = 20;
     responsiveData.mobilePositionY = 7;
-    responsiveData.mobilePositionZ = 20
+    responsiveData.mobilePositionZ = 6;
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
@@ -25,7 +25,7 @@ export const EmployersTitleText = () => {
             <>
                 <group
                     position={[positionX, positionY, positionZ]}
-                    rotation={[0, Math.PI, 0]}
+                    rotation={[0, -1.570796, 0]}
                 >
                     <FontConfig 
                         text="Past Employers" 

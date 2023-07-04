@@ -1,118 +1,63 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontConfig } from "./FontConfig";
-import { useTexture } from "@react-three/drei";
+import { PortfolioText } from "./PortfolioText";
 
 export const ProjectsListText = () => {
+    let yStart = 6 //Value that is the first y coordinate for the map
+
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1.8;
     responsiveData.desktopPositionX = 0;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 0
-    
+
     responsiveData.mobileSize = 1.5;
     responsiveData.mobilePositionX = 0;
     responsiveData.mobilePositionY = 5;
     responsiveData.mobilePositionZ = -2
 
-    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
+    const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
-    let defaultTexture = useTexture("/textures/blue_09_matCap.png")
-    let selectedTexture = useTexture("/textures/blue_01_matCap.png")
+    // Array of items that are displayed in list fashion under the Section title
+    // To add new item simple create a new object with the required keys and values
+    const allItems = [
+        {
+            title: "React",
+            subTitle: "Preparing Data for New Systems",
+            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
+        },
+        {
+            title: "Java Script",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase"
+        }
+    ]
 
-    const ListText = () => {
-       
-        //Project Text
-        const projectTextOne = "NN DPM"
-        const projectTextTwo = "SW Bakery"
-        const projectTextThree = "Clothing Bank"
-
-        //allows each skill to change color
-        const [projectOneColor, setProjectOneColor] = useState(defaultTexture)
-        const [projectTwoColor, setProjectTwoColor] = useState(defaultTexture)
-        const [projectThreeColor, setProjectThreeColor] = useState(defaultTexture)
-
-        //sets cursor on hover
-        const [hovered, setHovered] = useState(false)
-        useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
-
-        return (
-            <>
-                <group position={[positionX, positionY, positionZ]}>
-                    <group
-                        onClick={() => window.open("http://www.dpm.navajo-nsn.gov/")}
-                        onPointerOver={() => {
-                            setProjectOneColor(selectedTexture)
-                            setHovered(true)
-                            
-                        }}
-                        onPointerOut={() => {
-                            setProjectOneColor(defaultTexture)
-                            setHovered(false)
-                        }}
-                        position={[-20, 2, 10]}
-                        rotation={[0, 1.570796, 0]}
-                    >
-                        <FontConfig
-                            text={projectTextOne}
-                            fontType="/Sunmore-Slant-Free-Regular.json"
-                            size={size}
-                            texture={projectOneColor}
-                        />
-                    </group>
-                    <group
-                        onClick={() => window.open("https://southwestbakery505.com/")}
-                        onPointerOver={() => {
-                            setProjectTwoColor(selectedTexture)
-                            setHovered(true)
-                            
-                        }}
-                        onPointerOut={() => {
-                            setProjectTwoColor(defaultTexture)
-                            setHovered(false)
-                        }}
-                        position={[-20, -2, 10]}
-                        rotation={[0, 1.570796, 0]}
-                    >
-                        <FontConfig
-                            text={projectTextTwo}
-                            fontType="/Sunmore-Slant-Free-Regular.json"
-                            size={size}
-                            texture={projectTwoColor}
-                        />
-                    </group>
-                    <group
-                        onClick={() => window.open("https://monsterslayer.org/")}
-                        onPointerOver={() => {
-                            setProjectThreeColor(selectedTexture)
-                            setHovered(true)
-                            
-                        }}
-                        onPointerOut={() => {   
-                            setProjectThreeColor(defaultTexture)
-                            setHovered(false)
-                        }}
-                        position={[-20, -6, 10]}
-                        rotation={[0, 1.570796, 0]}
-                    >
-                        <FontConfig
-                            text={projectTextThree}
-                            fontType="/Sunmore-Slant-Free-Regular.json"
-                            size={size}
-                            texture={projectThreeColor}
-                        />
-                    </group>
-                </group>
-                {/* <ProjectsExamples
-                    exampleState={exampleState}
-                /> */}
-            </>
-        )
-    }
     return (
         <>
-            <ListText/>
+            <group //this group moves the whole list
+                position={[positionX, positionY, positionZ]}
+            >
+                {allItems.map((item, index) => { //each item gets rendered into a component
+                    yStart = yStart - 2 // Moves y coordinate down two each item to create list
+
+                    const textKey = "text" + item.title + index
+                    return (
+                        <PortfolioText
+                            key={textKey}
+                            text={item.title}
+                            xPosition={-20}
+                            yPosition={yStart} //separate each new item in list by y-2
+                            zPosition={10}
+                            yRotation={1.570796}
+                            size={size}
+                            modalInfo={item}
+                            arrowRotation={[0.785, Math.PI, 1.57]}
+                        />
+                    )
+                })}
+            </group>
         </>
     )
 }
