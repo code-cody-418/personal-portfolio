@@ -24,7 +24,7 @@ export default function ReactLogo({ ...props }) {
 
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1;
-  responsiveData.desktopPositionZ = 6;
+  responsiveData.desktopPositionZ = 14;
   responsiveData.desktopPositionY = 0
 
   responsiveData.mobileSize = 0.8;

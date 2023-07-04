@@ -3,6 +3,7 @@ import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import ReactLogo from "../skills-icons/React_logo";
 import { PortfolioText } from "./PortfolioText";
+import Arrow from "./arrow/Arrow";
 
 export const SkillsListText = () => {
     let yStart = 6 //Value that is the first y coordinate for the map
@@ -43,18 +44,27 @@ export const SkillsListText = () => {
                 position={[positionX, positionY, positionZ]}
             >
                 {allItems.map((item, index) => { //each item gets rendered into a component
-                    yStart = yStart - 2 // Moves y cordinate down two each item to create list
+                    yStart = yStart - 2 // Moves y coordinate down two each item to create list
                     return (
-                        < PortfolioText
-                            key={index}
-                            text={item.title}
-                            xPosition={20}
-                            yPosition={yStart} //separate each new item in list by y-2
-                            zPosition={0}
-                            yRotation={-1.570796}
-                            size={size}
-                            modalInfo={item}
-                        />
+                        <>
+                            <PortfolioText
+                                key={index}
+                                text={item.title}
+                                xPosition={20}
+                                yPosition={yStart} //separate each new item in list by y-2
+                                zPosition={0}
+                                yRotation={-1.570796}
+                                size={size}
+                                modalInfo={item}
+                            />
+
+                            <Arrow
+                                xPosition={20}
+                                yPosition={yStart} //separate each new item in list by y-2
+                                zPosition={0}
+                                arrowRotation={[-0.785, 0, 1.57]}
+                            />
+                        </>
                     )
                 })}
             </group>
