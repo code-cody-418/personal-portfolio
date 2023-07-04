@@ -20,27 +20,19 @@ export const ProjectsTitleText = () => {
 
     let loadedTexture = useTexture("/textures/purple_08_matCap.png")
 
-    const TitleText = () => {
-        return (
-            <>
-                <group
-                    position={[positionX, positionY, positionZ]}
-                    rotation={[0, 1.570796, 0]}
-                >
-                    <FontConfig
-                        text="Websites"
-                        fontType="/Saiyan-Sans-Regular.json"
-                        size={size}
-                        texture={loadedTexture}
-                    />
-                </group>
-            </>
-        )
-    }
-
     return (
         <>
-            <TitleText />
+            <group
+                position={[positionX, positionY, positionZ]}
+                rotation={[0, 1.570796, 0]}
+            >
+                <FontConfig
+                    text="Stacks"
+                    fontType="/Saiyan-Sans-Regular.json"
+                    size={size}
+                    texture={loadedTexture}
+                />
+            </group>
         </>
     )
 }

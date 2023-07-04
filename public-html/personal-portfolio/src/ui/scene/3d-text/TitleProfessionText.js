@@ -29,74 +29,67 @@ export const TitleProfessionText = () => {
   let purpleTexture = useTexture("/textures/purple_08_matCap.png")
   let texture02 = useTexture("/textures/purple_09_matCap.png")
 
-  const ProfessionText = () => {
-    //set the state of the icon
-    const [textState, setTextState] = useState("");
-    const [descriptionState, setDescriptionState] = useState("");
-    const [descriptionTexture, setDescriptionTexture] = useState(purpleTexture)
+  //set the state of the icon
+  const [textState, setTextState] = useState("");
+  const [descriptionState, setDescriptionState] = useState("");
+  const [descriptionTexture, setDescriptionTexture] = useState(purpleTexture)
 
-    //Functionality to 30 second timer
-    const [thirtySeconds, setThirtySeconds] = useState(30);
-    const [timerOnOff, setTimerOnOff] = useState(true);
+  //Functionality to 30 second timer
+  const [thirtySeconds, setThirtySeconds] = useState(30);
+  const [timerOnOff, setTimerOnOff] = useState(true);
 
-    useEffect(() => {
-      if (timerOnOff === true) {
-        if (thirtySeconds === -1) {
-          setThirtySeconds(30);
-        } else if (thirtySeconds > -2) {
-          const intervalId = setInterval(() => {
-            setThirtySeconds((thirtySeconds) => thirtySeconds - 1);
-          }, 1000);
-          // console.log("seconds", thirtySeconds)
-          return () => clearInterval(intervalId);
-        }
+  useEffect(() => {
+    if (timerOnOff === true) {
+      if (thirtySeconds === -1) {
+        setThirtySeconds(30);
+      } else if (thirtySeconds > -2) {
+        const intervalId = setInterval(() => {
+          setThirtySeconds((thirtySeconds) => thirtySeconds - 1);
+        }, 1000);
+        // console.log("seconds", thirtySeconds)
+        return () => clearInterval(intervalId);
       }
-    }, [thirtySeconds, timerOnOff]);
+    }
+  }, [thirtySeconds, timerOnOff]);
 
-    useEffect(() => {
-      if (timerOnOff === true) {
-        if (thirtySeconds === 30) {
-          setTextState("");
-        } else if (thirtySeconds === 28) {
-          setTextState("Full ");
-        } else if (thirtySeconds === 26) {
-          setTextState("Full Stack");
-        } else if (thirtySeconds === 24) {
-          setDescriptionState("Developer");
-          setDescriptionTexture(texture02)
-          setTimerOnOff(false);
-        }
+  useEffect(() => {
+    if (timerOnOff === true) {
+      if (thirtySeconds === 30) {
+        setTextState("");
+      } else if (thirtySeconds === 28) {
+        setTextState("Full ");
+      } else if (thirtySeconds === 26) {
+        setTextState("Full Stack");
+      } else if (thirtySeconds === 24) {
+        setDescriptionState("Engineer");
+        setDescriptionTexture(texture02)
+        setTimerOnOff(false);
       }
-    }, [textState, thirtySeconds, timerOnOff]);
+    }
+  }, [textState, thirtySeconds, timerOnOff, texture02]);
 
-    return (
-      <>
-        <group position={[0, 0, 0]}>
-          <group position={[positionX, positionY, -15]} //separate each new item in list by y-2
-            rotation={[0, 0, 0]}>
-            <FontConfig
-              text={textState}
-              fontType="/Sunmore-Slant-Free-Regular.json"
-              size={size}
-              texture={purpleTexture}
-            />
-          </group>
-          <group position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
-            rotation={[0, 0, 0]}>
-            <FontConfig
-              text={descriptionState}
-              fontType="/Sunmore-Slant-Free-Regular.json"
-              size={subSize}
-              texture={descriptionTexture}
-            />
-          </group>
-        </group>
-      </>
-    );
-  };
   return (
     <>
-      <ProfessionText />
+      <group position={[0, 0, 0]}>
+        <group position={[positionX, positionY, -15]} //separate each new item in list by y-2
+          rotation={[0, 0, 0]}>
+          <FontConfig
+            text={textState}
+            fontType="/Sunmore-Slant-Free-Regular.json"
+            size={size}
+            texture={purpleTexture}
+          />
+        </group>
+        <group position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
+          rotation={[0, 0, 0]}>
+          <FontConfig
+            text={descriptionState}
+            fontType="/Sunmore-Slant-Free-Regular.json"
+            size={subSize}
+            texture={descriptionTexture}
+          />
+        </group>
+      </group>
     </>
   );
 };
