@@ -27,7 +27,7 @@ export const EmployersTitleText = () => {
                 rotation={[0, -1.570796, 0]}
             >
                 <FontConfig
-                    text="Past Employment"
+                    text="Experience"
                     fontType="/Saiyan-Sans-Regular.json"
                     size={size}
                     texture={loadedTexture}

@@ -3,17 +3,18 @@ import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
 import { useTexture } from "@react-three/drei";
+import { useModalStore } from "../../utils/store";
 
-export const ContactFormText = () => {
+export const AboutMeText = () => {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1.5;
-  responsiveData.desktopPositionX = 3;
+  responsiveData.desktopPositionX = -15.5;
   responsiveData.desktopPositionY = -9.7;
   responsiveData.desktopPositionZ = -15;
 
   responsiveData.desktopSubWidth = 15
   responsiveData.desktopSubHeight = 3
-  responsiveData.desktopSubPositionX = 10;
+  responsiveData.desktopSubPositionX = -10;
   responsiveData.desktopSubPositionY = -9;
   responsiveData.desktopSubPositionZ = -15
 
@@ -44,10 +45,30 @@ export const ContactFormText = () => {
     [hovered]
   );
 
+   //Modal functions to show modal and to set state of what to display
+   const handleShow = useModalStore((state) => state.showModal)
+   const setModalTitle = useModalStore((state) => state.setModalTitle)
+   const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
+   const setModalDescription = useModalStore((state) => state.setModalDescription)
+
+   //set the modal state when text is clicked
+   const handleTextClick = (modalTitle, modalSubTitle, modalDescription) => {
+       setModalTitle(modalTitle)
+       setModalSubTitle(modalSubTitle)
+       setModalDescription(modalDescription)
+       handleShow()
+   }
+
+   const modalInfo = {
+      title: "About Me",
+      subTitle: "Preparing Data for New Systems",
+      description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
+   }
+
   return (
     <>
       <group
-        onClick={() => (window.location = "/contact-form")}
+        onClick={() => handleTextClick(modalInfo.title, modalInfo.subTitle, modalInfo.description)}
         onPointerOver={() => {
           setHovered(true);
           setButtonColor(selectedButtonTexture);
@@ -59,7 +80,7 @@ export const ContactFormText = () => {
       >
         <group position={[positionX, positionY, positionZ]} >
           <FontConfig
-            text="Contact Me"
+            text="About Me"
             fontType="/Sunmore-Slant-Free-Regular.json"
             size={size}
             texture={loadedTexture}

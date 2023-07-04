@@ -17,6 +17,7 @@ import { Canvas } from "@react-three/fiber";
 import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
 import { MyModal } from "../modal/MyModal";
+import { AboutMeText } from "./3d-text/AboutMeText";
 
 export const ThreeDScene = () => {
   return (
@@ -53,15 +54,15 @@ export const ThreeDScene = () => {
             <TitleText />
             <TitleProfessionText />
 
-            <Mouse01
+            {/* <Mouse01
               position={[3, -8, -15]}
               rotation={[0.4, -1.3, 0.2]}
               scale={0.05}
-            />
+            /> */}
             <HandModel
-              position={[-0.5, -6.5, -15]}
+              position={[-0.5, -4.5, -15]}
               rotation={[0.4, 0, 0]}
-              scale={3}
+              scale={2}
             />
             <Headset
               position={[2, -15, -15]}
@@ -71,6 +72,7 @@ export const ThreeDScene = () => {
             />
 
             <ContactFormText />
+            <AboutMeText />
 
             <StacksTitleText />
             <StacksListText />
