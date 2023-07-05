@@ -8,9 +8,8 @@ import { useGLTF } from '@react-three/drei'
 export default function Arrow({ xPosition, yPosition, zPosition, arrowRotation, texture }) {
   const { nodes, materials } = useGLTF('/arrow_01-transformed.glb')
 
-  // aboutMe = [1.57, 2.094, 0] Websites = [0.785, Math.PI, 1.57] 
   return (
-    <group position={[xPosition, yPosition, zPosition]} rotation={arrowRotation} scale={0.002}>
+    <group position={[xPosition, yPosition + 0.8, zPosition]} rotation={arrowRotation} scale={0.0015}>
       <mesh geometry={nodes.Cube__0.geometry} material={materials.Cube_2__0} />
       <mesh geometry={nodes.Cube_Mat1_0.geometry} material={materials['Mat.1']}>
         <meshMatcapMaterial matcap={texture} />

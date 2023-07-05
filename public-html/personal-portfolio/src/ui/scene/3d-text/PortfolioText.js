@@ -43,7 +43,7 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
             >
                 <group position={[xPosition, yPosition, zPosition]} rotation={[0, yRotation, 0]}>
                     <FontConfig
-                        text={text}
+                        text={" " + text} //add empty space to give arrow padding
                         fontType="/Sunmore-Slant-Free-Regular.json"
                         size={size}
                         texture={hoveredTexture}

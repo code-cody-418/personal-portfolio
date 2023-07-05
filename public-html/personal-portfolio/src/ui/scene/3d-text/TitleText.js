@@ -26,7 +26,7 @@ export const TitleText = () => {
   return (
     <>
       <group position={[0, groupY, 0]}>
-        <group position={[positionX, positionY, -15]}>
+        <group position={[positionX + 2, positionY, -15]}>
           <FontConfig
             text="Codys"
             fontType="/Saiyan-Sans-Regular.json"

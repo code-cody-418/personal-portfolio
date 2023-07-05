@@ -8,12 +8,12 @@ export const TitleProfessionText = () => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1;
-  responsiveData.desktopPositionX = -10;
-  responsiveData.desktopPositionY = -5;
+  responsiveData.desktopPositionX = -8;
+  responsiveData.desktopPositionY = -4;
 
   responsiveData.desktopSubSize = 1;
-  responsiveData.desktopSubPositionX = -0.5;
-  responsiveData.desktopSubPositionY = -5;
+  responsiveData.desktopSubPositionX = 1.5;
+  responsiveData.desktopSubPositionY = -4;
 
   responsiveData.mobileSize = 0.7;
   responsiveData.mobilePositionX = -5;
@@ -32,7 +32,6 @@ export const TitleProfessionText = () => {
   //set the state of the icon
   const [textState, setTextState] = useState("");
   const [descriptionState, setDescriptionState] = useState("");
-  const [descriptionTexture, setDescriptionTexture] = useState(purpleTexture)
 
   //Functionality to 30 second timer
   const [thirtySeconds, setThirtySeconds] = useState(30);
@@ -62,33 +61,28 @@ export const TitleProfessionText = () => {
         setTextState("Full Stack");
       } else if (thirtySeconds === 24) {
         setDescriptionState("Engineer");
-        setDescriptionTexture(texture02)
         setTimerOnOff(false);
       }
     }
-  }, [textState, thirtySeconds, timerOnOff, texture02]);
+  }, [textState, thirtySeconds, timerOnOff]);
 
   return (
     <>
-      <group position={[0, 0, 0]}>
-        <group position={[positionX, positionY, -15]} //separate each new item in list by y-2
-          rotation={[0, 0, 0]}>
-          <FontConfig
-            text={textState}
-            fontType="/Sunmore-Slant-Free-Regular.json"
-            size={size}
-            texture={purpleTexture}
-          />
-        </group>
-        <group position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
-          rotation={[0, 0, 0]}>
-          <FontConfig
-            text={descriptionState}
-            fontType="/Sunmore-Slant-Free-Regular.json"
-            size={subSize}
-            texture={descriptionTexture}
-          />
-        </group>
+      <group position={[positionX, positionY, -15]}>
+        <FontConfig
+          text={textState}
+          fontType="/Sunmore-Slant-Free-Regular.json"
+          size={size}
+          texture={purpleTexture}
+        />
+      </group>
+      <group position={[subPositionX, subPositionY, -15]}>
+        <FontConfig
+          text={descriptionState}
+          fontType="/Sunmore-Slant-Free-Regular.json"
+          size={subSize}
+          texture={texture02}
+        />
       </group>
     </>
   );

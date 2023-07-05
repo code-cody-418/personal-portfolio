@@ -12,7 +12,6 @@ export const Home = () => {
     return (
         <>
             <ThreeDScene />
-            {/* <h1 className="connect">Hello</h1> */}
             <div className="connect-logos">
                 <a href="https://www.linkedin.com/in/code-cody" target={"blank"}>
                     <img src="linked-in-logo-03.png" alt="LinkedIn Logo" className="connect-logo" />

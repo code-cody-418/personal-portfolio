@@ -56,7 +56,7 @@ export const SkillsListText = () => {
                             yRotation={Math.PI}
                             size={size}
                             modalInfo={item}
-                            arrowRotation={[-1.57, -2.094, Math.PI]}
+                            arrowRotation={[-1.57, -2.355, Math.PI]}
                         />
                     )
                 })}
