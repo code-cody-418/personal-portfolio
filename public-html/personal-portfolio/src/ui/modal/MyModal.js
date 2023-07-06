@@ -17,9 +17,15 @@ export const MyModal = () => {
             <Modal show={modalState} onHide={handleClose} size="lg" centered>
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        {modalTitle}
-                        <br />
-                        {modalSubTitle}
+                        <Container>
+                            <Row>
+                                <Col xs={12}>
+                                    {modalTitle}
+                                    <br />
+                                    {modalSubTitle}
+                                </Col>
+                            </Row>
+                        </Container>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="modal-text">
