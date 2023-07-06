@@ -17,4 +17,8 @@ export const useModalStore = create((set) => ({
     //set modal description
     modalDescription: null,
     setModalDescription: (modalDescription) => set(() => ({ modalDescription: modalDescription })),
+
+    //set img
+    modalImg: null,
+    setModalImg: (modalImg) => set(() => ({ modalImg: modalImg })),
 }))

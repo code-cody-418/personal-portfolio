@@ -64,12 +64,12 @@ export const ThreeDScene = () => {
               rotation={[0.4, 0, 0]}
               scale={2}
             />
-            <Headset
+            {/* <Headset
               position={[2, -15, -15]}
               // rotation={[-1.5708, 0, 0]}
               rotation={[0, 0, 0]}
               scale={1}
-            />
+            /> */}
 
             <ContactFormText />
             <AboutMeText />

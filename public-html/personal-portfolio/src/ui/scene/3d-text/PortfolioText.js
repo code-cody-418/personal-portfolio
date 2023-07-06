@@ -10,12 +10,14 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     const setModalTitle = useModalStore((state) => state.setModalTitle)
     const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
     const setModalDescription = useModalStore((state) => state.setModalDescription)
+    const setModalImg = useModalStore((state) => state.setModalImg)
 
     //set the modal state when text is clicked
-    const handleTextClick = (modalTitle, modalSubTitle, modalDescription) => {
-        setModalTitle(modalTitle)
-        setModalSubTitle(modalSubTitle)
-        setModalDescription(modalDescription)
+    const handleTextClick = (modalInfo) => {
+        setModalTitle(modalInfo.title)
+        setModalSubTitle(modalInfo.subTitle)
+        setModalDescription(modalInfo.description)
+        setModalImg(modalInfo.img)
         handleShow()
     }
 
@@ -31,7 +33,7 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     return (
         <>
             <group
-                onClick={() => handleTextClick(modalInfo.title, modalInfo.subTitle, modalInfo.description)}
+                onClick={() => handleTextClick(modalInfo)}
                 onPointerOver={() => {
                     setHoveredTexture(selectedTexture)
                     setHovered(true)

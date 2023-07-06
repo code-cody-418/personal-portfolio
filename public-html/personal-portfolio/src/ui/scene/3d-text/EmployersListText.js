@@ -25,22 +25,26 @@ export const EmployersListText = () => {
         {
             title: "Navajo Nation",
             subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
+            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
+            img: "./redux-icon.png"
         },
         {
             title: "Gesture",
             subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase"
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
         },
         {
             title: "CNM",
             subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
+            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
+            img: null
         },
         {
             title: "Freelance",
             subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase"
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
         },
     ]
 

@@ -1,4 +1,4 @@
-import { Modal } from "react-bootstrap";
+import { Modal, Container, Row, Col, Image } from "react-bootstrap";
 import { useModalStore } from "../utils/store";
 
 export const MyModal = () => {
@@ -10,10 +10,11 @@ export const MyModal = () => {
     const modalTitle = useModalStore((state) => state.modalTitle)
     const modalSubTitle = useModalStore((state => state.modalSubTitle))
     const modalDescription = useModalStore((state) => state.modalDescription)
-    
+    const modalImg = useModalStore((state) => state.modalImg)
+
     return (
         <>
-            <Modal show={modalState} onHide={handleClose}>
+            <Modal show={modalState} onHide={handleClose} size="lg" centered>
                 <Modal.Header closeButton>
                     <Modal.Title>
                         {modalTitle}
@@ -21,8 +22,15 @@ export const MyModal = () => {
                         {modalSubTitle}
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    {modalDescription}
+                <Modal.Body className="modal-text">
+                    <Container>
+                        <Row>
+                            <Col xs={12} md={8}>{modalDescription}</Col>
+                            <Col xs={12} md={4} className="my-auto d-block text-center">
+                                {modalImg ? <Image src={modalImg} alt="Me" roundedCircle fluid /> : null}
+                            </Col>
+                        </Row>
+                    </Container>
                 </Modal.Body>
             </Modal>
         </>

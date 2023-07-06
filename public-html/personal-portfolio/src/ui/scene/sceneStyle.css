@@ -42,3 +42,7 @@ body {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+
+.modal-text {
+  white-space: pre-line;
+}

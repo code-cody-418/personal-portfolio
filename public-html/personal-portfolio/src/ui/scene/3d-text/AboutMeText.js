@@ -45,31 +45,35 @@ export const AboutMeText = () => {
     [hovered]
   );
 
-   //Modal functions to show modal and to set state of what to display
-   const handleShow = useModalStore((state) => state.showModal)
-   const setModalTitle = useModalStore((state) => state.setModalTitle)
-   const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
-   const setModalDescription = useModalStore((state) => state.setModalDescription)
+  //Modal functions to show modal and to set state of what to display
+  const handleShow = useModalStore((state) => state.showModal)
+  const setModalTitle = useModalStore((state) => state.setModalTitle)
+  const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
+  const setModalDescription = useModalStore((state) => state.setModalDescription)
+  const setModalImg = useModalStore((state) => state.setModalImg)
 
-   //set the modal state when text is clicked
-   const handleTextClick = (modalTitle, modalSubTitle, modalDescription) => {
-       setModalTitle(modalTitle)
-       setModalSubTitle(modalSubTitle)
-       setModalDescription(modalDescription)
-       handleShow()
-   }
 
-   // To change about me Info simply change the modalInfo Object below
-   const modalInfo = {
-      title: "About Me",
-      subTitle: "Preparing Data for New Systems",
-      description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
-   }
+  //set the modal state when text is clicked
+  const handleTextClick = (modalInfo) => {
+    setModalTitle(modalInfo.title)
+    setModalSubTitle(modalInfo.subTitle)
+    setModalDescription(modalInfo.description)
+    setModalImg(modalInfo.img)
+    handleShow()
+  }
+
+  // To change about me Info simply change the modalInfo Object below
+  const modalInfo = {
+    title: "About Me",
+    subTitle: null,
+    description: "Hello, I'm Cody Slama, a passionate software developer dedicated to crafting efficient and innovative solutions. With 2 years of experience in the field, I have developed a strong foundation in software development, honing my skills in JavaScript, data integration, and much more. \n \n I thrive on the challenges that come with creating robust software applications, and I'm constantly seeking new ways to expand my knowledge and stay at the forefront of emerging technologies. My expertise lies in full-stack web development. I pride myself on writing clean and maintainable code, ensuring scalability and performance while adhering to best practices. \n \n Thank you for visiting my portfolio. Please take a chance to explore my skills and experiences to gain a deeper understanding of my capabilities. You can also visit my GitHub and LinkedIn page to see my code and learn more about me. If you have any questions or are interested in working with me please don't hesitate to reach out. I look forward to connecting with you.",
+    img: "./vivi-logo.jpg"
+  }
 
   return (
     <>
       <group
-        onClick={() => handleTextClick(modalInfo.title, modalInfo.subTitle, modalInfo.description)}
+        onClick={() => handleTextClick(modalInfo)}
         onPointerOver={() => {
           setHovered(true);
           setButtonColor(selectedButtonTexture);

@@ -25,12 +25,14 @@ export const StacksListText = () => {
         {
             title: "React",
             subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones"
+            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
+            img: "react-icon.png"
         },
         {
             title: "Java Script",
             subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase"
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
         }
     ]
 
