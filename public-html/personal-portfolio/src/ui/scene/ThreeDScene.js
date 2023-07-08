@@ -18,6 +18,7 @@ import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
 import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
+import Planet01 from "./planets/Planet-01";
 
 export const ThreeDScene = () => {
   return (
@@ -91,6 +92,8 @@ export const ThreeDScene = () => {
               saturation={0}
               fade
             />
+
+            <Planet01 />
           </XR>
         </Canvas>
       </Suspense>
