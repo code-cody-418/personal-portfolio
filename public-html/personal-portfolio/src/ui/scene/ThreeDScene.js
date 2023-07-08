@@ -49,8 +49,8 @@ export const ThreeDScene = () => {
             // maxAzimuthAngle={1.57}
             />
 
-            <ambientLight intensity={0.5} />
-            {/* <directionalLight color={"0xffffff"} intensity={100} /> */}
+            <ambientLight intensity={0.3} />
+            <directionalLight position={[0, -10, 0]} intensity={1} />            
 
             <TitleText />
             <TitleProfessionText />

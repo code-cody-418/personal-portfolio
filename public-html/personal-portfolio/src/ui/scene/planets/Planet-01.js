@@ -7,26 +7,32 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
 export default function Planet01() {
+  const fullPlanet = useRef()
   const planet = useRef()
   const clouds = useRef()
   const { nodes, materials } = useGLTF('/planets/planet-01-transformed.glb')
 
   //animate the planet and clouds at different speeds
   useFrame(({ clock }) => {
-    planet.current.rotation.z = clock.getElapsedTime() / 2
-    clouds.current.rotation.z = clock.getElapsedTime() / 4
+    planet.current.rotation.z = clock.getElapsedTime() / 8
+    clouds.current.rotation.z = clock.getElapsedTime() / 6 //rotate clouds slightly slower than planet
+
+    // Planet in orbit
+    fullPlanet.current.position.x = Math.cos(clock.getElapsedTime() / 10) * -150
+    fullPlanet.current.position.y = Math.cos(clock.getElapsedTime() / 12) * 30
+    fullPlanet.current.position.z = Math.sin(clock.getElapsedTime() / 10) * -50
   })
 
   return (
-    <group rotation={[-Math.PI / 2, .30, 0]} scale={1.02}>
-      <group ref={clouds}>
-        <mesh geometry={nodes.Clouds_1_0.geometry} material={materials.Clouds_1} />
+    <group ref={fullPlanet} rotation={[-Math.PI / 2, .50, 0]} scale={30}>
+        <group ref={clouds}>
+          <mesh geometry={nodes.Clouds_1_0.geometry} material={materials.Clouds_1} />
+        </group>
+        <group ref={planet}>
+          <mesh geometry={nodes.Clouds_0_0.geometry} material={materials.Clouds_0} />
+          <mesh geometry={nodes.Planet_0.geometry} material={materials.PurplePlanet} />
+        </group>
       </group>
-      <group ref={planet}>
-        <mesh geometry={nodes.Clouds_0_0.geometry} material={materials.Clouds_0} />
-        <mesh geometry={nodes.Planet_0.geometry} material={materials.PurplePlanet} />
-      </group>
-    </group>
   )
 }
 
