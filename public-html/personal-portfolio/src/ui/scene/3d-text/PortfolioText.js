@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useTexture } from "@react-three/drei"
 import { FontConfig } from "./FontConfig"
 import { useModalStore } from "../../utils/store"
@@ -29,7 +29,6 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     //sets cursor on hover
     const [hovered, setHovered] = useState(false)
     useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
-
     return (
         <>
             <group

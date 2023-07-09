@@ -12,7 +12,7 @@ export default function Planet01() {
   const clouds = useRef()
   const { nodes, materials } = useGLTF('/planets/planet-01-transformed.glb')
 
-  //animate the planet and clouds at different speeds
+  //animates the position and rotation of the planet and clouds
   useFrame(({ clock }) => {
     planet.current.rotation.z = clock.getElapsedTime() / 8
     clouds.current.rotation.z = clock.getElapsedTime() / 6 //rotate clouds slightly slower than planet
@@ -24,7 +24,7 @@ export default function Planet01() {
   })
 
   return (
-    <group ref={fullPlanet} rotation={[-Math.PI / 2, .50, 0]} scale={30}>
+    <group ref={fullPlanet} rotation={[-Math.PI / 2, 0.50, 0]} scale={30}>
         <group ref={clouds}>
           <mesh geometry={nodes.Clouds_1_0.geometry} material={materials.Clouds_1} />
         </group>
