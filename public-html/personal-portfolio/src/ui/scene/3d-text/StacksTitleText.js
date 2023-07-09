@@ -28,7 +28,7 @@ export const StacksTitleText = () => {
             >
                 <FontConfig
                     text="Stacks"
-                    fontType="/Saiyan-Sans-Regular.json"
+                    fontType="title"
                     size={size}
                     texture={loadedTexture}
                 />

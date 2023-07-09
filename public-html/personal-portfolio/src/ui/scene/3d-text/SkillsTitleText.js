@@ -24,7 +24,7 @@ export const SkillsTitleText = () => {
             <group position={[positionX, positionY, positionZ]} rotation={[0, Math.PI, 0]}>
                 <FontConfig
                     text="Tech Skills"
-                    fontType="/Saiyan-Sans-Regular.json"
+                    fontType="title"
                     size={size}
                     texture={loadedTexture}
                 />

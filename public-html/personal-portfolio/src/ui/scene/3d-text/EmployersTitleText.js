@@ -28,7 +28,7 @@ export const EmployersTitleText = () => {
             >
                 <FontConfig
                     text="Experience"
-                    fontType="/Saiyan-Sans-Regular.json"
+                    fontType="title"
                     size={size}
                     texture={loadedTexture}
                 />

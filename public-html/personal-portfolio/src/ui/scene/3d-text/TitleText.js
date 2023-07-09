@@ -3,6 +3,7 @@ import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
 import { useTexture } from "@react-three/drei";
+import helvetiket from "three/examples/fonts/helvetiker_bold.typeface.json"
 
 export const TitleText = () => {
   //set responsive values
@@ -28,16 +29,16 @@ export const TitleText = () => {
       <group position={[0, groupY, 0]}>
         <group position={[positionX + 2, positionY, -15]}>
           <FontConfig
-            text="Codys"
-            fontType="/Saiyan-Sans-Regular.json"
+            text="CODY'S"
+            fontType="title"
             size={size}
             texture={loadedTexture}
           />
         </group>
         <group position={[positionX, 0, -15]}>
           <FontConfig
-            text="Portfolio"
-            fontType="/Saiyan-Sans-Regular.json"
+            text="PORTFOLIO"
+            fontType="title"
             size={size}
             texture={loadedTexture}
           />
