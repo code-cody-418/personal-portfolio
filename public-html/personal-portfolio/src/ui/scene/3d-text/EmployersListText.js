@@ -24,26 +24,26 @@ export const EmployersListText = () => {
     const allItems = [
         {
             title: "Navajo Nation",
-            subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
+            subTitle: "Programmer Analyst",
+            description: "With the Navajo Nation I rebuilt a website, conducted a data transfer, built a Help Desk application, and maintained VM infrastructure. WIth the website, I used modern styling techniques to create a mobile responsive site using the Bootstrap library. Also, old hard coded data was converted to display dynamically and a search algorithm was added that could filter job data. On the other hand, I successfully transferred over 2 million documents from an old database to a new one. This was done using the extraction, transformation, and loading methodology. The data was extracted into CSV format, transformed using JavaScript, and then loaded using the database CMS gui.",
             img: "./redux-icon.png"
         },
         {
             title: "Gesture",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "Intern Backend Engineer",
+            description: "At Gesture, I built ETL pipelines for data syncing between our databases and the Salesforce       CRM. To do this I had to authenticate requests to Salesforce using JWT tokens and certificates. Then I created an express server, utilizing Google Firebase functions, with a trigger that would sync our new data to Salesforce. Lastly, webhooks were utilized, using Flow and Outbound Messages, to update our database directly from Salesforce.",
             img: null
         },
         {
             title: "CNM",
-            subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
+            subTitle: "Assistant Instructor",
+            description: "At this bootcamp I taught students how to build Web Applications using a modified MERN Stack. Other tools shown to students included git and Docker. With this stack and tools I helped students successfully create full blown web apps. Students were also taught how to build RESTful api’s, as well as how to develop data-downloader’s to store external API data.",
             img: null
         },
         {
             title: "Freelance",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "Web Developer",
+            description: "My job was building websites to meet the clients needs. Clients required 3d websites, which were created using threeJS. These sites consisted of walking characters and environments. One project also required multiple users to be in one room, so socket.io was utilized to create a server with UDP sockets that allowed multiple users to wander around a room together.",
             img: null
         },
     ]
