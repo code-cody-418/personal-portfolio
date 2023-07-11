@@ -29,7 +29,31 @@ export const StacksListText = () => {
             img: "react-icon.png"
         },
         {
-            title: "Java Script",
+            title: "JavaScript/CSS/HTML",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
+        },
+        {
+            title: "YAML",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
+        },
+        {
+            title: "FileMaker",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
+        },
+        {
+            title: "Express",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: null
+        },
+        {
+            title: "Node",
             subTitle: "Synchronizing Data",
             description: "Gesture synchronized data between two Salesforce and Google Firebase",
             img: null

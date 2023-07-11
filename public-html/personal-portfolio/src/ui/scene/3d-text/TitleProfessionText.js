@@ -8,12 +8,12 @@ export const TitleProfessionText = () => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1;
-  responsiveData.desktopPositionX = -8;
-  responsiveData.desktopPositionY = -4;
+  responsiveData.desktopPositionX = -6.5;
+  responsiveData.desktopPositionY = -1;
 
   responsiveData.desktopSubSize = 1;
-  responsiveData.desktopSubPositionX = 1.5;
-  responsiveData.desktopSubPositionY = -4;
+  responsiveData.desktopSubPositionX = 0;
+  responsiveData.desktopSubPositionY = -1;
 
   responsiveData.mobileSize = 0.7;
   responsiveData.mobilePositionX = -5;

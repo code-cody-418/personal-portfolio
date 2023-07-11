@@ -23,7 +23,7 @@ export const SkillsTitleText = () => {
         <>
             <group position={[positionX, positionY, positionZ]} rotation={[0, Math.PI, 0]}>
                 <FontConfig
-                    text="Tech Skills"
+                    text="TECH SKILLS"
                     fontType="title"
                     size={size}
                     texture={loadedTexture}

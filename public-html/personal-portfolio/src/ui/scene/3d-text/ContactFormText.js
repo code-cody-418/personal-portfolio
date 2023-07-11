@@ -7,8 +7,8 @@ import { useTexture } from "@react-three/drei";
 export const ContactFormText = () => {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1.5;
-  responsiveData.desktopPositionX = 3;
-  responsiveData.desktopPositionY = -9.7;
+  responsiveData.desktopPositionX = 2;
+  responsiveData.desktopPositionY = -6;
   responsiveData.desktopPositionZ = -15;
 
   responsiveData.desktopSubWidth = 15
@@ -65,7 +65,7 @@ export const ContactFormText = () => {
             texture={loadedTexture}
           />
         </group>
-        <mesh //this is the contact form button as a Plane geometry
+        {/* <mesh //this is the contact form button as a Plane geometry
           position={[
             subPositionX,
             subPositionY,
@@ -76,7 +76,7 @@ export const ContactFormText = () => {
             args={[subWidth, subHeight]}
           />
           <meshMatcapMaterial matcap={buttonColor} />
-        </mesh>
+        </mesh> */}
       </group>
     </>
   );

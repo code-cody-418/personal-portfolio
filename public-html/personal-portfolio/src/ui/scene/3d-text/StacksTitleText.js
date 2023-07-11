@@ -27,7 +27,7 @@ export const StacksTitleText = () => {
                 rotation={[0, 1.570796, 0]}
             >
                 <FontConfig
-                    text="Stacks"
+                    text="STACK"
                     fontType="title"
                     size={size}
                     texture={loadedTexture}

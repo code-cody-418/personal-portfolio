@@ -26,17 +26,47 @@ export const SkillsListText = () => {
     // To add new item simple create a new object with the required keys and values
     const allItems = [
         {
-            title: "ETL",
+            title: "ETL & Data Integration",
             subTitle: "Preparing Data for New Systems",
             description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
             img: null
         },
         {
-            title: "Data Integration",
+            title: "REST API's",
             subTitle: "Synchronizing Data",
             description: "Gesture synchronized data between two Salesforce and Google Firebase",
             img: "./redux-icon.png"
-        }
+        },
+        {
+            title: "Relational DB's",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "Git & GitHub",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "Containerization",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "DNS",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "Cloud Computing",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
     ]
 
     return (

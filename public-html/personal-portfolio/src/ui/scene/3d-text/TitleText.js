@@ -3,13 +3,12 @@ import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
 import { useTexture } from "@react-three/drei";
-import helvetiket from "three/examples/fonts/helvetiker_bold.typeface.json"
 
 export const TitleText = () => {
   //set responsive values
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 5;
-  responsiveData.desktopPositionX = -9;
+  responsiveData.desktopSize = 3;
+  responsiveData.desktopPositionX = -11;
   responsiveData.desktopPositionY = 6;
 
   responsiveData.desktopGroupY = 0;
@@ -27,7 +26,7 @@ export const TitleText = () => {
   return (
     <>
       <group position={[0, groupY, 0]}>
-        <group position={[positionX + 2, positionY, -15]}>
+        <group position={[positionX + 3.5, positionY, -15]}>
           <FontConfig
             text="CODY'S"
             fontType="title"
@@ -35,7 +34,7 @@ export const TitleText = () => {
             texture={loadedTexture}
           />
         </group>
-        <group position={[positionX, 0, -15]}>
+        <group position={[positionX, 2, -15]}>
           <FontConfig
             text="PORTFOLIO"
             fontType="title"
