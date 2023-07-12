@@ -15,7 +15,7 @@ export const MyModal = () => {
     return (
         <>
             <Modal show={modalState} onHide={handleClose} size="lg" centered>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="text-white bg-dark bg-gradient">
                     <Modal.Title>
                         <Container>
                             <Row>
@@ -28,10 +28,10 @@ export const MyModal = () => {
                         </Container>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="modal-text">
+                <Modal.Body className="text-white bg-dark bg-gradient modal-text">
                     <Container>
                         <Row>
-                            <Col xs={12} md={8}>{modalDescription}</Col>
+                            <Col xs={12} md={8} className="my-auto">{modalDescription}</Col>
                             <Col xs={12} md={4} className="my-auto d-block text-center">
                                 {modalImg ? <Image src={modalImg} alt="Me" roundedCircle fluid /> : null}
                             </Col>

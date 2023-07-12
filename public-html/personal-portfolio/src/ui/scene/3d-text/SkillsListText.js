@@ -28,14 +28,14 @@ export const SkillsListText = () => {
         {
             title: "ETL & Data Integration",
             subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
-            img: null
+            description: "As an experienced data professional, I have honed my expertise in Extract, Transform, and Load (ETL) processes, playing a pivotal role in enabling seamless data integration. In previous jobs, I've transferred multi-million row datasets. I've extracted data from databases and files, ensuring its accuracy and completeness. With a deep understanding of data manipulation techniques, I transformed the extracted data using JavaScript to meet specific requirements. Finally, employing efficient loading mechanisms, I’ve loaded the transformed data into the target systems. With my strong understanding of ETL methodologies, I am dedicated to delivering optimized data pipelines that drive operational efficiency and foster informed decision-making.",
+            img: "./skills/etl-example.png"
         },
         {
             title: "REST API's",
             subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
-            img: "./redux-icon.png"
+            description: "As a skilled developer, I have extensive expertise designing and implementing RestFul API’s used for data synchronization. Data between two databases needed to synchronize, so when data changed in one place it would change in the other. This was implemented utilizing various principles like HTTP Methods, Database triggers and CRUD operations.",
+            img: "./skills/rest-example.jpg"
         },
         {
             title: "Relational DB's",

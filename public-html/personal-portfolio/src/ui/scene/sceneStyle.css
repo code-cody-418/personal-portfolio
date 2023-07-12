@@ -46,3 +46,7 @@ body {
 .modal-text {
   white-space: pre-line;
 }
+
+.close {
+  color: white !important;
+}
