@@ -83,7 +83,7 @@ export const SkillsListText = () => {
                             key={textKey}
                             text={item.title}
                             xPosition={0}
-                            yPosition={yStart} //separate each new item in list by y-2
+                            yPosition={yStart}
                             zPosition={0}
                             yRotation={Math.PI}
                             size={size}

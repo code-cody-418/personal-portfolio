@@ -7,10 +7,7 @@ export const MyModal = () => {
     const handleClose = useModalStore((state) => state.closeModal)
 
     // Modal contents
-    const modalTitle = useModalStore((state) => state.modalTitle)
-    const modalSubTitle = useModalStore((state => state.modalSubTitle))
-    const modalDescription = useModalStore((state) => state.modalDescription)
-    const modalImg = useModalStore((state) => state.modalImg)
+    const allModalInfo = useModalStore((state) => state.allModalInfo)
 
     return (
         <>
@@ -20,9 +17,9 @@ export const MyModal = () => {
                         <Container>
                             <Row>
                                 <Col xs={12}>
-                                    {modalTitle}
+                                    {allModalInfo?.title}
                                     <br />
-                                    {modalSubTitle}
+                                    {allModalInfo?.subTitle}
                                 </Col>
                             </Row>
                         </Container>
@@ -31,9 +28,9 @@ export const MyModal = () => {
                 <Modal.Body className="text-white bg-dark bg-gradient modal-text">
                     <Container>
                         <Row>
-                            <Col xs={12} md={8} className="my-auto">{modalDescription}</Col>
+                            <Col xs={12} md={8} className="my-auto">{allModalInfo?.description}</Col>
                             <Col xs={12} md={4} className="my-auto d-block text-center">
-                                {modalImg ? <Image src={modalImg} alt="Me" roundedCircle fluid /> : null}
+                                {allModalInfo?.img ? <Image src={allModalInfo?.img} alt="Me" roundedCircle fluid /> : null}
                             </Col>
                         </Row>
                     </Container>

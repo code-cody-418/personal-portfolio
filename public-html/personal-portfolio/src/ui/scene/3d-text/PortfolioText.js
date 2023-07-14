@@ -7,17 +7,11 @@ import Arrow from "./arrow/Arrow"
 export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation, size, modalInfo, arrowRotation, sectionType }) => {
     //Modal functions to show modal and to set state of what to display
     const handleShow = useModalStore((state) => state.showModal)
-    const setModalTitle = useModalStore((state) => state.setModalTitle)
-    const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
-    const setModalDescription = useModalStore((state) => state.setModalDescription)
-    const setModalImg = useModalStore((state) => state.setModalImg)
+    const setAllModalInfo = useModalStore((state) => state.setAllModalInfo)
 
     //set the modal state when text is clicked
     const handleTextClick = (modalInfo) => {
-        setModalTitle(modalInfo.title)
-        setModalSubTitle(modalInfo.subTitle)
-        setModalDescription(modalInfo.description)
-        setModalImg(modalInfo.img)
+        setAllModalInfo(modalInfo)
         handleShow()
     }
 
@@ -37,8 +31,10 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     let selectionAdjustmentZ = 0
 
     if (sectionType === "aboutMe") {
-        selectionAdjustmentX = -10
-    } else if (sectionType === "employers") {
+        selectionAdjustmentX = 10
+    } else if (sectionType === "contactMe") {
+        selectionAdjustmentX = 20
+    }else if (sectionType === "employers") {
         selectionAdjustmentZ = 11
     } else if (sectionType === "skills") {
         selectionAdjustmentX = -11
@@ -75,7 +71,7 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
                     setHovered(false)
                 }}
             >
-                <mesh //selection material 
+                <mesh //selection material with adjustments for each section 
                     position={[
                         xPosition + selectionAdjustmentX,
                         yPosition + 0.8,
@@ -83,9 +79,11 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
                     ]}
                     rotation={[0, yRotation, 0]}
                 >
-                    <planeGeometry args={[25, 1.2]}/>
-                    <meshBasicMaterial map={transparentTexture} alphaTest={0.5} />
-                    {/* <meshMatcapMaterial matcap={transparentTexture} /> */}
+                    <planeGeometry args={[25, 1.2]} />
+                    {/* <meshBasicMaterial map={transparentTexture} alphaTest={0.5} /> */}
+
+                    {/* uncomment to see selection plane  */}
+                    <meshMatcapMaterial matcap={defaultTexture} />
                 </mesh>
             </group>
         </>

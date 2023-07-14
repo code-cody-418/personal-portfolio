@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import { FontConfig } from "./FontConfig";
-import { useTexture } from "@react-three/drei";
-import { useModalStore } from "../../utils/store";
+import { PortfolioText } from "./PortfolioText";
 
 export const AboutMeText = () => {
   const responsiveData = new Responsive();
@@ -12,55 +10,12 @@ export const AboutMeText = () => {
   responsiveData.desktopPositionY = -6;
   responsiveData.desktopPositionZ = -15;
 
-  responsiveData.desktopSubWidth = 15
-  responsiveData.desktopSubHeight = 3
-  responsiveData.desktopSubPositionX = -10;
-  responsiveData.desktopSubPositionY = -9;
-  responsiveData.desktopSubPositionZ = -15
-
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
   responsiveData.mobilePositionY = -7;
   responsiveData.mobilePositionZ = -15;
 
-  responsiveData.mobileSubWidth = 11
-  responsiveData.mobileSubHeight = 2
-  responsiveData.mobileSubPositionX = -0.5;
-  responsiveData.mobileSubPositionY = -6.5;
-  responsiveData.mobileSubPositionZ = -15
-
-  const { size, positionX, positionY, positionZ, subWidth, subHeight, subPositionX, subPositionY, subPositionZ } =
-    useResponsive(responsiveData);
-
-  let loadedTexture = useTexture("/textures/purple_08_matCap.png")
-  let defaultButtonTexture = useTexture("/textures/blue_03_matCap.png")
-  let selectedButtonTexture = useTexture("/textures/purple_09_matCap.png")
-
-  const [buttonColor, setButtonColor] = useState(defaultButtonTexture);
-
-  //hover cursor change
-  const [hovered, setHovered] = useState(false);
-  useEffect(
-    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
-    [hovered]
-  );
-
-  //Modal functions to show modal and to set state of what to display
-  const handleShow = useModalStore((state) => state.showModal)
-  const setModalTitle = useModalStore((state) => state.setModalTitle)
-  const setModalSubTitle = useModalStore((state) => state.setModalSubTitle)
-  const setModalDescription = useModalStore((state) => state.setModalDescription)
-  const setModalImg = useModalStore((state) => state.setModalImg)
-
-
-  //set the modal state when text is clicked
-  const handleTextClick = (modalInfo) => {
-    setModalTitle(modalInfo.title)
-    setModalSubTitle(modalInfo.subTitle)
-    setModalDescription(modalInfo.description)
-    setModalImg(modalInfo.img)
-    handleShow()
-  }
+  const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
   // To change about me Info simply change the modalInfo Object below
   const modalInfo = {
@@ -72,37 +27,18 @@ export const AboutMeText = () => {
 
   return (
     <>
-      <group
-        onClick={() => handleTextClick(modalInfo)}
-        onPointerOver={() => {
-          setHovered(true);
-          setButtonColor(selectedButtonTexture);
-        }}
-        onPointerOut={() => {
-          setHovered(false);
-          setButtonColor(defaultButtonTexture);
-        }}
-      >
-        <group position={[positionX, positionY, positionZ]} >
-          <FontConfig
-            text="About Me"
-            fontType="/Sunmore-Slant-Free-Regular.json"
-            size={size}
-            texture={loadedTexture}
-          />
-        </group>
-        {/* <mesh //this is the contact form button as a Plane geometry
-          position={[
-            subPositionX,
-            subPositionY,
-            subPositionZ,
-          ]}
-        >
-          <planeGeometry
-            args={[subWidth, subHeight]}
-          />
-          <meshMatcapMaterial matcap={buttonColor} />
-        </mesh> */}
+      <group position={[positionX, positionY, positionZ]} >
+        <PortfolioText
+          text={modalInfo.title}
+          xPosition={0}
+          yPosition={0}
+          zPosition={0}
+          yRotation={0}
+          size={size}
+          modalInfo={modalInfo}
+          arrowRotation={[-1.57, -2.355, Math.PI]}
+          sectionType="aboutMe"
+        />
       </group>
     </>
   );
