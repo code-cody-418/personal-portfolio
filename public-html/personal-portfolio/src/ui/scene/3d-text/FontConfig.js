@@ -14,7 +14,7 @@ export const FontConfig = ({ text, fontType, size, texture }) => {
         font={font}
         size={size}
         height={0.1}
-        curveSegments={4} //careful making higher! Will cause lag!!
+        curveSegments={6} //change this value to lower triangles
         bevelEnabled={true}
         bevelThickness={0.1}
         bevelSize={0.02}

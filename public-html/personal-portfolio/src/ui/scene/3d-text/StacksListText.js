@@ -74,12 +74,13 @@ export const StacksListText = () => {
                             key={textKey}
                             text={item.title}
                             xPosition={-20}
-                            yPosition={yStart} //separate each new item in list by y-2
+                            yPosition={yStart}
                             zPosition={10}
                             yRotation={1.570796}
                             size={size}
                             modalInfo={item}
                             arrowRotation={[0.785, Math.PI, 1.57]}
+                            sectionType="stack"
                         />
                     )
                 })}

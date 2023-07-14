@@ -68,6 +68,7 @@ export const EmployersListText = () => {
                             size={size}
                             modalInfo={item}
                             arrowRotation={[-0.785, 0, 1.57]}
+                            sectionType="employers"
                         />
                     )
                 })}
