@@ -26,6 +26,8 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     let selectedTexture = useTexture("/textures/gold_01_matCap.png")
     const [hoveredTexture, setHoveredTexture] = useState(defaultTexture)
 
+    let transparentTexture = useTexture("/transparent.png")
+
     //sets cursor on hover
     const [hovered, setHovered] = useState(false)
     useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
@@ -43,7 +45,6 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     } else if (sectionType === "stack") {
         selectionAdjustmentZ = -11
     }
-
     return (
         <>
 
@@ -74,7 +75,7 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
                     setHovered(false)
                 }}
             >
-                <mesh
+                <mesh //selection material 
                     position={[
                         xPosition + selectionAdjustmentX,
                         yPosition + 0.8,
@@ -82,12 +83,9 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
                     ]}
                     rotation={[0, yRotation, 0]}
                 >
-                    <planeGeometry
-                        args={[25, 1.2]}
-                        
-                    />
-                    <meshBasicMaterial transparent="true" opacity={0} />
-                    {/* <meshMatcapMaterial matcap={hoveredTexture} /> */}
+                    <planeGeometry args={[25, 1.2]}/>
+                    <meshBasicMaterial map={transparentTexture} alphaTest={0.5} />
+                    {/* <meshMatcapMaterial matcap={transparentTexture} /> */}
                 </mesh>
             </group>
         </>
