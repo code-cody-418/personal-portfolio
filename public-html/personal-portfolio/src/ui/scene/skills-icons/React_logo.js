@@ -23,20 +23,22 @@ export default function ReactLogo({ ...props }) {
   })
 
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 1;
-  responsiveData.desktopPositionZ = 14;
-  responsiveData.desktopPositionY = 0
+  responsiveData.desktopSize = 0.6;
+  responsiveData.desktopPositionX = 7;
+  responsiveData.desktopPositionY = -6
+  responsiveData.desktopPositionZ = -15;
 
-  responsiveData.mobileSize = 0.8;
-  responsiveData.mobilePositionZ = 0;
+  responsiveData.mobileSize = 0.5;
+  responsiveData.mobilePositionX = 0;
   responsiveData.mobilePositionY = -12
+  responsiveData.mobilePositionZ = 0;
 
-  const { size, positionZ, positionY } = useResponsive(responsiveData);
+  const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
   return (
     <group
       ref={logo}
-      position={[20, positionY, positionZ]}
+      position={[positionX  , positionY, positionZ]}
       rotation={[0, -1.570796, 1.5]}
       scale={size}>
       <mesh geometry={nodes['React-Logo_Material002_0'].geometry} material={materials['Material.002']} />

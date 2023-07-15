@@ -4,7 +4,7 @@ import { FontConfig } from "./FontConfig"
 import { useModalStore } from "../../utils/store"
 import Arrow from "./arrow/Arrow"
 
-export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation, size, modalInfo, arrowRotation, sectionType }) => {
+export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation, size, modalInfo, arrowRotation, sectionType, arrowHide, selectionSize }) => {
     //Modal functions to show modal and to set state of what to display
     const handleShow = useModalStore((state) => state.showModal)
     const setAllModalInfo = useModalStore((state) => state.setAllModalInfo)
@@ -31,15 +31,20 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     let selectionAdjustmentZ = 0
 
     if (sectionType === "aboutMe") {
-        selectionAdjustmentX = 10
+        selectionAdjustmentX = 6
     } else if (sectionType === "contactMe") {
-        selectionAdjustmentX = 20
-    }else if (sectionType === "employers") {
+        selectionAdjustmentX = 6
+    } else if (sectionType === "employers") {
         selectionAdjustmentZ = 11
     } else if (sectionType === "skills") {
         selectionAdjustmentX = -11
     } else if (sectionType === "stack") {
         selectionAdjustmentZ = -11
+    }
+
+    //sets a default selectionSize
+    if (selectionSize === undefined) {
+        selectionSize = [25, 1.2]
     }
     return (
         <>
@@ -52,13 +57,19 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
                     texture={hoveredTexture}
                 />
             </group>
-            <Arrow
-                xPosition={xPosition}
-                yPosition={yPosition}
-                zPosition={zPosition}
-                arrowRotation={arrowRotation}
-                texture={hoveredTexture}
-            />
+            {   //Hide the arrow if true
+                arrowHide ? (
+                    null
+                ) : (
+                    <Arrow
+                        xPosition={xPosition}
+                        yPosition={yPosition}
+                        zPosition={zPosition}
+                        arrowRotation={arrowRotation}
+                        texture={hoveredTexture}
+                    />
+                )
+            }
 
             <group //selection group with a mesh to prevent lag
                 onClick={() => handleTextClick(modalInfo)}
@@ -79,11 +90,11 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
                     ]}
                     rotation={[0, yRotation, 0]}
                 >
-                    <planeGeometry args={[25, 1.2]} />
-                    {/* <meshBasicMaterial map={transparentTexture} alphaTest={0.5} /> */}
+                    <planeGeometry args={selectionSize} />
+                    <meshBasicMaterial map={transparentTexture} alphaTest={0.5} />
 
                     {/* uncomment to see selection plane  */}
-                    <meshMatcapMaterial matcap={defaultTexture} />
+                    {/* <meshMatcapMaterial matcap={defaultTexture} /> */}
                 </mesh>
             </group>
         </>

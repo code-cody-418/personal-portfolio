@@ -1,7 +1,6 @@
 import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-import ReactLogo from "../skills-icons/React_logo";
 import { PortfolioText } from "./PortfolioText";
 
 export const SkillsListText = () => {
@@ -94,7 +93,6 @@ export const SkillsListText = () => {
                     )
                 })}
             </group>
-            <ReactLogo />
         </>
     )
 }

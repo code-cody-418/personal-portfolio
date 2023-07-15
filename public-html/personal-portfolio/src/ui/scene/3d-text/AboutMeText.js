@@ -7,7 +7,7 @@ export const AboutMeText = () => {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1.5;
   responsiveData.desktopPositionX = -12.5;
-  responsiveData.desktopPositionY = -6;
+  responsiveData.desktopPositionY = -4;
   responsiveData.desktopPositionZ = -15;
 
   responsiveData.mobileSize = 1;
@@ -36,8 +36,10 @@ export const AboutMeText = () => {
           yRotation={0}
           size={size}
           modalInfo={modalInfo}
-          arrowRotation={[-1.57, -2.355, Math.PI]}
+          arrowRotation={[1.57, -2.355, Math.PI]}
           sectionType="aboutMe"
+          arrowHide={true}
+          selectionSize={[12, 1.2]}
         />
       </group>
     </>

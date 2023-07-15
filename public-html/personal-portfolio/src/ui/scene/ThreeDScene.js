@@ -16,6 +16,7 @@ import { Perf } from "r3f-perf";
 import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
 import Planet01 from "./planets/Planet-01";
+import ReactLogo from "./skills-icons/React_logo";
 
 export const ThreeDScene = () => {
   return (
@@ -72,6 +73,8 @@ export const ThreeDScene = () => {
               saturation={0}
               fade
             />
+
+            <ReactLogo />
 
             <Planet01 />
           </XR>
