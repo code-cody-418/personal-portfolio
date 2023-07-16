@@ -15,13 +15,13 @@ export const TitleProfessionText = () => {
   responsiveData.desktopSubPositionX = 0;
   responsiveData.desktopSubPositionY = -1;
 
-  responsiveData.mobileSize = 0.7;
+  responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
-  responsiveData.mobilePositionY = 1;
+  responsiveData.mobilePositionY = 4;
 
   responsiveData.mobileSubSize = 1.5;
   responsiveData.mobileSubPositionX = -5;
-  responsiveData.mobileSubPositionY = -2;
+  responsiveData.mobileSubPositionY = 2;
 
   const { size, positionX, positionY, subSize, subPositionX, subPositionY } =
     useResponsive(responsiveData);

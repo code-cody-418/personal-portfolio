@@ -30,8 +30,8 @@ export default function ReactLogo({ ...props }) {
 
   responsiveData.mobileSize = 0.5;
   responsiveData.mobilePositionX = 0;
-  responsiveData.mobilePositionY = -12
-  responsiveData.mobilePositionZ = 0;
+  responsiveData.mobilePositionY = -2
+  responsiveData.mobilePositionZ = -15;
 
   const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 

@@ -12,7 +12,7 @@ export const StacksListText = () => {
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 0
 
-    responsiveData.mobileSize = 1.2;
+    responsiveData.mobileSize = 1;
     responsiveData.mobilePositionX = 0;
     responsiveData.mobilePositionY = 0;
     responsiveData.mobilePositionZ = -2

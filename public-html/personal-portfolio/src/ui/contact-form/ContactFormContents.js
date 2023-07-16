@@ -1,6 +1,4 @@
 import React from "react";
-import "./form-style.css"
-import { useHistory } from "react-router";
 import ReCAPTCHA from "react-google-recaptcha"
 
 export const ContactFormContents = (props) => {

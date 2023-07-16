@@ -44,7 +44,7 @@ export const useResponsive = (responsiveData) => {
     mobileSubPositionY,
     mobileSubPositionZ,
 
-    mobileGroupY,
+    mobileGroupY
   } = responsiveData;
 
   const [size, setSize] = useState(desktopSize);
@@ -61,6 +61,8 @@ export const useResponsive = (responsiveData) => {
   const [subPositionZ, setSubPositionZ] = useState(desktopSubPositionZ);
 
   const [groupY, setGroupY] = useState(desktopGroupY);
+
+  const [isMobile, setIsMobile] = useState(false);
 
   //sets the sizes and positions of 3d objects based on the size of the window, breaking point, and passed values
   useEffect(() => {
@@ -81,6 +83,8 @@ export const useResponsive = (responsiveData) => {
         setSubPositionZ(desktopSubPositionZ);
 
         setGroupY(desktopGroupY);
+
+        setIsMobile(false)
       } else if (breakpoint > width) {
         //mobile positioning
         setSize(mobileSize);
@@ -97,6 +101,8 @@ export const useResponsive = (responsiveData) => {
         setSubPositionZ(mobileSubPositionZ);
 
         setGroupY(mobileGroupY);
+
+        setIsMobile(true)
       }
     };
     handleResize();
@@ -147,5 +153,7 @@ export const useResponsive = (responsiveData) => {
     subPositionZ,
 
     groupY,
+
+    isMobile
   };
 };

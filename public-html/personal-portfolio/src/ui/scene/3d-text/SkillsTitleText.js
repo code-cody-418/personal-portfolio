@@ -6,12 +6,12 @@ import { useTexture } from "@react-three/drei";
 
 export const SkillsTitleText = () => {
     const responsiveData = new Responsive();
-    responsiveData.desktopSize = 5;
+    responsiveData.desktopSize = 3;
     responsiveData.desktopPositionX = 15;
     responsiveData.desktopPositionY = 7;
     responsiveData.desktopPositionZ = 20;
 
-    responsiveData.mobileSize = 2;
+    responsiveData.mobileSize = 1.5;
     responsiveData.mobilePositionX = 6;
     responsiveData.mobilePositionY = 7;
     responsiveData.mobilePositionZ = 20;

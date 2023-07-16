@@ -29,9 +29,9 @@ export const MyModal = () => {
                 <Modal.Body className="text-white bg-dark bg-gradient modal-text">
                     <Container>
                         {
-                            allModalInfo?.contactForm ? (
+                            allModalInfo?.contactForm ? ( // if contactForm display contact form contents
                                 <ContactForm />
-                            ) : (
+                            ) : ( // else display all other modal content
                                 <Row>
                                     <Col xs={12} md={8} className="my-auto">{allModalInfo?.description}</Col>
                                     <Col xs={12} md={4} className="my-auto d-block text-center">
