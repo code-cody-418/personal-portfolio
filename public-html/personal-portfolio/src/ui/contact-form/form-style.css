@@ -1,12 +1,3 @@
-.background-video {
-    object-fit: cover;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
 .form-text-color {
     color: white !important;
 }
@@ -17,4 +8,8 @@ h1 {
 
 h2 {
     font-family: "Californian FB";
+}
+
+.form-header {
+    font-size: 1.15rem;
 }

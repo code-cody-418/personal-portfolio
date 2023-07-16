@@ -1,4 +1,5 @@
 import { Modal, Container, Row, Col, Image } from "react-bootstrap";
+import { ContactForm } from "../contact-form/ContactForm";
 import { useModalStore } from "../utils/store";
 
 export const MyModal = () => {
@@ -27,15 +28,21 @@ export const MyModal = () => {
                 </Modal.Header>
                 <Modal.Body className="text-white bg-dark bg-gradient modal-text">
                     <Container>
-                        <Row>
-                            <Col xs={12} md={8} className="my-auto">{allModalInfo?.description}</Col>
-                            <Col xs={12} md={4} className="my-auto d-block text-center">
-                                {allModalInfo?.img ? <Image src={allModalInfo?.img} alt="Me" roundedCircle fluid /> : null}
-                            </Col>
-                        </Row>
+                        {
+                            allModalInfo?.contactForm ? (
+                                <ContactForm />
+                            ) : (
+                                <Row>
+                                    <Col xs={12} md={8} className="my-auto">{allModalInfo?.description}</Col>
+                                    <Col xs={12} md={4} className="my-auto d-block text-center">
+                                        {allModalInfo?.img ? <Image src={allModalInfo?.img} alt="Me" roundedCircle fluid /> : null}
+                                    </Col>
+                                </Row>
+                            )
+                        }
                     </Container>
                 </Modal.Body>
-            </Modal>
+            </Modal >
         </>
     )
 }
