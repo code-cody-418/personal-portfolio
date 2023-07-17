@@ -87,6 +87,8 @@ export const SkillsListText = () => {
                             yRotation={Math.PI}
                             size={size}
                             modalInfo={item}
+                            allListItems={allItems}
+                            itemIndex={index}
                             arrowRotation={[-1.57, -2.355, Math.PI]}
                             sectionType="skills"
                         />

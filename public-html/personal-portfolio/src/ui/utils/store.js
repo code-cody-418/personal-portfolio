@@ -8,5 +8,13 @@ export const useModalStore = create((set) => ({
 
     //set allModalInfo
     allModalInfo: null,
-    setAllModalInfo: (allModalInfo) => set(() => ({ allModalInfo: allModalInfo}))
+    setAllModalInfo: (allModalInfo) => set(() => ({ allModalInfo: allModalInfo})),
+
+    //set allListItems
+    allListItems: null,
+    setAllListItems: (allListItems) => set(() => ({allListItems: allListItems})),
+
+    //setCurrentItemIndex
+    currentItemIndex: null,
+    setCurrentItemIndex: (currentItemIndex) => set(() => ({currentItemIndex: currentItemIndex})),
 }))

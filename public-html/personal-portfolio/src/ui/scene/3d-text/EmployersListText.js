@@ -57,6 +57,7 @@ export const EmployersListText = () => {
                     yStart = yStart - 2 // Moves y coordinate down two each item to create list
 
                     const textKey = "text" + item.title + index
+                    
                     return (
                         <PortfolioText
                             key={textKey}
@@ -67,6 +68,8 @@ export const EmployersListText = () => {
                             yRotation={-1.570796}
                             size={size}
                             modalInfo={item}
+                            allListItems={allItems}
+                            itemIndex={index}
                             arrowRotation={[-0.785, 0, 1.57]}
                             sectionType="employers"
                         />

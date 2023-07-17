@@ -4,14 +4,18 @@ import { FontConfig } from "./FontConfig"
 import { useModalStore } from "../../utils/store"
 import Arrow from "./arrow/Arrow"
 
-export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation, size, modalInfo, arrowRotation, sectionType, arrowHide, selectionSize }) => {
+export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation, size, modalInfo, allListItems, itemIndex, arrowRotation, sectionType, arrowHide, selectionSize }) => {
     //Modal functions to show modal and to set state of what to display
     const handleShow = useModalStore((state) => state.showModal)
     const setAllModalInfo = useModalStore((state) => state.setAllModalInfo)
+    const setAllListItems = useModalStore((state) => state.setAllListItems)
+    const setCurrentItemIndex = useModalStore((state) => state.setCurrentItemIndex)
 
     //set the modal state when text is clicked
     const handleTextClick = (modalInfo) => {
         setAllModalInfo(modalInfo)
+        setAllListItems(allListItems)
+        setCurrentItemIndex(itemIndex)
         handleShow()
     }
 
@@ -48,7 +52,6 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     }
     return (
         <>
-
             <group position={[xPosition, yPosition, zPosition]} rotation={[0, yRotation, 0]}>
                 <FontConfig
                     text={" " + text} //add empty space to give arrow padding

@@ -79,6 +79,8 @@ export const StacksListText = () => {
                             yRotation={1.570796}
                             size={size}
                             modalInfo={item}
+                            allListItems={allItems}
+                            itemIndex={index}
                             arrowRotation={[0.785, Math.PI, 1.57]}
                             sectionType="stack"
                         />
