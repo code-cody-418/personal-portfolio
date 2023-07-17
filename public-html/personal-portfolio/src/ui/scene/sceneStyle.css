@@ -55,23 +55,30 @@ body {
   color: white !important;
 }
 
-h1 {
-  font-family: "Californian FB";
-}
-
-h2 {
-  font-family: "Californian FB";
-}
-
 .form-header {
   font-size: 1.15rem;
 }
 
-/* .custom-modal {
+.custom-modal {
   min-width: 60%;
-  height: 100% !important;
+  height: 100vh;
 }
 
 .modal-dialog .modal-content {
-  height: 70%;
-} */
+  height: 80vh;
+}
+
+.modal-title {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 1.5em;
+}
+
+.modal-subtitle {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.modal-body {
+  font-family:'Times New Roman', Times, serif;
+}
