@@ -17,23 +17,25 @@ import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
 import Planet01 from "./planets/Planet-01";
 import ReactLogo from "./skills-icons/React_logo";
+import { Tutorial } from "../tutorial/Tutorial";
 
 export const ThreeDScene = () => {
   return (
     <>
       <MyModal />
+      <Tutorial />
 
-      <Suspense fallback={<h1 className="loading">Loading...</h1>}>
+      <Suspense fallback={<div className="loading"><h1>Preparing jump to light speed!</h1></div>}>
         <Canvas>
 
-          <Perf />
+          {/* <Perf /> */}
 
           <XR>
             {/* <DefaultXRControllers />
           <Hands /> */}
 
             <OrbitControls
-              enablePan={true}
+              enablePan={false}
               enableZoom={false}
               // distance of camera creation
               minDistance={0}

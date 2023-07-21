@@ -20,9 +20,10 @@ body {
 
 .loading {
   color: white;
-  position: absolute;
-  top: 50%;
-  left: 45%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .connect-logos {
@@ -41,6 +42,25 @@ body {
   height: 30px;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+
+.tutorial {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.tutorial-card {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.tutorial-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .modal-text {

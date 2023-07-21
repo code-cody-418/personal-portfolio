@@ -55,11 +55,11 @@ export const TitleProfessionText = () => {
     if (timerOnOff === true) {
       if (thirtySeconds === 30) {
         setTextState("");
-      } else if (thirtySeconds === 28) {
+      } else if (thirtySeconds === 29) {
         setTextState("Full ");
-      } else if (thirtySeconds === 26) {
+      } else if (thirtySeconds === 28) {
         setTextState("Full Stack");
-      } else if (thirtySeconds === 24) {
+      } else if (thirtySeconds === 27) {
         setDescriptionState("Engineer");
         setTimerOnOff(false);
       }
