@@ -1,80 +1,38 @@
-import React, {useMemo, useRef, useState} from "react";
-import * as THREE from "three"
-import {useLoader} from "@react-three/fiber";
-import {Interactive} from "@react-three/xr";
+import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
-    responsiveData.desktopSize = 5;
-    responsiveData.desktopPositionX = 15;
+    responsiveData.desktopSize = 3;
+    responsiveData.desktopPositionX = 20;
     responsiveData.desktopPositionY = 7;
-    responsiveData.desktopPositionZ = 20
-    
-    responsiveData.mobileSize = 2;
-    responsiveData.mobilePositionX = 6;
+    responsiveData.desktopPositionZ = -15;
+
+    responsiveData.mobileSize = 1.5;
+    responsiveData.mobilePositionX = 20;
     responsiveData.mobilePositionY = 7;
-    responsiveData.mobilePositionZ = 20
-  
+    responsiveData.mobilePositionZ = -8;
 
-    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
+    const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
-    const [color, setColor] = useState("#e20e83")
+    let loadedTexture = useTexture("/textures/purple_08_matCap.png")
 
-    const FontConfig = ({text, position, rotation, color}) => {
-        const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
-        const config = useMemo(
-            () => ({
-                font: font,
-                size: size,
-                height: 0.2,
-                curveSegments: 32,
-                bevelEnabled: true,
-                bevelThickness: 0.03,
-                bevelSize: 0.02,
-                bevelOffset: 0,
-                bevelSegments: 5
-            }),
-            [font]
-        );
-        const mesh = useRef();
-        return (
-            <>
-                <group position={position} rotation={rotation}>
-                    <mesh ref={mesh}>
-                        <textGeometry args={[text, config]}/>
-                        <meshBasicMaterial color={color}/>
-                    </mesh>
-                </group>
-            </>
-        )
-    }
-    const TitleText = () => {
-        return (
-            <>
-                <group
-                    onClick={ () => setColor("#0000ff")}
-
-                >
-                    <Interactive
-                        onSelect={() => setColor("#0000ff")}
-                        onHover={() => console.log("Hovered")}
-                    >
-                        <FontConfig
-                            text="Past Jobs"
-                            position={[positionX, positionY, positionZ]}
-                            rotation={[0, Math.PI, 0]}
-                            color={color}
-                        />
-                    </Interactive>
-                </group>
-            </>
-        )
-    }
     return (
         <>
-        <TitleText />
+            <group
+                position={[positionX, positionY, positionZ]}
+                rotation={[0, -1.570796, 0]}
+            >
+                <FontConfig
+                    text="EXPERIENCE"
+                    fontType="title"
+                    size={size}
+                    texture={loadedTexture}
+                />
+            </group>
         </>
     )
 }

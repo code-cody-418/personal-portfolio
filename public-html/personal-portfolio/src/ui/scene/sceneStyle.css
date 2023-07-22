@@ -1,20 +1,104 @@
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
-body,
+body {
+  overflow: hidden;
+}
+
 #root {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: black;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  background-color: black;
 }
 
 .loading {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 45%;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.connect-logos {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+}
+
+.connect-logos a {
+  opacity: 1 !important;
+}
+
+.connect-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.tutorial {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.tutorial-card {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.tutorial-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.modal-text {
+  white-space: pre-line;
+}
+
+.close {
+  color: white !important;
+}
+
+.form-text-color {
+  color: white !important;
+}
+
+.form-header {
+  font-size: 1.15rem;
+}
+
+.custom-modal {
+  min-width: 60%;
+  height: 100vh;
+}
+
+.modal-dialog .modal-content {
+  height: 80vh;
+}
+
+.modal-title {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 1.5em;
+}
+
+.modal-subtitle {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.modal-body {
+  font-family:'Times New Roman', Times, serif;
 }

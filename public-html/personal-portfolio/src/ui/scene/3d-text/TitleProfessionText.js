@@ -1,162 +1,89 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import * as THREE from "three";
-import { useLoader } from "@react-three/fiber";
+import React, { useEffect, useState } from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
+import { FontConfig } from "./FontConfig";
+import { useTexture } from "@react-three/drei";
 
 export const TitleProfessionText = () => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1;
-  responsiveData.desktopPositionX = -10;
-  responsiveData.desktopPositionY = -5;
+  responsiveData.desktopPositionX = -6.5;
+  responsiveData.desktopPositionY = -1;
 
   responsiveData.desktopSubSize = 1;
-  responsiveData.desktopSubPositionX = 6;
-  responsiveData.desktopSubPositionY = -5;
+  responsiveData.desktopSubPositionX = 0;
+  responsiveData.desktopSubPositionY = -1;
 
-  responsiveData.mobileSize = 0.7;
+  responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
-  responsiveData.mobilePositionY = 1;
+  responsiveData.mobilePositionY = 4;
 
   responsiveData.mobileSubSize = 1.5;
   responsiveData.mobileSubPositionX = -5;
-  responsiveData.mobileSubPositionY = -2;
+  responsiveData.mobileSubPositionY = 2;
 
-  const { size, positionX, positionY, subSize, subPositionX, subPositionY} =
+  const { size, positionX, positionY, subSize, subPositionX, subPositionY } =
     useResponsive(responsiveData);
 
-  const FontConfig = ({
-    text,
-    position,
-    rotation,
-    uniqueColor,
-    uniqueSize,
-    uniqueMaterial,
-  }) => {
-    const font = useLoader(
-      THREE.FontLoader,
-      "/Sunmore-Slant-Free-Regular.json"
-    );
-    const config = useMemo(
-      () => ({
-        font: font,
-        size: uniqueSize,
-        height: 0.2,
-        curveSegments: 32,
-        bevelEnabled: false,
-        bevelThickness: 0.03,
-        bevelSize: 0.02,
-        bevelOffset: 0,
-        bevelSegments: 5,
-      }),
-      [font, uniqueSize]
-    );
-    const mesh = useRef();
-    return (
-      <>
-        <group position={position} rotation={rotation}>
-          <mesh ref={mesh}>
-            <textGeometry args={[text, config]} />
-            {uniqueMaterial === false ? ( //conditional to determine material of text and description
-              <meshStandardMaterial color={uniqueColor} />
-            ) : (
-              <meshNormalMaterial />
-            )}
-          </mesh>
-        </group>
-      </>
-    );
-  };
+  let purpleTexture = useTexture("/textures/purple_08_matCap.png")
+  let texture02 = useTexture("/textures/purple_09_matCap.png")
 
-  const ProfessionText = () => {
-    //set the state of the icon
-    const [textState, setTextState] = useState("");
-    const [descriptionState, setDescriptionState] = useState("");
+  //set the state of the icon
+  const [textState, setTextState] = useState("");
+  const [descriptionState, setDescriptionState] = useState("");
 
-    //color of text before being changed
-    let startingColor = "#ea2e6f";
+  //Functionality to 30 second timer
+  const [thirtySeconds, setThirtySeconds] = useState(30);
+  const [timerOnOff, setTimerOnOff] = useState(true);
 
-    //allows each skill to change color
-    const [textColor] = useState(startingColor);
-
-    //Functionality to 30 second timer
-    const [thirtySeconds, setThirtySeconds] = useState(30);
-    const [timerOnOff, setTimerOnOff] = useState(true);
-
-    useEffect(() => {
-      if (timerOnOff === true) {
-        if (thirtySeconds === -1) {
-          setThirtySeconds(30);
-        } else if (thirtySeconds > -2) {
-          const intervalId = setInterval(() => {
-            setThirtySeconds((thirtySeconds) => thirtySeconds - 1);
-          }, 1000);
-          // console.log("seconds", thirtySeconds)
-          return () => clearInterval(intervalId);
-        }
+  useEffect(() => {
+    if (timerOnOff === true) {
+      if (thirtySeconds === -1) {
+        setThirtySeconds(30);
+      } else if (thirtySeconds > -2) {
+        const intervalId = setInterval(() => {
+          setThirtySeconds((thirtySeconds) => thirtySeconds - 1);
+        }, 1000);
+        // console.log("seconds", thirtySeconds)
+        return () => clearInterval(intervalId);
       }
-    }, [thirtySeconds, timerOnOff]);
+    }
+  }, [thirtySeconds, timerOnOff]);
 
-    useEffect(() => {
-      if (timerOnOff === true) {
-        if (thirtySeconds === 30) {
-          setTextState("Full ");
-        } else if (thirtySeconds === 28) {
-          setTextState("Full Stack ");
-        } else if (thirtySeconds === 26) {
-          setTextState("Full Stack Website");
-        } else if (thirtySeconds === 24) {
-          setDescriptionState("Creator");
-        } else if (thirtySeconds === 22) {
-          setDescriptionState("Designer");
-        } else if (thirtySeconds === 20) {
-          setDescriptionState("Developer");
-        } else if (thirtySeconds === 18) {
-          setDescriptionState("Creator");
-        } else if (thirtySeconds === 16) {
-          setDescriptionState("Designer");
-        } else if (thirtySeconds === 14) {
-          setDescriptionState("Developer");
-        } else if (thirtySeconds === 12) {
-          setDescriptionState("Creator");
-        } else if (thirtySeconds === 10) {
-          setDescriptionState("Designer");
-        } else if (thirtySeconds === 8) {
-          setDescriptionState("Developer");
-        } else if (thirtySeconds === 6) {
-          setDescriptionState("Creator");
-          setTimerOnOff(false);
-        }
+  useEffect(() => {
+    if (timerOnOff === true) {
+      if (thirtySeconds === 30) {
+        setTextState("");
+      } else if (thirtySeconds === 29) {
+        setTextState("Full ");
+      } else if (thirtySeconds === 28) {
+        setTextState("Full Stack");
+      } else if (thirtySeconds === 27) {
+        setDescriptionState("Engineer");
+        setTimerOnOff(false);
       }
-    }, [textState, thirtySeconds, timerOnOff]);
+    }
+  }, [textState, thirtySeconds, timerOnOff]);
 
-    return (
-      <>
-        <group position={[0, 0, 0]}>
-          <FontConfig
-            text={textState}
-            position={[positionX, positionY, -15]} //separate each new item in list by y-2
-            rotation={[0, 0, 0]}
-            uniqueColor={textColor}
-            uniqueSize={size}
-            uniqueMaterial={false}
-          />
-          <FontConfig
-            text={descriptionState}
-            position={[subPositionX, subPositionY, -15]} //separate each new item in list by y-2
-            rotation={[0, 0, 0]}
-            uniqueColor={textColor}
-            uniqueSize={subSize}
-            uniqueMaterial={true}
-          />
-        </group>
-      </>
-    );
-  };
   return (
     <>
-      <ProfessionText />
+      <group position={[positionX, positionY, -15]}>
+        <FontConfig
+          text={textState}
+          fontType="/Sunmore-Slant-Free-Regular.json"
+          size={size}
+          texture={purpleTexture}
+        />
+      </group>
+      <group position={[subPositionX, subPositionY, -15]}>
+        <FontConfig
+          text={descriptionState}
+          fontType="/Sunmore-Slant-Free-Regular.json"
+          size={subSize}
+          texture={texture02}
+        />
+      </group>
     </>
   );
 };

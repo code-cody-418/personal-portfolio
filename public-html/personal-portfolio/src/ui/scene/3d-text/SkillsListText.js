@@ -1,274 +1,100 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
-import * as THREE from "three"
-import {useLoader} from "@react-three/fiber";
-import {SkillsIcons} from "../skills-icons/SkillsIcons";
-import {Interactive} from "@react-three/xr";
+import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
-
+import { PortfolioText } from "./PortfolioText";
 
 export const SkillsListText = () => {
+    let yStart = 6 //Value that is the first y coordinate for the map
+
+    //A constructor that sets the sizes and position of text for different viewports
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1.5;
-    responsiveData.desktopPositionX = 0;
+    responsiveData.desktopPositionX = 15;
     responsiveData.desktopPositionY = 0;
-    responsiveData.desktopPositionZ = -15
-    
-    responsiveData.mobileSize = 1.5;
-    responsiveData.mobilePositionX = 0;
+    responsiveData.desktopPositionZ = 20
+
+    responsiveData.mobileSize = 1;
+    responsiveData.mobilePositionX = 6;
     responsiveData.mobilePositionY = 0;
-    responsiveData.mobilePositionZ = -8
+    responsiveData.mobilePositionZ = 20
 
-    const { size, positionX, positionY, positionZ} = useResponsive(responsiveData);
+    //Passes the Values to a hook that resets the size and position as the viewport changes
+    const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
-    const FontConfig = ({text, position, rotation, uniqueColor}) => {
-        const font = useLoader(THREE.FontLoader, "/Sunmore-Slant-Free-Regular.json");
-        const config = useMemo(
-            () => ({
-                font: font,
-                size: size,
-                height: 0.2,
-                curveSegments: 32,
-                bevelEnabled: false,
-                bevelThickness: 0.03,
-                bevelSize: 0.02,
-                bevelOffset: 0,
-                bevelSegments: 5
-            }),
-            [font]
-        );
-        const mesh = useRef();
-        return (
-            <>
-                <group position={position} rotation={rotation}>
-                    <mesh ref={mesh}>
-                        <textGeometry args={[text, config]}/>
-                        <meshStandardMaterial color={uniqueColor}/>
-                    </mesh>
-                </group>
-            </>
-        )
-    }
+    // Array of items that are displayed in list fashion under the Section title
+    // To add new item simple create a new object with the required keys and values
+    const allItems = [
+        {
+            title: "ETL & Data Integration",
+            subTitle: "Preparing Data for New Systems",
+            description: "As an experienced data professional, I have honed my expertise in Extract, Transform, and Load (ETL) processes, playing a pivotal role in enabling seamless data integration. In previous jobs, I've transferred multi-million row datasets. I've extracted data from databases and files, ensuring its accuracy and completeness. With a deep understanding of data manipulation techniques, I transformed the extracted data using JavaScript to meet specific requirements. Finally, employing efficient loading mechanisms, I’ve loaded the transformed data into the target systems. With my strong understanding of ETL methodologies, I am dedicated to delivering optimized data pipelines that drive operational efficiency and foster informed decision-making.",
+            img: "./skills/etl-example.png"
+        },
+        {
+            title: "REST API's",
+            subTitle: "Synchronizing Data",
+            description: "As a skilled developer, I have extensive expertise designing and implementing RestFul API’s used for data synchronization. Data between two databases needed to synchronize, so when data changed in one place it would change in the other. This was implemented utilizing various principles like HTTP Methods, Database triggers and CRUD operations.",
+            img: "./skills/rest-example.jpg"
+        },
+        {
+            title: "Backend Development",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "Git & GitHub",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "Containerization",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+        {
+            title: "Frontend Development",
+            subTitle: "Synchronizing Data",
+            description: "My experience with frontend development has given me a strong grasp of how to provide a better user experience, while providing my employers with data-driven solutions. Leveraging my expertise in design I’ve used wireframing and Adobe software to create layouts that were used to plan the release of a website with over 20 pages. Furthermore, I’ve changed static data entry tasks into dynamic data processes that saved my coworkers hours of work every single day.",
+            img: "./skills/frontend-example.jpg"
+        },
+        {
+            title: "Cloud Computing",
+            subTitle: "Synchronizing Data",
+            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            img: "./redux-icon.png"
+        },
+    ]
 
-    const ListText = () => {
-
-        //set the state of the icon
-        const [iconState, setIconState] = useState(null)
-
-        //color of text before being changed
-        const startingColor = "rgb(122,158,248)"
-
-        //allows each skill to change color
-        const [reactColor, setReactColor] = useState(startingColor)
-        const [expressColor, setExpressColor] = useState(startingColor)
-        const [reduxColor, setReduxColor] = useState(startingColor)
-        const [dockerColor, setDockerColor] = useState(startingColor)
-        const [bootstrapColor, setBootstrapColor] = useState(startingColor)
-        const [githubColor, setGithubColor] = useState(startingColor)
-
-        //Functionality to 30 second timer
-        const [thirtySeconds, setThirtySeconds] = useState(30)
-        const [timerOnOff, setTimerOnOff] = useState(true)
-
-        useEffect(() => {
-            if (timerOnOff === true) {
-                if (thirtySeconds === -1) {
-                    setThirtySeconds(30)
-                } else if (thirtySeconds > -2) {
-                    const intervalId = setInterval(() => {
-                        setThirtySeconds(thirtySeconds => thirtySeconds - 1)
-                    }, 1000)
-                    // console.log("seconds", thirtySeconds)
-                    return () => clearInterval(intervalId)
-                }
-            }
-        }, [thirtySeconds, timerOnOff])
-
-        useEffect(() => {
-            if (timerOnOff === true) {
-                if (thirtySeconds === 30) {
-                    // setIconState("reactActive")
-                    setReactColor("#61dafb")
-                    setGithubColor(startingColor)
-                } else if (thirtySeconds === 25) {
-                    // setIconState("expressActive")
-                    setExpressColor("#FFFFFF")
-                    setReactColor(startingColor)
-                } else if (thirtySeconds === 20) {
-                    // setIconState("reduxActive")
-                    setReduxColor("#764abc")
-                    setExpressColor(startingColor)
-                } else if (thirtySeconds === 15) {
-                    // setIconState("dockerActive")
-                    setDockerColor("#2496ed")
-                    setReduxColor(startingColor)
-                } else if (thirtySeconds === 10) {
-                    // setIconState("bootstrapActive")
-                    setBootstrapColor("#7952b3")
-                    setDockerColor(startingColor)
-                } else if (thirtySeconds === 5) {
-                    // setIconState("githubActive")
-                    setGithubColor("#FFF")
-                    setBootstrapColor(startingColor)
-                }
-            }
-        }, [iconState, thirtySeconds, timerOnOff])
-
-        return (
-            <>
-                <group
-                    //this group moves the whole list
-                    position = {[positionX, positionY, positionZ]}>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("reactActive")
-                            setReactColor("#61dafb")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setReactColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <Interactive
-                            // onSelect={() => setColor("#0000ff")}
-                            onHover={() => {
-                                setIconState("reactActive")
-                                setReactColor("#61dafb")
-                                setTimerOnOff(false)
-                            }}
-                        >
-                            <FontConfig
-                                text="React"
-                                position={[20, 4, 0]} //separate each new item in list by y-2
-                                rotation={[0, -1.570796, 0]}
-                                uniqueColor={reactColor}
-                            />
-                        </Interactive>
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("expressActive")
-                            setExpressColor("#FFFFFF")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setExpressColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <Interactive
-                            onSelect={() => {
-                                setIconState("expressActive")
-                                setExpressColor("#FFFFFF")
-                                setTimerOnOff(false)
-                            }}
-                        >
-                            <FontConfig
-                                text="Express"
-                                position={[20, 2, 0]}
-                                rotation={[0, -1.570796, 0]}
-                                uniqueColor={expressColor}
-                            />
-                        </Interactive>
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("reduxActive")
-                            setReduxColor("#764abc")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setReduxColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <Interactive
-                            onSqueezeStart={() => {
-                                setIconState("reduxActive")
-                                setReduxColor("#764abc")
-                                setTimerOnOff(false)
-                            }}
-                            onSqueezeEnd={() => {
-                                setReduxColor(startingColor)
-                                setTimerOnOff(true)
-                            }}
-                        >
-                            <FontConfig
-                                text="Redux"
-                                position={[20, 0, 0]}
-                                rotation={[0, -1.570796, 0]}
-                                uniqueColor={reduxColor}
-                            />
-                        </Interactive>
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("dockerActive")
-                            setDockerColor("#2496ed")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setDockerColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <FontConfig
-                            text="Docker"
-                            position={[20, -2, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={dockerColor}
-                        />
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("bootstrapActive")
-                            setBootstrapColor("#7952b3")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setBootstrapColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <FontConfig
-                            text="Bootstrap"
-                            position={[20, -4, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={bootstrapColor}
-                        />
-                    </group>
-                    <group
-                        onPointerEnter={() => {
-                            setIconState("githubActive")
-                            setGithubColor("#FFF")
-                            setTimerOnOff(false)
-                        }}
-                        onPointerLeave={() => {
-                            setGithubColor(startingColor)
-                            setTimerOnOff(true)
-                        }}
-                    >
-                        <FontConfig
-                            text="GitHub"
-                            position={[20, -6, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={githubColor}
-                        />
-                    </group>
-                </group>
-                <SkillsIcons
-                    // position={[0, 0, 0]}
-                    iconState={iconState}
-                />
-            </>
-        )
-    }
     return (
         <>
-            <ListText/>
+            <group //this group moves the whole list
+                position={[positionX, positionY, positionZ]}
+            >
+                {allItems.map((item, index) => { //each item gets rendered into a component
+                    yStart = yStart - 2 // Moves y coordinate down two each item to create list
+
+                    const textKey = "text" + item.title + index
+                    return (
+                        <PortfolioText
+                            key={textKey}
+                            text={item.title}
+                            xPosition={0}
+                            yPosition={yStart}
+                            zPosition={0}
+                            yRotation={Math.PI}
+                            size={size}
+                            modalInfo={item}
+                            allListItems={allItems}
+                            itemIndex={index}
+                            arrowRotation={[-1.57, -2.355, Math.PI]}
+                            sectionType="skills"
+                        />
+                    )
+                })}
+            </group>
         </>
     )
-
-
 }
