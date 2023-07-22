@@ -7,13 +7,9 @@ import Time from "./Utils/Time.js";
 import Resources from "./Utils/Resources.js";
 import sources from "./sources.js";
 import Debug from "./Utils/Debug.js";
-import FPS from "./Controls/FPS.js";
 import Mouse from "./Utils/Mouse.js";
 import Keys from "./Utils/KeyBoard.js";
 import PlayerRaycaster from "./Raycasters/PlayerRaycaster.js";
-import MainControls from "./Controls/MainControls.js";
-import Player from "./World/Player/Player.js";
-import ThirdPersonCamera from "./Cameras/ThirdPersonCamera.js";
 
 // singleton to access the Experience
 let instance = null;
@@ -40,9 +36,6 @@ export default class Experience {
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.camera = new Camera();
-    this.player = new Player()
-    this.thirdCamera = new ThirdPersonCamera()
-    this.controls = new MainControls()
     this.renderer = new Renderer();
     this.world = new World();
     this.playerRaycaster = new PlayerRaycaster()
@@ -64,7 +57,6 @@ export default class Experience {
   }
 
   update() {
-    this.controls.update()
     this.playerRaycaster.update()
     this.world.update();
     this.renderer.update();

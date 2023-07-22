@@ -30,13 +30,24 @@ export default [
     {
         name: 'rock01',
         type: 'gltfModel',
-        path: 'models/environment/rocks/rockA.glb'
+        path: 'models/environment/rocks/rock01.glb'
     },
     {
         name: 'tree01',
         type: 'gltfModel',
         path: 'models/environment/trees/tree01.glb'
     },
+    {
+        name: 'grass01',
+        type: 'gltfModel',
+        path: 'models/environment/grass/grass01.glb'
+    },
+    {
+        name: 'treeHouse',
+        type: 'gltfModel',
+        path: 'models/environment/building/tree-house.gltf'
+    },
+    //player
     {
         name: 'sword01',
         type: 'gltfModel',
@@ -46,5 +57,16 @@ export default [
         name: 'testPaladin',
         type: 'gltfModel',
         path: 'models/npc/testPaladin.gltf'
-    }
+    },
+    {
+        name: 'player',
+        type: 'gltfModel',
+        path: 'models/player/player-01.gltf'
+    },
+    //npc
+    {
+        name: 'druid',
+        type: 'gltfModel',
+        path: 'models/npc/druid.gltf'
+    },
 ]

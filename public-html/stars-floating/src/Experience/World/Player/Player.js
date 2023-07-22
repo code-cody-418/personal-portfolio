@@ -1,12 +1,21 @@
-import * as THREE from "three"
 import Experience from "../../Experience"
 
 export default class Player {
     constructor() {
         this.experience = new Experience()
+        this.resources = this.experience.resources
         this.scene = this.experience.scene
+        
+        this.resource = this.resources.items.player
 
-        this.instance = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshStandardMaterial( { color: 0x00ff00}))
-        this.scene.add(this.instance)
-    }    
+        this.setModel()
+    }
+
+    setModel() {
+        this.model = this.resource.scene
+        this.model.name = "player"
+        this.model.children[0].rotateZ(Math.PI)
+    
+        this.scene.add(this.model)
+    }
 }

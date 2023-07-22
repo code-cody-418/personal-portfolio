@@ -5,7 +5,7 @@ export default class ThirdPersonCamera {
     constructor() {
         this.experience = new Experience()
         this.camera = this.experience.camera.instance
-        this.player = this.experience.player.instance
+        this.player = this.experience.world.player.model
         this.time = this.experience.time
 
         this.playerPosition = new THREE.Vector3()
@@ -13,14 +13,14 @@ export default class ThirdPersonCamera {
     }
 
     calculateIdealOffset() {
-        this.idealOffset = new THREE.Vector3(0, 5, 10)
+        this.idealOffset = new THREE.Vector3(0, 3, 7)
         this.idealOffset.applyQuaternion(this.player.quaternion)
         this.idealOffset.add(this.player.position)
         return this.idealOffset
     }
 
     calculateIdealLookat() {
-        this.idealLookat = new THREE.Vector3(0, 5, 5)
+        this.idealLookat = new THREE.Vector3(0, 3, 5)
         this.idealLookat.applyQuaternion(this.player.quaternion)
         this.idealLookat.add(this.player.position)
         return this.idealLookat
