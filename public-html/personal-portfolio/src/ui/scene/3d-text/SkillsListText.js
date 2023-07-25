@@ -37,34 +37,34 @@ export const SkillsListText = () => {
             img: "./skills/rest-example.jpg"
         },
         {
-            title: "Backend Development",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
-            img: "./redux-icon.png"
-        },
-        {
-            title: "Git & GitHub",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
-            img: "./redux-icon.png"
-        },
-        {
-            title: "Containerization",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
-            img: "./redux-icon.png"
-        },
-        {
             title: "Frontend Development",
             subTitle: "Synchronizing Data",
             description: "My experience with frontend development has given me a strong grasp of how to provide a better user experience, while providing my employers with data-driven solutions. Leveraging my expertise in design I’ve used wireframing and Adobe software to create layouts that were used to plan the release of a website with over 20 pages. Furthermore, I’ve changed static data entry tasks into dynamic data processes that saved my coworkers hours of work every single day.",
             img: "./skills/frontend-example.jpg"
         },
         {
+            title: "Backend Development",
+            subTitle: "",
+            description: "",
+            img: ""
+        },
+        {
+            title: "Git & GitHub",
+            subTitle: "",
+            description: "",
+            img: ""
+        },
+        {
+            title: "Containerization",
+            subTitle: "Synchronizing Data",
+            description: "",
+            img: ""
+        },
+        {
             title: "Cloud Computing",
             subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
-            img: "./redux-icon.png"
+            description: "",
+            img: ""
         },
     ]
 
