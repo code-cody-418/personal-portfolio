@@ -24,38 +24,38 @@ export const StacksListText = () => {
     const allItems = [
         {
             title: "React",
-            subTitle: "Preparing Data for New Systems",
-            description: "Navajo Nation millions of Documents with meta-data transferred. Gesture thousand of customer data transferred. CNM assistant instructor data prepared for student CapStones",
+            subTitle: "",
+            description: "",
             img: "react-icon.png"
         },
         {
             title: "JavaScript/CSS/HTML",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "",
+            description: "",
             img: null
         },
         {
             title: "YAML",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "",
+            description: "",
             img: null
         },
         {
             title: "FileMaker",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "",
+            description: "",
             img: null
         },
         {
             title: "Express",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "",
+            description: "",
             img: null
         },
         {
             title: "Node",
-            subTitle: "Synchronizing Data",
-            description: "Gesture synchronized data between two Salesforce and Google Firebase",
+            subTitle: "",
+            description: "",
             img: null
         }
     ]
