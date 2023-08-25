@@ -1,50 +1,27 @@
 import React from 'react';
-import {httpConfig} from "../utils/httpConfig";
-import * as Yup from "yup"
-import {Formik} from "formik"
-import {ContactFormContents} from "./ContactFormContents";
+import { Col, Image, Row } from 'react-bootstrap';
 
-export const ContactForm = () => {
-    const contactForm = {
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-        recaptcha: ""
+
+export const ContactForm = ({ allModalInfo }) => {
+
+    function copyEmail() {
+        navigator.clipboard.writeText("code_slama@outlook.com")
     }
-
-    const validator = Yup.object().shape({
-        name: Yup.string()
-            .required("Name is required"),
-        email: Yup.string()
-            .required("Email is required"),
-        subject: Yup.string()
-            .required("Subject is required"),
-        message: Yup.string()
-            .required("Message is required"),
-        recaptcha: Yup.string()
-            .required("recaptcha is required")
-    })
-
-    const submitContactForm = (values, {resetForm, setStatus}) => {
-        httpConfig.post("/apis/", values)
-            .then(reply => {
-                let { message, type } = reply
-                console.log(reply);
-                if(reply.status === 200 ) {
-                    resetForm()
-                }
-                setStatus({message, type})
-            })
-    }
-
     return (
-        <Formik
-            initialValues={contactForm}
-            onSubmit={submitContactForm}
-            validationSchema={validator}
-            >
-            {ContactFormContents}
-        </Formik>
+        <>
+            <Row>
+                <Col xs={12} md={8}>
+                    <p className="modal-body">
+                        <b>Email:</b> <span className='email' title="Click to Copy" onClick={copyEmail}>code_slama@outlook.com </span>
+                    </p>
+                    <p className="modal-body">
+                        <a href='https://www.linkedin.com/in/code-cody/' target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </p>
+                </Col>
+                <Col xs={12} md={4} className="my-auto d-block text-center">
+                    {allModalInfo?.img ? <Image src={allModalInfo?.img} alt={allModalInfo?.img} roundedCircle fluid /> : null}
+                </Col>
+            </Row>
+        </>
     )
 }

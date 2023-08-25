@@ -11,7 +11,6 @@ import "../../ui/scene/sceneStyle.css";
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
-import { XR } from "@react-three/xr";
 import { Perf } from "r3f-perf";
 import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
@@ -28,58 +27,53 @@ export const ThreeDScene = () => {
       <Suspense fallback={<div className="loading"><h1>Preparing jump to light speed!</h1></div>}>
         <Canvas>
 
-          {/* <Perf /> */}
+          <Perf />
 
-          <XR>
-            {/* <DefaultXRControllers />
-          <Hands /> */}
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            // distance of camera creation
+            minDistance={0}
+            maxDistance={3}
+            rotateSpeed={0.3}
+            // vertical angle limit
+            minPolarAngle={1.5708}
+            maxPolarAngle={1.5708}
+          // horizontal angle limit
+          // minAzimuthAngle={-1.57}
+          // maxAzimuthAngle={1.57}
+          />
 
-            <OrbitControls
-              enablePan={false}
-              enableZoom={false}
-              // distance of camera creation
-              minDistance={0}
-              maxDistance={3}
-              rotateSpeed={0.3}
-              // vertical angle limit
-              minPolarAngle={1.5708}
-              maxPolarAngle={1.5708}
-            // horizontal angle limit
-            // minAzimuthAngle={-1.57}
-            // maxAzimuthAngle={1.57}
-            />
+          <ambientLight intensity={0.1} />
+          <directionalLight position={[0, -10, 0]} intensity={1} />
 
-            <ambientLight intensity={0.1} />
-            <directionalLight position={[0, -10, 0]} intensity={1} />
+          <TitleText />
+          <TitleProfessionText />
 
-            <TitleText />
-            <TitleProfessionText />
+          <ContactFormText />
+          <AboutMeText />
 
-            <ContactFormText />
-            <AboutMeText />
+          <StacksTitleText />
+          <StacksListText />
 
-            <StacksTitleText />
-            <StacksListText />
+          <SkillsTitleText />
+          <SkillsListText />
 
-            <SkillsTitleText />
-            <SkillsListText />
+          <EmployersTitleText />
+          <EmployersListText />
 
-            <EmployersTitleText />
-            <EmployersListText />
+          <Stars
+            radius={100}
+            depth={50}
+            count={5000}
+            factor={4}
+            saturation={0}
+            fade
+          />
 
-            <Stars
-              radius={100}
-              depth={50}
-              count={5000}
-              factor={4}
-              saturation={0}
-              fade
-            />
+          <ReactLogo />
 
-            <ReactLogo />
-
-            <Planet01 />
-          </XR>
+          <Planet01 />
         </Canvas>
       </Suspense>
     </>
