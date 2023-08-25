@@ -102,3 +102,7 @@ body {
 .modal-body {
   font-family:'Times New Roman', Times, serif;
 }
+
+.email:hover {
+  cursor: pointer;
+}
