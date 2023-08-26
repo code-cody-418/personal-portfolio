@@ -38,33 +38,33 @@ export const SkillsListText = () => {
         },
         {
             title: "Frontend Development",
-            subTitle: "Synchronizing Data",
+            subTitle: "Websites",
             description: "My experience with frontend development has given me a strong grasp of how to provide a better user experience, while providing my employers with data-driven solutions. Leveraging my expertise in design I’ve used wireframing and Adobe software to create layouts that were used to plan the release of a website with over 20 pages. Furthermore, I’ve changed static data entry tasks into dynamic data processes that saved my coworkers hours of work every single day.",
             img: "./skills/frontend-example.jpg"
         },
         {
             title: "Backend Development",
-            subTitle: "",
-            description: "",
-            img: ""
+            subTitle: "Api's and Data",
+            description: "My experience in the backend has consisted of NodeJs with various databases, cms, and apis. I’ve worked extensively creating api’s built out in ExpressJs. These api’s would do various things, but mostly they would talk to databases or other external api’s. One of my biggest accomplishments as a backend dev has been carrying out ETL pipelines that later synchronized data between Google FireBase and Salesforce. Another huge accomplishment was successfully conducting a data transfer transferring over two and a half million documents and its meta data between DB’s. This project saved my employer 133% of my entire year's salary, which only took me two months to complete all while training one of my colleagues on ETL.",
+            img: null
         },
         {
             title: "Git & GitHub",
-            subTitle: "",
-            description: "",
-            img: ""
+            subTitle: "Version Control",
+            description: "Git has been one of my favorite tools as a developer. It has allowed me to build various applications, with many different teams, working as an instructor, a freelancer, and a professional developer. I’ve worked with teams pushing and pulling code to GitHub as well as creating local remote repo’s. On past projects, I used Pull Request with a project manager to verify my changes. I’m also familiar with various git situations like dealing merge conflicts and rolling back commits.",
+            img: null
         },
         {
             title: "Containerization",
-            subTitle: "Synchronizing Data",
-            description: "",
-            img: ""
+            subTitle: "Docker",
+            description: "Using containers to build applications has been a cornerstone of my devops approach. Using Docker I was able to build entire applications in isolated environments. This allowed me to deploy my applications into cloud environments for testing purposes. In addition, as an assistant instructor, my students used containers to build their applications. By giving students configuration files they were able to spin up MERN stack applications with ease allowing for a practical learning environment.",
+            img: null
         },
         {
             title: "Cloud Computing",
-            subTitle: "Synchronizing Data",
-            description: "",
-            img: ""
+            subTitle: "Digital Ocean",
+            description: "As a full-stack dev I am quite versed in creating virtual environments for websites and applications. Most of my experience is within DigitalOcean. Here I built machines called Droplets that ran Ubuntu OS’s that I managed from an SSH terminal or through the dashboard. Many things were configured like resources, firewalls, networks, DNS and everything else to successfully run a server. In addition, I also have some experience working within Google Firebase. This was another cloud computing environment where I accessed databases and ran various functions from the code I wrote. ",
+            img: null
         },
     ]
 

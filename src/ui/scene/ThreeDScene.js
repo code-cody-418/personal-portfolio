@@ -27,7 +27,7 @@ export const ThreeDScene = () => {
       <Suspense fallback={<div className="loading"><h1>Preparing jump to light speed!</h1></div>}>
         <Canvas>
 
-          <Perf />
+          {/* <Perf /> */}
 
           <OrbitControls
             enablePan={false}
