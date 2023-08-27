@@ -7,7 +7,7 @@ export const Home = () => {
         <>
             <ThreeDScene />
             <div className="connect-logos">
-                <a href="https://github.com/code-cody-418/personal-vm-nginx/tree/main/public-html/personal-portfolio" target={"blank"}>
+                <a href="https://github.com/code-cody-418/personal-portfolio" target={"blank"}>
                     <img src="code-icon-10.png" alt="Code Logo" className="connect-logo" />
                 </a>
                 <a href="https://www.linkedin.com/in/code-cody" target={"blank"}>
