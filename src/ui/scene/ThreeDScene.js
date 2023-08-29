@@ -17,6 +17,7 @@ import { AboutMeText } from "./3d-text/AboutMeText";
 import Planet01 from "./planets/Planet-01";
 import ReactLogo from "./skills-icons/React_logo";
 import { Tutorial } from "../tutorial/Tutorial";
+import GithubLogo from "./skills-icons/Github_logo";
 
 export const ThreeDScene = () => {
   return (
@@ -27,9 +28,10 @@ export const ThreeDScene = () => {
       <Suspense fallback={<div className="loading"><h1>Preparing jump to light speed!</h1></div>}>
         <Canvas>
 
-          {/* <Perf /> */}
+          <Perf />
 
-          <OrbitControls
+          <OrbitControls />
+          {/* <OrbitControls
             enablePan={false}
             enableZoom={false}
             // distance of camera creation
@@ -42,7 +44,7 @@ export const ThreeDScene = () => {
           // horizontal angle limit
           // minAzimuthAngle={-1.57}
           // maxAzimuthAngle={1.57}
-          />
+          /> */}
 
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, -10, 0]} intensity={1} />
@@ -71,7 +73,8 @@ export const ThreeDScene = () => {
             fade
           />
 
-          <ReactLogo />
+          {/* <ReactLogo /> */}
+          <GithubLogo />
 
           <Planet01 />
         </Canvas>
