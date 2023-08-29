@@ -38,7 +38,7 @@ export default function ReactLogo({ ...props }) {
   return (
     <group
       ref={logo}
-      position={[positionX  , positionY, positionZ]}
+      position={[positionX, positionY, positionZ]}
       rotation={[0, -1.570796, 1.5]}
       scale={size}>
       <mesh geometry={nodes['React-Logo_Material002_0'].geometry} material={materials['Material.002']} />
