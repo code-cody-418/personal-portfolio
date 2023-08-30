@@ -26,7 +26,8 @@ export const StacksListText = () => {
             title: "React",
             subTitle: "Reactive UI",
             description: "The website you are viewing now was created using React. Each listed item is actually a component that loops through an array of data. The modal where this text is being read is also a component. In addition, a custom hook was created to allow for a mobile responsive application. Traditional methods of resizing text for mobile were not used because the text is inside a Canvas component that comes from the library React-Three-Fiber. Furthermore, I’ve built various other sites using React. They were single page applications that utilized redux for state management. This allowed the UI to change accordingly for a good user experience.",
-            img: "react-icon.png"
+            img: null,
+            threeLogo: "ReactLogo"
         },
         {
             title: "JavaScript/CSS/HTML",

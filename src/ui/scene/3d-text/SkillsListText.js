@@ -52,7 +52,8 @@ export const SkillsListText = () => {
             title: "Git & GitHub",
             subTitle: "Version Control",
             description: "Git has been one of my favorite tools as a developer. It has allowed me to build various applications, with many different teams, working as an instructor, a freelancer, and a professional developer. I’ve worked with teams pushing and pulling code to GitHub as well as creating local remote repo’s. On past projects, I used Pull Request with a project manager to verify my changes. I’m also familiar with various git situations like dealing merge conflicts and rolling back commits.",
-            img: null
+            img: null,
+            threeLogo: "GithubLogo"
         },
         {
             title: "Containerization",

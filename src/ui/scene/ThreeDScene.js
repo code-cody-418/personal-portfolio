@@ -30,8 +30,8 @@ export const ThreeDScene = () => {
 
           <Perf />
 
-          <OrbitControls />
-          {/* <OrbitControls
+          {/* <OrbitControls /> */}
+          <OrbitControls
             enablePan={false}
             enableZoom={false}
             // distance of camera creation
@@ -44,7 +44,7 @@ export const ThreeDScene = () => {
           // horizontal angle limit
           // minAzimuthAngle={-1.57}
           // maxAzimuthAngle={1.57}
-          /> */}
+          />
 
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, -10, 0]} intensity={1} />
@@ -73,8 +73,8 @@ export const ThreeDScene = () => {
             fade
           />
 
-          {/* <ReactLogo /> */}
-          <GithubLogo />
+          <ReactLogo />
+          {/* <GithubLogo /> */}
 
           <Planet01 />
         </Canvas>
