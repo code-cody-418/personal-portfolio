@@ -7,14 +7,14 @@ title: React logo
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { Responsive } from '../../../constructor/Responsive'
 import { useResponsive } from '../../../customHooks/useResponsive'
 
-export default function ReactLogo({ ...props }) {
+export default function ReactLogo() {
   const logo = useRef()
-  const { nodes, materials } = useGLTF('/react_logo.glb')
+  const { nodes } = useGLTF('/logos/react_logo-transformed.glb')
 
   useFrame(({ clock }) => {
     const ticks = clock.getElapsedTime()
@@ -35,15 +35,19 @@ export default function ReactLogo({ ...props }) {
 
   const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
+  let loadedTexture = useTexture("/textures/blue_02_matCap.png")
+
   return (
     <group
       ref={logo}
       position={[positionX, positionY, positionZ]}
       rotation={[0, -1.570796, 1.5]}
       scale={size}>
-      <mesh geometry={nodes['React-Logo_Material002_0'].geometry} material={materials['Material.002']} />
+      <mesh geometry={nodes['React-Logo_Material002_0'].geometry}>
+        <meshMatcapMaterial matcap={loadedTexture} />
+      </mesh>
     </group>
   )
 }
 
-useGLTF.preload('/react_logo.glb')
+useGLTF.preload('/logos/react_logo-transformed.glb')

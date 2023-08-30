@@ -13,22 +13,19 @@ export default function GithubLogo() {
   useFrame(({ clock }) => {
     const ticks = clock.getElapsedTime()
 
-    logo.current.rotation.z = ticks / 2
+    logo.current.rotation.z = ticks / 3
   })
-
-  if (logo.current) {
-    logo.current.center()
-  }
   
   let loadedTexture = useTexture("/textures/purple_08_matCap.png")
+  let loadedTextureTwo = useTexture("/textures/blue_09_matCap.png")
 
   return (
-    <group ref={logo} rotation={[1.5708, 0, 0]} dispose={null} scale={35} position={[7, -8, -15]}>
+    <group ref={logo} rotation={[1.5708, 0, 0]} dispose={null} scale={35} >
       <mesh  geometry={nodes.Curve.geometry}>
         <meshMatcapMaterial matcap={loadedTexture} />
       </mesh>
       <mesh geometry={nodes.Curve001.geometry}>
-        <meshMatcapMaterial matcap={loadedTexture} />
+        <meshMatcapMaterial matcap={loadedTextureTwo} />
       </mesh>
     </group>
   )
