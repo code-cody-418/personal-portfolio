@@ -26,7 +26,7 @@ export const ThreeDScene = () => {
       <Suspense fallback={<><div className="stars"></div><div className="starsTwo"></div><div className="starsThree"></div><div className="loading"><h1>JUMPING TO LIGHT SPEED!</h1></div></>}>
         <Canvas>
 
-          <Perf />
+          {/* <Perf /> */}
 
           {/* <OrbitControls /> */}
           <OrbitControls
