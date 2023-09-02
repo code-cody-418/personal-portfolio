@@ -7,7 +7,6 @@ import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { TitleProfessionText } from "./3d-text/TitleProfessionText";
 import { ContactFormText } from "./3d-text/ContactFormText";
-import "../../ui/scene/sceneStyle.css";
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
@@ -17,7 +16,6 @@ import { AboutMeText } from "./3d-text/AboutMeText";
 import Planet01 from "./planets/Planet-01";
 import ReactLogo from "./skills-icons/React_logo";
 import { Tutorial } from "../tutorial/Tutorial";
-import GithubLogo from "./skills-icons/Github_logo";
 
 export const ThreeDScene = () => {
   return (
@@ -25,7 +23,7 @@ export const ThreeDScene = () => {
       <MyModal />
       <Tutorial />
 
-      <Suspense fallback={<div className="loading"><h1>Preparing jump to light speed!</h1></div>}>
+      <Suspense fallback={<><div className="stars"></div><div className="starsTwo"></div><div className="starsThree"></div><div className="loading"><h1>JUMPING TO LIGHT SPEED!</h1></div></>}>
         <Canvas>
 
           <Perf />
@@ -74,9 +72,8 @@ export const ThreeDScene = () => {
           />
 
           <ReactLogo />
-          {/* <GithubLogo /> */}
-
           <Planet01 />
+
         </Canvas>
       </Suspense>
     </>

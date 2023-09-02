@@ -1,11 +1,12 @@
 import React from "react";
 import { ThreeDScene } from "./scene/ThreeDScene";
-import './scene/sceneStyle.css'
 
 export const Home = () => {
     return (
         <>
             <ThreeDScene />
+            {/* <div className="stars"></div><div className="starsTwo"></div><div className="starsThree"></div><div className="loading"><h1>JUMPING TO LIGHT SPEED!</h1></div> */}
+
             <div className="connect-logos">
                 <a href="https://github.com/code-cody-418/personal-portfolio" target={"blank"}>
                     <img src="code-icon-10.png" alt="Code Logo" className="connect-logo" />

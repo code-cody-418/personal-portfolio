@@ -19,12 +19,32 @@ body {
 }
 
 .loading {
-  color: white;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.loading h1 {
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  letter-spacing: 10px;
+  font-weight: 600;
+  font-size: 3em;
+  text-shadow:
+    0 0 15px #fff,
+    0 0 42px rgb(255, 0, 251),
+    0 0 82px rgb(255, 0, 251),
+    0 0 92px rgb(255, 0, 251),
+    0 0 102px rgb(255, 0, 251),
+    0 0 151px rgb(255, 0, 251);
+}
+
+
+
+
+
 
 .connect-logos {
   position: absolute;
@@ -100,7 +120,7 @@ body {
 }
 
 .modal-body {
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .email:hover {
