@@ -16,6 +16,7 @@ import { AboutMeText } from "./3d-text/AboutMeText";
 import Planet01 from "./planets/Planet-01";
 import ReactLogo from "./skills-icons/React_logo";
 import { Tutorial } from "../tutorial/Tutorial";
+import { Loading } from "../loading/Loading";
 
 export const ThreeDScene = () => {
   return (
@@ -23,7 +24,7 @@ export const ThreeDScene = () => {
       <MyModal />
       <Tutorial />
 
-      <Suspense fallback={<><div className="stars"></div><div className="starsTwo"></div><div className="starsThree"></div><div className="loading"><h1>JUMPING TO LIGHT SPEED!</h1></div></>}>
+      <Suspense fallback={<Loading />}>
         <Canvas>
 
           {/* <Perf /> */}
