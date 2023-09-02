@@ -58,7 +58,7 @@ export const MyModal = () => {
                                         <Col xs={12} md={8}><p className="modal-body">{allModalInfo?.description}</p></Col>
                                         <Col xs={12} md={4} className="my-auto d-block text-center">
                                             {allModalInfo?.img ? <Image src={allModalInfo?.img} alt={allModalInfo?.img} roundedCircle fluid/> : null}
-                                            {allModalInfo?.threeLogo ? <Canvas> <ThreeLogo threeLogo={allModalInfo?.threeLogo} /> </Canvas> : null}
+                                            {allModalInfo?.threeLogo ? <Canvas><ThreeLogo threeLogo={allModalInfo?.threeLogo}/></Canvas> : null}
                                         </Col>
                                     </Row>
                                 </>
