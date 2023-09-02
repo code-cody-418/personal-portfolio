@@ -23,6 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: hideSuspense 10s ease-out 1;
 }
 
 .loading h1 {
@@ -41,10 +42,17 @@ body {
     0 0 151px rgb(255, 0, 251);
 }
 
+@keyframes hideSuspense {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
 
-
-
-
+  to {
+    transform: scale(0.2);
+    opacity: 0.4;
+  }
+}
 
 .connect-logos {
   position: absolute;
