@@ -15,7 +15,7 @@ export const Home = () => {
                     <img src="linked-in-logo-03.png" alt="LinkedIn Logo" className="connect-logo" />
                 </a>
                 <a href="https://github.com/code-cody-418" target={"blank"}>
-                    <img src="github-icon.png" alt="Github Logo" className="connect-logo" />
+                    <img src="github-icon.svg" alt="Github Logo" className="connect-logo" />
                 </a>
             </div>
         </>
