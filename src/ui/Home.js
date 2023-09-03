@@ -7,6 +7,9 @@ export const Home = () => {
             <ThreeDScene />
 
             <div className="connect-logos">
+                <a href="https://codecody.dev/attribution.html" target={"blank"}>
+                    <img src="/logos/creative-commons-logo.svg" alt="Creative Commons Logo" className="connect-logo" />
+                </a>
                 <a href="https://github.com/code-cody-418/personal-portfolio" target={"blank"}>
                     <img src="code-icon-10.png" alt="Code Logo" className="connect-logo" />
                 </a>
