@@ -27,7 +27,7 @@ export const ThreeDScene = () => {
       <Suspense fallback={<Loading />}>
         <Canvas>
 
-          <Perf />
+          {/* <Perf /> */}
 
           {/* <OrbitControls /> */}
           <OrbitControls

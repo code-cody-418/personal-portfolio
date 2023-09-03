@@ -5,7 +5,6 @@ export const Home = () => {
     return (
         <>
             <ThreeDScene />
-            {/* <div className="stars"></div><div className="starsTwo"></div><div className="starsThree"></div><div className="loading"><h1>JUMPING TO LIGHT SPEED!</h1></div> */}
 
             <div className="connect-logos">
                 <a href="https://github.com/code-cody-418/personal-portfolio" target={"blank"}>
