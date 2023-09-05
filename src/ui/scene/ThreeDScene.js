@@ -17,6 +17,7 @@ import Planet01 from "./planets/Planet-01";
 import ReactLogo from "./skills-icons/React_logo";
 import { Tutorial } from "../tutorial/Tutorial";
 import { Loading } from "../loading/Loading";
+import { CodeLogo } from "./skills-icons/Code_logo";
 
 export const ThreeDScene = () => {
   return (
@@ -27,7 +28,7 @@ export const ThreeDScene = () => {
       <Suspense fallback={<Loading />}>
         <Canvas>
 
-          {/* <Perf /> */}
+          <Perf />
 
           {/* <OrbitControls /> */}
           <OrbitControls
@@ -73,6 +74,7 @@ export const ThreeDScene = () => {
           />
 
           <ReactLogo />
+          <CodeLogo />
           <Planet01 />
 
         </Canvas>
