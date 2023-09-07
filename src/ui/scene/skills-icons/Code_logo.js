@@ -4,18 +4,48 @@ Command: npx gltfjsx@6.2.13 code-logo.glb --transform --keepmeshes
 Files: code-logo.glb [5.34KB] > code-logo-transformed.glb [3.13KB] (41%)
 */
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
+import { Responsive } from '../../../constructor/Responsive'
+import { useFrame } from '@react-three/fiber'
+import { useResponsive } from '../../../customHooks/useResponsive'
 
-export function CodeLogo(props) {
+export function CodeLogo() {
+  const logo = useRef()
   const { nodes } = useGLTF('/logos/code-logo-transformed.glb')
 
-  let loadedTexture = useTexture("/textures/blue_02_matCap.png")
+  useFrame(({ clock }) => {
+    const ticks = clock.getElapsedTime()
+
+    logo.current.rotation.z = ticks / -2.5
+  })
+
+  const responsiveData = new Responsive();
+  responsiveData.desktopSize = 5;
+  responsiveData.desktopPositionX = 7;
+  responsiveData.desktopPositionY = -6
+  responsiveData.desktopPositionZ = -15;
+
+  responsiveData.mobileSize = 3;
+  responsiveData.mobilePositionX = 0;
+  responsiveData.mobilePositionY = -2
+  responsiveData.mobilePositionZ = -15;
+
+  const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
+
+
+  let loadedTexture = useTexture("/textures/purple_08_matCap.png")
+  let loadedTextureTwo = useTexture("/textures/blue_09_matCap.png")
 
   return (
-    <group rotation={[1.5708, 0, 3.14159]}>
+    <group
+      ref={logo}
+      position={[positionX, positionY, positionZ]}
+      rotation={[1.5708, 0, 3.14159]}
+      scale={size}
+    >
       <mesh geometry={nodes.circle.geometry} material={nodes.circle.material} position={[0.002, -0.011, 0]} scale={100}>
-        <meshMatcapMaterial matcap={loadedTexture} />
+        <meshMatcapMaterial matcap={loadedTextureTwo} />
       </mesh>
       <mesh geometry={nodes.Text.geometry} material={nodes.Text.material} position={[-0.652, 0.078, 0.227]} scale={0.65}>
         <meshMatcapMaterial matcap={loadedTexture} />
