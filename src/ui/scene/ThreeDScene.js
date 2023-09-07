@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -20,6 +20,7 @@ import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
 
 export const ThreeDScene = () => {
+
   return (
     <>
       <MyModal />
@@ -73,7 +74,7 @@ export const ThreeDScene = () => {
             fade
           />
 
-          <ReactLogo />
+          {/* <ReactLogo /> */}
           <CodeLogo />
           <Planet01 />
 
