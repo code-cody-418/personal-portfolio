@@ -13,7 +13,7 @@ import { Canvas } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
-import Planet01 from "./planets/Planet-01";
+import { Planet01 } from "./planets/Planet-01";
 import { Tutorial } from "../tutorial/Tutorial";
 import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
@@ -27,7 +27,7 @@ export const ThreeDScene = () => {
       <Suspense fallback={<Loading />}>
         <Canvas>
 
-          <Perf />
+          {/* <Perf /> */}
 
           {/* <OrbitControls /> */}
           <OrbitControls
