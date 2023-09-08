@@ -6,7 +6,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
-export default function Planet01() {
+export function Planet01() {
   const fullPlanet = useRef()
   const planetRef = useRef()
   const cloudsRef = useRef()
@@ -36,4 +36,5 @@ export default function Planet01() {
   )
 }
 
-useGLTF.preload('/planets/planet-01-transformed.glb')
+useGLTF.preload('/planets/purple-planet-clouds-transformed.glb')
+useGLTF.preload('/planets/purple-planet-02-transformed.glb')
