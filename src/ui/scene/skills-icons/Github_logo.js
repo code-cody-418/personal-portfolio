@@ -31,4 +31,4 @@ export default function GithubLogo() {
   )
 }
 
-useGLTF.preload('/logos/github-3d-logo-transformed.glb')
+// useGLTF.preload('/logos/github-3d-logo-transformed.glb')

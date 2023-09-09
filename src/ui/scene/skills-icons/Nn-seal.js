@@ -68,4 +68,4 @@ export function NNSeal() {
   )
 }
 
-useGLTF.preload('./logos/nn-seal.glb')
+// useGLTF.preload('./logos/nn-seal.glb')
