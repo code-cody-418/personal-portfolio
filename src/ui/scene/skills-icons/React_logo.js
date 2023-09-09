@@ -50,4 +50,4 @@ export default function ReactLogo() {
   )
 }
 
-useGLTF.preload('/logos/react_logo-transformed.glb')
+// useGLTF.preload('/logos/react_logo-transformed.glb')
