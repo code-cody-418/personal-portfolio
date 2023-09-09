@@ -1,5 +1,7 @@
+import { Canvas } from '@react-three/fiber';
 import React from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
+import { CodeLogo } from '../scene/skills-icons/Code_logo';
 
 
 export const ContactForm = ({ allModalInfo }) => {
@@ -19,7 +21,9 @@ export const ContactForm = ({ allModalInfo }) => {
                     </p>
                 </Col>
                 <Col xs={12} md={4} className="my-auto d-block text-center">
-                    {allModalInfo?.img ? <Image src={allModalInfo?.img} alt={allModalInfo?.img} roundedCircle fluid /> : null}
+                    <Canvas>
+                        <CodeLogo modal={true} />
+                    </Canvas>
                 </Col>
             </Row>
         </>
