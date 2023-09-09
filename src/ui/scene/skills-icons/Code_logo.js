@@ -21,7 +21,7 @@ export function CodeLogo() {
   })
 
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 5;
+  responsiveData.desktopSize = 2;
   responsiveData.desktopPositionX = 7;
   responsiveData.desktopPositionY = -6
   responsiveData.desktopPositionZ = -15;
@@ -44,10 +44,10 @@ export function CodeLogo() {
       rotation={[1.5708, 0, 3.14159]}
       scale={size}
     >
-      <mesh geometry={nodes.circle.geometry} material={nodes.circle.material} position={[0.002, -0.011, 0]} scale={100}>
+      <mesh geometry={nodes['circle-ring'].geometry} scale={15}>
         <meshMatcapMaterial matcap={loadedTextureTwo} />
       </mesh>
-      <mesh geometry={nodes.Text.geometry} material={nodes.Text.material} position={[-0.652, 0.078, 0.227]} scale={0.65}>
+      <mesh geometry={nodes.Text.geometry} >
         <meshMatcapMaterial matcap={loadedTexture} />
       </mesh>
     </group>
