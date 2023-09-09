@@ -10,7 +10,7 @@ import { Responsive } from '../../../constructor/Responsive'
 import { useFrame } from '@react-three/fiber'
 import { useResponsive } from '../../../customHooks/useResponsive'
 
-export function CodeLogo() {
+export function CodeLogo({ modal }) {
   const logo = useRef()
   const { nodes } = useGLTF('/logos/code-logo-transformed.glb')
 
@@ -26,7 +26,7 @@ export function CodeLogo() {
   responsiveData.desktopPositionY = -6
   responsiveData.desktopPositionZ = -15;
 
-  responsiveData.mobileSize = 3;
+  responsiveData.mobileSize = 1.5;
   responsiveData.mobilePositionX = 0;
   responsiveData.mobilePositionY = -2
   responsiveData.mobilePositionZ = -15;
@@ -38,19 +38,39 @@ export function CodeLogo() {
   let loadedTextureTwo = useTexture("/textures/blue_09_matCap.png")
 
   return (
-    <group
-      ref={logo}
-      position={[positionX, positionY, positionZ]}
-      rotation={[1.5708, 0, 3.14159]}
-      scale={size}
-    >
-      <mesh geometry={nodes['circle-ring'].geometry} scale={15}>
-        <meshMatcapMaterial matcap={loadedTextureTwo} />
-      </mesh>
-      <mesh geometry={nodes.Text.geometry} >
-        <meshMatcapMaterial matcap={loadedTexture} />
-      </mesh>
-    </group>
+    <>
+      {
+        modal ? ( // if logo is displayed in modal
+          <group
+            ref={logo}
+            position={[0, 0, 0]}
+            rotation={[1.5708, 0, 3.14159]}
+            scale={1.5}
+          >
+            <mesh geometry={nodes['circle-ring'].geometry} scale={[15, 8, 15]}>
+              <meshMatcapMaterial matcap={loadedTextureTwo} />
+            </mesh>
+            <mesh geometry={nodes.Text.geometry} >
+              <meshMatcapMaterial matcap={loadedTexture} />
+            </mesh>
+          </group>
+        ) : ( //else if logo is displayed on main screen
+          <group
+            ref={logo}
+            position={[positionX, positionY, positionZ]}
+            rotation={[1.5708, 0, 3.14159]}
+            scale={size}
+          >
+            <mesh geometry={nodes['circle-ring'].geometry} scale={[15, 8, 15]}>
+              <meshMatcapMaterial matcap={loadedTextureTwo} />
+            </mesh>
+            <mesh geometry={nodes.Text.geometry} >
+              <meshMatcapMaterial matcap={loadedTexture} />
+            </mesh>
+          </group>
+        )
+      }
+    </>
   )
 }
 

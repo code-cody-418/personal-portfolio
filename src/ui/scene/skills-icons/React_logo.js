@@ -23,15 +23,15 @@ export default function ReactLogo() {
   })
 
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 0.6;
-  responsiveData.desktopPositionX = 7;
-  responsiveData.desktopPositionY = -6
-  responsiveData.desktopPositionZ = -15;
+  responsiveData.desktopSize = 0.5;
+  responsiveData.desktopPositionX = 0;
+  responsiveData.desktopPositionY = 0
+  responsiveData.desktopPositionZ = 0;
 
   responsiveData.mobileSize = 0.5;
   responsiveData.mobilePositionX = 0;
-  responsiveData.mobilePositionY = -2
-  responsiveData.mobilePositionZ = -15;
+  responsiveData.mobilePositionY = 0
+  responsiveData.mobilePositionZ = 0;
 
   const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
