@@ -19,7 +19,6 @@ export const ThreeLogo = ({ threeLogo }) => {
     return (
         <>
             <Canvas>
-                <directionalLight position={[0, 0, 10]} intensity={1} />
                 <Logo threeLogo={threeLogo} />
             </Canvas>
         </>
