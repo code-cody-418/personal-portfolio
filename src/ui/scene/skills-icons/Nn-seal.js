@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.2.13 nn-seal.glb
 */
 
 import React, { useRef } from 'react'
-import { GradientTexture, GradientType, useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
 export function NNSeal() {
@@ -28,9 +28,7 @@ export function NNSeal() {
         <mesh geometry={nodes.Curve054_3.geometry} material={materials['SVGMat.004']} />
         <mesh geometry={nodes.Curve054_4.geometry} material={materials['SVGMat.005']} />
         <mesh geometry={nodes.Curve054_5.geometry} material={materials['SVGMat.006']} />
-        <mesh geometry={nodes.Curve054_6.geometry} material={materials.SVGMat}>
-          {/* <Outlines thickness={0.0005} color="white" /> */}
-        </mesh>
+        <mesh geometry={nodes.Curve054_6.geometry} material={materials.SVGMat} />
         <mesh geometry={nodes.Curve054_7.geometry} material={materials['SVGMat.007']} />
         <mesh geometry={nodes.Curve054_8.geometry} material={materials['SVGMat.008']} />
         <mesh geometry={nodes.Curve054_9.geometry} material={materials['SVGMat.009']} />
