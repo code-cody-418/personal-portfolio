@@ -145,3 +145,11 @@ body {
 .email:hover {
   cursor: pointer;
 }
+
+.pokedex {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pokedex h5 {
+  font-size: 2em;
+}
