@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
@@ -49,7 +49,12 @@ export const ExampleApiCall = () => {
     const [error, setError] = useState(null)
 
     const callPokeApi = () => {
-        const lowerCasePokemon = pokeSearch?.current.value.toLowerCase()
+        let lowerCasePokemon
+        if(pokeSearch?.current.value){
+            lowerCasePokemon = pokeSearch?.current.value.toLowerCase()
+        } else {
+            lowerCasePokemon = "pikachu"
+        }
 
         fetch(`https://pokeapi.co/api/v2/pokemon/${lowerCasePokemon}`)
             .then(response => response.json())
@@ -64,6 +69,10 @@ export const ExampleApiCall = () => {
             })
     }
 
+    useEffect( () => {
+        callPokeApi()
+    }, [])
+
     return (
         <>
             <Row>
@@ -72,7 +81,7 @@ export const ExampleApiCall = () => {
                 </Col>
             </Row>
             <Row>
-                <Col md={8} className="p-0">
+                <Col md={8} className="p-0 pr-1">
                     <input ref={pokeSearch} className="form-control" type="text" name="pokemon" placeholder="Pikachu" />
                 </Col>
 
