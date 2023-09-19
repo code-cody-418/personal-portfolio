@@ -1,6 +1,7 @@
 import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
 import { ContactForm } from "../contact-form/ContactForm";
 import { useModalStore } from "../utils/store";
+import { ExampleApiCall } from "./ExampleApiCall";
 import { ThreeLogo } from "./ThreeLogo";
 
 export const MyModal = () => {
@@ -29,6 +30,9 @@ export const MyModal = () => {
 
     let previousIndex = currentItemIndex - 1
     let nextIndex = currentItemIndex + 1
+
+    
+
     return (
         <>
             <Modal show={modalState} onHide={handleClose} size="lg" dialogClassName="custom-modal">
@@ -55,9 +59,10 @@ export const MyModal = () => {
                                 <>
                                     <Row>
                                         <Col xs={12} md={8}><p className="modal-body">{allModalInfo?.description}</p></Col>
-                                        <Col xs={12} md={4} className="my-auto d-block text-center">
-                                            {allModalInfo?.img ? <Image src={allModalInfo?.img} alt={allModalInfo?.img} roundedCircle={allModalInfo.roundImg} fluid/> : null}
-                                            {allModalInfo?.threeLogo ? <ThreeLogo threeLogo={allModalInfo?.threeLogo}/> : null}
+                                        <Col xs={12} md={4} className="my-auto d-block">
+                                            {allModalInfo?.img ? <Image src={allModalInfo?.img} alt={allModalInfo?.img} roundedCircle={allModalInfo.roundImg} fluid /> : null}
+                                            {allModalInfo?.threeLogo ? <ThreeLogo threeLogo={allModalInfo?.threeLogo} /> : null}
+                                            {allModalInfo?.apiCall ? <ExampleApiCall /> : null}
                                         </Col>
                                     </Row>
                                 </>

@@ -50,7 +50,8 @@ export const SkillsListText = () => {
             subTitle: "Api's and Data",
             description: "My experience in the backend has consisted of NodeJs with various databases, cms, and apis. I’ve worked extensively creating api’s built out in ExpressJs. These api’s would do various things, but mostly they would talk to databases or other external api’s. One of my biggest accomplishments as a backend dev has been carrying out ETL pipelines that later synchronized data between Google FireBase and Salesforce. Another huge accomplishment was successfully conducting a data transfer transferring over two and a half million documents and its meta data between DB’s. This project saved my employer 133% of my entire year's salary, which only took me two months to complete all while training one of my colleagues on ETL.",
             img: null,
-            roundImg: false
+            roundImg: false,
+            apiCall: true
         },
         {
             title: "Git & GitHub",
