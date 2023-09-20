@@ -65,14 +65,14 @@ export const SkillsListText = () => {
             title: "Containerization",
             subTitle: "Docker",
             description: "Using containers to build applications has been a cornerstone of my devops approach. Using Docker I was able to build entire applications in isolated environments. This allowed me to deploy my applications into cloud environments for testing purposes. In addition, as an assistant instructor, my students used containers to build their applications. By giving students configuration files they were able to spin up MERN stack applications with ease allowing for a practical learning environment.",
-            img: null,
+            img: "/logos/docker-logo.svg",
             roundImg: false
         },
         {
             title: "Cloud Computing",
             subTitle: "Digital Ocean",
             description: "As a full-stack dev I am quite versed in creating virtual environments for websites and applications. Most of my experience is within DigitalOcean. Here I built machines called Droplets that ran Ubuntu OS’s that I managed from an SSH terminal or through the dashboard. Many things were configured like resources, firewalls, networks, DNS and everything else to successfully run a server. In addition, I also have some experience working within Google Firebase. This was another cloud computing environment where I accessed databases and ran various functions from the code I wrote. ",
-            img: null,
+            img: "/logos/digital-ocean-logo-01.svg",
             roundImg: false
         },
     ]
