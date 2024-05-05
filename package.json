@@ -11,12 +11,10 @@
     "react-bootstrap": "^1.6.7",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "source-map-explorer": "^2.5.3",
     "three": "^0.152.2",
     "zustand": "^4.3.8"
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
