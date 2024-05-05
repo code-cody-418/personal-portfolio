@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -17,6 +17,7 @@ import { Planet01 } from "./planets/Planet-01";
 import { Tutorial } from "../tutorial/Tutorial";
 import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
+import { SpaceCamera } from "./camera/SpaceCamera";
 
 export const ThreeDScene = () => {
   return (
@@ -27,10 +28,10 @@ export const ThreeDScene = () => {
       <Suspense fallback={<Loading />}>
         <Canvas>
 
-          {/* <Perf /> */}
+          <Perf />
 
           {/* <OrbitControls /> */}
-          <OrbitControls
+          {/* <OrbitControls
             enablePan={false}
             enableZoom={false}
             // distance of camera creation
@@ -43,7 +44,9 @@ export const ThreeDScene = () => {
           // horizontal angle limit
           // minAzimuthAngle={-1.57}
           // maxAzimuthAngle={1.57}
-          />
+          /> */}
+          <SpaceCamera />
+          {/* <PerspectiveCamera position={[50, 0, 50]} rotation={[0, 1.570796, 0]} /> */}
 
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, -10, 0]} intensity={1} />
