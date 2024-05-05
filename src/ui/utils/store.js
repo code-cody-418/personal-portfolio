@@ -17,4 +17,14 @@ export const useModalStore = create((set) => ({
     //setCurrentItemIndex
     currentItemIndex: null,
     setCurrentItemIndex: (currentItemIndex) => set(() => ({currentItemIndex: currentItemIndex})),
+
+    //set manual controls
+    manualControlState: false,
+    enableManualControls: () => set(() => ({manualControlState: true})),
+    disableManualControls: () => set(() => ({manualControlState: false})),
+
+    //set manual control direction
+    manualControlDirection: 5,
+    setManualControlDirectionForward: () => set( () => ({manualControlDirection: 5})),
+    setManualControlDirectionBackward: () => set( () => ({manualControlDirection: -5}))
 }))

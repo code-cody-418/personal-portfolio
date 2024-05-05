@@ -17,13 +17,15 @@ import { Planet01 } from "./planets/Planet-01";
 import { Tutorial } from "../tutorial/Tutorial";
 import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
-import { SpaceCamera } from "./camera/SpaceCamera";
+import { DynamicCamera } from "./camera/DynamicCamera";
+import { ManualCameraControls } from "./camera/ManualCameraControls";
 
 export const ThreeDScene = () => {
   return (
     <>
       <MyModal />
       <Tutorial />
+      <ManualCameraControls />
 
       <Suspense fallback={<Loading />}>
         <Canvas>
@@ -31,22 +33,7 @@ export const ThreeDScene = () => {
           <Perf />
 
           {/* <OrbitControls /> */}
-          {/* <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            // distance of camera creation
-            minDistance={0}
-            maxDistance={3}
-            rotateSpeed={0.3}
-            // vertical angle limit
-            minPolarAngle={1.5708}
-            maxPolarAngle={1.5708}
-          // horizontal angle limit
-          // minAzimuthAngle={-1.57}
-          // maxAzimuthAngle={1.57}
-          /> */}
-          <SpaceCamera />
-          {/* <PerspectiveCamera position={[50, 0, 50]} rotation={[0, 1.570796, 0]} /> */}
+          <DynamicCamera />
 
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, -10, 0]} intensity={1} />
