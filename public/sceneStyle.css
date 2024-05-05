@@ -153,3 +153,17 @@ body {
 .pokedex h5 {
   font-size: 2em;
 }
+
+.manualControlsButton {
+  /* width: 500px; */
+}
+
+.manualControlsPosition{
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  animation: showTutorial 5s ease-in 1;
+}
