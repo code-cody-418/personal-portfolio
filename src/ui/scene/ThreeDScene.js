@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -32,7 +32,6 @@ export const ThreeDScene = () => {
 
           <Perf />
 
-          {/* <OrbitControls /> */}
           <DynamicCamera />
 
           <ambientLight intensity={0.1} />
