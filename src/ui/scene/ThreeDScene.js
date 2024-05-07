@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
@@ -19,17 +19,71 @@ import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
 import { ManualCameraControls } from "./camera/ManualCameraControls";
+import { useModalStore } from "../utils/store";
 
 export const ThreeDScene = () => {
+  const [moveDistance, setMoveDistance] = useState(0);
+  const [enableMouseScroll, setEnableMouseScroll] = useState(false);
+
+  const enableManualControls = useModalStore(
+    (state) => state.enableManualControls
+  );
+
+  const disableManualControls = useModalStore(
+    (state) => state.disableManualControls
+  );
+
+  const setManualControlDirectionForward = useModalStore(
+    (state) => state.setManualControlDirectionForward
+  );
+
+  const setManualControlDirectionBackward = useModalStore(
+    (state) => state.setManualControlDirectionBackward
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (moveDistance > 0) {
+        setMoveDistance(moveDistance - 1);
+      } else if (moveDistance === 0 && enableMouseScroll === true) {
+        disableManualControls();
+        setEnableMouseScroll(false);
+      }
+    }, 200);
+    return () => clearInterval(timer);
+  });
+
+  const handleBackwards = () => {
+    enableManualControls();
+    setManualControlDirectionBackward();
+    setEnableMouseScroll(true);
+  };
+
+  const handleForwards = () => {
+    enableManualControls();
+    setManualControlDirectionForward();
+    setEnableMouseScroll(true);
+  };
+
   return (
     <>
       <MyModal />
-      <Tutorial />
+      {/* <Tutorial /> */}
       <ManualCameraControls />
 
       <Suspense fallback={<Loading />}>
-        <Canvas>
-
+        <Canvas
+          onWheel={(event) => {
+            if (moveDistance < 4) {
+              setMoveDistance(moveDistance + 1);
+            }
+            if (event.deltaY > 0) {
+              handleForwards();
+            } else if (event.deltaY < 0) {
+              handleBackwards();
+            }
+          }}
+        >
           <Perf />
 
           <DynamicCamera />
@@ -63,7 +117,6 @@ export const ThreeDScene = () => {
 
           <CodeLogo />
           <Planet01 />
-
         </Canvas>
       </Suspense>
     </>
