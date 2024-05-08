@@ -76,14 +76,14 @@ export const MyModal = () => {
                             <Col xs={12} lg={4}>
                                 {previousItemInfo ?
                                     (
-                                        <Button variant="link" className="px-0" onClick={() => handleTextClick(previousItemInfo, previousIndex)}>Previous: {previousItemInfo?.title}</Button>
+                                        <Button variant="link" className="px-0 link-underline link-underline-opacity-0" onClick={() => handleTextClick(previousItemInfo, previousIndex)}>Previous: {previousItemInfo?.title}</Button>
                                     )
                                     : null}
                             </Col>
                             <Col xs={12} lg={4}>
                                 {nextItemInfo ?
                                     (
-                                        <Button variant="link" className="px-0" onClick={() => handleTextClick(nextItemInfo, nextIndex)}>Next: {nextItemInfo?.title}</Button>
+                                        <Button variant="link" className="px-0 link-underline link-underline-opacity-0" onClick={() => handleTextClick(nextItemInfo, nextIndex)}>Next: {nextItemInfo?.title}</Button>
                                     )
                                     : null}
                             </Col>
