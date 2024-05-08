@@ -154,10 +154,6 @@ body {
   font-size: 2em;
 }
 
-.manualControlsButton {
-  /* width: 500px; */
-}
-
 .manualControlsPosition{
   z-index: 1;
   position: absolute;
