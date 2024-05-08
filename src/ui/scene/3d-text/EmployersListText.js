@@ -23,18 +23,18 @@ export const EmployersListText = () => {
     // To add new item simple create a new object with the required keys and values
     const allItems = [
         {
-            title: "Navajo Nation",
-            subTitle: "Programmer Analyst",
-            description: "With the Navajo Nation I conducted a data transfer, rebuilt the website, built a Help Desk application, and maintained VM infrastructure. First off, I saved the department 133% of my yearly salary by successfully transferring over 2 million documents to a new database in just a couple months. The data was extracted into CSV, transformed using JavaScript, and then loaded using the database GUI. With the website I used modern styling techniques to create a mobile responsive site by using the Bootstrap library. In addition, hard coded job data was converted to display data dynamically. This automation saved one employee four hours a day. Also, a search bar was added that could filter jobs allowing a better user experience. Lastly, the Help Desk application integrated the Zoom REST API to programmatically send ticket updates to the entire team.",
-            img: null,
-            threeLogo: "NNSeal"
-        },
-        {
             title: "Gesture",
-            subTitle: "Intern Backend Engineer",
-            description: "At Gesture, I built ETL pipelines for data syncing between our databases and the Salesforce       CRM. To do this I had to authenticate requests to Salesforce using JWT tokens and certificates. Then I created an express server, utilizing Google Firebase functions, with a trigger that would sync our new data to Salesforce. Lastly, webhooks were utilized, using Flow and Outbound Messages, to update our database directly from Salesforce.",
+            subTitle: "Software Engineer",
+            description: "At Gesture my primary duties included developing the codebase with various api endpoints, configuring docker for dev environment, refactoring the codebase, and pushing code to production. One primary object was building multiple ETL pipelines for data syncing between our databases to multiple CRM’s. By utilizing an express server I was able to build out api endpoints that would interact with CRM webhooks. These endpoints could then be deployed, utilizing Google Firebase functions, along with triggers that watched for record changes in the database. Overall, the synchronized databases allowed for other departments to manage data with ease. Lastly, I built api endpoints that would interact with the Stripe library rest api’s. This endpoint was part of the ecommerce product that would charge users.",
             img: "/experience/Gesture-Logo-Wordmark.webp",
             roundImg: false
+        },
+        {
+            title: "Navajo Nation",
+            subTitle: "Senior Programmer Analyst",
+            description: "With the Navajo Nation I led a team of developers, conducted a data transfer, rebuilt the department website, and maintained VM infrastructure. My primary responsibility was spearheading a fullstack recruitment application. While building the application I wrote authentication code, maintained docker images, led scrum meetings, and performed code reviews. Furthermore, my initiative saved the department $60k by successfully transferring over 2 million records to a new database in a short time. The data was extracted into CSV, transformed using JavaScript, and then loaded using the database GUI. Additionally, I rebuilt our website using modern css and frameworks to create a mobile responsive site. The website project also included changing static html with dynamic data. This automation saved one employee four hours a day. Also, a search bar was added that could filter jobs allowing a better user experience. Lastly, throughout my employment I delivered various improvements to the servers and running services, including creating backups, upgrading software, and configuring web servers.",
+            img: null,
+            threeLogo: "NNSeal"
         },
         {
             title: "CNM",
@@ -46,7 +46,7 @@ export const EmployersListText = () => {
         {
             title: "Freelance",
             subTitle: "Web Developer",
-            description: "My job was building websites to meet the clients needs. Clients required 3d websites, which were created using threeJS. These sites consisted of walking characters and environments. One project also required multiple users to be in one room, so socket.io was utilized to create a server with UDP sockets that allowed multiple users to wander around a room together.",
+            description: "My job was building web applications to meet my clients needs. Clients had various requirements including both frontend and backend requests. One client focused on 3d websites, which were created using threeJS. These sites consisted of walking characters and environments. One project also required multiple users to be in one room, so socket.io was utilized to create a server with UDP sockets that allowed multiple users to wander around a room together. On the other hand, I worked with a client to build a backend that utilized Google Firebase. With this client my focus was creating endpoints with CRUD operations for a NoSQL database.",
             img: "/experience/upwork-logo.svg",
             roundImg: false
         },
