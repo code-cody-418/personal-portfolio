@@ -1,5 +1,5 @@
 import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
-import { ContactForm } from "../contact-form/ContactForm";
+import { Contact } from "../contact-form/Contact";
 import { useModalStore } from "../utils/store";
 import { ExampleApiCall } from "./ExampleApiCall";
 import { ThreeLogo } from "./ThreeLogo";
@@ -54,7 +54,7 @@ export const MyModal = () => {
                     <Container>
                         {
                             allModalInfo?.contactForm ? ( // if contactForm display contact form contents
-                                <ContactForm allModalInfo={allModalInfo} />
+                                <Contact allModalInfo={allModalInfo} />
                             ) : ( // else display all other modal content
                                 <>
                                     <Row>

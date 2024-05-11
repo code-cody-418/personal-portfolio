@@ -1,31 +1,63 @@
-import { Canvas } from '@react-three/fiber';
-import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import { CodeLogo } from '../scene/skills-icons/Code_logo';
+import { useState } from "react";
+import { Button, Form, Col } from "react-bootstrap";
 
+export const ContactForm = () => {
+  const [validated, setValidated] = useState(false);
 
-export const ContactForm = ({ allModalInfo }) => {
+  const handleSubmit = (event) => {
+    // console.log("submitted", event)
 
-    function copyEmail() {
-        navigator.clipboard.writeText("code_slama@outlook.com")
+    const form = event.currentTarget;
+    console.log(form.checkValidity());
+
+    if (form.checkValidity() === false) {
+      console.log("in-valid");
+    } else if (form.checkValidity() === true) {
+      console.log("valid");
     }
-    return (
-        <>
-            <Row>
-                <Col xs={12} md={8}>
-                    <p className="modal-body">
-                        <b>Email:</b> <span className='email' title="Click to Copy" onClick={copyEmail}>code_slama@outlook.com </span>
-                    </p>
-                    <p className="modal-body">
-                        <a href='https://www.linkedin.com/in/code-cody/' target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    </p>
-                </Col>
-                <Col xs={12} md={4} className="my-auto d-block text-center">
-                    <Canvas>
-                        <CodeLogo modal={true} />
-                    </Canvas>
-                </Col>
-            </Row>
-        </>
-    )
-}
+    event.stopPropagation();
+    event.preventDefault();
+    setValidated(true);
+  };
+  return (
+    <>
+      <Form
+        className="modal-body"
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+      >
+        <Form.Group as={Col} md="8" controlId="fullName">
+          <Form.Label>Full Name</Form.Label>
+          <Form.Control required type="text" placeholder="Full Name" />
+          <Form.Control.Feedback type="invalid">
+            Please enter full name
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group as={Col} md="8" controlId="company">
+          <Form.Label>Company Name (Optional)</Form.Label>
+          <Form.Control type="text" placeholder="Optional: Company Name" />
+        </Form.Group>
+        
+        <Form.Group as={Col} md="8" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control required type="email" placeholder="Email" />
+          <Form.Control.Feedback type="invalid">
+            Please enter valid Email.
+          </Form.Control.Feedback>
+        </Form.Group>
+        
+        <Form.Group as={Col} md="8" controlId="message">
+          <Form.Label>Enter a Message</Form.Label>
+          <Form.Control style={{ height: '100px' }} required as="textarea" placeholder="Message" />
+          <Form.Control.Feedback type="invalid">
+            Please leave a message.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Button type="submit">Submit form</Button>
+      </Form>
+    </>
+  );
+};
