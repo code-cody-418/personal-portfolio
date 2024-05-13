@@ -14,11 +14,11 @@ export const Contact = ({ allModalInfo }) => {
         <>
             <Row>
                 <Col xs={12} md={8}>
-                    <p className="modal-body">
+                    <p className="modal-body mb-0 pb-0">
                         <b>Email:</b> <span className='email' title="Click to Copy" onClick={copyEmail}>code_slama@outlook.com </span>
                     </p>
                     <p className="modal-body">
-                        <a href='https://www.linkedin.com/in/code-cody/' target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <b>LinkedIn Page:</b> <a style={{ textDecoration: "none" }} href='https://www.linkedin.com/in/code-cody/' target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     </p>
                     <ContactForm />
                 </Col>
