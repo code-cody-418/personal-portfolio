@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-export const useModalStore = create((set) => ({
+export const useStore = create((set) => ({
     //set the modal to turn on and off
     modalState: false,
     showModal: () => set(() => ({ modalState: true })),

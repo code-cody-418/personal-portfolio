@@ -18,26 +18,26 @@ import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
 import { ManualCameraControls } from "./camera/ManualCameraControls";
-import { useModalStore } from "../utils/store";
+import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 
 export const ThreeDScene = () => {
   const [moveDistance, setMoveDistance] = useState(0);
   const [enableMouseScroll, setEnableMouseScroll] = useState(false);
 
-  const enableManualControls = useModalStore(
+  const enableManualControls = useStore(
     (state) => state.enableManualControls
   );
 
-  const disableManualControls = useModalStore(
+  const disableManualControls = useStore(
     (state) => state.disableManualControls
   );
 
-  const setManualControlDirectionForward = useModalStore(
+  const setManualControlDirectionForward = useStore(
     (state) => state.setManualControlDirectionForward
   );
 
-  const setManualControlDirectionBackward = useModalStore(
+  const setManualControlDirectionBackward = useStore(
     (state) => state.setManualControlDirectionBackward
   );
 

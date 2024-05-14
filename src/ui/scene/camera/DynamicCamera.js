@@ -1,9 +1,9 @@
 import { OrbitControls } from "@react-three/drei";
-import { useModalStore } from "../../utils/store";
+import { useStore } from "../../utils/store";
 
 export const DynamicCamera = () => {
-  const manualControlState = useModalStore((state) => state.manualControlState)
-  const manualControlDirection = useModalStore((state) => state.manualControlDirection)
+  const manualControlState = useStore((state) => state.manualControlState)
+  const manualControlDirection = useStore((state) => state.manualControlDirection)
 
   return (
     <>

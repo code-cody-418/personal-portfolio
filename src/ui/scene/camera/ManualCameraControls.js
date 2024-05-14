@@ -1,19 +1,19 @@
-import { useModalStore } from "../../utils/store";
+import { useStore } from "../../utils/store";
 
 export const ManualCameraControls = () => {
-  const enableManualControls = useModalStore(
+  const enableManualControls = useStore(
     (state) => state.enableManualControls
   );
 
-  const disableManualControls = useModalStore(
+  const disableManualControls = useStore(
     (state) => state.disableManualControls
   );
 
-  const setManualControlDirectionForward = useModalStore(
+  const setManualControlDirectionForward = useStore(
     (state) => state.setManualControlDirectionForward
   );
 
-  const setManualControlDirectionBackward = useModalStore(
+  const setManualControlDirectionBackward = useStore(
     (state) => state.setManualControlDirectionBackward
   );
 
