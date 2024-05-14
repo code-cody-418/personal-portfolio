@@ -1,23 +1,23 @@
 import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
 import { Contact } from "../contact-form/Contact";
-import { useModalStore } from "../utils/store";
+import { useStore } from "../utils/store";
 import { ExampleApiCall } from "./ExampleApiCall";
 import { ThreeLogo } from "./ThreeLogo";
 
 export const MyModal = () => {
     // Opening and closing the modal
-    const modalState = useModalStore((state) => state.modalState)
-    const handleClose = useModalStore((state) => state.closeModal)
+    const modalState = useStore((state) => state.modalState)
+    const handleClose = useStore((state) => state.closeModal)
 
     // Modal contents
-    const allModalInfo = useModalStore((state) => state.allModalInfo)
-    const allListItems = useModalStore((state) => state.allListItems)
-    const currentItemIndex = useModalStore((state) => state.currentItemIndex)
+    const allModalInfo = useStore((state) => state.allModalInfo)
+    const allListItems = useStore((state) => state.allListItems)
+    const currentItemIndex = useStore((state) => state.currentItemIndex)
 
     //set allModalInfo to the clicked previousItem or nextItem state
-    const handleShow = useModalStore((state) => state.showModal)
-    const setAllModalInfo = useModalStore((state) => state.setAllModalInfo)
-    const setCurrentItemIndex = useModalStore((state) => state.setCurrentItemIndex)
+    const handleShow = useStore((state) => state.showModal)
+    const setAllModalInfo = useStore((state) => state.setAllModalInfo)
+    const setCurrentItemIndex = useStore((state) => state.setCurrentItemIndex)
 
     const handleTextClick = (modalInfo, index) => {
         setAllModalInfo(modalInfo)
