@@ -19,6 +19,7 @@ import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
 import { ManualCameraControls } from "./camera/ManualCameraControls";
 import { useModalStore } from "../utils/store";
+import { Analytics } from "../analytics/Analytics";
 
 export const ThreeDScene = () => {
   const [moveDistance, setMoveDistance] = useState(0);
@@ -40,6 +41,7 @@ export const ThreeDScene = () => {
     (state) => state.setManualControlDirectionBackward
   );
 
+  // A timer that helps control the mouse wheel camera controller
   useEffect(() => {
     const timer = setInterval(() => {
       if (moveDistance > 0) {
@@ -68,6 +70,7 @@ export const ThreeDScene = () => {
     <>
       <MyModal />
       <ManualCameraControls />
+      <Analytics />
 
       <Suspense fallback={<Loading />}>
         <Canvas
