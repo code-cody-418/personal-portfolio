@@ -23,23 +23,23 @@ import { Analytics } from "../analytics/Analytics";
 
 export const ThreeDScene = () => {
   const [moveDistance, setMoveDistance] = useState(0);
+  const [watchClicks, setWatchClicks] = useState(1)
   const [enableMouseScroll, setEnableMouseScroll] = useState(false);
 
-  const enableManualControls = useStore(
-    (state) => state.enableManualControls
-  );
-
+  // manual controls store
+  const enableManualControls = useStore((state) => state.enableManualControls);
   const disableManualControls = useStore(
     (state) => state.disableManualControls
   );
-
   const setManualControlDirectionForward = useStore(
     (state) => state.setManualControlDirectionForward
   );
-
   const setManualControlDirectionBackward = useStore(
     (state) => state.setManualControlDirectionBackward
   );
+
+  // analytics store
+  const setSessionClicks = useStore((state) => state.setSessionClicks)
 
   // A timer that helps control the mouse wheel camera controller
   useEffect(() => {
@@ -65,6 +65,11 @@ export const ThreeDScene = () => {
     setManualControlDirectionForward();
     setEnableMouseScroll(true);
   };
+  
+  const handleAnalytics = () => {
+    setWatchClicks(watchClicks => watchClicks + 1)
+    setSessionClicks(watchClicks)
+  }
 
   return (
     <>
@@ -92,20 +97,22 @@ export const ThreeDScene = () => {
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, -10, 0]} intensity={1} />
 
-          <TitleText />
-          <TitleProfessionText />
+          <group onClick={handleAnalytics}>
+            <TitleText />
+            <TitleProfessionText />
 
-          <ContactFormText />
-          <AboutMeText />
+            <ContactFormText />
+            <AboutMeText />
 
-          <StacksTitleText />
-          <StacksListText />
+            <StacksTitleText />
+            <StacksListText />
 
-          <SkillsTitleText />
-          <SkillsListText />
+            <SkillsTitleText />
+            <SkillsListText />
 
-          <EmployersTitleText />
-          <EmployersListText />
+            <EmployersTitleText />
+            <EmployersListText />
+          </group>
 
           <Stars
             radius={100}
