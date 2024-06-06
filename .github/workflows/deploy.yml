@@ -1,0 +1,41 @@
+name: Deploy Personal Portfolio
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  build:
+    if: github.repository == 'code-cody-418/personal-portfolio-deploy-only'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.2
+          cache: 'npm'
+      - name: Load and Cache Dependencies
+        uses: code-cody-418/action-npm-install-cache/.github/actions/cached-deps@v1.0
+      - name: Build Website
+        run: npm run build
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: build
+  deploy: 
+    if: github.repository == 'code-cody-418/personal-portfolio-deploy-only'
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+      - name: Deploy to WebServer
+        uses: code-cody-418/action-deploy-frontend/.github/actions/deploy@v1.0
+        with:
+          digitalocean-access-token: "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}"
+          deploy-key: "${{ secrets.DEPLOY_KEY }}"
+          destination-path: "/var/www/codecody.dev/build/"
