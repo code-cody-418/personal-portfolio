@@ -64,7 +64,6 @@ export const ThreeDScene = () => {
     setEnableMouseScroll(true);
   };
 
-  console.log("GH actions worked!")
   return (
     <>
       <MyModal />
