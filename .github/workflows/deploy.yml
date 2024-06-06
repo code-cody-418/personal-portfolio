@@ -5,6 +5,7 @@ on:
       - 'main'
 jobs:
   build:
+    if: github.repository == 'code-cody-418/personal-portfolio-deploy-only'
     runs-on: ubuntu-22.04
     steps:
       - name: Get Code
@@ -24,6 +25,7 @@ jobs:
           name: build-files
           path: build
   deploy: 
+    if: github.repository == 'code-cody-418/personal-portfolio-deploy-only'
     needs: build
     runs-on: ubuntu-22.04
     steps:
