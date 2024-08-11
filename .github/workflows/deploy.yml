@@ -1,3 +1,10 @@
+##
+# This workflow deploys automatically to the web server.
+# The original repo is a public repo because of this a secondary
+# private repo is being used to run this workflow. 
+# Simply run `git push all main`
+# This will push to both repo's and run the deploy.  
+##
 name: Deploy Personal Portfolio
 on:
   push:
