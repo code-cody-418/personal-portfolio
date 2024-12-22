@@ -72,36 +72,6 @@ body {
   margin-bottom: 10px;
 }
 
-.tutorial {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  animation: showTutorial 5s ease-in 1;
-}
-
-@keyframes showTutorial {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.tutorial-card {
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
-.tutorial-icon {
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
 .modal-text {
   white-space: pre-line;
 }
