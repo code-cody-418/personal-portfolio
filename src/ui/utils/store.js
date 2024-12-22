@@ -6,20 +6,10 @@ export const useStore = create((set) => ({
   showModal: () => set(() => ({ modalState: true })),
   closeModal: () => set(() => ({ modalState: false })),
 
-  //set allModalInfo
-  allModalInfo: null,
-  setAllModalInfo: (allModalInfo) =>
-    set(() => ({ allModalInfo: allModalInfo })),
-
   //set allListItems
   allListItems: null,
   setAllListItems: (allListItems) =>
     set(() => ({ allListItems: allListItems })),
-
-  //setCurrentItemIndex
-  currentItemIndex: null,
-  setCurrentItemIndex: (currentItemIndex) =>
-    set(() => ({ currentItemIndex: currentItemIndex })),
 
   //set manual controls
   manualControlState: false,

@@ -7,15 +7,11 @@ import Arrow from "./arrow/Arrow"
 export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation, size, modalInfo, allListItems, itemIndex, arrowRotation, sectionType, arrowHide, selectionSize }) => {
     //Modal functions to show modal and to set state of what to display
     const handleShow = useStore((state) => state.showModal)
-    const setAllModalInfo = useStore((state) => state.setAllModalInfo)
     const setAllListItems = useStore((state) => state.setAllListItems)
-    const setCurrentItemIndex = useStore((state) => state.setCurrentItemIndex)
 
     //set the modal state when text is clicked
     const handleTextClick = (modalInfo) => {
-        setAllModalInfo(modalInfo)
         setAllListItems(allListItems)
-        setCurrentItemIndex(itemIndex)
         handleShow()
     }
 

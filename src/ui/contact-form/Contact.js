@@ -5,7 +5,7 @@ import { CodeLogo } from '../scene/skills-icons/Code_logo';
 import { ContactForm } from './ContactForm';
 
 
-export const Contact = ({ allModalInfo }) => {
+export const Contact = () => {
 
     function copyEmail() {
         navigator.clipboard.writeText("code_slama@outlook.com")

@@ -123,9 +123,6 @@ body {
   height: 100vh;
 }
 
-.modal-dialog .modal-content {
-  height: 80vh;
-}
 
 .modal-title {
   font-family: 'Philosopher', sans-serif;
