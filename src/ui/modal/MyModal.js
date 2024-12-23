@@ -1,4 +1,4 @@
-import { Modal, Container, Row, Col, Button } from "react-bootstrap";
+import { Modal, Container, Row, Col, Button, Navbar, Nav } from "react-bootstrap";
 import { useStore } from "../utils/store";
 import { ModalContent } from "./ModalContent";
 
@@ -10,12 +10,6 @@ export const MyModal = () => {
   // Modal contents
   const allListItems = useStore((state) => state.allListItems);
 
-  const handleShow = useStore((state) => state.showModal);
-
-  const handleTextClick = (modalInfo, index) => {
-    handleShow();
-  };
-
   return (
     <>
       <Modal
@@ -24,15 +18,23 @@ export const MyModal = () => {
         size="lg"
         dialogClassName="custom-modal"
       >
-        <Modal.Header closeButton className="text-white bg-dark bg-gradient">
+        <Modal.Header
+          closeButton
+          className="text-white bg-dark border border-0"
+        >
           <Modal.Title>
-            <Container>
-              <Row>
-                <Col xs={12}>
-                  <h2 className="modal-title">Modal Title Temp</h2>
-                </Col>
-              </Row>
-            </Container>
+            <Navbar expand="lg" className="bg-dark text-white">
+              <Container>
+                <Navbar.Brand>My Brand Here</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto">
+                    <Nav.Link>Home</Nav.Link>
+                    <Nav.Link>Experience</Nav.Link>
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
           </Modal.Title>
         </Modal.Header>
 
@@ -40,7 +42,7 @@ export const MyModal = () => {
           <ModalContent key={i} listItem={listItem} />
         ))}
 
-        <Modal.Footer className="bg-dark bg-gradient">
+        <Modal.Footer className="bg-dark border border-0 text-white">
           <Container>
             <Row className="mt-3 justify-content-between">
               <Col xs={12} lg={4}>
