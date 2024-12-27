@@ -9,9 +9,11 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     const handleShow = useStore((state) => state.showModal)
     const setAllListItems = useStore((state) => state.setAllListItems)
     const setSectionLocation = useStore((state) => state.setSectionLocation)
+    const setSectionTitle = useStore((state) => state.setSectionTitle);
 
     //set the modal state when text is clicked
-    const handleTextClick = (modalInfo) => {
+    const handleTextClick = () => {
+        setSectionTitle(correctSectionTitles[sectionType])
         setAllListItems(allListItems)
         setSectionLocation(text)
         handleShow()
@@ -73,7 +75,7 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
             }
 
             <group //selection group with a mesh to prevent lag
-                onClick={() => handleTextClick(modalInfo)}
+                onClick={() => handleTextClick()}
                 onPointerOver={() => {
                     setHoveredTexture(selectedTexture)
                     setHovered(true)
@@ -100,4 +102,12 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
             </group>
         </>
     )
+}
+
+const correctSectionTitles = {
+    aboutMe: "About Me",
+    contactMe: "Contact Me",
+    skills: "Skills",
+    employers: "Experience",
+    stack: "Stack"
 }

@@ -13,8 +13,13 @@ export const useStore = create((set) => ({
 
   // set location
   sectionLocation: null,
-  setSectionLocation: (sectionLocation) => 
-    set(() => ({sectionLocation: sectionLocation})),
+  setSectionLocation: (sectionLocation) =>
+    set(() => ({ sectionLocation: sectionLocation })),
+
+  // set sectionTitle
+  sectionTitle: null,
+  setSectionTitle: (sectionTitle) =>
+    set(() => ({ sectionTitle: sectionTitle })),
 
   //set manual controls
   manualControlState: false,
@@ -31,10 +36,10 @@ export const useStore = create((set) => ({
   // set analytics clicks
   sessionClicks: 0,
   setSessionClicks: (watchClicks) =>
-    set(() => ({sessionClicks: watchClicks})),
+    set(() => ({ sessionClicks: watchClicks })),
 
   // set analytics time
   sessionTime: 0,
-  setSessionTime: (secondsPassed) => 
-    set(() => ({sessionTime: secondsPassed}))
+  setSessionTime: (secondsPassed) =>
+    set(() => ({ sessionTime: secondsPassed })),
 }));

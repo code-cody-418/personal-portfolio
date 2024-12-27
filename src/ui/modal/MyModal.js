@@ -12,6 +12,7 @@ export const MyModal = () => {
   // Modal contents
   const allListItems = useStore((state) => state.allListItems);
   const sectionLocation = useStore((state) => state.sectionLocation);
+  const sectionTitle = useStore((state) => state.sectionTitle);
 
   useEffect(() => {
     if (sectionLocation) {
@@ -30,8 +31,11 @@ export const MyModal = () => {
         <ModalNav />
 
         <Modal.Body className="text-white bg-dark modal-text border-0">
-        <div id="top"></div>
+          <div id="top"></div>
           <Container>
+            <Row>
+              <h2>{sectionTitle}</h2>
+            </Row>
             {allListItems?.map((listItem, i) => (
               <ModalContent key={i} listItem={listItem} />
             ))}

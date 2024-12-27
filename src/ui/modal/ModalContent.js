@@ -1,4 +1,4 @@
-import { Modal, Container, Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import { Contact } from "../contact-form/Contact";
 import { ThreeLogo } from "./ThreeLogo";
 import { ExampleApiCall } from "./ExampleApiCall";
@@ -8,12 +8,12 @@ export const ModalContent = ({ listItem }) => {
     <>
       <Row>
         <Col xs={12}>
-          <h2 className="modal-title" id={listItem?.title}>
+          <h3 className="modal-title" id={listItem?.title}>
             {listItem?.title}
-          </h2>
+          </h3>
         </Col>
         <Col xs={12}>
-          <h3 className="modal-subtitle">{listItem?.subTitle}</h3>
+          <h4 className="modal-subtitle">{listItem?.subTitle}</h4>
         </Col>
       </Row>
       {listItem?.contactForm ? ( // if contactForm display contact form contents

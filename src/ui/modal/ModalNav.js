@@ -4,22 +4,43 @@ import { content } from "../scene/3d-text/content.js";
 
 export const ModalNav = () => {
   const setAllListItems = useStore((state) => state.setAllListItems);
+  const setSectionTitle = useStore((state) => state.setSectionTitle);
 
   return (
     <Modal.Header
       closeButton
-      className="text-white border border-0 header-custom my-2 py-0 rounded-0"
+      className="text-white border border-0 header-custom py-0 rounded-0 bg-dark"
     >
       <Modal.Title>
-        <Navbar expand="lg" className="text-white py-0">
+        <Navbar expand="lg" className="py-0">
           <Container>
-            <Navbar.Brand>My Brand Here</Navbar.Brand>
+            <Navbar.Brand>
+              <img
+                src="/code-icon-10.png"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="Code Logo"
+              />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav fill variant="tabs">
-                <Nav.Link>Home</Nav.Link>
+              <Nav>
+                <Nav.Link className="text-white">Home</Nav.Link>
                 <Nav.Link
+                  className="text-white"
                   onClick={() => {
+                    setSectionTitle("About Me")
+                    // setAllListItems(content.employers);
+                    window.location.replace("/#top");
+                  }}
+                >
+                  About Me
+                </Nav.Link>
+                <Nav.Link
+                  className="text-white"
+                  onClick={() => {
+                    setSectionTitle("Experience")
                     setAllListItems(content.employers);
                     window.location.replace("/#top");
                   }}
@@ -27,7 +48,9 @@ export const ModalNav = () => {
                   Experience
                 </Nav.Link>
                 <Nav.Link
+                  className="text-white"
                   onClick={() => {
+                    setSectionTitle("Skills")
                     setAllListItems(content.skills);
                     window.location.replace("/#top");
                   }}
@@ -35,12 +58,24 @@ export const ModalNav = () => {
                   Skills
                 </Nav.Link>
                 <Nav.Link
+                  className="text-white"
                   onClick={() => {
+                    setSectionTitle("Stack")
                     setAllListItems(content.stack);
                     window.location.replace("/#top");
                   }}
                 >
                   Stacks
+                </Nav.Link>
+                <Nav.Link
+                  className="text-white"
+                  onClick={() => {
+                    setSectionTitle("Contact Me")
+                    // setAllListItems(content.employers);
+                    window.location.replace("/#top");
+                  }}
+                >
+                  Contact Me
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
