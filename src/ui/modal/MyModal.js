@@ -1,7 +1,8 @@
-import { Modal, Container, Row, Col, Navbar, Nav } from "react-bootstrap";
+import { Modal, Container, Row, Col } from "react-bootstrap";
 import { useStore } from "../utils/store";
 import { ModalContent } from "./ModalContent";
 import { useEffect } from "react";
+import { ModalNav } from "./ModalNav";
 
 export const MyModal = () => {
   // Opening and closing the modal
@@ -10,11 +11,13 @@ export const MyModal = () => {
 
   // Modal contents
   const allListItems = useStore((state) => state.allListItems);
-  const sectionLocation = useStore((state) => state.sectionLocation)
+  const sectionLocation = useStore((state) => state.sectionLocation);
 
   useEffect(() => {
-    window.location.replace("/#" + sectionLocation)
-  }, [sectionLocation])
+    if(sectionLocation){
+      window.location.replace("/#" + sectionLocation);
+    }
+  }, [sectionLocation]);
 
   return (
     <>
@@ -24,25 +27,7 @@ export const MyModal = () => {
         size="lg"
         dialogClassName="custom-modal"
       >
-        <Modal.Header
-          closeButton
-          className="text-white bg-dark border border-0"
-        >
-          <Modal.Title>
-            <Navbar expand="lg" className="bg-dark text-white">
-              <Container>
-                <Navbar.Brand>My Brand Here</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="me-auto">
-                    <Nav.Link>Home</Nav.Link>
-                    <Nav.Link>Experience</Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
-              </Container>
-            </Navbar>
-          </Modal.Title>
-        </Modal.Header>
+        <ModalNav />
 
         {allListItems?.map((listItem, i) => (
           <ModalContent key={i} listItem={listItem} />
