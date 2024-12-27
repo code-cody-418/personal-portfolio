@@ -8,10 +8,12 @@ export const PortfolioText = ({ text, xPosition, yPosition, zPosition, yRotation
     //Modal functions to show modal and to set state of what to display
     const handleShow = useStore((state) => state.showModal)
     const setAllListItems = useStore((state) => state.setAllListItems)
+    const setSectionLocation = useStore((state) => state.setSectionLocation)
 
     //set the modal state when text is clicked
     const handleTextClick = (modalInfo) => {
         setAllListItems(allListItems)
+        setSectionLocation(text)
         handleShow()
     }
 

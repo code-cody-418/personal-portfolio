@@ -11,6 +11,11 @@ export const useStore = create((set) => ({
   setAllListItems: (allListItems) =>
     set(() => ({ allListItems: allListItems })),
 
+  // set location
+  sectionLocation: null,
+  setSectionLocation: (sectionLocation) => 
+    set(() => ({sectionLocation: sectionLocation})),
+
   //set manual controls
   manualControlState: false,
   enableManualControls: () => set(() => ({ manualControlState: true })),

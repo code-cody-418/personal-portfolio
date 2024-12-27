@@ -1,6 +1,7 @@
-import { Modal, Container, Row, Col, Button, Navbar, Nav } from "react-bootstrap";
+import { Modal, Container, Row, Col, Navbar, Nav } from "react-bootstrap";
 import { useStore } from "../utils/store";
 import { ModalContent } from "./ModalContent";
+import { useEffect } from "react";
 
 export const MyModal = () => {
   // Opening and closing the modal
@@ -9,6 +10,11 @@ export const MyModal = () => {
 
   // Modal contents
   const allListItems = useStore((state) => state.allListItems);
+  const sectionLocation = useStore((state) => state.sectionLocation)
+
+  useEffect(() => {
+    window.location.replace("/#" + sectionLocation)
+  }, [sectionLocation])
 
   return (
     <>
