@@ -114,8 +114,20 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.header-custom {
+  position: sticky;
+  top: 0;
+  background-color: inherit; /* [1] */
+  z-index: 1055; /* [2] */
+}
+
 .email:hover {
   cursor: pointer;
+}
+
+/* additional spacing needed to account for the sticky navbar. Is needed after navigation */
+#top {
+  height: 75px;
 }
 
 .pokedex {

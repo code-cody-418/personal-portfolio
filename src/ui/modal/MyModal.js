@@ -14,7 +14,7 @@ export const MyModal = () => {
   const sectionLocation = useStore((state) => state.sectionLocation);
 
   useEffect(() => {
-    if(sectionLocation){
+    if (sectionLocation) {
       window.location.replace("/#" + sectionLocation);
     }
   }, [sectionLocation]);
@@ -29,9 +29,14 @@ export const MyModal = () => {
       >
         <ModalNav />
 
-        {allListItems?.map((listItem, i) => (
-          <ModalContent key={i} listItem={listItem} />
-        ))}
+        <Modal.Body className="text-white bg-dark modal-text border-0">
+        <div id="top"></div>
+          <Container>
+            {allListItems?.map((listItem, i) => (
+              <ModalContent key={i} listItem={listItem} />
+            ))}
+          </Container>
+        </Modal.Body>
 
         <Modal.Footer className="bg-dark border border-0 text-white">
           <Container>
