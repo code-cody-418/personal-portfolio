@@ -20,10 +20,11 @@ import { DynamicCamera } from "./camera/DynamicCamera";
 import { ManualCameraControls } from "./camera/ManualCameraControls";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
+import { Perf } from "r3f-perf";
 
 export const ThreeDScene = () => {
   const [moveDistance, setMoveDistance] = useState(0);
-  const [watchClicks, setWatchClicks] = useState(1)
+  const [watchClicks, setWatchClicks] = useState(1);
   const [enableMouseScroll, setEnableMouseScroll] = useState(false);
 
   // manual controls store
@@ -39,7 +40,7 @@ export const ThreeDScene = () => {
   );
 
   // analytics store
-  const setSessionClicks = useStore((state) => state.setSessionClicks)
+  const setSessionClicks = useStore((state) => state.setSessionClicks);
 
   // A timer that helps control the mouse wheel camera controller
   useEffect(() => {
@@ -65,11 +66,11 @@ export const ThreeDScene = () => {
     setManualControlDirectionForward();
     setEnableMouseScroll(true);
   };
-  
+
   const handleAnalytics = () => {
-    setWatchClicks(watchClicks => watchClicks + 1)
-    setSessionClicks(watchClicks)
-  }
+    setWatchClicks((watchClicks) => watchClicks + 1);
+    setSessionClicks(watchClicks);
+  };
 
   return (
     <>
@@ -90,7 +91,7 @@ export const ThreeDScene = () => {
             }
           }}
         >
-          {/* <Perf /> */}
+          <Perf />
 
           <DynamicCamera />
 

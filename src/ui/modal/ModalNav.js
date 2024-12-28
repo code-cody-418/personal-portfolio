@@ -66,7 +66,7 @@ export const ModalNav = () => {
                     setAllListItems(content.stack);
                   }}
                 >
-                  Stacks
+                  Stack
                 </Nav.Link>
                 <Nav.Link
                   href="#top"
