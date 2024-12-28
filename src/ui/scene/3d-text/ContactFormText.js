@@ -2,6 +2,7 @@ import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { PortfolioText } from "./PortfolioText";
+import { content } from "./content";
 
 export const ContactFormText = () => {
   const responsiveData = new Responsive();
@@ -18,25 +19,20 @@ export const ContactFormText = () => {
   const { size, positionX, positionY, positionZ } =
     useResponsive(responsiveData);
 
-  const modalInfo = {
-    title: "Contact Me",
-    subTitle: null,
-    description: "",
-    img: "/code-icon-10.png",
-    contactForm: true
-  }
+  const modalInfo = content.contact
   
   return (
     <>
       <group position={[positionX, positionY, positionZ]} >
         <PortfolioText
-          text={modalInfo.title}
+          text={modalInfo[0].title}
           xPosition={0}
           yPosition={0}
           zPosition={0}
           yRotation={0}
           size={size}
           modalInfo={modalInfo}
+          allListItems={modalInfo}
           arrowRotation={[-1.57, -2.355, Math.PI]}
           sectionType="contactMe"
           arrowHide={true}

@@ -28,10 +28,11 @@ export const MyModal = () => {
         size="lg"
         dialogClassName="custom-modal"
       >
+        <div id="top"></div>
+
         <ModalNav />
 
-        <Modal.Body className="text-white bg-dark modal-text border-0">
-          <div id="top"></div>
+        <Modal.Body className="text-white bg-dark modal-text border-0">   
           <Container>
             <Row>
               <h2>{sectionTitle}</h2>
@@ -42,7 +43,7 @@ export const MyModal = () => {
           </Container>
         </Modal.Body>
 
-        <Modal.Footer className="bg-dark border border-0 text-white">
+        <Modal.Footer className="bg-dark border-0 text-white">
           <Container>
             <Row className="mt-3 justify-content-between">
               <Col xs={12} lg={4}>

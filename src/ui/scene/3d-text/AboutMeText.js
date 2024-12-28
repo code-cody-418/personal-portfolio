@@ -2,6 +2,7 @@ import React from "react";
 import { useResponsive } from "../../../customHooks/useResponsive";
 import { Responsive } from "../../../constructor/Responsive";
 import { PortfolioText } from "./PortfolioText";
+import { content } from "./content";
 
 export const AboutMeText = () => {
   const responsiveData = new Responsive();
@@ -15,28 +16,23 @@ export const AboutMeText = () => {
   responsiveData.mobilePositionY = -7;
   responsiveData.mobilePositionZ = -15;
 
-  const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
 
-  // To change about me Info simply change the modalInfo Object below
-  const modalInfo = {
-    title: "About Me",
-    subTitle: null,
-    description: "Hello, I'm Cody Slama, a passionate software developer dedicated to crafting efficient and innovative solutions. With 2 years of experience in the field, I have developed a strong foundation in software development, honing my skills in JavaScript, data integration, and much more. Before I began my career, I achieved my Bachelors degree, which has given me invaluable skills and techniques to exceed in the workplace. \n \n I thrive on the challenges that come with creating robust software applications, and I'm constantly seeking new ways to expand my knowledge and stay at the forefront of emerging technologies. My expertise lies in full-stack web development. I pride myself on writing clean and maintainable code, ensuring scalability and performance while adhering to best practices. \n \n Thank you for visiting my portfolio. Please take a chance to explore my skills and experiences to gain a deeper understanding of my capabilities. You can also visit my GitHub and LinkedIn page to see my code and learn more about me. If you have any questions or are interested in working with me please don't hesitate to reach out. I look forward to connecting with you.",
-    img: "./ocean.jpg",
-    roundImg: true
-  }
+  const modalInfo = content.aboutMe;
 
   return (
     <>
-      <group position={[positionX, positionY, positionZ]} >
+      <group position={[positionX, positionY, positionZ]}>
         <PortfolioText
-          text={modalInfo.title}
+          text={modalInfo[0].title}
           xPosition={0}
           yPosition={0}
           zPosition={0}
           yRotation={0}
           size={size}
           modalInfo={modalInfo}
+          allListItems={modalInfo}
           arrowRotation={[1.57, -2.355, Math.PI]}
           sectionType="aboutMe"
           arrowHide={true}

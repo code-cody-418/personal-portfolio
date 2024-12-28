@@ -7,9 +7,10 @@ export const ModalNav = () => {
   const setSectionTitle = useStore((state) => state.setSectionTitle);
 
   return (
+    // rounded-0 is used for a flashing bug
     <Modal.Header
       closeButton
-      className="text-white border border-0 header-custom py-0 rounded-0 bg-dark"
+      className="text-white border-0 header-custom py-0 rounded-0 bg-dark"
     >
       <Modal.Title>
         <Navbar expand="lg" className="py-0">
@@ -28,51 +29,51 @@ export const ModalNav = () => {
               <Nav>
                 <Nav.Link className="text-white">Home</Nav.Link>
                 <Nav.Link
+                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("About Me")
-                    // setAllListItems(content.employers);
-                    window.location.replace("/#top");
+                    setSectionTitle("About Me");
+                    setAllListItems(content.aboutMe);
                   }}
                 >
                   About Me
                 </Nav.Link>
                 <Nav.Link
+                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Experience")
+                    setSectionTitle("Experience");
                     setAllListItems(content.employers);
-                    window.location.replace("/#top");
                   }}
                 >
                   Experience
                 </Nav.Link>
                 <Nav.Link
+                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Skills")
+                    setSectionTitle("Skills");
                     setAllListItems(content.skills);
-                    window.location.replace("/#top");
                   }}
                 >
                   Skills
                 </Nav.Link>
                 <Nav.Link
+                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Stack")
+                    setSectionTitle("Stack");
                     setAllListItems(content.stack);
-                    window.location.replace("/#top");
                   }}
                 >
                   Stacks
                 </Nav.Link>
                 <Nav.Link
+                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Contact Me")
-                    // setAllListItems(content.employers);
-                    window.location.replace("/#top");
+                    setSectionTitle("Contact Me");
+                    setAllListItems(content.contact);
                   }}
                 >
                   Contact Me

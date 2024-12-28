@@ -28,18 +28,14 @@ body {
 
 .loading h1 {
   color: #fff;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 400;
   letter-spacing: 10px;
   font-weight: 600;
   font-size: 3em;
-  text-shadow:
-    0 0 15px #fff,
-    0 0 42px rgb(255, 0, 251),
-    0 0 82px rgb(255, 0, 251),
-    0 0 92px rgb(255, 0, 251),
-    0 0 102px rgb(255, 0, 251),
-    0 0 151px rgb(255, 0, 251);
+  text-shadow: 0 0 15px #fff, 0 0 42px rgb(255, 0, 251),
+    0 0 82px rgb(255, 0, 251), 0 0 92px rgb(255, 0, 251),
+    0 0 102px rgb(255, 0, 251), 0 0 151px rgb(255, 0, 251);
 }
 
 @keyframes hideSuspense {
@@ -100,45 +96,40 @@ body {
 }
 
 .modal-title {
-  font-family: 'Philosopher', sans-serif;
+  font-family: "Philosopher", sans-serif;
   font-size: 1.5em;
 }
 
 .modal-subtitle {
-  font-family: 'Philosopher', sans-serif;
+  font-family: "Philosopher", sans-serif;
   font-style: italic;
   font-size: 1em;
 }
 
 .modal-body {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .header-custom {
   position: sticky;
-  top: 0;
-  background-color: inherit; /* [1] */
-  z-index: 1055; /* [2] */
+  top: 0px;
+  background-color: inherit;
+  z-index: 1055;
 }
 
 .email:hover {
   cursor: pointer;
 }
 
-/* additional spacing needed to account for the sticky navbar. Is needed after navigation */
-#top {
-  height: 75px;
-}
-
 .pokedex {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .pokedex h5 {
   font-size: 2em;
 }
 
-.manualControlsPosition{
+.manualControlsPosition {
   z-index: 1;
   position: absolute;
   left: 50%;
