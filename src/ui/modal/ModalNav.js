@@ -5,6 +5,7 @@ import { content } from "../scene/3d-text/content.js";
 export const ModalNav = () => {
   const setAllListItems = useStore((state) => state.setAllListItems);
   const setSectionTitle = useStore((state) => state.setSectionTitle);
+  const handleClose = useStore((state) => state.closeModal);
 
   return (
     // rounded-0 is used for a flashing bug
@@ -17,17 +18,20 @@ export const ModalNav = () => {
           <Container>
             <Navbar.Brand>
               <img
+                onClick={() => handleClose()}
                 src="/code-icon-10.png"
                 width="30"
                 height="30"
-                className="d-inline-block align-top"
+                className="d-inline-block align-top nav-logo"
                 alt="Code Logo"
               />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>
-                <Nav.Link className="text-white">Home</Nav.Link>
+                <Nav.Link onClick={() => handleClose()} className="text-white">
+                  Home
+                </Nav.Link>
                 <Nav.Link
                   href="#top"
                   className="text-white"

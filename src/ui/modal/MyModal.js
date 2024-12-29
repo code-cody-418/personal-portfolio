@@ -8,7 +8,7 @@ export const MyModal = () => {
   // Opening and closing the modal
   const modalState = useStore((state) => state.modalState);
   const handleClose = useStore((state) => state.closeModal);
-  const setSectionLocation = useStore((state) => state.setSectionLocation)
+  const setSectionLocation = useStore((state) => state.setSectionLocation);
 
   // Modal contents
   const allListItems = useStore((state) => state.allListItems);
@@ -26,9 +26,9 @@ export const MyModal = () => {
       <Modal
         show={modalState}
         onHide={() => {
-          handleClose()
-          // setSectionLocation is used to fix a bug with navigation if the same item is clicked twice
-          setSectionLocation("") 
+          handleClose();
+          // setSectionLocation to empty is used to fix a bug with navigation if the same item is clicked twice
+          setSectionLocation("");
         }}
         size="lg"
         dialogClassName="custom-modal"
@@ -39,8 +39,8 @@ export const MyModal = () => {
 
         <Modal.Body className="text-white bg-dark modal-text border-0">
           <Container>
-            <Row>
-              <h2>{sectionTitle}</h2>
+            <Row className="text-center">
+              <h2 className="section-title">{sectionTitle}</h2>
             </Row>
             {allListItems?.map((listItem, i) => (
               <ModalContent key={i} listItem={listItem} />

@@ -9,7 +9,10 @@ export const ModalContent = ({ listItem }) => {
       <Row>
         <Col xs={12}>
           <h3 className="modal-title" id={listItem?.title}>
-            {listItem?.title}
+            {/* listItem.title Logic to avoid duplication with headers */}
+            {listItem?.title === "About Me" || listItem?.title === "Contact Me"
+              ? ""
+              : listItem?.title}
           </h3>
         </Col>
         <Col xs={12}>
