@@ -33,11 +33,10 @@ export const MyModal = () => {
         size="lg"
         dialogClassName="custom-modal"
       >
-        <div id="top"></div>
-
         <ModalNav />
 
         <Modal.Body className="text-white bg-dark modal-text border-0">
+          <div id="top"></div>
           <Container>
             <Row className="text-center">
               <h2 className="section-title">{sectionTitle}</h2>
@@ -45,21 +44,17 @@ export const MyModal = () => {
             {allListItems?.map((listItem, i) => (
               <ModalContent key={i} listItem={listItem} />
             ))}
-          </Container>
-        </Modal.Body>
 
-        <Modal.Footer className="bg-dark border-0 text-white">
-          <Container>
             <Row className="mt-3 justify-content-between">
               <Col xs={12} lg={4}>
-                <p>Footer</p>
+                <p className="my-0">Footer</p>
               </Col>
               <Col xs={12} lg={4}>
-                <p>Footer</p>
+                <p className="my-0">Footer</p>
               </Col>
             </Row>
           </Container>
-        </Modal.Footer>
+        </Modal.Body>
       </Modal>
     </>
   );

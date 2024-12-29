@@ -86,13 +86,13 @@ body {
 
 .custom-modal {
   min-width: 80%;
-  height: 100vh;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
-.custom-modal div {
-  border: 0;
+.modal-content {
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .modal-title {
@@ -106,15 +106,16 @@ body {
   font-size: 1em;
 }
 
-.modal-body {
-  font-family: "Times New Roman", Times, serif;
+.modal-header {
+  height: 10vh;
+  max-height: 10vh;
 }
 
-.header-custom {
-  position: sticky;
-  top: 0px;
-  background-color: inherit;
-  z-index: 1055;
+.modal-body {
+  font-family: "Times New Roman", Times, serif;
+  height: 90vh;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .section-title {

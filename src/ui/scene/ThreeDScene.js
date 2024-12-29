@@ -10,7 +10,6 @@ import { ContactFormText } from "./3d-text/ContactFormText";
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
-// import { Perf } from "r3f-perf";
 import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
 import { Planet01 } from "./planets/Planet-01";
@@ -78,7 +77,7 @@ export const ThreeDScene = () => {
       <ManualCameraControls />
       <Analytics />
 
-      <Suspense fallback={<Loading />}>
+      <Suspense>
         <Canvas
           onWheel={(event) => {
             if (moveDistance < 4) {
@@ -114,15 +113,6 @@ export const ThreeDScene = () => {
             <EmployersTitleText />
             <EmployersListText />
           </group>
-
-          <Stars
-            radius={100}
-            depth={50}
-            count={5000}
-            factor={4}
-            saturation={0}
-            fade
-          />
 
           <CodeLogo />
           <Planet01 />

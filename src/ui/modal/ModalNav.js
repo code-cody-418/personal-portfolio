@@ -11,7 +11,7 @@ export const ModalNav = () => {
     // rounded-0 is used for a flashing bug
     <Modal.Header
       closeButton
-      className="text-white border-0 header-custom py-0 rounded-0 bg-dark"
+      className="text-white py-0 bg-dark"
     >
       <Modal.Title>
         <Navbar expand="lg" className="py-0">
