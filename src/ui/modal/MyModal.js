@@ -1,8 +1,9 @@
 import { Modal, Container, Row, Col } from "react-bootstrap";
 import { useStore } from "../utils/store";
-import { ModalContent } from "./ModalContent";
 import { useEffect } from "react";
 import { ModalNav } from "./ModalNav";
+import { content } from "../scene/3d-text/content.js";
+import { ModalSection } from "./ModalSection.js";
 
 export const MyModal = () => {
   // Opening and closing the modal
@@ -11,9 +12,7 @@ export const MyModal = () => {
   const setSectionLocation = useStore((state) => state.setSectionLocation);
 
   // Modal contents
-  const allListItems = useStore((state) => state.allListItems);
   const sectionLocation = useStore((state) => state.sectionLocation);
-  const sectionTitle = useStore((state) => state.sectionTitle);
 
   useEffect(() => {
     if (sectionLocation) {
@@ -36,14 +35,12 @@ export const MyModal = () => {
         <ModalNav />
 
         <Modal.Body className="text-white bg-dark modal-text border-0">
-          <div id="top"></div>
           <Container>
-            <Row className="text-center">
-              <h2 className="section-title">{sectionTitle}</h2>
-            </Row>
-            {allListItems?.map((listItem, i) => (
-              <ModalContent key={i} listItem={listItem} />
-            ))}
+            <ModalSection content={content.aboutMe} sectionTitle="About Me" />
+            <ModalSection content={content.employers} sectionTitle="Experience" />
+            <ModalSection content={content.skills} sectionTitle="Skills" />
+            <ModalSection content={content.stack} sectionTitle="Stack" />
+            <ModalSection content={content.contact} sectionTitle="Contact Me" />
 
             <Row className="mt-3 justify-content-between">
               <Col xs={12} lg={4}>

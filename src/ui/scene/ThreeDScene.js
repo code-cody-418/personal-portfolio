@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { Stars } from "@react-three/drei";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -13,7 +12,6 @@ import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
 import { AboutMeText } from "./3d-text/AboutMeText";
 import { Planet01 } from "./planets/Planet-01";
-import { Loading } from "../loading/Loading";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
 import { ManualCameraControls } from "./camera/ManualCameraControls";

@@ -1,18 +1,13 @@
 import { Container, Modal, Nav, Navbar } from "react-bootstrap";
 import { useStore } from "../utils/store";
-import { content } from "../scene/3d-text/content.js";
 
 export const ModalNav = () => {
-  const setAllListItems = useStore((state) => state.setAllListItems);
-  const setSectionTitle = useStore((state) => state.setSectionTitle);
   const handleClose = useStore((state) => state.closeModal);
+  const setSectionLocation = useStore((state) => state.setSectionLocation);
 
   return (
     // rounded-0 is used for a flashing bug
-    <Modal.Header
-      closeButton
-      className="text-white py-0 bg-dark"
-    >
+    <Modal.Header closeButton className="text-white py-0 bg-dark">
       <Modal.Title>
         <Navbar expand="lg" className="py-0">
           <Container>
@@ -33,51 +28,41 @@ export const ModalNav = () => {
                   Home
                 </Nav.Link>
                 <Nav.Link
-                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("About Me");
-                    setAllListItems(content.aboutMe);
+                    setSectionLocation("About Me")
                   }}
                 >
                   About Me
                 </Nav.Link>
                 <Nav.Link
-                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Experience");
-                    setAllListItems(content.employers);
+                    setSectionLocation("Experience")
                   }}
                 >
                   Experience
                 </Nav.Link>
                 <Nav.Link
-                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Skills");
-                    setAllListItems(content.skills);
+                    setSectionLocation("Skills")
                   }}
                 >
                   Skills
                 </Nav.Link>
                 <Nav.Link
-                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Stack");
-                    setAllListItems(content.stack);
+                    setSectionLocation("Stack")
                   }}
                 >
                   Stack
                 </Nav.Link>
                 <Nav.Link
-                  href="#top"
                   className="text-white"
                   onClick={() => {
-                    setSectionTitle("Contact Me");
-                    setAllListItems(content.contact);
+                    setSectionLocation("Contact Me")
                   }}
                 >
                   Contact Me

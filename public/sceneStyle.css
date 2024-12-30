@@ -18,26 +18,6 @@ body {
   background-color: black;
 }
 
-.loading {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: hideSuspense 10s ease-out 1;
-}
-
-.loading h1 {
-  color: #fff;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 400;
-  letter-spacing: 10px;
-  font-weight: 600;
-  font-size: 3em;
-  text-shadow: 0 0 15px #fff, 0 0 42px rgb(255, 0, 251),
-    0 0 82px rgb(255, 0, 251), 0 0 92px rgb(255, 0, 251),
-    0 0 102px rgb(255, 0, 251), 0 0 151px rgb(255, 0, 251);
-}
-
 @keyframes hideSuspense {
   from {
     transform: scale(1);
