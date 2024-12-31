@@ -17,11 +17,11 @@ export const useStore = create((set) => ({
   disableManualControls: () => set(() => ({ manualControlState: false })),
 
   //set manual control direction
-  manualControlDirection: 5,
+  manualControlDirection: 2,
   setManualControlDirectionForward: () =>
-    set(() => ({ manualControlDirection: 5 })),
+    set(() => ({ manualControlDirection: 2 })),
   setManualControlDirectionBackward: () =>
-    set(() => ({ manualControlDirection: -5 })),
+    set(() => ({ manualControlDirection: -2 })),
 
   // set analytics clicks
   sessionClicks: 0,
