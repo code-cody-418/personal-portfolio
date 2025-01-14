@@ -99,8 +99,8 @@ export const ThreeDScene = () => {
             <TitleText />
             <TitleProfessionText />
 
-            <ContactFormText />
-            <AboutMeText />
+            {/* <ContactFormText />
+            <AboutMeText /> */}
 
             <StacksTitleText />
             <StacksListText />
