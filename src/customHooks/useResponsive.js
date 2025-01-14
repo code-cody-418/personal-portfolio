@@ -22,13 +22,6 @@ export const useResponsive = (responsiveData) => {
     desktopPositionZ,
     desktopRotationY,
 
-    desktopSubSize,
-    desktopSubWidth,
-    desktopSubHeight,
-    desktopSubPositionX,
-    desktopSubPositionY,
-    desktopSubPositionZ,
-
     desktopGroupY,
 
     mobileSize,
@@ -36,13 +29,6 @@ export const useResponsive = (responsiveData) => {
     mobilePositionY,
     mobilePositionZ,
     mobileRotationY,
-
-    mobileSubSize,
-    mobileSubWidth,
-    mobileSubHeight,
-    mobileSubPositionX,
-    mobileSubPositionY,
-    mobileSubPositionZ,
 
     mobileGroupY
   } = responsiveData;
@@ -52,13 +38,6 @@ export const useResponsive = (responsiveData) => {
   const [positionY, setPositionY] = useState(desktopPositionY);
   const [positionZ, setPositionZ] = useState(desktopPositionZ);
   const [rotationY, setRotationY] = useState(desktopRotationY)
-
-  const [subSize, setSubSize] = useState(desktopSubSize);
-  const [subWidth, setSubWidth] = useState(desktopSubWidth);
-  const [subHeight, setSubHeight] = useState(desktopSubHeight);
-  const [subPositionX, setSubPositionX] = useState(desktopSubPositionX);
-  const [subPositionY, setSubPositionY] = useState(desktopSubPositionY);
-  const [subPositionZ, setSubPositionZ] = useState(desktopSubPositionZ);
 
   const [groupY, setGroupY] = useState(desktopGroupY);
 
@@ -75,13 +54,6 @@ export const useResponsive = (responsiveData) => {
         setPositionZ(desktopPositionZ);
         setRotationY(desktopRotationY)
 
-        setSubSize(desktopSubSize);
-        setSubWidth(desktopSubWidth);
-        setSubHeight(desktopSubHeight);
-        setSubPositionX(desktopSubPositionX);
-        setSubPositionY(desktopSubPositionY);
-        setSubPositionZ(desktopSubPositionZ);
-
         setGroupY(desktopGroupY);
 
         setIsMobile(false)
@@ -92,13 +64,6 @@ export const useResponsive = (responsiveData) => {
         setPositionY(mobilePositionY);
         setPositionZ(mobilePositionZ);
         setRotationY(mobileRotationY)
-
-        setSubSize(mobileSubSize);
-        setSubWidth(mobileSubWidth);
-        setSubHeight(mobileSubHeight);
-        setSubPositionX(mobileSubPositionX);
-        setSubPositionY(mobileSubPositionY);
-        setSubPositionZ(mobileSubPositionZ);
 
         setGroupY(mobileGroupY);
 
@@ -114,13 +79,6 @@ export const useResponsive = (responsiveData) => {
     desktopPositionZ,
     desktopRotationY,
 
-    desktopSubSize,
-    desktopSubWidth,
-    desktopSubHeight,
-    desktopSubPositionX,
-    desktopSubPositionY,
-    desktopSubPositionZ,
-
     desktopGroupY,
 
     mobileSize,
@@ -128,13 +86,6 @@ export const useResponsive = (responsiveData) => {
     mobilePositionY,
     mobilePositionZ,
     mobileRotationY,
-
-    mobileSubSize,
-    mobileSubWidth,
-    mobileSubHeight,
-    mobileSubPositionX,
-    mobileSubPositionY,
-    mobileSubPositionZ,
 
     mobileGroupY,
   ]);
@@ -144,13 +95,6 @@ export const useResponsive = (responsiveData) => {
     positionY,
     positionZ,
     rotationY,
-
-    subSize,
-    subWidth,
-    subHeight,
-    subPositionX,
-    subPositionY,
-    subPositionZ,
 
     groupY,
 

@@ -11,27 +11,18 @@ export const TitleProfessionText = () => {
   responsiveData.desktopPositionX = -6.5;
   responsiveData.desktopPositionY = -1;
 
-  responsiveData.desktopSubSize = 1;
-  responsiveData.desktopSubPositionX = 0;
-  responsiveData.desktopSubPositionY = -1;
-
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
   responsiveData.mobilePositionY = 4;
 
-  responsiveData.mobileSubSize = 1.5;
-  responsiveData.mobileSubPositionX = -5;
-  responsiveData.mobileSubPositionY = 2;
-
-  const { size, positionX, positionY, subSize, subPositionX, subPositionY } =
+  const { size, positionX, positionY} =
     useResponsive(responsiveData);
 
-  let purpleTexture = useTexture("/textures/purple_08_matCap.png")
   let texture02 = useTexture("/textures/purple_09_matCap.png")
 
   //set the state of the icon
   const [textState, setTextState] = useState("");
-  const [descriptionState, setDescriptionState] = useState("");
+  // const [descriptionState, setDescriptionState] = useState("");
 
   //Functionality to 30 second timer
   const [thirtySeconds, setThirtySeconds] = useState(30);
@@ -56,11 +47,9 @@ export const TitleProfessionText = () => {
       if (thirtySeconds === 30) {
         setTextState("");
       } else if (thirtySeconds === 29) {
-        setTextState("Full ");
+        setTextState("Software");
       } else if (thirtySeconds === 28) {
-        setTextState("Full Stack");
-      } else if (thirtySeconds === 27) {
-        setDescriptionState("Engineer");
+        setTextState("Software Developer");
         setTimerOnOff(false);
       }
     }
@@ -73,14 +62,6 @@ export const TitleProfessionText = () => {
           text={textState}
           fontType="/Sunmore-Slant-Free-Regular.json"
           size={size}
-          texture={purpleTexture}
-        />
-      </group>
-      <group position={[subPositionX, subPositionY, -15]}>
-        <FontConfig
-          text={descriptionState}
-          fontType="/Sunmore-Slant-Free-Regular.json"
-          size={subSize}
           texture={texture02}
         />
       </group>
