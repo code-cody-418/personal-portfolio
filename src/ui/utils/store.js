@@ -23,6 +23,20 @@ export const useStore = create((set) => ({
   setManualControlDirectionBackward: () =>
     set(() => ({ manualControlDirection: -2 })),
 
+  //set height of camera
+  cameraHeight: 0,
+  setCameraHeightUp: (cameraHeight) => 
+    set(() => ({ cameraHeight: cameraHeight - 2})),
+  setCameraHeightDown: (cameraHeight) => 
+    set(() => ({ cameraHeight: cameraHeight + 2})),
+
+  //set rotation of camera
+  cameraRotation: 0,
+  setCameraRotationLeft: (cameraRotation) => 
+    set(() => ({ cameraRotation: cameraRotation + 0.1})),
+  setCameraRotationRight: (cameraRotation) => 
+    set(() => ({ cameraRotation: cameraRotation - 0.1})),
+
   // set analytics clicks
   sessionClicks: 0,
   setSessionClicks: (watchClicks) =>

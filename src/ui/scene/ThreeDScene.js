@@ -5,12 +5,10 @@ import { StacksTitleText } from "./3d-text/StacksTitleText";
 import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { TitleProfessionText } from "./3d-text/TitleProfessionText";
-import { ContactFormText } from "./3d-text/ContactFormText";
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
-import { AboutMeText } from "./3d-text/AboutMeText";
 import { Planet01 } from "./planets/Planet-01";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
@@ -35,6 +33,13 @@ export const ThreeDScene = () => {
   const setManualControlDirectionBackward = useStore(
     (state) => state.setManualControlDirectionBackward
   );
+  const setCameraHeightUp = useStore((state) => state.setCameraHeightUp);
+  const setCameraHeightDown = useStore((state) => state.setCameraHeightDown);
+  const cameraHeight = useStore((state) => state.cameraHeight);
+
+  const setCameraRotationLeft = useStore((state) => state.setCameraRotationLeft);
+  const setCameraRotationRight = useStore((state) => state.setCameraRotationRight);
+  const cameraRotation = useStore((state) => state.cameraRotation);
 
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
@@ -54,12 +59,16 @@ export const ThreeDScene = () => {
 
   const handleBackwards = () => {
     enableManualControls();
+    setCameraHeightDown(cameraHeight);
+    setCameraRotationLeft(cameraRotation)
     setManualControlDirectionBackward();
     setEnableMouseScroll(true);
   };
 
   const handleForwards = () => {
     enableManualControls();
+    setCameraHeightUp(cameraHeight);
+    setCameraRotationRight(cameraRotation)
     setManualControlDirectionForward();
     setEnableMouseScroll(true);
   };
@@ -78,7 +87,7 @@ export const ThreeDScene = () => {
       <Suspense>
         <Canvas
           onWheel={(event) => {
-            if (moveDistance < 4) {
+            if (moveDistance < 1) {
               setMoveDistance(moveDistance + 1);
             }
             if (event.deltaY > 0) {
@@ -102,14 +111,20 @@ export const ThreeDScene = () => {
             {/* <ContactFormText />
             <AboutMeText /> */}
 
-            <StacksTitleText />
-            <StacksListText />
+            <group position={[0, -25, 0]}>
+              <EmployersTitleText />
+              <EmployersListText />
+            </group>
 
-            <SkillsTitleText />
-            <SkillsListText />
+            <group position={[0, -50, 0]}>
+              <SkillsTitleText />
+              <SkillsListText />
+            </group>
 
-            <EmployersTitleText />
-            <EmployersListText />
+            <group position={[0, -75, 0]}>
+              <StacksTitleText />
+              <StacksListText />
+            </group>
           </group>
 
           <CodeLogo />
