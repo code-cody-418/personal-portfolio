@@ -21,18 +21,7 @@ export const ThreeDScene = () => {
   const [moveDistance, setMoveDistance] = useState(0);
   const [watchClicks, setWatchClicks] = useState(1);
   const [enableMouseScroll, setEnableMouseScroll] = useState(false);
-
-  // manual controls store
-  const enableManualControls = useStore((state) => state.enableManualControls);
-  const disableManualControls = useStore(
-    (state) => state.disableManualControls
-  );
-  const setManualControlDirectionForward = useStore(
-    (state) => state.setManualControlDirectionForward
-  );
-  const setManualControlDirectionBackward = useStore(
-    (state) => state.setManualControlDirectionBackward
-  );
+  
   const setCameraHeightUp = useStore((state) => state.setCameraHeightUp);
   const setCameraHeightDown = useStore((state) => state.setCameraHeightDown);
   const cameraHeight = useStore((state) => state.cameraHeight);
@@ -50,7 +39,6 @@ export const ThreeDScene = () => {
       if (moveDistance > 0) {
         setMoveDistance(moveDistance - 1);
       } else if (moveDistance === 0 && enableMouseScroll === true) {
-        disableManualControls();
         setEnableMouseScroll(false);
       }
     }, 200);
@@ -58,18 +46,14 @@ export const ThreeDScene = () => {
   });
 
   const handleBackwards = () => {
-    enableManualControls();
     setCameraHeightDown(cameraHeight);
     setCameraRotationLeft(cameraRotation)
-    setManualControlDirectionBackward();
     setEnableMouseScroll(true);
   };
 
   const handleForwards = () => {
-    enableManualControls();
     setCameraHeightUp(cameraHeight);
     setCameraRotationRight(cameraRotation)
-    setManualControlDirectionForward();
     setEnableMouseScroll(true);
   };
 

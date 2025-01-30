@@ -11,18 +11,6 @@ export const useStore = create((set) => ({
   setSectionLocation: (sectionLocation) =>
     set(() => ({ sectionLocation: sectionLocation })),
 
-  //set manual controls
-  manualControlState: false,
-  enableManualControls: () => set(() => ({ manualControlState: true })),
-  disableManualControls: () => set(() => ({ manualControlState: false })),
-
-  //set manual control direction
-  manualControlDirection: 2,
-  setManualControlDirectionForward: () =>
-    set(() => ({ manualControlDirection: 2 })),
-  setManualControlDirectionBackward: () =>
-    set(() => ({ manualControlDirection: -2 })),
-
   //set height of camera
   cameraHeight: 0,
   setCameraHeightUp: (cameraHeight) => 
