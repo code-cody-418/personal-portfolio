@@ -12,11 +12,18 @@ export const DynamicCamera = () => {
   const { cameraPositionY } = useSpring({ cameraPositionY: cameraHeight });
   const { cameraRotationY } = useSpring({ cameraRotationY: cameraRotation });
 
-  console.log(cameraRotation);
   return (
     <>
-      <animated.group position-y={cameraPositionY} rotation-y={cameraRotationY}>
-        <PerspectiveCamera makeDefault name={"mainCamera"} ref={mainCamera} />
+      <animated.group 
+        position-y={cameraPositionY} 
+        rotation-y={cameraRotationY}
+      >
+        <PerspectiveCamera 
+          makeDefault 
+          name={"mainCamera"} 
+          ref={mainCamera}
+          fov={75} 
+        />
       </animated.group>
     </>
   );

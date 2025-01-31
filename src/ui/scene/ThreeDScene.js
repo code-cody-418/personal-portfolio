@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { TitleText } from "./3d-text/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -12,49 +12,74 @@ import { MyModal } from "../modal/MyModal";
 import { Planet01 } from "./planets/Planet-01";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
-import { ManualCameraControls } from "./camera/ManualCameraControls";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 
 export const ThreeDScene = () => {
-  const [moveDistance, setMoveDistance] = useState(0);
   const [watchClicks, setWatchClicks] = useState(1);
-  const [enableMouseScroll, setEnableMouseScroll] = useState(false);
-  
+
   const setCameraHeightUp = useStore((state) => state.setCameraHeightUp);
   const setCameraHeightDown = useStore((state) => state.setCameraHeightDown);
   const cameraHeight = useStore((state) => state.cameraHeight);
 
-  const setCameraRotationLeft = useStore((state) => state.setCameraRotationLeft);
-  const setCameraRotationRight = useStore((state) => state.setCameraRotationRight);
+  const setCameraRotationLeft = useStore(
+    (state) => state.setCameraRotationLeft
+  );
+  const setCameraRotationRight = useStore(
+    (state) => state.setCameraRotationRight
+  );
   const cameraRotation = useStore((state) => state.cameraRotation);
 
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
 
-  // A timer that helps control the mouse wheel camera controller
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (moveDistance > 0) {
-        setMoveDistance(moveDistance - 1);
-      } else if (moveDistance === 0 && enableMouseScroll === true) {
-        setEnableMouseScroll(false);
-      }
-    }, 200);
-    return () => clearInterval(timer);
-  });
-
+  let initialCameraRotation;
+  let managedCameraRotation;
   const handleBackwards = () => {
-    setCameraHeightDown(cameraHeight);
-    setCameraRotationLeft(cameraRotation)
-    setEnableMouseScroll(true);
+    initialCameraRotation = cameraRotation + 0.1;
+    managedCameraRotation = manageSection();
+
+    // Ensures that the camera does not go above the "home" section
+    if (cameraHeight <= 0) {
+      setCameraHeightDown(cameraHeight);
+    }
+
+    setCameraRotationLeft(managedCameraRotation);
   };
 
-  const handleForwards = () => {
-    setCameraHeightUp(cameraHeight);
-    setCameraRotationRight(cameraRotation)
-    setEnableMouseScroll(true);
+  function handleForwards() {
+    initialCameraRotation = cameraRotation - 0.1;
+    managedCameraRotation = manageSection();
+
+    // Ensures that the camera does not go below the last section screen
+    if (cameraHeight >= -100) {
+      setCameraHeightUp(cameraHeight);
+    }
+
+    setCameraRotationRight(managedCameraRotation);
+  };
+  
+  
+  const manageSection = () => {
+    if (initialCameraRotation >= 0) {
+      // hit home
+      initialCameraRotation = 0;
+    } else if (initialCameraRotation <= -1.5 && initialCameraRotation >= -1.6) {
+      // hit Expereince
+      initialCameraRotation = -1.57;
+    } else if (initialCameraRotation <= -3.1 && initialCameraRotation >= -3.2) {
+      // hit skill
+      initialCameraRotation = -3.14;
+    } else if (initialCameraRotation <= -4.7 && initialCameraRotation >= -4.8) {
+      // hit stack
+      initialCameraRotation = -4.71;
+    } else if (initialCameraRotation <= -4.8) {
+      // hit End
+      initialCameraRotation = -4.71;
+    }
+
+    return initialCameraRotation;
   };
 
   const handleAnalytics = () => {
@@ -65,15 +90,11 @@ export const ThreeDScene = () => {
   return (
     <>
       <MyModal />
-      <ManualCameraControls />
       <Analytics />
 
       <Suspense>
         <Canvas
           onWheel={(event) => {
-            if (moveDistance < 1) {
-              setMoveDistance(moveDistance + 1);
-            }
             if (event.deltaY > 0) {
               handleForwards();
             } else if (event.deltaY < 0) {
@@ -95,17 +116,17 @@ export const ThreeDScene = () => {
             {/* <ContactFormText />
             <AboutMeText /> */}
 
-            <group position={[0, -25, 0]}>
+            <group position={[0, -35, 0]}>
               <EmployersTitleText />
               <EmployersListText />
             </group>
 
-            <group position={[0, -50, 0]}>
+            <group position={[0, -65, 0]}>
               <SkillsTitleText />
               <SkillsListText />
             </group>
 
-            <group position={[0, -75, 0]}>
+            <group position={[0, -100, 0]}>
               <StacksTitleText />
               <StacksListText />
             </group>
