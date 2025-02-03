@@ -1,10 +1,11 @@
 import React, { Suspense, useState } from "react";
-import { TitleText } from "./3d-text/TitleText";
+import { TitleText } from "./3d-text/title/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
 import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
-import { TitleProfessionText } from "./3d-text/TitleProfessionText";
+import { TitleProfessionText } from "./3d-text/title/TitleProfessionText";
+import { TitleDescriptionText } from "./3d-text/title/TitleDescriptionText";
 import { EmployersTitleText } from "./3d-text/EmployersTitleText";
 import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
@@ -41,7 +42,7 @@ export const ThreeDScene = () => {
     managedCameraRotation = manageSection();
 
     // Ensures that the camera does not go above the "home" section
-    if (cameraHeight <= 0) {
+    if (cameraHeight < 0) {
       setCameraHeightDown(cameraHeight);
     }
 
@@ -53,14 +54,14 @@ export const ThreeDScene = () => {
     managedCameraRotation = manageSection();
 
     // Ensures that the camera does not go below the last section screen
-    if (cameraHeight >= -100) {
+    if (cameraHeight > -94) {
       setCameraHeightUp(cameraHeight);
     }
 
     setCameraRotationRight(managedCameraRotation);
   };
   
-  
+  // manageSection is for center the section view. Almost like an auto aim in a video game
   const manageSection = () => {
     if (initialCameraRotation >= 0) {
       // hit home
@@ -112,6 +113,7 @@ export const ThreeDScene = () => {
           <group onClick={handleAnalytics}>
             <TitleText />
             <TitleProfessionText />
+            <TitleDescriptionText />
 
             {/* <ContactFormText />
             <AboutMeText /> */}
@@ -126,7 +128,7 @@ export const ThreeDScene = () => {
               <SkillsListText />
             </group>
 
-            <group position={[0, -100, 0]}>
+            <group position={[0, -94, 0]}>
               <StacksTitleText />
               <StacksListText />
             </group>

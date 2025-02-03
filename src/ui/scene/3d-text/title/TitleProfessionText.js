@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useResponsive } from "../../../customHooks/useResponsive";
-import { Responsive } from "../../../constructor/Responsive";
-import { FontConfig } from "./FontConfig";
+import { useResponsive } from "../../../../customHooks/useResponsive";
+import { Responsive } from "../../../../constructor/Responsive";
+import { FontConfig } from "../FontConfig";
 import { useTexture } from "@react-three/drei";
 
 export const TitleProfessionText = () => {
