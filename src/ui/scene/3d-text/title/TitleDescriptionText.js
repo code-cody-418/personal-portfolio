@@ -8,8 +8,8 @@ export const TitleDescriptionText = () => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 0.8;
-  responsiveData.desktopPositionX = -10;
-  responsiveData.desktopPositionY = -3;
+  responsiveData.desktopPositionX = -11;
+  responsiveData.desktopPositionY = -4.5;
 
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
