@@ -28,6 +28,7 @@ export const TitleDescriptionText = () => {
             fontType="/Sunmore-Slant-Free-Regular.json"
             size={size}
             texture={texture02}
+            thickness={0.01}
           />
         </group>
         <group position={[0, -2, 0]}>
@@ -36,6 +37,7 @@ export const TitleDescriptionText = () => {
             fontType="/Sunmore-Slant-Free-Regular.json"
             size={size}
             texture={texture02}
+            thickness={0.01}
           />
         </group>
         <group position={[0, -4, 0]}>
@@ -44,6 +46,7 @@ export const TitleDescriptionText = () => {
             fontType="/Sunmore-Slant-Free-Regular.json"
             size={size}
             texture={texture02}
+            thickness={0.01}
           />
         </group>
       </group>
