@@ -17,52 +17,54 @@ import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 
+const rotationDirection = 0.1;
+const heightDirection = 2;
+const minCameraHeight = 0;
+const maxCameraHeight = -94;
+const experienceSectionHeightStart = -30;
+const experienceSectionHeightEnd = -38;
+
 export const ThreeDScene = () => {
   const [watchClicks, setWatchClicks] = useState(1);
 
-  const setCameraHeightUp = useStore((state) => state.setCameraHeightUp);
-  const setCameraHeightDown = useStore((state) => state.setCameraHeightDown);
+  const setCameraHeight = useStore((state) => state.setCameraHeight);
   const cameraHeight = useStore((state) => state.cameraHeight);
 
-  const setCameraRotationLeft = useStore(
-    (state) => state.setCameraRotationLeft
-  );
-  const setCameraRotationRight = useStore(
-    (state) => state.setCameraRotationRight
-  );
+  const setCameraRotation = useStore((state) => state.setCameraRotation);
   const cameraRotation = useStore((state) => state.cameraRotation);
 
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
 
   let initialCameraRotation;
-  let managedCameraRotation;
-  const handleBackwards = () => {
-    initialCameraRotation = cameraRotation + 0.1;
-    managedCameraRotation = manageSection();
 
-    // Ensures that the camera does not go above the "home" section
-    if (cameraHeight < 0) {
-      setCameraHeightDown(cameraHeight);
+  function handleCameraDirection({
+    cameraRotationDirectionSpeed,
+    cameraHeightDirectionSpeed,
+  }) {
+    // Check if the camera should rotate based off of section height
+    if (
+      cameraHeight <= experienceSectionHeightStart &&
+      cameraHeight >= experienceSectionHeightEnd
+    ) {
+      initialCameraRotation = cameraRotation;
+    } else {
+      initialCameraRotation = cameraRotation + cameraRotationDirectionSpeed;
     }
+    setCameraRotation(adjustCameraRotation());
 
-    setCameraRotationLeft(managedCameraRotation);
-  };
-
-  function handleForwards() {
-    initialCameraRotation = cameraRotation - 0.1;
-    managedCameraRotation = manageSection();
-
-    // Ensures that the camera does not go below the last section screen
-    if (cameraHeight > -94) {
-      setCameraHeightUp(cameraHeight);
+    let cameraHeightCheck = cameraHeight + cameraHeightDirectionSpeed;
+    // Ensures that the camera does not go above or below the last section screen
+    if (
+      cameraHeightCheck <= minCameraHeight &&
+      cameraHeightCheck >= maxCameraHeight
+    ) {
+      setCameraHeight(cameraHeight + cameraHeightDirectionSpeed);
     }
+  }
 
-    setCameraRotationRight(managedCameraRotation);
-  };
-  
-  // manageSection is for center the section view. Almost like an auto aim in a video game
-  const manageSection = () => {
+  // adjustCameraRotation is for center the section view. Almost like an auto aim in a video game
+  const adjustCameraRotation = () => {
     if (initialCameraRotation >= 0) {
       // hit home
       initialCameraRotation = 0;
@@ -97,9 +99,15 @@ export const ThreeDScene = () => {
         <Canvas
           onWheel={(event) => {
             if (event.deltaY > 0) {
-              handleForwards();
+              handleCameraDirection({
+                cameraRotationDirectionSpeed: -rotationDirection,
+                cameraHeightDirectionSpeed: -heightDirection,
+              });
             } else if (event.deltaY < 0) {
-              handleBackwards();
+              handleCameraDirection({
+                cameraRotationDirectionSpeed: rotationDirection,
+                cameraHeightDirectionSpeed: heightDirection,
+              });
             }
           }}
         >

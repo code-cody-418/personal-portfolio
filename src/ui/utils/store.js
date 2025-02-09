@@ -13,16 +13,12 @@ export const useStore = create((set) => ({
 
   //set height of camera
   cameraHeight: 0,
-  setCameraHeightUp: (cameraHeight) =>
-    set(() => ({ cameraHeight: cameraHeight - 2 })),
-  setCameraHeightDown: (cameraHeight) =>
-    set(() => ({ cameraHeight: cameraHeight + 2 })),
+  setCameraHeight: (cameraHeight) =>
+    set(() => ({ cameraHeight: cameraHeight })),
 
   //set rotation of camera
   cameraRotation: 0,
-  setCameraRotationLeft: (cameraRotation) =>
-    set(() => ({ cameraRotation: cameraRotation})),
-  setCameraRotationRight: (cameraRotation) =>
+  setCameraRotation: (cameraRotation) =>
     set(() => ({
       cameraRotation: cameraRotation,
     })),
