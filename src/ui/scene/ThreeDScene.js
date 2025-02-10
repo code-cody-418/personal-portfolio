@@ -36,8 +36,6 @@ export const ThreeDScene = () => {
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
 
-  let initialCameraRotation;
-
   function handleCameraDirection({
     cameraRotationDirectionSpeed,
     cameraHeightDirectionSpeed,
@@ -47,11 +45,13 @@ export const ThreeDScene = () => {
       cameraHeight <= experienceSectionHeightStart &&
       cameraHeight >= experienceSectionHeightEnd
     ) {
-      initialCameraRotation = cameraRotation;
+      setCameraRotation(-1.57);
     } else {
-      initialCameraRotation = cameraRotation + cameraRotationDirectionSpeed;
+      const adjustedCameraRotation = adjustCameraRotation(
+        cameraRotationDirectionSpeed
+      );
+      setCameraRotation(adjustedCameraRotation);
     }
-    setCameraRotation(adjustCameraRotation());
 
     let cameraHeightCheck = cameraHeight + cameraHeightDirectionSpeed;
     // Ensures that the camera does not go above or below the last section screen
@@ -63,26 +63,38 @@ export const ThreeDScene = () => {
     }
   }
 
-  // adjustCameraRotation is for center the section view. Almost like an auto aim in a video game
-  const adjustCameraRotation = () => {
-    if (initialCameraRotation >= 0) {
+  const adjustCameraRotation = (cameraRotationDirectionSpeed) => {
+    let checkCameraRotation = cameraRotation + cameraRotationDirectionSpeed;
+    checkCameraRotation = Math.round(checkCameraRotation * 100) / 100;
+    // centers the section view. Almost like an auto aim in a video game
+    if (checkCameraRotation >= 0) {
       // hit home
-      initialCameraRotation = 0;
-    } else if (initialCameraRotation <= -1.5 && initialCameraRotation >= -1.6) {
-      // hit Expereince
-      initialCameraRotation = -1.57;
-    } else if (initialCameraRotation <= -3.1 && initialCameraRotation >= -3.2) {
+      checkCameraRotation = 0;
+    } else if (checkCameraRotation <= -3.1 && checkCameraRotation >= -3.2) {
       // hit skill
-      initialCameraRotation = -3.14;
-    } else if (initialCameraRotation <= -4.7 && initialCameraRotation >= -4.8) {
+      checkCameraRotation = -3.14;
+    } else if (checkCameraRotation <= -4.7 && checkCameraRotation >= -4.8) {
       // hit stack
-      initialCameraRotation = -4.71;
-    } else if (initialCameraRotation <= -4.8) {
+      checkCameraRotation = -4.71;
+    } else if (checkCameraRotation <= -4.8) {
       // hit End
-      initialCameraRotation = -4.71;
+      checkCameraRotation = -4.71;
     }
 
-    return initialCameraRotation;
+    // Fixes section zigzag bug
+    if (
+      checkCameraRotation <= -1.57 &&
+      cameraHeight >= experienceSectionHeightStart
+    ) {
+      checkCameraRotation = -1.57;
+    } else if (
+      checkCameraRotation >= -1.57 &&
+      cameraHeight <= experienceSectionHeightEnd
+    ) {
+      checkCameraRotation = -1.57;
+    }
+
+    return checkCameraRotation;
   };
 
   const handleAnalytics = () => {
