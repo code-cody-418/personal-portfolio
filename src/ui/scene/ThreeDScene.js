@@ -6,8 +6,6 @@ import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { TitleProfessionText } from "./3d-text/title/TitleProfessionText";
 import { TitleDescriptionText } from "./3d-text/title/TitleDescriptionText";
-import { EmployersTitleText } from "./3d-text/EmployersTitleText";
-import { EmployersListText } from "./3d-text/EmployersListText";
 import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
 import { Planet01 } from "./planets/Planet-01";
@@ -16,13 +14,14 @@ import { DynamicCamera } from "./camera/DynamicCamera";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
+import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
 const minCameraHeight = 0;
-const maxCameraHeight = -94;
+const maxCameraHeight = -175;
 const experienceSectionHeightStart = -30;
-const experienceSectionHeightEnd = -38;
+const experienceSectionHeightEnd = -105;
 
 export const ThreeDScene = () => {
   const [watchClicks, setWatchClicks] = useState(1);
@@ -139,16 +138,15 @@ export const ThreeDScene = () => {
             <AboutMeText /> */}
 
             <group position={[0, -35, 0]}>
-              <EmployersTitleText />
-              <EmployersListText />
+              <ExperienceSection />
             </group>
 
-            <group position={[0, -65, 0]}>
+            <group position={[0, -140, 0]}>
               <SkillsTitleText />
               <SkillsListText />
             </group>
 
-            <group position={[0, -94, 0]}>
+            <group position={[0, -175, 0]}>
               <StacksTitleText />
               <StacksListText />
             </group>
