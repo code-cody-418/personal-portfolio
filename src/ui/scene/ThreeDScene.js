@@ -159,7 +159,7 @@ export const ThreeDScene = () => {
 
           <CodeLogo />
           <Planet01 />
-          <Stars />
+          <Stars count={1000} />
         </Canvas>
       </Suspense>
     </>

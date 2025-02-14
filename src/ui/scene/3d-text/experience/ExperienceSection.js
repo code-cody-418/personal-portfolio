@@ -1,5 +1,6 @@
 import { EmployersListText } from "./EmployersListText";
 import { EmployersTitleText } from "./EmployersTitleText";
+import { ExperienceOne } from "./ExperienceOne";
 import { Ipad } from "./Ipad";
 
 export const ExperienceSection = () => {
@@ -7,6 +8,7 @@ export const ExperienceSection = () => {
     <>
       <group position={[0, 0, 0]}>
         <Ipad />
+        <ExperienceOne />
       </group>
 
       <group position={[0, -35, 0]}>
