@@ -15,6 +15,8 @@ import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
+import { OrbitControls, Stars, TransformControls } from "@react-three/drei";
+import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -125,9 +127,12 @@ export const ThreeDScene = () => {
           <Perf />
 
           <DynamicCamera />
+          {/* <OrbitControls makeDefault /> */}
 
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, -10, 0]} intensity={1} />
+
+          <ExperienceLight />
 
           <group onClick={handleAnalytics}>
             <TitleText />
@@ -154,6 +159,7 @@ export const ThreeDScene = () => {
 
           <CodeLogo />
           <Planet01 />
+          <Stars />
         </Canvas>
       </Suspense>
     </>
