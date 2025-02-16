@@ -12,12 +12,12 @@ export function Ipad({ experienceImage }) {
   const { nodes, materials } = useGLTF("/ipad/i-pad-transformed.glb");
   const mat = useRef();
   let loadedTexture = useTexture(experienceImage);
-
+  
   return (
     <>
       <group
         scale={0.3}
-        position={[20, -7, -15]}
+        // position={[20, -7, -15]}
         rotation={[-1.57, -1.57, -1.57]}
         dispose={null}
       >

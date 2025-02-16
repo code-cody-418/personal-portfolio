@@ -17,6 +17,7 @@ import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
+import { NoToneMapping } from "three";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -110,6 +111,7 @@ export const ThreeDScene = () => {
 
       <Suspense>
         <Canvas
+          gl={{  toneMapping: NoToneMapping }}
           onWheel={(event) => {
             if (event.deltaY > 0) {
               handleCameraDirection({
@@ -129,7 +131,7 @@ export const ThreeDScene = () => {
           <DynamicCamera />
           {/* <OrbitControls makeDefault /> */}
 
-          <ambientLight intensity={0.1} />
+          {/* <ambientLight intensity={0.1} /> */}
           <directionalLight position={[0, -10, 0]} intensity={1} />
 
           <ExperienceLight />

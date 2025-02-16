@@ -8,9 +8,9 @@ export const ExperienceOne = () => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 0.8;
-  responsiveData.desktopPositionX = 20;
-  responsiveData.desktopPositionY = 7;
-  responsiveData.desktopPositionZ = -5
+  responsiveData.desktopPositionX = 0;
+  responsiveData.desktopPositionY = -2;
+  responsiveData.desktopPositionZ = -8
 
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;
