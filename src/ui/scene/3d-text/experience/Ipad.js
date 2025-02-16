@@ -4,58 +4,66 @@ Command: npx gltfjsx@6.5.3 i-pad.glb --transform
 Files: i-pad.glb [2.2MB] > C:\code\personal-portfolio\public\ipad\ipad_custom\i-pad-transformed.glb [156.3KB] (93%)
 */
 
-import React from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef } from "react";
+import { useGLTF, useTexture } from "@react-three/drei";
+import { DoubleSide } from "three";
 
-export function Ipad(props) {
-  const { nodes, materials } = useGLTF(
-    "/ipad/i-pad-transformed.glb"
-  );
+export function Ipad({ experienceImage }) {
+  const { nodes, materials } = useGLTF("/ipad/i-pad-transformed.glb");
+  const mat = useRef();
+  let loadedTexture = useTexture(experienceImage);
+
   return (
-    <group
-      scale={0.3}
-      position={[20, -7, -15]}
-      rotation={[-1.57, -1.57, -1.57]}
-      {...props}
-      dispose={null}
-    >
-      <mesh
-        geometry={nodes.Apple_logo_cameraframe_and_logo_0.geometry}
-        material={materials.PaletteMaterial001}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={100}
-      />
-      <mesh
-        geometry={nodes["camera1_camera1(2)_0"].geometry}
-        material={materials.camera12}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={100}
-      />
-      <mesh
-        geometry={nodes.camera_glass_0.geometry}
-        material={materials.PaletteMaterial002}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={100}
-      />
-      <mesh
-        geometry={nodes.camera_module2001_Camera_Flash_0.geometry}
-        material={materials.Camera_Flash}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={100}
-      />
-      <mesh
-        geometry={nodes.camera_module2001_Mic_0.geometry}
-        material={materials.material}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={100}
-      />
-      <mesh
-        geometry={nodes.iPad_Pro_2020_screen_0.geometry}
-        material={materials.screen}
-        rotation={[-Math.PI / 2, 0, 1.57 * 2]}
-        scale={100}
-      />
-    </group>
+    <>
+      <group
+        scale={0.3}
+        position={[20, -7, -15]}
+        rotation={[-1.57, -1.57, -1.57]}
+        dispose={null}
+      >
+        <mesh
+          geometry={nodes.Apple_logo_cameraframe_and_logo_0.geometry}
+          material={materials.PaletteMaterial001}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={100}
+        />
+        <mesh
+          geometry={nodes["camera1_camera1(2)_0"].geometry}
+          material={materials.camera12}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={100}
+        />
+        <mesh
+          geometry={nodes.camera_glass_0.geometry}
+          material={materials.PaletteMaterial002}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={100}
+        />
+        <mesh
+          geometry={nodes.camera_module2001_Camera_Flash_0.geometry}
+          material={materials.Camera_Flash}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={100}
+        />
+        <mesh
+          geometry={nodes.camera_module2001_Mic_0.geometry}
+          material={materials.material}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={100}
+        />
+        {mat.current && (
+          <mesh
+            geometry={nodes.iPad_Pro_2020_screen_0.geometry}
+            material={mat.current}
+            position={[0, 77.5, 0]}
+            rotation={[1.57, 0, Math.PI]}
+            scale={100}
+          />
+        )}
+      </group>
+
+      <meshBasicMaterial side={DoubleSide} map={loadedTexture} ref={mat} />
+    </>
   );
 }
 

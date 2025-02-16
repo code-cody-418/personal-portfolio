@@ -10,3 +10,10 @@
 ## Attribution
 
 - https://codecody.dev/attribution.html
+
+## gltfjsx Notes
+
+- https://github.com/pmndrs/gltfjsx
+
+- cd to where the .glb or .gltf file is
+- run `npx gltfjsx model.gltf --transform`

@@ -1,22 +1,22 @@
-import { Box, TransformControls } from "@react-three/drei";
+import { Box } from "@react-three/drei";
 import { useRef } from "react";
 
 export const ExperienceLight = () => {
   const directionalLightRef = useRef();
-  const temp = useRef();
 
-  console.log(temp?.current);
   return (
     <>
-      <group position={[15, 15, 15]}>
-        {/* <Box /> */}
-        <directionalLight
-          ref={directionalLightRef}
-          target-position={[20, -35, -15]}
-          color={0xffffff}
-          intensity={8}
-        />
-      </group>
+      {/* <TransformControls mode="translate"> */}
+        <group position={[-10, 15, 10]}>
+          <Box />
+          <directionalLight
+            ref={directionalLightRef}
+            target-position={[20, -35, -15]}
+            color={0xffffff}
+            intensity={5}
+          />
+        </group>
+      {/* </TransformControls> */}
     </>
   );
 };

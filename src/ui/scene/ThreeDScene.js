@@ -15,7 +15,7 @@ import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
-import { OrbitControls, Stars, TransformControls } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 
 const rotationDirection = 0.1;
