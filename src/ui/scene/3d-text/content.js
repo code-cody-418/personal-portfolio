@@ -170,4 +170,20 @@ export const content = {
       roundImg: true,
     },
   ],
+  experience: [
+    {
+      title: "Job Search Algorithm",
+      subTitle: null,
+      description: "Algorithm's to sort\nand filter jobs",
+      img: "/ipad/ipad-images/experience-hr-portal-job-search.png",
+      roundImg: null,
+    },
+    {
+      title: "Profile Creation",
+      subTitle: null,
+      description: "Ability for users to create accounts\nwith reusable applications",
+      img: "/ipad/ipad-images/experience-hr-portal-create-account.png",
+      roundImg: null,
+    },
+  ],
 };

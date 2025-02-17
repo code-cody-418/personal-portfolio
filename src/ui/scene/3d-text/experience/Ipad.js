@@ -17,7 +17,7 @@ export function Ipad({ experienceImage }) {
     <>
       <group
         scale={0.3}
-        // position={[20, -7, -15]}
+        position={[20, -7, -15]}
         rotation={[-1.57, -1.57, -1.57]}
         dispose={null}
       >
@@ -62,7 +62,7 @@ export function Ipad({ experienceImage }) {
         )}
       </group>
 
-      <meshBasicMaterial side={DoubleSide} map={loadedTexture} ref={mat} />
+      <meshBasicMaterial map={loadedTexture} ref={mat} />
     </>
   );
 }

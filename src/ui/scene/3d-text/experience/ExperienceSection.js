@@ -1,35 +1,38 @@
 import { EmployersListText } from "./EmployersListText";
 import { EmployersTitleText } from "./EmployersTitleText";
-import { ExperienceOne } from "./ExperienceOne";
+import { ExperienceDescription } from "./ExperienceDescription";
 import { Ipad } from "./Ipad";
+import { content } from "../content";
 
 export const ExperienceSection = () => {
   return (
     <>
-      <group position={[20, -7, -15]}>
-        <group position={[0, 0, 0]}>
-          <Ipad
-            experienceImage={
-              "/ipad/ipad-images/experience-hr-portal-job-search.png"
-            }
-          />
-          <ExperienceOne />
-        </group>
+      <EmployersTitleText />
 
-        <group position={[0, 0, 30]}>
-          <Ipad experienceImage={"/ipad/ipad-images/experience-hr-portal-create-account.png"} />
-          <ExperienceOne />
-        </group>
+      <group position={[0, 0, 0]}>
+        <Ipad
+          experienceImage={
+            content.experience[0].img
+          }
+        />
+        <ExperienceDescription description={content.experience[0].description} />
+      </group>
 
-        <group position={[0, -35, 0]}>
-          <EmployersTitleText />
-          <EmployersListText />
-        </group>
+      <group position={[0, 0, 30]}>
+        <Ipad
+          experienceImage={
+            content.experience[1].img
+          }
+        />
+        <ExperienceDescription description={content.experience[1].description} />
+      </group>
 
-        <group position={[0, -75, 0]}>
-          <EmployersTitleText />
-          <EmployersListText />
-        </group>
+      <group position={[0, -35, 0]}>
+        <EmployersListText />
+      </group>
+
+      <group position={[0, -75, 0]}>
+        <EmployersListText />
       </group>
     </>
   );
