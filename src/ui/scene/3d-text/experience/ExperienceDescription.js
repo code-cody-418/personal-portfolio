@@ -34,6 +34,7 @@ export const ExperienceDescription = ({ description }) => {
             size={size}
             texture={texture02}
             thickness={0.01}
+            segments={1}
           />
         </group>
       </group>

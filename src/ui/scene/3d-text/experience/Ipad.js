@@ -6,7 +6,6 @@ Files: i-pad.glb [2.2MB] > C:\code\personal-portfolio\public\ipad\ipad_custom\i-
 
 import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
-import { DoubleSide } from "three";
 
 export function Ipad({ experienceImage }) {
   const { nodes, materials } = useGLTF("/ipad/i-pad-transformed.glb");

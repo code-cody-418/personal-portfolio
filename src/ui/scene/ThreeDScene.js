@@ -18,6 +18,7 @@ import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
+import { Satellite } from "./debris/Satellite";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -131,7 +132,7 @@ export const ThreeDScene = () => {
           <DynamicCamera />
           {/* <OrbitControls makeDefault /> */}
 
-          {/* <ambientLight intensity={0.1} /> */}
+          {/* <ambientLight intensity={1} /> */}
           <directionalLight position={[0, -10, 0]} intensity={1} />
 
           <ExperienceLight />
@@ -161,6 +162,7 @@ export const ThreeDScene = () => {
 
           <CodeLogo />
           <Planet01 />
+          <Satellite />
           <Stars count={1000} />
         </Canvas>
       </Suspense>

@@ -1,7 +1,7 @@
 import { Text3D } from "@react-three/drei";
 import droid_sansReg from "three/examples/fonts/droid/droid_sans_regular.typeface.json"
 
-export const FontConfig = ({ text, fontType, size, texture, thickness }) => {
+export const FontConfig = ({ text, fontType, size, texture, thickness, segments }) => {
   let font = null
   if (fontType === "title") {
     font = "/Philosopher_Regular.json"
@@ -10,13 +10,14 @@ export const FontConfig = ({ text, fontType, size, texture, thickness }) => {
   }
 
   let bevelThickness = thickness ?? 0.1
+  let curveSegments = segments ?? 6
   return (
     <>
       <Text3D
         font={font}
         size={size}
         height={0.1}
-        curveSegments={6} //change this value to lower triangles
+        curveSegments={curveSegments} //change this value to lower triangles
         bevelEnabled={true}
         bevelThickness={bevelThickness}
         bevelSize={0.02}
