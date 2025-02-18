@@ -23,9 +23,9 @@ import { Satellite } from "./debris/Satellite";
 const rotationDirection = 0.1;
 const heightDirection = 2;
 const minCameraHeight = 0;
-const maxCameraHeight = -175;
+const maxCameraHeight = -245;
 const experienceSectionHeightStart = -30;
-const experienceSectionHeightEnd = -105;
+const experienceSectionHeightEnd = -175;
 
 export const ThreeDScene = () => {
   const [watchClicks, setWatchClicks] = useState(1);
@@ -149,12 +149,12 @@ export const ThreeDScene = () => {
               <ExperienceSection />
             </group>
 
-            <group position={[0, -140, 0]}>
+            <group position={[0, -210, 0]}>
               <SkillsTitleText />
               <SkillsListText />
             </group>
 
-            <group position={[0, -175, 0]}>
+            <group position={[0, -245, 0]}>
               <StacksTitleText />
               <StacksListText />
             </group>
@@ -163,7 +163,7 @@ export const ThreeDScene = () => {
           <CodeLogo />
           <Planet01 />
           <Satellite />
-          <Stars count={1000} />
+          <Stars count={1000} radius={200} />
         </Canvas>
       </Suspense>
     </>

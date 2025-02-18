@@ -30,7 +30,7 @@ export function Satellite() {
         ref={satellite}
         geometry={nodes.Object_2.geometry}
         material={materials.lambert1}
-        rotation={[-Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI / 2, 1.57 / 2, 0]}
       />
     </group>
   );
