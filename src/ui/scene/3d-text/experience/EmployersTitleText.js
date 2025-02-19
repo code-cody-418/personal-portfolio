@@ -8,7 +8,7 @@ export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 3;
     responsiveData.desktopPositionX = 20;
-    responsiveData.desktopPositionY = 18;
+    responsiveData.desktopPositionY = 12;
     responsiveData.desktopPositionZ = -12;
 
     responsiveData.mobileSize = 1.5;

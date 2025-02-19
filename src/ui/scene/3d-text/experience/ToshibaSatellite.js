@@ -11,6 +11,7 @@ Title: Toshiba Satellite t1960 / Satellite dish
 import React, { useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { DoubleSide } from "three";
+import { useFrame } from "@react-three/fiber";
 
 export function ToshibaSatellite({ experienceImage }) {
   const { nodes, materials } = useGLTF(
@@ -20,11 +21,16 @@ export function ToshibaSatellite({ experienceImage }) {
   const mat = useRef();
   let loadedTexture = useTexture(experienceImage);
 
+  const satellite = useRef();
+  useFrame(({ clock }) => {
+    satellite.current.rotation.z = Math.cos(clock.getElapsedTime() / 30)  ;
+  });
+
   return (
     <>
       <group
         dispose={null}
-        position={[20, 0, 0]}
+        position={[22, 0, 0]}
         rotation={[-1.57, -1.8, -1.57]}
         scale={4}
       >
@@ -50,6 +56,7 @@ export function ToshibaSatellite({ experienceImage }) {
           rotation={[-Math.PI / 2, 0, 0]}
         />
         <mesh
+          ref={satellite}
           geometry={nodes.Antenn_body_low001_Antenn_c_0.geometry}
           material={materials.Antenn_c}
           position={[-0.009, 4.273, -3.453]}
