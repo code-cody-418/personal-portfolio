@@ -59,7 +59,7 @@ export const ExperienceSection = () => {
 
       <group position={[0, -70, 0]}>
         <ToshibaSatellite
-          experienceImage={"/toshiba_satellite/temp_code.png"}
+          experienceImage={"/toshiba_satellite/terminal.png"}
         />
       </group>
 

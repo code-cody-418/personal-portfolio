@@ -233,5 +233,13 @@ export const content = {
       img: null,
       roundImg: null,
     },
+    {
+      title: "Experience FullStack and ETL",
+      subTitle: null,
+      description:
+        "Experience designing, developing,\nand deploying fullstack web\napplications and ETL pipelines",
+      img: null,
+      roundImg: null,
+    },
   ],
 };

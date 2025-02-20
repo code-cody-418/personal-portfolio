@@ -3,12 +3,13 @@ import { useResponsive } from "../../../../customHooks/useResponsive";
 import { Responsive } from "../../../../constructor/Responsive";
 import { FontConfig } from "../FontConfig";
 import { useTexture } from "@react-three/drei";
+import { content } from "../content";
 
 export const TitleDescriptionText = () => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 0.8;
-  responsiveData.desktopPositionX = -11;
+  responsiveData.desktopPositionX = -16;
   responsiveData.desktopPositionY = -4.5;
 
   responsiveData.mobileSize = 1;
@@ -24,29 +25,12 @@ export const TitleDescriptionText = () => {
       <group position={[positionX, positionY, -15]}>
         <group position={[0, 0, 0]}>
           <FontConfig
-            text="Experience with million"
+            text={content.experience[8].description}
             fontType="/Sunmore-Slant-Free-Regular.json"
             size={size}
             texture={texture02}
             thickness={0.01}
-          />
-        </group>
-        <group position={[0, -2, 0]}>
-          <FontConfig
-            text="dollar full-stack applications"
-            fontType="/Sunmore-Slant-Free-Regular.json"
-            size={size}
-            texture={texture02}
-            thickness={0.01}
-          />
-        </group>
-        <group position={[0, -4, 0]}>
-          <FontConfig
-            text="and ETL data integrations"
-            fontType="/Sunmore-Slant-Free-Regular.json"
-            size={size}
-            texture={texture02}
-            thickness={0.01}
+            segments={1}
           />
         </group>
       </group>
