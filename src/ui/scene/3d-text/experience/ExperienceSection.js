@@ -5,25 +5,8 @@ import { Ipad } from "./Ipad";
 import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
 import { Matrix } from "./Matrix";
-import { useEffect, useState } from "react";
-import { useStore } from "../../../utils/store";
-
-const matrixHeightStart = -128
-const matrixHeightEnd = -180
-
 
 export const ExperienceSection = () => {
-  const [showMatrix, setShowMatrix] = useState(false);
-  const cameraHeight = useStore((state) => state.cameraHeight);
-  
-  useEffect(() => {
-    if (cameraHeight >= matrixHeightStart || cameraHeight <= matrixHeightEnd) {
-      setShowMatrix(false);
-    } else {
-      setShowMatrix(true);
-    }
-  }, [cameraHeight]);
-
   return (
     <>
       <EmployersTitleText />
@@ -58,14 +41,12 @@ export const ExperienceSection = () => {
       </group>
 
       <group position={[0, -70, 0]}>
-        <ToshibaSatellite
-          experienceImage={"/toshiba_satellite/terminal.png"}
-        />
+        <ToshibaSatellite experienceImage={"/toshiba_satellite/terminal.png"} />
       </group>
 
-      <group visible={showMatrix} position={[0, -75, 0]}>
+      <group position={[0, -75, 0]}>
         <Matrix />
-        
+
         <group position={[20, -10, -25]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
             description={content.experience[4].description}

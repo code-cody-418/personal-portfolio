@@ -30,7 +30,7 @@ export function ToshibaSatellite({ experienceImage }) {
     <>
       <group
         dispose={null}
-        position={[22, 0, 0]}
+        position={[18, 0, 0]}
         rotation={[-1.57, -1.8, -1.57]}
         scale={4}
       >
