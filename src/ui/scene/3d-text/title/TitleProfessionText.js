@@ -7,9 +7,9 @@ import { useTexture } from "@react-three/drei";
 export const TitleProfessionText = () => {
   //set responsive values
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 1;
-  responsiveData.desktopPositionX = -6.5;
-  responsiveData.desktopPositionY = -1;
+  responsiveData.desktopSize = 2.5;
+  responsiveData.desktopPositionX = -15.5;
+  responsiveData.desktopPositionY = 0;
 
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;

@@ -7,9 +7,9 @@ import { useTexture } from "@react-three/drei";
 export const TitleText = () => {
   //set responsive values
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 3;
-  responsiveData.desktopPositionX = -11;
-  responsiveData.desktopPositionY = 6;
+  responsiveData.desktopSize = 1.5;
+  responsiveData.desktopPositionX = -7;
+  responsiveData.desktopPositionY = 4;
   responsiveData.desktopGroupY = 0;
 
   responsiveData.mobileSize = 1.5;
@@ -17,32 +17,16 @@ export const TitleText = () => {
   responsiveData.mobilePositionY = 4;
   responsiveData.mobileGroupY = 5;
 
-  const { size, positionX, positionY, groupY, isMobile } = useResponsive(responsiveData);
+  const { size, positionX, positionY, groupY } = useResponsive(responsiveData);
 
   let loadedTexture = useTexture("/textures/purple_08_matCap.png")
-
-  let titleAdjustment = 0
-  // adjustment to center the title on desktop but not mobile
-  if (isMobile) {
-    titleAdjustment = 0
-  } else {
-    titleAdjustment = 3.5
-  }
   
   return (
     <>
       <group position={[0, groupY, 0]}>
-        <group position={[positionX + titleAdjustment, positionY, -15]}>
+        <group position={[positionX, positionY, -15]}>
           <FontConfig
-            text="CODY'S"
-            fontType="title"
-            size={size}
-            texture={loadedTexture}
-          />
-        </group>
-        <group position={[positionX, 2, -15]}>
-          <FontConfig
-            text="PORTFOLIO"
+            text="Cody's Portfolio"
             fontType="title"
             size={size}
             texture={loadedTexture}
