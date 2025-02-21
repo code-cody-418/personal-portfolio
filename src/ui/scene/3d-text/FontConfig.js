@@ -29,7 +29,7 @@ export const FontConfig = ({
         bevelThickness={bevelThickness}
         bevelSize={0.02}
         bevelOffset={0}
-        bevelSegments={curveSegments} //change this value to lower triangles
+        bevelSegments={1} //change this value to lower triangles
       >
         {text}
         <meshMatcapMaterial matcap={texture} />
