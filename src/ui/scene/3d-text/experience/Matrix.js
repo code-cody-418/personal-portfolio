@@ -46,8 +46,6 @@ export function Matrix() {
     }
   }, [cameraHeight]);
 
-  console.log(cameraHeight);
-
   return (
     <group scale={18} position={[0, -30, 0]} ref={matrixRef} dispose={null}>
       <group name="Sketchfab_Scene">
