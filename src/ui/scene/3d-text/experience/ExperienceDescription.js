@@ -2,9 +2,9 @@ import React from "react";
 import { useResponsive } from "../../../../customHooks/useResponsive";
 import { Responsive } from "../../../../constructor/Responsive";
 import { FontConfig } from "../FontConfig";
-import { useTexture } from "@react-three/drei";
+import { Plane, useTexture } from "@react-three/drei";
 
-export const ExperienceDescription = ({ description }) => {
+export const ExperienceDescription = ({ description, planeScale, planePosition }) => {
   //set responsive values
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 0.8;
@@ -15,6 +15,13 @@ export const ExperienceDescription = ({ description }) => {
 
   return (
     <>
+      <Plane scale={planeScale} position={planePosition}>
+        <meshBasicMaterial
+          color="#000000"
+          // color="#FFFFFF" // use for debug
+        />
+      </Plane>
+
       <FontConfig
         text={description}
         fontType="/Sunmore-Slant-Free-Regular.json"

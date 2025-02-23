@@ -25,7 +25,7 @@ export const TitleDescriptionText = () => {
       <group position={[positionX, positionY, -15]}>
         <group position={[0, 0, 0]}>
           <FontConfig
-            text={content.experience[8].description}
+            text={content.hero[0].description}
             fontType="/Sunmore-Slant-Free-Regular.json"
             size={size}
             texture={texture02}

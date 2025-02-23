@@ -11,31 +11,17 @@ import { useStore } from "../../../utils/store";
 const matrixPartialHeightStart = -90;
 const matrixPartialHeightEnd = -208;
 
-const matrixHeightStart = -108;
-const matrixHeightEnd = -180;
 
-export function Matrix() {
+export function Matrix({ animationSpeed }) {
   const matrixRef = React.useRef();
   const { nodes, materials, animations } = useGLTF(
     "/matrix/matrix-transformed.glb"
   );
   const { actions } = useAnimations(animations, matrixRef);
-  
-  useEffect(() => {
-    actions?.Animation.play();
-  });
 
-  const [showMatrix, setShowMatrix] = useState(false);
   const [showPartialMatrix, setShowPartialMatrix] = useState(false);
   const cameraHeight = useStore((state) => state.cameraHeight);
-
   useEffect(() => {
-    if (cameraHeight >= matrixHeightStart || cameraHeight <= matrixHeightEnd) {
-      setShowMatrix(false);
-    } else {
-      setShowMatrix(true);
-    }
-
     if (
       cameraHeight >= matrixPartialHeightStart ||
       cameraHeight <= matrixPartialHeightEnd
@@ -46,8 +32,20 @@ export function Matrix() {
     }
   }, [cameraHeight]);
 
+  if (actions?.Animation?.timeScale) {
+    actions.Animation.timeScale = animationSpeed;
+  }
+  useEffect(() => {
+    actions?.Animation.play();
+  });
+
   return (
-    <group scale={18} position={[0, -30, 0]} ref={matrixRef} dispose={null}>
+    <group
+      scale={[18, 18, 18]}
+      position={[0, -60, 0]}
+      ref={matrixRef}
+      dispose={null}
+    >
       <group name="Sketchfab_Scene">
         <group name="GLTF_SceneRootNode">
           <group
@@ -212,6 +210,7 @@ export function Matrix() {
               material={materials.Color}
             />
           </group>
+
           <group
             visible={showPartialMatrix}
             name="color038_32"
@@ -291,7 +290,7 @@ export function Matrix() {
             />
           </group>
           <group
-            visible={showMatrix}
+            visible={false} // this stays hidden because it is to much
             name="Cylinder001_49"
             position={[0, -64.018, 0]}
             scale={0.071}

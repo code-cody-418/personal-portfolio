@@ -21,7 +21,7 @@ export function Planet01() {
     // Planet in orbit
     fullPlanet.current.position.x = Math.cos(clock.getElapsedTime() / 10) * -150
     fullPlanet.current.position.y = Math.cos(clock.getElapsedTime() / 12) * 30
-    fullPlanet.current.position.z = Math.sin(clock.getElapsedTime() / 10) * -50
+    fullPlanet.current.position.z = Math.sin(clock.getElapsedTime() / 10) * -75
   })
 
   return (

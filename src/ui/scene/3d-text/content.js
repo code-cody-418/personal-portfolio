@@ -186,42 +186,34 @@ export const content = {
       roundImg: null,
     },
     {
-      title: "Building API's",
+      title: "Built Full Stack App",
       subTitle: null,
       description:
-        "Lorem ipsum dolor sit amet, consectetur\nadipiscing elit. Maecenas congue et purus\nvitae egestas. Morbi facilisis mi sed\nante interdum fermentum. Nullam suscipit\nlobortis enim nec rhoncus. Nunc\naliquam dapibus sodales. Pellentesque eget\nscelerisque justo. Etiam sed turpis tellus.\n Donec in fermentum quam, nec condimentum justo.",
+        "Built a full stack app that allowed users to\nsubmit reusable job applications to apply\nto the Navajo Nation Government. I led a\nteam of developers from start to\ndeployment. My primary tasks included\ndeveloping API endpoints, React forms,\nand configuring infrastructure. The\napplication gained 3000 user accounts\nwithin the first 4 months of launching.",
       img: null,
       roundImg: null,
     },
     {
-      title: "Building Authentication and Authorization",
+      title: "Full Stack App Details",
       subTitle: null,
       description:
-        "Fusce facilisis non sapien volutpat rhoncus.\nIn sodales rutrum sollicitudin. Quisque a cursus ipsum,\ncondimentum molestie massa. Morbi venenatis lobortis vehicula. Sed sollicitudin\nquam id dui blandit, a interdum lacus sagittis. Suspendisse \nmi odio, commodo eget finibus at, viverra a nulla.",
+        "The web app consisted of a frontend build,\nan API, web-servers, and databases. The\nfrontend used React as the primary\nframework. React components and hooks\nwere utilized along with Redux for state\nmanagement. Data was sent to a remote\nproxy which would then forward requests\nto an API endpoint. Data going to the API\nwould be validated, sanitized, and\nprocessed before being stored in databases. ",
       img: null,
       roundImg: null,
     },
     {
-      title: "CRM Data Synchronizations",
+      title: "Backend Development Experience",
       subTitle: null,
       description:
-        "Matrix TestFusce facilisis non sapien volutpat rhoncus.\nIn sodales rutrum sollicitudin. Quisque a cursus ipsum,\ncondimentum molestie massa. Morbi venenatis lobortis vehicula. Sed sollicitudin\nquam id dui blandit, a interdum lacus sagittis. Suspendisse \nmi odio, commodo eget finibus at, viverra a nulla.",
+        "My backend development experience includes\nbuilding API authentication endpoints and\nauthorization middleware. Authentication\nendpoints consisted of requests containing\nthe users credentials and if successful\nreturning a response carrying a signed JWT\ntoken. Authorization middleware ensure\nthat only users who contained a valid signed\ntoken could access their data.",
       img: null,
       roundImg: null,
     },
     {
-      title: "Building Authentication and Authorization",
+      title: "Legacy Integration",
       subTitle: null,
       description:
-        "Fusce facilisis non sapien volutpat rhoncus.\nIn sodales rutrum sollicitudin. Quisque a cursus ipsum,\ncondimentum molestie massa. Morbi venenatis lobortis vehicula. Sed sollicitudin\nquam id dui blandit, a interdum lacus sagittis. Suspendisse \nmi odio, commodo eget finibus at, viverra a nulla.",
-      img: null,
-      roundImg: null,
-    },
-    {
-      title: "CRM Data Synchronizations",
-      subTitle: null,
-      description:
-        "Matrix TestFusce facilisis non sapien volutpat rhoncus.\nIn sodales rutrum sollicitudin. Quisque a cursus ipsum,\ncondimentum molestie massa. Morbi venenatis lobortis vehicula. Sed sollicitudin\nquam id dui blandit, a interdum lacus sagittis. Suspendisse \nmi odio, commodo eget finibus at, viverra a nulla.",
+        "Transferred over 2 million documents and its\nmeta data from a legacy system into a new\nEnterprise Content Management system by\nutilizing ETL methodology and scripting.",
       img: null,
       roundImg: null,
     },
@@ -229,10 +221,20 @@ export const content = {
       title: "CRM Data Synchronizations",
       subTitle: null,
       description:
-        "Matrix TestFusce facilisis non sapien volutpat rhoncus.\nIn sodales rutrum sollicitudin. Quisque a cursus ipsum,\ncondimentum molestie massa. Morbi venenatis lobortis vehicula. Sed sollicitudin\nquam id dui blandit, a interdum lacus sagittis. Suspendisse \nmi odio, commodo eget finibus at, viverra a nulla.",
+        "Integrated data between a Firebase database\nand multiple CRM’s by conducting an ETL\ndata transfer followed by the building of an\nAPI that would synchronize the data between\nthe two systems.",
       img: null,
       roundImg: null,
     },
+    {
+      title: "Devops",
+      subTitle: null,
+      description:
+        "Delivered improvements to servers and services,\nby creating backups and upgrading servers\noverall reducing security incidents, downtime,\nand data loss. This included OS and application\nlevel upgrades. In addition, I configured\nenvironments for local, testing, and production\nto ensure a better development experience.",
+      img: null,
+      roundImg: null,
+    },
+  ],
+  hero: [
     {
       title: "Experience FullStack and ETL",
       subTitle: null,
