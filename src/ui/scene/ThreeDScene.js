@@ -20,6 +20,7 @@ import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { Satellite } from "./debris/Satellite";
 
+
 const rotationDirection = 0.1;
 const heightDirection = 2;
 const minCameraHeight = 0;

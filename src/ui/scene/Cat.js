@@ -9,48 +9,71 @@ import { useFrame, useGraph } from "@react-three/fiber";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import * as THREE from "three";
+import { useStore } from "../utils/store";
 
 export function Cat(props) {
-  const group = React.useRef();
+  const cat = React.useRef();
   const { scene, animations } = useGLTF("/cat/cat-transformed.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
-  const { actions, mixer } = useAnimations(animations, group);
-
+  const { actions, mixer } = useAnimations(animations, cat);
+  const cameraHeight = useStore((state) => state.cameraHeight);
+  const [activateAnimation, setActivateAnimation] = useState(false);
+  const [showCat, setShowCat] = useState(true);
+  const [showCatCount, setShowCatCount] = useState(1);
   const [currentAnimation, SetCurrentAnimation] = useState(
     "Cat licking 1-143_GRT_"
   );
+
   useEffect(() => {
-    if (currentAnimation === "Cat_Walk 1_32_GRT_") {
-      actions?.[currentAnimation].reset().fadeIn(0.5).play();
-    } else if (currentAnimation === "Cat licking 1-143_GRT_") {
+    if (currentAnimation === "Cat licking 1-143_GRT_") {
       actions[currentAnimation].clampWhenFinished = true;
-      actions?.[currentAnimation]
-        .reset()
-        .setLoop(THREE.LoopOnce)
-        .fadeIn(0.5)
-        .play();
+      actions?.[currentAnimation].setLoop(THREE.LoopOnce);
     }
-  }, [actions, currentAnimation]);
+
+    if (activateAnimation === true) {
+      actions?.[currentAnimation].reset().fadeIn(0.5).play();
+    }
+
+    return () => {
+      actions[currentAnimation]?.fadeOut(1);
+    };
+  }, [actions, currentAnimation, activateAnimation]);
 
   mixer.addEventListener("finished", () => {
     SetCurrentAnimation("Cat_Walk 1_32_GRT_");
   });
 
+  useFrame(() => {
+    if (
+      currentAnimation === "Cat_Walk 1_32_GRT_" &&
+      cat.current.position.z > -19
+    ) {
+      cat.current.position.z = cat.current.position.z - 0.02;
+    } else if (cat.current.position.z < -19 && showCatCount <= 2) {
+      setShowCatCount((showCatCount) => showCatCount + 1);
+      SetCurrentAnimation("Cat licking 1-143_GRT_");
+      if (showCatCount >= 2) {
+        setShowCat(false);
+      } else {
+        cat.current.position.z = 0;
+      }
+    }
+  });
+
+  useEffect(() => {
+    if (cameraHeight <= -160) {
+      setActivateAnimation(true);
+    }
+  }, [cameraHeight]);
+
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <group name="Object_5" rotation={[-Math.PI / 2, 0, -Math.PI]}>
+    <group ref={cat} {...props} dispose={null} visible={showCat}>
+      <group name="Scene" scale={8} rotation={[-1.57, 0, Math.PI]}>
+        <group name="Object_5">
           <primitive object={nodes["DEF-spine_02"]} />
           <primitive object={nodes["DEF-tail006_0184"]} />
         </group>
-        <skinnedMesh
-          name="Object_197"
-          geometry={nodes.Object_197.geometry}
-          material={materials["cat_fur_.001"]}
-          skeleton={nodes.Object_197.skeleton}
-          rotation={[-Math.PI / 2, 0, -Math.PI]}
-        />
         <skinnedMesh
           name="Object_199"
           geometry={nodes.Object_199.geometry}

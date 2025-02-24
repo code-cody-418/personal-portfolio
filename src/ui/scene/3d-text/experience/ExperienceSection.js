@@ -5,6 +5,8 @@ import { Ipad } from "./Ipad";
 import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
 import { Matrix } from "./Matrix";
+import { Cat } from "../../Cat";
+import { Plane, useTexture } from "@react-three/drei";
 
 export const ExperienceSection = () => {
   return (
@@ -16,7 +18,7 @@ export const ExperienceSection = () => {
         <group position={[20, -9, -23]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
             description={content.experience[0].description}
-            planeScale={[17, 3, 0 ]}
+            planeScale={[17, 3, 0]}
             planePosition={[8, -0.5, 0]}
           />
         </group>
@@ -102,6 +104,21 @@ export const ExperienceSection = () => {
           />
         </group>
 
+        <group position={[20, -55, -10]}>
+          <Plane
+            position={[1, -4, -6]}
+            scale={[22, 8, 0]}
+            rotation={[0, -1.570796, 0]}
+          >
+            <meshBasicMaterial
+              color="#000000"
+              // color="#FFFFFF" // use for debug
+            />
+          </Plane>
+          <group position={[0, -5, -2]}>
+            <Cat />
+          </group>
+        </group>
         {/* <EmployersListText /> */}
       </group>
     </>
