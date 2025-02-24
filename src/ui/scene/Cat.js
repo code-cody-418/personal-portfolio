@@ -10,6 +10,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import * as THREE from "three";
 import { useStore } from "../utils/store";
+import { log } from "three/examples/jsm/nodes/Nodes.js";
 
 export function Cat(props) {
   const cat = React.useRef();
@@ -64,6 +65,15 @@ export function Cat(props) {
   useEffect(() => {
     if (cameraHeight <= -160) {
       setActivateAnimation(true);
+    }
+
+    let showingCat = (showCat) => showCat
+    // used to reset the cat
+    if ((cameraHeight > -140 || cameraHeight < -190) && showingCat === false) {
+      setActivateAnimation(false);
+      setShowCatCount(1)
+      setShowCat(true);
+      cat.current.position.z = 0;
     }
   }, [cameraHeight]);
 
