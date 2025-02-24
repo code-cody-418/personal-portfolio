@@ -10,7 +10,6 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import * as THREE from "three";
 import { useStore } from "../utils/store";
-import { log } from "three/examples/jsm/nodes/Nodes.js";
 
 export function Cat(props) {
   const cat = React.useRef();
