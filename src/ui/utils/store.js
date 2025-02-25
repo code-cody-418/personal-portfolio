@@ -23,6 +23,11 @@ export const useStore = create((set) => ({
       cameraRotation: cameraRotation,
     })),
 
+  //set manual controls
+  manualControlState: false,
+  enableManualControls: () => set(() => ({ manualControlState: true })),
+  disableManualControls: () => set(() => ({ manualControlState: false })),
+
   // set analytics clicks
   sessionClicks: 0,
   setSessionClicks: (watchClicks) =>

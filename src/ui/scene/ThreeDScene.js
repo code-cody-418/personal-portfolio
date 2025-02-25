@@ -19,6 +19,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { Satellite } from "./debris/Satellite";
+import { ManualCameraControls } from "./camera/ManualCameraControls";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -117,6 +118,7 @@ export const ThreeDScene = () => {
   return (
     <>
       <MyModal />
+      <ManualCameraControls />
       <Analytics />
 
       <Suspense>
