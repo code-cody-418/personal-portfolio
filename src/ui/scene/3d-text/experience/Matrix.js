@@ -11,7 +11,6 @@ import { useStore } from "../../../utils/store";
 const matrixPartialHeightStart = -90;
 const matrixPartialHeightEnd = -208;
 
-
 export function Matrix({ animationSpeed }) {
   const matrixRef = React.useRef();
   const { nodes, materials, animations } = useGLTF(

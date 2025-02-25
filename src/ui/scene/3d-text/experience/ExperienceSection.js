@@ -106,8 +106,8 @@ export const ExperienceSection = () => {
 
         <group position={[20, -55, -10]}>
           <Plane
-            position={[1, -4, -6]}
-            scale={[22, 8, 0]}
+            position={[5, -4, -6]}
+            scale={[22, 12, 0]}
             rotation={[0, -1.570796, 0]}
           >
             <meshBasicMaterial

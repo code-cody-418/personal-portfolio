@@ -32,11 +32,11 @@ export function Cat(props) {
     }
 
     if (activateAnimation === true) {
-      actions?.[currentAnimation].reset().fadeIn(0.5).play();
+      actions?.[currentAnimation].reset().play();
     }
 
     return () => {
-      actions[currentAnimation]?.fadeOut(1);
+      actions[currentAnimation]?.fadeOut(0.5);
     };
   }, [actions, currentAnimation, activateAnimation]);
 
@@ -66,9 +66,8 @@ export function Cat(props) {
       setActivateAnimation(true);
     }
 
-    let showingCat = (showCat) => showCat
     // used to reset the cat
-    if ((cameraHeight > -140 || cameraHeight < -190) && showingCat === false) {
+    if ((cameraHeight > -140 || cameraHeight < -190) && showCat === false) {
       setActivateAnimation(false);
       setShowCatCount(1)
       setShowCat(true);
@@ -78,7 +77,7 @@ export function Cat(props) {
 
   return (
     <group ref={cat} {...props} dispose={null} visible={showCat}>
-      <group name="Scene" scale={8} rotation={[-1.57, 0, Math.PI]}>
+      <group name="Scene" scale={8} rotation={[-1.57, 0, 3.6]}>
         <group name="Object_5">
           <primitive object={nodes["DEF-spine_02"]} />
           <primitive object={nodes["DEF-tail006_0184"]} />

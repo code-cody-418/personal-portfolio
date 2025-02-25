@@ -8,27 +8,39 @@ Source: https://sketchfab.com/3d-models/toshiba-satellite-t1960-satellite-dish-7
 Title: Toshiba Satellite t1960 / Satellite dish
 */
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { DoubleSide } from "three";
 import { useFrame } from "@react-three/fiber";
+import { useStore } from "../../../utils/store";
 
 export function ToshibaSatellite({ experienceImage }) {
   const { nodes, materials } = useGLTF(
     "/toshiba_satellite/toshiba_satellite-transformed.glb"
   );
+  const cameraHeight = useStore((state) => state.cameraHeight);
+  const [showSatellite, setShowSatellite] = useState(true)
+
+  useEffect(() => {
+    if(cameraHeight <= -108) {
+      setShowSatellite(false)
+    } else if (cameraHeight > -108) {
+      setShowSatellite(true)
+    }
+  }, [cameraHeight])
 
   const mat = useRef();
   let loadedTexture = useTexture(experienceImage);
 
   const satellite = useRef();
   useFrame(({ clock }) => {
-    satellite.current.rotation.z = Math.cos(clock.getElapsedTime() / 30)  ;
+    satellite.current.rotation.z = Math.cos(clock.getElapsedTime() / 30);
   });
 
   return (
     <>
       <group
+        visible={showSatellite}
         dispose={null}
         position={[18, 0, 0]}
         rotation={[-1.57, -1.8, -1.57]}

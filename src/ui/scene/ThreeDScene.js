@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -19,7 +19,6 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { Satellite } from "./debris/Satellite";
-
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -101,6 +100,15 @@ export const ThreeDScene = () => {
     return checkCameraRotation;
   };
 
+  const [showOutsideMatrixSection, setShowOutsideMatrixSection] = useState(true);
+  useEffect(() => {
+    if (cameraHeight <= -92 && cameraHeight > -208) {
+      setShowOutsideMatrixSection(false);
+    } else {
+      setShowOutsideMatrixSection(true);
+    }
+  }, [cameraHeight]);
+
   const handleAnalytics = () => {
     setWatchClicks((watchClicks) => watchClicks + 1);
     setSessionClicks(watchClicks);
@@ -113,7 +121,7 @@ export const ThreeDScene = () => {
 
       <Suspense>
         <Canvas
-          gl={{  toneMapping: NoToneMapping }}
+          gl={{ toneMapping: NoToneMapping }}
           onWheel={(event) => {
             if (event.deltaY > 0) {
               handleCameraDirection({
@@ -162,9 +170,11 @@ export const ThreeDScene = () => {
           </group>
 
           <CodeLogo />
-          <Planet01 />
-          <Satellite />
-          <Stars count={1000} radius={200} />
+          <group visible={showOutsideMatrixSection}>
+            <Planet01 />
+            <Satellite />
+            <Stars count={1000} radius={200} />
+          </group>
         </Canvas>
       </Suspense>
     </>
