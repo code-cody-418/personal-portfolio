@@ -30,7 +30,7 @@ export const ModalNav = () => {
                 <Nav.Link
                   className="text-white"
                   onClick={() => {
-                    setSectionLocation("About Me")
+                    setSectionLocation("About Me");
                   }}
                 >
                   About Me
@@ -38,7 +38,7 @@ export const ModalNav = () => {
                 <Nav.Link
                   className="text-white"
                   onClick={() => {
-                    setSectionLocation("Experience")
+                    setSectionLocation("Experience");
                   }}
                 >
                   Experience
@@ -46,7 +46,15 @@ export const ModalNav = () => {
                 <Nav.Link
                   className="text-white"
                   onClick={() => {
-                    setSectionLocation("Skills")
+                    setSectionLocation("Employers");
+                  }}
+                >
+                  Employers
+                </Nav.Link>
+                <Nav.Link
+                  className="text-white"
+                  onClick={() => {
+                    setSectionLocation("Skills");
                   }}
                 >
                   Skills
@@ -54,7 +62,7 @@ export const ModalNav = () => {
                 <Nav.Link
                   className="text-white"
                   onClick={() => {
-                    setSectionLocation("Stack")
+                    setSectionLocation("Stack");
                   }}
                 >
                   Stack
@@ -62,7 +70,7 @@ export const ModalNav = () => {
                 <Nav.Link
                   className="text-white"
                   onClick={() => {
-                    setSectionLocation("Contact Me")
+                    setSectionLocation("Contact Me");
                   }}
                 >
                   Contact Me

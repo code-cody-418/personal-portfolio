@@ -6,7 +6,7 @@ import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
 import { Matrix } from "./Matrix";
 import { Cat } from "../../Cat";
-import { Plane, useTexture } from "@react-three/drei";
+import { Plane } from "@react-three/drei";
 
 export const ExperienceSection = () => {
   return (
@@ -17,7 +17,7 @@ export const ExperienceSection = () => {
         <Ipad experienceImage={content.experience[0].img} />
         <group position={[20, -9, -23]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
-            description={content.experience[0].description}
+            description={content.experience[0].descriptionWithLines}
             planeScale={[17, 3, 0]}
             planePosition={[8, -0.5, 0]}
           />
@@ -28,7 +28,7 @@ export const ExperienceSection = () => {
         <Ipad experienceImage={content.experience[1].img} />
         <group position={[20, -9, -23]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
-            description={content.experience[1].description}
+            description={content.experience[1].descriptionWithLines}
             planeScale={[17, 3, 0]}
             planePosition={[8, -0.5, 0]}
           />
@@ -37,14 +37,14 @@ export const ExperienceSection = () => {
 
       <group position={[23, -25, -25]} rotation={[0, -1.570796, 0]}>
         <ExperienceDescription
-          description={content.experience[2].description}
+          description={content.experience[2].descriptionWithLines}
           planeScale={[22, 15, 0]}
           planePosition={[10, -6, 0]}
         />
       </group>
       <group position={[23, -25, 5]} rotation={[0, -1.570796, 0]}>
         <ExperienceDescription
-          description={content.experience[3].description}
+          description={content.experience[3].descriptionWithLines}
           planeScale={[23, 15, 0]}
           planePosition={[11, -6, 0]}
         />
@@ -74,7 +74,7 @@ export const ExperienceSection = () => {
 
         <group position={[20, -10, -25]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
-            description={content.experience[4].description}
+            description={content.experience[4].descriptionWithLines}
             planeScale={[25, 15, 0]}
             planePosition={[12, -6, 0]}
           />
@@ -82,7 +82,7 @@ export const ExperienceSection = () => {
 
         <group position={[20, -30, 0]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
-            description={content.experience[5].description}
+            description={content.experience[5].descriptionWithLines}
             planeScale={[24, 7, 0]}
             planePosition={[11, -2, 0]}
           />
@@ -90,7 +90,7 @@ export const ExperienceSection = () => {
 
         <group position={[20, -42, -25]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
-            description={content.experience[6].description}
+            description={content.experience[6].descriptionWithLines}
             planeScale={[25, 8, 0]}
             planePosition={[12, -3, 0]}
           />
@@ -98,7 +98,7 @@ export const ExperienceSection = () => {
 
         <group position={[20, -55, 0]} rotation={[0, -1.570796, 0]}>
           <ExperienceDescription
-            description={content.experience[7].description}
+            description={content.experience[7].descriptionWithLines}
             planeScale={[25, 11, 0]}
             planePosition={[12, -4, 0]}
           />

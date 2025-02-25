@@ -37,7 +37,8 @@ export const MyModal = () => {
         <Modal.Body className="text-white bg-dark modal-text border-0">
           <Container>
             <ModalSection content={content.aboutMe} sectionTitle="About Me" />
-            <ModalSection content={content.employers} sectionTitle="Experience" />
+            <ModalSection content={content.experience} sectionTitle="Experience" />
+            <ModalSection content={content.employers} sectionTitle="Employers" />
             <ModalSection content={content.skills} sectionTitle="Skills" />
             <ModalSection content={content.stack} sectionTitle="Stack" />
             <ModalSection content={content.contact} sectionTitle="Contact Me" />
