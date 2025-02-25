@@ -19,7 +19,6 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { Satellite } from "./debris/Satellite";
-import { ManualCameraControls } from "./camera/ManualCameraControls";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -36,6 +35,8 @@ export const ThreeDScene = () => {
 
   const setCameraRotation = useStore((state) => state.setCameraRotation);
   const cameraRotation = useStore((state) => state.cameraRotation);
+
+  const [touchStartY, setTouchStartY] = useState(undefined);
 
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
@@ -101,7 +102,8 @@ export const ThreeDScene = () => {
     return checkCameraRotation;
   };
 
-  const [showOutsideMatrixSection, setShowOutsideMatrixSection] = useState(true);
+  const [showOutsideMatrixSection, setShowOutsideMatrixSection] =
+    useState(true);
   useEffect(() => {
     if (cameraHeight <= -92 && cameraHeight > -208) {
       setShowOutsideMatrixSection(false);
@@ -118,12 +120,38 @@ export const ThreeDScene = () => {
   return (
     <>
       <MyModal />
-      <ManualCameraControls />
       <Analytics />
 
       <Suspense>
         <Canvas
           gl={{ toneMapping: NoToneMapping }}
+          // touch events are for mobile while wheel events are for browsers
+          onTouchStart={(e) => {
+            setTouchStartY(e.touches[0].clientY);
+          }}
+          onTouchMove={(e) => {
+            if (touchStartY === undefined) {
+              return;
+            }
+
+            const currentY = e.touches[0].clientY;
+            const diffY = currentY - touchStartY;
+
+            if (diffY > 0) {
+              handleCameraDirection({
+                cameraRotationDirectionSpeed: rotationDirection,
+                cameraHeightDirectionSpeed: heightDirection,
+              });
+            } else if (diffY < 0) {
+              handleCameraDirection({
+                cameraRotationDirectionSpeed: -rotationDirection,
+                cameraHeightDirectionSpeed: -heightDirection,
+              });
+            }
+          }}
+          onTouchEnd={() => {
+            setTouchStartY(undefined);
+          }}
           onWheel={(event) => {
             if (event.deltaY > 0) {
               handleCameraDirection({
