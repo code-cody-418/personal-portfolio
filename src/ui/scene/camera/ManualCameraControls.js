@@ -1,10 +1,37 @@
+import { useStore } from "../../utils/store";
+
 export const ManualCameraControls = () => {
+  const enableManualControls = useStore((state) => state.enableManualControls);
+
+  const disableManualControls = useStore(
+    (state) => state.disableManualControls
+  );
+
+  const setManualControlDirectionForward = useStore(
+    (state) => state.setManualControlDirectionForward
+  );
+
+  const setManualControlDirectionBackward = useStore(
+    (state) => state.setManualControlDirectionBackward
+  );
+
+  const handleBackwards = () => {
+    enableManualControls();
+    setManualControlDirectionBackward();
+  };
+
+  const handleForwards = () => {
+    enableManualControls();
+    setManualControlDirectionForward();
+  };
 
   return (
     <>
       <div className="manualControlsPosition">
         <span
           className="manualControlsButton"
+          onMouseEnter={handleBackwards}
+          onMouseLeave={disableManualControls}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
