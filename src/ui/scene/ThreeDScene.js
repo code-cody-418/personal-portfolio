@@ -36,8 +36,6 @@ export const ThreeDScene = () => {
   const setCameraRotation = useStore((state) => state.setCameraRotation);
   const cameraRotation = useStore((state) => state.cameraRotation);
 
-  const [touchStartY, setTouchStartY] = useState(undefined);
-
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
 
@@ -117,6 +115,31 @@ export const ThreeDScene = () => {
     setSessionClicks(watchClicks);
   };
 
+  const [lastTouchCall, setLastTouchCall] = useState(0);
+  const [lastTouchY, setLastTouchY] = useState(0);
+
+  const handleTouch = (e) => {
+    // handleTouch has a throttle to slow down the event calls of the touch event
+    let currentTouchY = e.touches[0].clientY;
+    const timeNow = new Date().getTime();
+    const delay = 100; // is the throttle
+    if (timeNow - lastTouchCall >= delay) {
+      setLastTouchCall(timeNow);
+      setLastTouchY(currentTouchY);
+      if (currentTouchY > lastTouchY) {
+        handleCameraDirection({
+          cameraRotationDirectionSpeed: rotationDirection,
+          cameraHeightDirectionSpeed: heightDirection,
+        });
+      } else if (currentTouchY < lastTouchY) {
+        handleCameraDirection({
+          cameraRotationDirectionSpeed: -rotationDirection,
+          cameraHeightDirectionSpeed: -heightDirection,
+        });
+      }
+    }
+  };
+
   return (
     <>
       <MyModal />
@@ -127,30 +150,10 @@ export const ThreeDScene = () => {
           gl={{ toneMapping: NoToneMapping }}
           // touch events are for mobile while wheel events are for browsers
           onTouchStart={(e) => {
-            setTouchStartY(e.touches[0].clientY);
+            setLastTouchY(e.touches[0].clientY);
           }}
           onTouchMove={(e) => {
-            if (touchStartY === undefined) {
-              return;
-            }
-
-            const currentY = e.touches[0].clientY;
-            const diffY = currentY - touchStartY;
-
-            if (diffY > 0) {
-              handleCameraDirection({
-                cameraRotationDirectionSpeed: rotationDirection,
-                cameraHeightDirectionSpeed: heightDirection,
-              });
-            } else if (diffY < 0) {
-              handleCameraDirection({
-                cameraRotationDirectionSpeed: -rotationDirection,
-                cameraHeightDirectionSpeed: -heightDirection,
-              });
-            }
-          }}
-          onTouchEnd={() => {
-            setTouchStartY(undefined);
+            handleTouch(e);
           }}
           onWheel={(event) => {
             if (event.deltaY > 0) {
