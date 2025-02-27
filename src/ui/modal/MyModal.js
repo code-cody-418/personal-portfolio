@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { ModalNav } from "./ModalNav";
 import { content } from "../scene/3d-text/content.js";
 import { ModalSection } from "./ModalSection.js";
+import { Contact } from "../contact-form/Contact.js";
 
 export const MyModal = () => {
   // Opening and closing the modal
@@ -37,12 +38,21 @@ export const MyModal = () => {
         <Modal.Body className="text-white bg-dark modal-text border-0">
           <Container>
             <ModalSection content={content.aboutMe} sectionTitle="About Me" />
-            <ModalSection content={content.experience} sectionTitle="Experience" />
-            <ModalSection content={content.employers} sectionTitle="Employers" />
+            <ModalSection
+              content={content.experience}
+              sectionTitle="Experience"
+            />
+            <ModalSection
+              content={content.employers}
+              sectionTitle="Employers"
+            />
             <ModalSection content={content.skills} sectionTitle="Skills" />
             <ModalSection content={content.stack} sectionTitle="Stack" />
             <ModalSection content={content.contact} sectionTitle="Contact Me" />
 
+            <Row>
+              <Contact />
+            </Row>
             <Row className="mt-3 justify-content-between">
               <Col xs={12} lg={4}>
                 <p className="my-0">Footer</p>

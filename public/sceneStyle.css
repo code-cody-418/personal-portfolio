@@ -98,6 +98,11 @@ body {
   overflow-y: auto;
 }
 
+.card-header {
+  height: 8vh;
+  max-height: 8vh;
+}
+
 .section-title {
   font-family: "Philosopher", sans-serif;
   font-size: 2.5em;
