@@ -48,6 +48,20 @@ body {
   margin-bottom: 10px;
 }
 
+.modal-open-icon {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.modal-open-icon:hover {
+  cursor: pointer;
+}
+
 .modal-text {
   white-space: pre-line;
 }
