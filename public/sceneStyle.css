@@ -50,10 +50,11 @@ body {
 
 .modal-open-icon {
   position: absolute;
-  z-index: 1;
+  /* the z index is really high because the html elements rendered in the three d scene have really high a values by default */
+  z-index: 99999999;
   top: 0;
   left: 0;
-  
+
   margin-left: 10px;
   margin-top: 10px;
 }
@@ -64,6 +65,14 @@ body {
 
 .modal-text {
   white-space: pre-line;
+}
+
+.camera-controls {
+  /* the z index is really high because the html elements rendered in the three d scene have really high a values by default */
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 99999998;
 }
 
 .close {

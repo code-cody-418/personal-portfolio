@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -21,125 +21,19 @@ import { NoToneMapping } from "three";
 import { Satellite } from "./debris/Satellite";
 import { ModalIcon } from "../modal/ModalIcon";
 import { content } from "./3d-text/content";
-
-const rotationDirection = 0.1;
-const heightDirection = 2;
-const minCameraHeight = 0;
-const maxCameraHeight = -245;
-const experienceSectionHeightStart = -30;
-const experienceSectionHeightEnd = -175;
+import { AdjustPerformance } from "./AdjustPerformance";
+import { CameraControls } from "./CameraControls";
+import { Space } from "./Space";
 
 export const ThreeDScene = () => {
+  console.log("three d scene rerender");
   const [watchClicks, setWatchClicks] = useState(1);
-
-  const setCameraHeight = useStore((state) => state.setCameraHeight);
-  const cameraHeight = useStore((state) => state.cameraHeight);
-
-  const setCameraRotation = useStore((state) => state.setCameraRotation);
-  const cameraRotation = useStore((state) => state.cameraRotation);
-
   // analytics store
   const setSessionClicks = useStore((state) => state.setSessionClicks);
-
-  function handleCameraDirection({
-    cameraRotationDirectionSpeed,
-    cameraHeightDirectionSpeed,
-  }) {
-    // Check if the camera should rotate based off of section height
-    if (
-      cameraHeight <= experienceSectionHeightStart &&
-      cameraHeight >= experienceSectionHeightEnd
-    ) {
-      setCameraRotation(-1.57);
-    } else {
-      const adjustedCameraRotation = adjustCameraRotation(
-        cameraRotationDirectionSpeed
-      );
-      setCameraRotation(adjustedCameraRotation);
-    }
-
-    let cameraHeightCheck = cameraHeight + cameraHeightDirectionSpeed;
-    // Ensures that the camera does not go above or below the last section screen
-    if (
-      cameraHeightCheck <= minCameraHeight &&
-      cameraHeightCheck >= maxCameraHeight
-    ) {
-      setCameraHeight(cameraHeight + cameraHeightDirectionSpeed);
-    }
-  }
-
-  const adjustCameraRotation = (cameraRotationDirectionSpeed) => {
-    let checkCameraRotation = cameraRotation + cameraRotationDirectionSpeed;
-    checkCameraRotation = Math.round(checkCameraRotation * 100) / 100;
-    // centers the section view. Almost like an auto aim in a video game
-    if (checkCameraRotation >= 0) {
-      // hit home
-      checkCameraRotation = 0;
-    } else if (checkCameraRotation <= -3.1 && checkCameraRotation >= -3.2) {
-      // hit skill
-      checkCameraRotation = -3.14;
-    } else if (checkCameraRotation <= -4.7 && checkCameraRotation >= -4.8) {
-      // hit stack
-      checkCameraRotation = -4.71;
-    } else if (checkCameraRotation <= -4.8) {
-      // hit End
-      checkCameraRotation = -4.71;
-    }
-
-    // Fixes section zigzag bug
-    if (
-      checkCameraRotation <= -1.57 &&
-      cameraHeight >= experienceSectionHeightStart
-    ) {
-      checkCameraRotation = -1.57;
-    } else if (
-      checkCameraRotation >= -1.57 &&
-      cameraHeight <= experienceSectionHeightEnd
-    ) {
-      checkCameraRotation = -1.57;
-    }
-
-    return checkCameraRotation;
-  };
-
-  const [showOutsideMatrixSection, setShowOutsideMatrixSection] =
-    useState(true);
-  useEffect(() => {
-    if (cameraHeight <= -92 && cameraHeight > -208) {
-      setShowOutsideMatrixSection(false);
-    } else {
-      setShowOutsideMatrixSection(true);
-    }
-  }, [cameraHeight]);
 
   const handleAnalytics = () => {
     setWatchClicks((watchClicks) => watchClicks + 1);
     setSessionClicks(watchClicks);
-  };
-
-  const [lastTouchCall, setLastTouchCall] = useState(0);
-  const [lastTouchY, setLastTouchY] = useState(0);
-
-  const handleTouch = (e) => {
-    // handleTouch has a throttle to slow down the event calls of the touch event
-    let currentTouchY = e.touches[0].clientY;
-    const timeNow = new Date().getTime();
-    const delay = 100; // is the throttle
-    if (timeNow - lastTouchCall >= delay) {
-      setLastTouchCall(timeNow);
-      setLastTouchY(currentTouchY);
-      if (currentTouchY > lastTouchY) {
-        handleCameraDirection({
-          cameraRotationDirectionSpeed: rotationDirection,
-          cameraHeightDirectionSpeed: heightDirection,
-        });
-      } else if (currentTouchY < lastTouchY) {
-        handleCameraDirection({
-          cameraRotationDirectionSpeed: -rotationDirection,
-          cameraHeightDirectionSpeed: -heightDirection,
-        });
-      }
-    }
   };
 
   return (
@@ -149,31 +43,14 @@ export const ThreeDScene = () => {
 
       <ModalIcon />
 
+      <CameraControls />
+
       <Suspense>
-        <Canvas
-          gl={{ toneMapping: NoToneMapping }}
-          // touch events are for mobile while wheel events are for browsers
-          onTouchStart={(e) => {
-            setLastTouchY(e.touches[0].clientY);
-          }}
-          onTouchMove={(e) => {
-            handleTouch(e);
-          }}
-          onWheel={(event) => {
-            if (event.deltaY > 0) {
-              handleCameraDirection({
-                cameraRotationDirectionSpeed: -rotationDirection,
-                cameraHeightDirectionSpeed: -heightDirection,
-              });
-            } else if (event.deltaY < 0) {
-              handleCameraDirection({
-                cameraRotationDirectionSpeed: rotationDirection,
-                cameraHeightDirectionSpeed: heightDirection,
-              });
-            }
-          }}
-        >
+        <Canvas gl={{ toneMapping: NoToneMapping }}>
           <Perf />
+
+          {/* <AdjustPerformance /> */}
+          {/* <AdaptiveDpr pixelated /> */}
 
           <DynamicCamera />
           {/* <OrbitControls makeDefault /> */}
@@ -183,43 +60,39 @@ export const ThreeDScene = () => {
 
           <ExperienceLight />
 
-          <group onClick={handleAnalytics}>
-            <TitleText />
-            <TitleProfessionText />
-            <DescriptionText
-              textContent={content.hero[0].description}
-              desktopPosition={[-7, -4.5, -15]}
-              textRotation={[0, 0, 0]}
-              desktopSize={0.75}
-              containerWidth={20}
-              mobilePosition={[0, -7, -15]}
-              mobileSize={0.5}
-            />
-            <CodeLogo />
+          {/* <group onClick={handleAnalytics}> */}
+          <TitleText />
+          <TitleProfessionText />
+          <DescriptionText
+            textContent={content.hero[0].description}
+            desktopPosition={[-7, -4.5, -15]}
+            textRotation={[0, 0, 0]}
+            desktopSize={0.75}
+            containerWidth={20}
+            mobilePosition={[0, -7, -15]}
+            mobileSize={0.5}
+          />
+          <CodeLogo />
 
-            {/* <ContactFormText />
+          {/* <ContactFormText />
             <AboutMeText /> */}
 
-            <group position={[0, -35, 0]}>
-              <ExperienceSection />
-            </group>
-
-            <group position={[0, -210, 0]}>
-              <SkillsTitleText />
-              <SkillsListText />
-            </group>
-
-            <group position={[0, -245, 0]}>
-              <StacksTitleText />
-              <StacksListText />
-            </group>
+          <group position={[0, -35, 0]}>
+            <ExperienceSection />
           </group>
 
-          <group visible={showOutsideMatrixSection}>
-            <Planet01 />
-            <Satellite />
-            <Stars count={1000} radius={200} />
+          <group position={[0, -210, 0]}>
+            <SkillsTitleText />
+            <SkillsListText />
           </group>
+
+          <group position={[0, -245, 0]}>
+            <StacksTitleText />
+            <StacksListText />
+          </group>
+          {/* </group> */}
+
+          <Space />
         </Canvas>
       </Suspense>
     </>
