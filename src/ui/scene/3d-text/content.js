@@ -175,8 +175,6 @@ export const content = {
       title: "Search, Sort, and Filter Algorithm",
       subTitle: null,
       description: "Built algorithm's to search, sort, and filter data",
-      descriptionWithLines:
-        "Built algorithm's to search, sort,\nand filter data",
       img: "/ipad/ipad-images/experience-hr-portal-job-search.png",
       roundImg: null,
     },
@@ -184,7 +182,6 @@ export const content = {
       title: "Authorization and Authentication Endpoints",
       subTitle: null,
       description: "Created frontend forms and backend API endpoints",
-      descriptionWithLines: "Created frontend forms and\nbackend API endpoints",
       img: "/ipad/ipad-images/experience-hr-portal-create-account.png",
       roundImg: null,
     },
@@ -193,8 +190,6 @@ export const content = {
       subTitle: null,
       description:
         "Built a full stack app that allowed users to submit reusable job applications to apply to the Navajo Nation Government. I led a team of developers from start to deployment. My primary tasks included developing API endpoints, React forms, and configuring infrastructure. The application gained 3000 user accounts within the first 4 months of launching.",
-      descriptionWithLines:
-        "Built a full stack app that allowed users to\nsubmit reusable job applications to apply\nto the Navajo Nation Government. I led a\nteam of developers from start to\ndeployment. My primary tasks included\ndeveloping API endpoints, React forms,\nand configuring infrastructure. The\napplication gained 3000 user accounts\nwithin the first 4 months of launching.",
       img: null,
       roundImg: null,
     },
@@ -203,8 +198,6 @@ export const content = {
       subTitle: null,
       description:
         "The web app consisted of a frontend build, an API, web-servers, and databases. The frontend used React as the primary framework. React components and hooks were utilized along with Redux for state management. Data was sent to a remote proxy which would then forward requests to an API endpoint. Data going to the API would be validated, sanitized, and processed before being stored in databases. ",
-      descriptionWithLines:
-        "The web app consisted of a frontend build,\nan API, web-servers, and databases. The\nfrontend used React as the primary\nframework. React components and hooks\nwere utilized along with Redux for state\nmanagement. Data was sent to a remote\nproxy which would then forward requests\nto an API endpoint. Data going to the API\nwould be validated, sanitized, and\nprocessed before being stored in databases. ",
       img: null,
       roundImg: null,
     },
@@ -213,8 +206,6 @@ export const content = {
       subTitle: null,
       description:
         "My backend development experience includes building API authentication endpoints and authorization middleware. Authentication endpoints consisted of requests containing the users credentials and if successful returning a response carrying a signed JWT token. Authorization middleware ensure that only users who contained a valid signed token could access their data.",
-      descriptionWithLines:
-        "My backend development experience includes\nbuilding API authentication endpoints and\nauthorization middleware. Authentication\nendpoints consisted of requests containing\nthe users credentials and if successful\nreturning a response carrying a signed JWT\ntoken. Authorization middleware ensure\nthat only users who contained a valid signed\ntoken could access their data.",
       img: null,
       roundImg: null,
     },
@@ -223,8 +214,6 @@ export const content = {
       subTitle: null,
       description:
         "Transferred over 2 million documents and its meta data from a legacy system into a new Enterprise Content Management system by utilizing ETL methodology and scripting.",
-      descriptionWithLines:
-        "Transferred over 2 million documents and its\nmeta data from a legacy system into a new\nEnterprise Content Management system by\nutilizing ETL methodology and scripting.",
       img: null,
       roundImg: null,
     },
@@ -233,8 +222,6 @@ export const content = {
       subTitle: null,
       description:
         "Integrated data between a Firebase database and multiple CRM’s by conducting an ETL data transfer followed by the building of an API that would synchronize the data between the two systems.",
-      descriptionWithLines:
-        "Integrated data between a Firebase database\nand multiple CRM’s by conducting an ETL\ndata transfer followed by the building of an\nAPI that would synchronize the data between\nthe two systems.",
       img: null,
       roundImg: null,
     },
@@ -243,8 +230,6 @@ export const content = {
       subTitle: null,
       description:
         "Delivered improvements to servers and services, by creating backups and upgrading servers overall reducing security incidents, downtime, and data loss. This included OS and application level upgrades. In addition, I configured environments for local, testing, and production to ensure a better development experience.",
-      descriptionWithLines:
-        "Delivered improvements to servers and services,\nby creating backups and upgrading servers\noverall reducing security incidents, downtime,\nand data loss. This included OS and application\nlevel upgrades. In addition, I configured\nenvironments for local, testing, and production\nto ensure a better development experience.",
       img: null,
       roundImg: null,
     },
@@ -254,7 +239,7 @@ export const content = {
       title: "Experience FullStack and ETL",
       subTitle: null,
       description:
-        "Experience designing, developing,\nand deploying fullstack web\napplications and ETL pipelines",
+        "Experience designing, developing, and deploying fullstack web applications and ETL pipelines",
       img: null,
       roundImg: null,
     },

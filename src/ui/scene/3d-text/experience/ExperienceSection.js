@@ -1,12 +1,12 @@
 import { EmployersListText } from "./EmployersListText";
 import { EmployersTitleText } from "./EmployersTitleText";
-import { ExperienceDescription } from "./ExperienceDescription";
 import { Ipad } from "./Ipad";
 import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
 import { Matrix } from "./Matrix";
 import { Cat } from "../../Cat";
 import { Plane } from "@react-three/drei";
+import { DescriptionText } from "../DescriptionText";
 
 export const ExperienceSection = () => {
   return (
@@ -15,40 +15,49 @@ export const ExperienceSection = () => {
 
       <group position={[0, -6, 0]}>
         <Ipad experienceImage={content.experience[0].img} />
-        <group position={[20, -9, -23]} rotation={[0, -1.570796, 0]}>
-          <ExperienceDescription
-            description={content.experience[0].descriptionWithLines}
-            planeScale={[17, 3, 0]}
-            planePosition={[8, -0.5, 0]}
-          />
-        </group>
+        <DescriptionText
+          textContent={content.experience[0].description}
+          desktopPosition={[20, -10, -15]}
+          textRotation={[0, -1.570796, 0]}
+          desktopSize={1}
+          containerWidth={10}
+          mobilePosition={[20, 7, -8]}
+          mobileSize={0.2}
+        />
       </group>
 
       <group position={[0, -6, 30]}>
         <Ipad experienceImage={content.experience[1].img} />
-        <group position={[20, -9, -23]} rotation={[0, -1.570796, 0]}>
-          <ExperienceDescription
-            description={content.experience[1].descriptionWithLines}
-            planeScale={[17, 3, 0]}
-            planePosition={[8, -0.5, 0]}
-          />
-        </group>
+        <DescriptionText
+          textContent={content.experience[1].description}
+          desktopPosition={[20, -10, -15]}
+          textRotation={[0, -1.570796, 0]}
+          desktopSize={1}
+          containerWidth={10}
+          mobilePosition={[20, -7, -8]}
+          mobileSize={0.2}
+        />
       </group>
 
-      <group position={[23, -25, -25]} rotation={[0, -1.570796, 0]}>
-        <ExperienceDescription
-          description={content.experience[2].descriptionWithLines}
-          planeScale={[22, 15, 0]}
-          planePosition={[10, -6, 0]}
-        />
-      </group>
-      <group position={[23, -25, 5]} rotation={[0, -1.570796, 0]}>
-        <ExperienceDescription
-          description={content.experience[3].descriptionWithLines}
-          planeScale={[23, 15, 0]}
-          planePosition={[11, -6, 0]}
-        />
-      </group>
+      <DescriptionText
+        textContent={content.experience[2].description}
+        desktopPosition={[23, -30, -15]}
+        textRotation={[0, -1.570796, 0]}
+        desktopSize={0.9}
+        containerWidth={18}
+        mobilePosition={[20, -7, -8]}
+        mobileSize={0.2}
+      />
+
+      <DescriptionText
+        textContent={content.experience[3].description}
+        desktopPosition={[23, -30, 20]}
+        textRotation={[0, -1.570796, 0]}
+        desktopSize={0.9}
+        containerWidth={18}
+        mobilePosition={[20, -7, -8]}
+        mobileSize={0.2}
+      />
 
       <group position={[0, -70, 0]}>
         <ToshibaSatellite experienceImage={"/toshiba_satellite/terminal.png"} />
@@ -72,37 +81,45 @@ export const ExperienceSection = () => {
           <Matrix animationSpeed={2.3} />
         </group>
 
-        <group position={[20, -10, -25]} rotation={[0, -1.570796, 0]}>
-          <ExperienceDescription
-            description={content.experience[4].descriptionWithLines}
-            planeScale={[25, 15, 0]}
-            planePosition={[12, -6, 0]}
-          />
-        </group>
+        <DescriptionText
+          textContent={content.experience[4].description}
+          desktopPosition={[20, -10, -25]}
+          textRotation={[0, -1.570796, 0]}
+          desktopSize={0.9}
+          containerWidth={18}
+          mobilePosition={[20, -7, -8]}
+          mobileSize={0.2}
+        />
 
-        <group position={[20, -30, 0]} rotation={[0, -1.570796, 0]}>
-          <ExperienceDescription
-            description={content.experience[5].descriptionWithLines}
-            planeScale={[24, 7, 0]}
-            planePosition={[11, -2, 0]}
-          />
-        </group>
+        <DescriptionText
+          textContent={content.experience[5].description}
+          desktopPosition={[20, -30, 0]}
+          textRotation={[0, -1.570796, 0]}
+          desktopSize={0.9}
+          containerWidth={18}
+          mobilePosition={[20, -7, -8]}
+          mobileSize={0.2}
+        />
 
-        <group position={[20, -42, -25]} rotation={[0, -1.570796, 0]}>
-          <ExperienceDescription
-            description={content.experience[6].descriptionWithLines}
-            planeScale={[25, 8, 0]}
-            planePosition={[12, -3, 0]}
-          />
-        </group>
+        <DescriptionText
+          textContent={content.experience[6].description}
+          desktopPosition={[20, -42, -25]}
+          textRotation={[0, -1.570796, 0]}
+          desktopSize={0.9}
+          containerWidth={18}
+          mobilePosition={[20, -7, -8]}
+          mobileSize={0.2}
+        />
 
-        <group position={[20, -55, 0]} rotation={[0, -1.570796, 0]}>
-          <ExperienceDescription
-            description={content.experience[7].descriptionWithLines}
-            planeScale={[25, 11, 0]}
-            planePosition={[12, -4, 0]}
-          />
-        </group>
+        <DescriptionText
+          textContent={content.experience[7].description}
+          desktopPosition={[20, -55, 0]}
+          textRotation={[0, -1.570796, 0]}
+          desktopSize={0.9}
+          containerWidth={18}
+          mobilePosition={[20, -7, -8]}
+          mobileSize={0.2}
+        />
 
         <group position={[20, -55, -10]}>
           <Plane

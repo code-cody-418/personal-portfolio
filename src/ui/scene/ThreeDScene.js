@@ -5,7 +5,7 @@ import { StacksTitleText } from "./3d-text/StacksTitleText";
 import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { TitleProfessionText } from "./3d-text/title/TitleProfessionText";
-import { TitleDescriptionText } from "./3d-text/title/TitleDescriptionText";
+import { DescriptionText } from "./3d-text/DescriptionText";
 import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
 import { Planet01 } from "./planets/Planet-01";
@@ -20,6 +20,7 @@ import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { Satellite } from "./debris/Satellite";
 import { ModalIcon } from "../modal/ModalIcon";
+import { content } from "./3d-text/content";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -185,7 +186,16 @@ export const ThreeDScene = () => {
           <group onClick={handleAnalytics}>
             <TitleText />
             <TitleProfessionText />
-            <TitleDescriptionText />
+            <DescriptionText
+              textContent={content.hero[0].description}
+              desktopPosition={[-7, -4.5, -15]}
+              textRotation={[0, 0, 0]}
+              desktopSize={0.75}
+              containerWidth={20}
+              mobilePosition={[0, -7, -15]}
+              mobileSize={0.5}
+            />
+            <CodeLogo />
 
             {/* <ContactFormText />
             <AboutMeText /> */}
@@ -205,7 +215,6 @@ export const ThreeDScene = () => {
             </group>
           </group>
 
-          <CodeLogo />
           <group visible={showOutsideMatrixSection}>
             <Planet01 />
             <Satellite />
