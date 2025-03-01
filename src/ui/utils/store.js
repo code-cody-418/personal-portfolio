@@ -23,6 +23,20 @@ export const useStore = create((set) => ({
       cameraRotation: cameraRotation,
     })),
 
+  // set font curveSegments
+  curveSegments: 5,
+  setCurveSegments: (curveSegments) =>
+    set(() => ({
+      curveSegments: curveSegments,
+    })),
+
+  // set hide 3d experience objects
+  performanceGood: true,
+  setPerformanceGood: (performanceGood) =>
+    set(() => ({
+      performanceGood: performanceGood,
+    })),
+
   // set analytics clicks
   sessionClicks: 0,
   setSessionClicks: (watchClicks) =>

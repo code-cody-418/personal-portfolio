@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStore } from "../utils/store";
+import { useStore } from "../../utils/store";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;

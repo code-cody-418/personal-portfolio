@@ -1,5 +1,6 @@
 import { Text3D } from "@react-three/drei";
 import droid_sansReg from "three/examples/fonts/droid/droid_sans_regular.typeface.json";
+import { useStore } from "../../utils/store";
 
 export const FontConfig = ({
   text,
@@ -16,8 +17,9 @@ export const FontConfig = ({
     font = droid_sansReg;
   }
 
+  const curveSegments = useStore((state) => state.curveSegments);
+
   let bevelThickness = thickness ?? 0.1;
-  let curveSegments = segments ?? 6;
   return (
     <>
       <Text3D

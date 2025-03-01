@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -14,16 +14,16 @@ import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
-import { OrbitControls, PerformanceMonitor } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { ModalIcon } from "../modal/ModalIcon";
 import { content } from "./3d-text/content";
-import { CameraControls } from "./CameraControls";
+import { CameraControls } from "./camera/CameraControls";
 import { Space } from "./Space";
+import { PerformanceMonitorWrapper } from "./utils/PerformanceMonitorWrapper";
 
 export const ThreeDScene = () => {
-  console.log("three d scene rerender");
   // const [watchClicks, setWatchClicks] = useState(1);
   // analytics store
   // const setSessionClicks = useStore((state) => state.setSessionClicks);
@@ -32,6 +32,7 @@ export const ThreeDScene = () => {
   //   setWatchClicks((watchClicks) => watchClicks + 1);
   //   setSessionClicks(watchClicks);
   // };
+  const performanceGood = useStore((state) => state.performanceGood);
 
   return (
     <>
@@ -43,8 +44,9 @@ export const ThreeDScene = () => {
       <CameraControls />
 
       <Suspense>
-        <Canvas  gl={{ toneMapping: NoToneMapping }}>
+        <Canvas gl={{ toneMapping: NoToneMapping }}>
           <Perf />
+          <PerformanceMonitorWrapper />
           <DynamicCamera />
           {/* <OrbitControls makeDefault /> */}
 
@@ -70,7 +72,7 @@ export const ThreeDScene = () => {
           {/* <ContactFormText />
             <AboutMeText /> */}
 
-          <group position={[0, -35, 0]}>
+          <group visible={performanceGood} position={[0, -35, 0]}>
             <ExperienceSection />
           </group>
 
@@ -85,7 +87,9 @@ export const ThreeDScene = () => {
           </group>
           {/* </group> */}
 
-          <Space />
+          <group visible={performanceGood}>
+            <Space />
+          </group>
         </Canvas>
       </Suspense>
     </>
