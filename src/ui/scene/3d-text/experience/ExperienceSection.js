@@ -83,40 +83,40 @@ export const ExperienceSection = () => {
 
         <DescriptionText
           textContent={content.experience[4].description}
-          desktopPosition={[20, -10, -25]}
+          desktopPosition={[20, -15, -15]}
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
-          containerWidth={18}
+          containerWidth={22}
           mobilePosition={[20, -7, -8]}
           mobileSize={0.2}
         />
 
         <DescriptionText
           textContent={content.experience[5].description}
-          desktopPosition={[20, -30, 0]}
+          desktopPosition={[20, -30, 15]}
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
-          containerWidth={18}
+          containerWidth={22}
           mobilePosition={[20, -7, -8]}
           mobileSize={0.2}
         />
 
         <DescriptionText
           textContent={content.experience[6].description}
-          desktopPosition={[20, -42, -25]}
+          desktopPosition={[20, -42, -15]}
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
-          containerWidth={18}
+          containerWidth={22}
           mobilePosition={[20, -7, -8]}
           mobileSize={0.2}
         />
 
         <DescriptionText
           textContent={content.experience[7].description}
-          desktopPosition={[20, -55, 0]}
+          desktopPosition={[20, -58, 15]}
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
-          containerWidth={18}
+          containerWidth={22}
           mobilePosition={[20, -7, -8]}
           mobileSize={0.2}
         />
