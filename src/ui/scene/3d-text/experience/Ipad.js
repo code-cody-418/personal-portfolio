@@ -4,14 +4,22 @@ Command: npx gltfjsx@6.5.3 i-pad.glb --transform
 Files: i-pad.glb [2.2MB] > C:\code\personal-portfolio\public\ipad\ipad_custom\i-pad-transformed.glb [156.3KB] (93%)
 */
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
+import { DoubleSide } from "three";
+import { useStore } from "../../../utils/store";
 
 export function Ipad({ experienceImage }) {
   const { nodes, materials } = useGLTF("/ipad/i-pad-transformed.glb");
   const mat = useRef();
   let loadedTexture = useTexture(experienceImage);
-  
+
+  // DONT REMOVE - forceMat is work around to force a rerender to get the mat ref to display on the Ipad
+  const [forceMat, setForceMat] = useState(false);
+  useEffect(() => {
+    setForceMat(true);
+  }, []);
+
   return (
     <>
       <group
@@ -50,6 +58,7 @@ export function Ipad({ experienceImage }) {
           rotation={[-Math.PI / 2, 0, 0]}
           scale={100}
         />
+        <meshBasicMaterial side={DoubleSide} map={loadedTexture} ref={mat} />
         {mat.current && (
           <mesh
             geometry={nodes.iPad_Pro_2020_screen_0.geometry}
@@ -60,8 +69,6 @@ export function Ipad({ experienceImage }) {
           />
         )}
       </group>
-
-      <meshBasicMaterial map={loadedTexture} ref={mat} />
     </>
   );
 }
