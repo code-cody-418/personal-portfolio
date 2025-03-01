@@ -8,33 +8,30 @@ import { TitleProfessionText } from "./3d-text/title/TitleProfessionText";
 import { DescriptionText } from "./3d-text/DescriptionText";
 import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
-import { Planet01 } from "./planets/Planet-01";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { DynamicCamera } from "./camera/DynamicCamera";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, PerformanceMonitor } from "@react-three/drei";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
-import { Satellite } from "./debris/Satellite";
 import { ModalIcon } from "../modal/ModalIcon";
 import { content } from "./3d-text/content";
-import { AdjustPerformance } from "./AdjustPerformance";
 import { CameraControls } from "./CameraControls";
 import { Space } from "./Space";
 
 export const ThreeDScene = () => {
   console.log("three d scene rerender");
-  const [watchClicks, setWatchClicks] = useState(1);
+  // const [watchClicks, setWatchClicks] = useState(1);
   // analytics store
-  const setSessionClicks = useStore((state) => state.setSessionClicks);
+  // const setSessionClicks = useStore((state) => state.setSessionClicks);
 
-  const handleAnalytics = () => {
-    setWatchClicks((watchClicks) => watchClicks + 1);
-    setSessionClicks(watchClicks);
-  };
+  // const handleAnalytics = () => {
+  //   setWatchClicks((watchClicks) => watchClicks + 1);
+  //   setSessionClicks(watchClicks);
+  // };
 
   return (
     <>
@@ -46,12 +43,8 @@ export const ThreeDScene = () => {
       <CameraControls />
 
       <Suspense>
-        <Canvas gl={{ toneMapping: NoToneMapping }}>
+        <Canvas  gl={{ toneMapping: NoToneMapping }}>
           <Perf />
-
-          {/* <AdjustPerformance /> */}
-          {/* <AdaptiveDpr pixelated /> */}
-
           <DynamicCamera />
           {/* <OrbitControls makeDefault /> */}
 
