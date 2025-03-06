@@ -22,11 +22,12 @@ export function Cat(props) {
   const [showCat, setShowCat] = useState(true);
   const [showCatCount, setShowCatCount] = useState(1);
   const [currentAnimation, SetCurrentAnimation] = useState(
-    "Cat licking 1-143_GRT_"
+    "Cat scratching 1-143_GRT_"
   );
+  console.log(actions)
 
   useEffect(() => {
-    if (currentAnimation === "Cat licking 1-143_GRT_") {
+    if (currentAnimation === "Cat scratching 1-143_GRT_") {
       actions[currentAnimation].clampWhenFinished = true;
       actions?.[currentAnimation].setLoop(THREE.LoopOnce);
     }
@@ -36,23 +37,23 @@ export function Cat(props) {
     }
 
     return () => {
-      actions[currentAnimation]?.fadeOut(0.5);
+      actions[currentAnimation]?.fadeOut(0);
     };
   }, [actions, currentAnimation, activateAnimation]);
 
   mixer.addEventListener("finished", () => {
-    SetCurrentAnimation("Cat_Walk 1_32_GRT_");
+    SetCurrentAnimation("Cat _Run 1_16_GRT_");
   });
 
   useFrame(() => {
     if (
-      currentAnimation === "Cat_Walk 1_32_GRT_" &&
-      cat.current.position.z > -19
+      currentAnimation === "Cat _Run 1_16_GRT_" &&
+      cat.current.position.z > -45
     ) {
-      cat.current.position.z = cat.current.position.z - 0.02;
-    } else if (cat.current.position.z < -19 && showCatCount <= 2) {
+      cat.current.position.z = cat.current.position.z - 0.15;
+    } else if (cat.current.position.z < -45 && showCatCount <= 2) {
       setShowCatCount((showCatCount) => showCatCount + 1);
-      SetCurrentAnimation("Cat licking 1-143_GRT_");
+      SetCurrentAnimation("Cat scratching 1-143_GRT_");
       if (showCatCount >= 2) {
         setShowCat(false);
       } else {
@@ -69,11 +70,16 @@ export function Cat(props) {
     // used to reset the cat
     if ((cameraHeight > -140 || cameraHeight < -190) && showCat === false) {
       setActivateAnimation(false);
-      setShowCatCount(1)
+      setShowCatCount(1);
       setShowCat(true);
       cat.current.position.z = 0;
     }
   }, [cameraHeight]);
+
+  materials.cat_body.transparent = false;
+  materials.cat_body.depthWrite = true;
+  materials["cat_fur_.001"].transparent = false;
+  materials["cat_fur_.001"].depthWrite = true;
 
   return (
     <group ref={cat} {...props} dispose={null} visible={showCat}>
@@ -82,12 +88,20 @@ export function Cat(props) {
           <primitive object={nodes["DEF-spine_02"]} />
           <primitive object={nodes["DEF-tail006_0184"]} />
         </group>
+
         <skinnedMesh
           name="Object_199"
           geometry={nodes.Object_199.geometry}
           material={materials.cat_body}
           skeleton={nodes.Object_199.skeleton}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
+        />
+        <skinnedMesh
+          name="Object_197"
+          geometry={nodes.Object_197.geometry}
+          material={materials["cat_fur_.001"]}
+          skeleton={nodes.Object_197.skeleton}
+          rotation={[-Math.PI / 2, 0, 0]}
         />
       </group>
     </group>
