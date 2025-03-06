@@ -24,7 +24,6 @@ export function Cat(props) {
   const [currentAnimation, SetCurrentAnimation] = useState(
     "Cat scratching 1-143_GRT_"
   );
-  console.log(actions)
 
   useEffect(() => {
     if (currentAnimation === "Cat scratching 1-143_GRT_") {
