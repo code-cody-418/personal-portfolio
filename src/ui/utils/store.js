@@ -46,4 +46,11 @@ export const useStore = create((set) => ({
   sessionTime: 0,
   setSessionTime: (secondsPassed) =>
     set(() => ({ sessionTime: secondsPassed })),
+
+  // used to keep track of the card header height to adjust to highest header
+  tallestCardHeaderHeight: 0,
+  setTallestCardHeaderHeight: (cardHeaderHeight) =>
+    set(() => {
+      return { tallestCardHeaderHeight: cardHeaderHeight };
+    }),
 }));

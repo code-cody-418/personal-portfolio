@@ -5,6 +5,7 @@ import { ModalNav } from "./ModalNav";
 import { content } from "../scene/3d-text/content.js";
 import { ModalSection } from "./ModalSection.js";
 import { Contact } from "../contact-form/Contact.js";
+import { AboutMe } from "../sections/AboutMe.js";
 
 export const MyModal = () => {
   // Opening and closing the modal
@@ -37,7 +38,7 @@ export const MyModal = () => {
 
         <Modal.Body className="text-white bg-dark modal-text border-0">
           <Container>
-            <ModalSection content={content.aboutMe} sectionTitle="About Me" />
+            <AboutMe />
             <ModalSection
               content={content.experience}
               sectionTitle="Experience"

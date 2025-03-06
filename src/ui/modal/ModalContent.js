@@ -1,7 +1,23 @@
 import { Col, Image, Card } from "react-bootstrap";
 import { ExampleApiCall } from "./ExampleApiCall";
+import { useEffect, useRef } from "react";
+import { useStore } from "../utils/store";
 
 export const ModalContent = ({ listItem }) => {
+  const headerRef = useRef(null);
+  const tallestCardHeaderHeight = useStore(
+    (state) => state.tallestCardHeaderHeight
+  );
+  const setTallestCardHeaderHeight = useStore(
+    (state) => state.setTallestCardHeaderHeight
+  );
+  useEffect(() => {
+    const currentCardHeaderHeight =
+      headerRef.current.getBoundingClientRect().height;
+    if (currentCardHeaderHeight > tallestCardHeaderHeight) {
+      setTallestCardHeaderHeight(currentCardHeaderHeight);
+    }
+  }, [tallestCardHeaderHeight, setTallestCardHeaderHeight]);
   return (
     <>
       <Col className="d-flex">
@@ -11,31 +27,44 @@ export const ModalContent = ({ listItem }) => {
           className="mb-2 flex-fill"
           border="light"
         >
-          <Card.Header className="card-header">
-            <Card.Title id={listItem?.title} className="modal-title">
-              {
-                //listItem.title Logic to avoid duplication with headers
-                listItem?.title === "About Me" ||
-                listItem?.title === "Contact Me"
-                  ? ""
-                  : listItem?.title
-              }
-            </Card.Title>
-            <Card.Subtitle className="mb-2 text-muted modal-subtitle">
-              {listItem?.subTitle}
-            </Card.Subtitle>
+          <Card.Header>
+            <div style={{ height: tallestCardHeaderHeight }}>
+              <Card.Title
+                ref={headerRef}
+                id={listItem?.title}
+                className="modal-title"
+              >
+                {listItem?.title}
+                <span className="skill-logo-container">
+                  {listItem?.titleImg ? (
+                    <Image
+                      className="skill-logo"
+                      src={listItem?.titleImg}
+                      alt={listItem?.titleImg}
+                      roundedCircle={listItem.roundImg}
+                    />
+                  ) : null}
+                </span>
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted modal-subtitle">
+                {listItem?.subTitle}
+              </Card.Subtitle>
+            </div>
           </Card.Header>
           <Card.Body>
+            {listItem?.img ? (
+              <div className="card-image-container">
+                <Image
+                  className="card-image"
+                  src={listItem?.img}
+                  alt={listItem?.img}
+                  roundedCircle={listItem.roundImg}
+                />
+              </div>
+            ) : null}
             <Card.Text>{listItem?.description}</Card.Text>
+            {listItem?.apiCall ? <ExampleApiCall /> : null}
           </Card.Body>
-          {listItem?.img ? (
-            <Image
-              src={listItem?.img}
-              alt={listItem?.img}
-              roundedCircle={listItem.roundImg}
-            />
-          ) : null}
-          {listItem?.apiCall ? <ExampleApiCall /> : null}
         </Card>
       </Col>
     </>

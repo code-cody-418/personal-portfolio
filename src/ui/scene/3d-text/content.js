@@ -2,6 +2,7 @@ export const content = {
   employers: [
     {
       title: "Navajo Nation",
+      titleImg: "/logos/navajo-nation-seal-01.svg",
       subTitle: "Senior Programmer Analyst",
       description:
         "With the Navajo Nation I led a team of developers, conducted a data transfer, rebuilt the department website, and maintained VM infrastructure. My primary responsibility was spearheading a fullstack recruitment application. While building the application I wrote authentication code, maintained docker images, led scrum meetings, and performed code reviews. Furthermore, my initiative saved the department $60k by successfully transferring over 2 million records to a new database in a short time. The data was extracted into CSV, transformed using JavaScript, and then loaded using the database GUI. Additionally, I rebuilt our website using modern css and frameworks to create a mobile responsive site. The website project also included changing static html with dynamic data. This automation saved one employee four hours a day. Also, a search bar was added that could filter jobs allowing a better user experience. Lastly, throughout my employment I delivered various improvements to the servers and running services, including creating backups, upgrading software, and configuring web servers.",
@@ -10,26 +11,29 @@ export const content = {
     },
     {
       title: "Gesture",
+      titleImg: "/experience/Gesture-Logo-Wordmark.webp",
       subTitle: "Software Engineer",
       description:
         "At Gesture my primary duties included developing the codebase with various api endpoints, configuring docker for dev environment, refactoring the codebase, and pushing code to production. One primary object was building multiple ETL pipelines for data syncing between our databases to multiple CRM’s. By utilizing an express server I was able to build out api endpoints that would interact with CRM webhooks. These endpoints could then be deployed, utilizing Google Firebase functions, along with triggers that watched for record changes in the database. Overall, the synchronized databases allowed for other departments to manage data with ease. Lastly, I built api endpoints that would interact with the Stripe library rest api’s. This endpoint was part of the ecommerce product that would charge users.",
-      img: "/experience/Gesture-Logo-Wordmark.webp",
+      img: null,
       roundImg: false,
     },
     {
       title: "CNM",
+      titleImg: "/experience/CNM_Ingenuity_WhiteText.png",
       subTitle: "Assistant Instructor",
       description:
         "At this bootcamp I taught students how to build Web Applications using a modified MERN Stack. Other tools shown to students included git and Docker. With this stack and tools I helped students successfully create full blown web apps. Students were also taught how to build RESTful api’s, as well as how to develop data-downloader’s to store external API data.",
-      img: "/experience/CNM_Ingenuity_WhiteText.png",
+      img: null,
       roundImg: false,
     },
     {
       title: "Freelance",
+      titleImg: "/experience/upwork-logo.svg",
       subTitle: "Web Developer",
       description:
         "My job was building web applications to meet my clients needs. Clients had various requirements including both frontend and backend requests. One client focused on 3d websites, which were created using threeJS. These sites consisted of walking characters and environments. One project also required multiple users to be in one room, so socket.io was utilized to create a server with UDP sockets that allowed multiple users to wander around a room together. On the other hand, I worked with a client to build a backend that utilized Google Firebase. With this client my focus was creating endpoints with CRUD operations for a NoSQL database.",
-      img: "/experience/upwork-logo.svg",
+      img: null,
       roundImg: false,
     },
   ],
@@ -78,18 +82,20 @@ export const content = {
     },
     {
       title: "Containerization",
+      titleImg: "/logos/docker-logo.svg",
       subTitle: "Docker",
       description:
         "Using containers to build applications has been a cornerstone of my devops approach. Using Docker I was able to build entire applications in isolated environments. This allowed me to deploy my applications into cloud environments for testing purposes. In addition, as an assistant instructor, my students used containers to build their applications. By giving students configuration files they were able to spin up MERN stack applications with ease allowing for a practical learning environment.",
-      img: "/logos/docker-logo.svg",
+      img: null,
       roundImg: false,
     },
     {
       title: "Cloud Computing",
+      titleImg: "/logos/digital-ocean-logo-01.svg",
       subTitle: "Digital Ocean",
       description:
         "As a full-stack dev I am quite versed in creating virtual environments for websites and applications. Most of my experience is within DigitalOcean. Here I built machines called Droplets that ran Ubuntu OS’s that I managed from an SSH terminal or through the dashboard. Many things were configured like resources, firewalls, networks, DNS and everything else to successfully run a server. In addition, I also have some experience working within Google Firebase. This was another cloud computing environment where I accessed databases and ran various functions from the code I wrote. ",
-      img: "/logos/digital-ocean-logo-01.svg",
+      img: null,
       roundImg: false,
     },
   ],
@@ -104,50 +110,56 @@ export const content = {
     },
     {
       title: "JavaScript/CSS/HTML",
+      titleImg: "/logos/JavaScript-logo.png",
       subTitle: "Primary Languages",
       description:
         "JavaScript is my primary coding language. I’ve utilized it to its full ability to complete many tasks. I've used it within the browser to dynamically display and sort dynamic job data with the DPM. In addition, with Gesture I used it in the backend to build RestFul API’s that synchronized data between SalesForce and FireBase. Furthermore, it was used by me to transform data during a data transfer of millions of documents that contained folder and document meta-data. In addition, I am quite fluent with both HTML and CSS. I’ve created multiple websites without the need for complex libraries and frameworks. Although I tend to always squeeze in BootStrap.",
-      img: "/logos/JavaScript-logo.png",
+      img: null,
       roundImg: false,
     },
     {
       title: "YAML",
+      titleImg: "/logos/yaml-logo.svg",
       subTitle: "Config Config Config",
       description:
         "Most of my experience with YAML has come from working on Docker, but I have also found myself writing some YAML for config files. To spin up Docker containers I would write out a Dockerfile in YAML. I could then spin up multiple containers at a time by writing up a Docker-Compose file in YAML. ",
-      img: "/logos/yaml-logo.svg",
+      img: null,
       roundImg: false,
     },
     {
       title: "FileMaker",
+      titleImg: "/logos/fm-logo.webp",
       subTitle: "Data, UI, and Scripting",
       description:
         "While with the Navajo Nation we used FileMaker to build our HR system. Inside FileMaker I managed data, functions, and layouts. The data was relational, so tables with common fields between them were connected. New fields, tables, and databases were also created by me. In addition, functions were also created that acted as a backend that automate HR processes. These functions would take pdf inputs from customers, convert it into fields, then finally export the data in various forms. Furthermore, layouts were created that allowed user to enter data into FileMaker. Lastly, I managed the FileMaker Server through the admin console. This included enabling various backups, automated scripts, user configuration, file management and upgrades.",
-      img: "/logos/fm-logo.webp",
+      img: null,
       roundImg: false,
     },
     {
       title: "Express",
+      titleImg: "/logos/express-js-logo.svg",
       subTitle: "Automation",
       description:
         "My primary backend experience has been using the Express.js library. Using both JavaScript and TypeScript I built out various api’s. With Gesture, Express was used to synchronize data between Firebase and SalesForce. I built out an extensive API within Express, with validation and security certificates, that allowed these two applications to pass data between them. In addition, as an assistant instructor, I taught students how to build out api’s for their projects. Teaching them how to create CRUD routes that would programmatically change data inside the database based on user input from the Frontend.",
-      img: "/logos/express-js-logo.svg",
+      img: null,
       roundImg: false,
     },
     {
       title: "SalesForce",
+      titleImg: "/logos/salesforce-logo.svg",
       subTitle: "CMS Integration",
       description:
         "Building out SalesForce was one of my primary objects while interning with Gesture. This task included creating UI screens, data fields, reports, and flows. The UI screens were fairly basic click and drag ordering of fields inside of the application. However, the creating of data fields was much more challenging as they had to match data types for the data inside of FireBase. Fields were also configured to have triggers that would fire api flows that would hit an express endpoint to update FireBase data. Furthermore, reports were also created that showed various information about the data like Sales information. Finally, this all worked around SalesForce ability to see changes within its database and fire to an endpoint based on the changed data. This ultimately allowed for data synchronization, which allowed users to easily change essential business data with ease.  ",
-      img: "/logos/salesforce-logo.svg",
+      img: null,
       roundImg: false,
     },
     {
       title: "SQL",
-      subTitle: "Data",
+      titleImg: "/logos/postgres-logo.svg",
+      subTitle: "Databases",
       description:
         "Using databases has been the backbone of my developer experience. Some things I've done include creating prepared statements, configuration, and relationships. One of the first things I learned when programmatically entering data with an api is to use prepared statements. I’ve written various SQL statements that followed CRUD principles. In order to execute these prepared statements a pool connection was often used to access the database. Furthermore, I’ve configured various relational databases including MySql, PostGres, and FileMaker. Configuration included setting up user permissions and running create table statements to build out their tables and fields. Lastly, I am quite adequate at working with relational data. By using primary and foreign keys I am able to use data between tables and build out statements utilizing join.",
-      img: "/logos/postgres-logo.svg",
+      img: null,
       roundImg: false,
     },
   ],
@@ -239,7 +251,7 @@ export const content = {
       title: "Experience FullStack and ETL",
       subTitle: null,
       description:
-        "Experience designing, developing, and deploying fullstack web applications and ETL pipelines",
+        "Experience Designing, Developing, and Deploying Fullstack Web Applications",
       img: null,
       roundImg: null,
     },

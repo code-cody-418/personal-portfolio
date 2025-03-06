@@ -59,7 +59,7 @@ export const ExampleApiCall = () => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${lowerCasePokemon}`)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
+                // console.log(json)
                 setError(false)
                 setPokemon(json)
             })
