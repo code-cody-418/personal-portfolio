@@ -41,12 +41,11 @@ export const ThreeDScene = () => {
 
       <ModalIcon />
 
-      <CameraControls />
-
       <Suspense>
         <Canvas gl={{ toneMapping: NoToneMapping }}>
           <Perf />
           <PerformanceMonitorWrapper />
+          <CameraControls />
           <DynamicCamera />
           {/* <OrbitControls makeDefault /> */}
 

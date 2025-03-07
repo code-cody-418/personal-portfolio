@@ -49,19 +49,8 @@ export const MyModal = () => {
             />
             <ModalSection content={content.skills} sectionTitle="Skills" />
             <ModalSection content={content.stack} sectionTitle="Stack" />
-            <ModalSection content={content.contact} sectionTitle="Contact Me" />
 
-            <Row>
-              <Contact />
-            </Row>
-            <Row className="mt-3 justify-content-between">
-              <Col xs={12} lg={4}>
-                <p className="my-0">Footer</p>
-              </Col>
-              <Col xs={12} lg={4}>
-                <p className="my-0">Footer</p>
-              </Col>
-            </Row>
+            <Contact />
           </Container>
         </Modal.Body>
       </Modal>

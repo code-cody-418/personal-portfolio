@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../../utils/store";
+import { Html } from "@react-three/drei";
 
 const rotationDirection = 0.1;
 const heightDirection = 2;
@@ -103,29 +104,35 @@ export const CameraControls = ({ canvasRef }) => {
 
   return (
     <>
-      <div
-        className="camera-controls"
-        // touch events are for mobile while wheel events are for browsers
-        onWheel={(event) => {
-          if (event.deltaY > 0) {
-            handleCameraDirection({
-              cameraRotationDirectionSpeed: -rotationDirection,
-              cameraHeightDirectionSpeed: -heightDirection,
-            });
-          } else if (event.deltaY < 0) {
-            handleCameraDirection({
-              cameraRotationDirectionSpeed: rotationDirection,
-              cameraHeightDirectionSpeed: heightDirection,
-            });
-          }
-        }}
-        onTouchStart={(e) => {
-          setLastTouchY(e.touches[0].clientY);
-        }}
-        onTouchMove={(e) => {
-          handleTouch(e);
-        }}
-      ></div>
+      <Html
+        center={true}
+        zIndexRange={[51, 51]}
+        className="camera-controls-container"
+      >
+        <div
+          className="camera-controls"
+          // touch events are for mobile while wheel events are for browsers
+          onWheel={(event) => {
+            if (event.deltaY > 0) {
+              handleCameraDirection({
+                cameraRotationDirectionSpeed: -rotationDirection,
+                cameraHeightDirectionSpeed: -heightDirection,
+              });
+            } else if (event.deltaY < 0) {
+              handleCameraDirection({
+                cameraRotationDirectionSpeed: rotationDirection,
+                cameraHeightDirectionSpeed: heightDirection,
+              });
+            }
+          }}
+          onTouchStart={(e) => {
+            setLastTouchY(e.touches[0].clientY);
+          }}
+          onTouchMove={(e) => {
+            handleTouch(e);
+          }}
+        ></div>
+      </Html>
     </>
   );
 };

@@ -10,7 +10,7 @@ export const DescriptionText = ({
   desktopSize,
   containerWidth,
   mobilePosition,
-  mobileSize
+  mobileSize,
 }) => {
   //set responsive values
   const responsiveData = new Responsive();
@@ -22,7 +22,7 @@ export const DescriptionText = ({
   responsiveData.mobileSize = mobileSize;
   responsiveData.mobilePositionX = mobilePosition[0];
   responsiveData.mobilePositionY = mobilePosition[1];
-  responsiveData.mobilePositionZ = mobilePosition[2]
+  responsiveData.mobilePositionZ = mobilePosition[2];
 
   const { size, positionX, positionY, positionZ } =
     useResponsive(responsiveData);
@@ -44,7 +44,11 @@ export const DescriptionText = ({
         position={[positionX, positionY, positionZ]}
         rotation={textRotation}
       >
-        <Html transform scale={size}>
+        <Html
+          zIndexRange={[50, 10]}
+          transform
+          scale={size}
+        >
           <p style={pStyle}>{textContent}</p>
         </Html>
       </group>

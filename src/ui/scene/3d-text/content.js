@@ -163,15 +163,6 @@ export const content = {
       roundImg: false,
     },
   ],
-  contact: [
-    {
-      title: "Contact Me",
-      subTitle: null,
-      description: "",
-      img: "/code-icon-10.png",
-      contactForm: true,
-    },
-  ],
   aboutMe: [
     {
       title: "About Me",

@@ -5,7 +5,6 @@ import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
 import { Matrix } from "./Matrix";
 import { Cat } from "../../Cat";
-import { Plane } from "@react-three/drei";
 import { DescriptionText } from "../DescriptionText";
 
 export const ExperienceSection = () => {
