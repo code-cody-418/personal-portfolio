@@ -53,4 +53,25 @@ export const useStore = create((set) => ({
     set(() => {
       return { tallestCardHeaderHeight: cardHeaderHeight };
     }),
+
+  debugStatus: false,
+  setDebugStatus: (debugStatus) =>
+    set(() => {
+      if (debugStatus === false) {
+        localStorage.clear();
+      }
+      return { debugStatus: debugStatus };
+    }),
+
+  orbitControlsStatus: localStorage.getItem("orbitControls") ?? "disabled",
+  setOrbitControlsStatus: (orbitControlsStatus) =>
+    set(() => {
+      return { orbitControlsStatus: orbitControlsStatus };
+    }),
+
+  listPlaneStatus: localStorage.getItem("listPlanes") ?? "disabled",
+  setListPlanesStatus: (listPlaneStatus) =>
+    set(() => {
+      return { listPlaneStatus: listPlaneStatus };
+    }),
 }));

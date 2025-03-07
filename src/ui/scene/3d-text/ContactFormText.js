@@ -25,7 +25,7 @@ export const ContactFormText = () => {
     <>
       <group position={[positionX, positionY, positionZ]} >
         <PortfolioText
-          text={modalInfo[0].title}
+          text={"Contact Me"}
           xPosition={0}
           yPosition={0}
           zPosition={0}

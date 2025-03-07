@@ -7,8 +7,8 @@ import { content } from "./content";
 export const AboutMeText = () => {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1.5;
-  responsiveData.desktopPositionX = -12.5;
-  responsiveData.desktopPositionY = -4;
+  responsiveData.desktopPositionX = -23;
+  responsiveData.desktopPositionY = -8;
   responsiveData.desktopPositionZ = -15;
 
   responsiveData.mobileSize = 1;

@@ -1,5 +1,4 @@
-import { EmployersListText } from "./EmployersListText";
-import { EmployersTitleText } from "./EmployersTitleText";
+import { ExperienceTitleText } from "./ExperienceTitleText";
 import { Ipad } from "./Ipad";
 import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
@@ -10,7 +9,7 @@ import { DescriptionText } from "../DescriptionText";
 export const ExperienceSection = () => {
   return (
     <>
-      <EmployersTitleText />
+      <ExperienceTitleText />
 
       <group position={[0, -6, 0]}>
         <Ipad experienceImage={content.experience[0].img} />

@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
 import { SkillsTitleText } from "./3d-text/SkillsTitleText";
 import { StacksTitleText } from "./3d-text/StacksTitleText";
@@ -9,19 +9,22 @@ import { DescriptionText } from "./3d-text/DescriptionText";
 import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
 import { CodeLogo } from "./skills-icons/Code_logo";
-import { DynamicCamera } from "./camera/DynamicCamera";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
 import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
-import { OrbitControls } from "@react-three/drei";
+import { AboutMeText } from "./3d-text/AboutMeText";
+import { ContactFormText } from "./3d-text/ContactFormText";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
 import { ModalIcon } from "../modal/ModalIcon";
 import { content } from "./3d-text/content";
-import { CameraControls } from "./camera/CameraControls";
 import { Space } from "./Space";
 import { PerformanceMonitorWrapper } from "./utils/PerformanceMonitorWrapper";
+import { EmployersTitleText } from "./EmployersTitleText";
+import { EmployersListText } from "./EmployersListText";
+import { DebugInterface } from "../debug/DebugInterface";
+import { CameraWrapper } from "./camera/CameraWrapper";
 
 export const ThreeDScene = () => {
   // const [watchClicks, setWatchClicks] = useState(1);
@@ -33,22 +36,28 @@ export const ThreeDScene = () => {
   //   setSessionClicks(watchClicks);
   // };
   const performanceGood = useStore((state) => state.performanceGood);
+  const debugStatus = useStore((state) => state.debugStatus);
+  const setDebugStatus = useStore((state) => state.setDebugStatus);
+
+  useEffect(() => {
+    setDebugStatus(true); // set to true to enable and false to disable debug interface
+  }, [setDebugStatus]);
 
   return (
     <>
       <MyModal />
       <Analytics />
 
+      {debugStatus === true ? <DebugInterface /> : null}
+
       <ModalIcon />
 
       <Suspense>
         <Canvas gl={{ toneMapping: NoToneMapping }}>
-          <Perf />
+          {/* <Perf /> */}
           <PerformanceMonitorWrapper />
-          <CameraControls />
-          <DynamicCamera />
-          {/* <OrbitControls makeDefault /> */}
 
+          <CameraWrapper />
           {/* <ambientLight intensity={1} /> */}
           <directionalLight position={[0, -10, 0]} intensity={1} />
 
@@ -68,8 +77,8 @@ export const ThreeDScene = () => {
           />
           <CodeLogo />
 
-          {/* <ContactFormText />
-            <AboutMeText /> */}
+          <ContactFormText />
+          <AboutMeText />
 
           <group visible={performanceGood} position={[0, -35, 0]}>
             <ExperienceSection />
@@ -78,6 +87,9 @@ export const ThreeDScene = () => {
           <group position={[0, -210, 0]}>
             <SkillsTitleText />
             <SkillsListText />
+
+            <EmployersTitleText />
+            <EmployersListText />
           </group>
 
           <group position={[0, -245, 0]}>

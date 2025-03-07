@@ -1,22 +1,22 @@
 import React from "react";
-import { useResponsive } from "../../../../customHooks/useResponsive";
-import { Responsive } from "../../../../constructor/Responsive";
-import { PortfolioText } from "../PortfolioText";
-import { content } from "../content";
+import { useResponsive } from "../../customHooks/useResponsive";
+import { Responsive } from "../../constructor/Responsive";
+import { PortfolioText } from "./3d-text/PortfolioText";
+import { content } from "./3d-text/content";
 
 export const EmployersListText = () => {
     let yStart = 6 //Value that is the first y coordinate for the map
 
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1.5;
-    responsiveData.desktopPositionX = 0;
+    responsiveData.desktopPositionX = 15;
     responsiveData.desktopPositionY = 0;
-    responsiveData.desktopPositionZ = -15
+    responsiveData.desktopPositionZ = 20
 
     responsiveData.mobileSize = 1;
-    responsiveData.mobilePositionX = 0;
+    responsiveData.mobilePositionX = 6;
     responsiveData.mobilePositionY = 0;
-    responsiveData.mobilePositionZ = -8
+    responsiveData.mobilePositionZ = 20
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
 
@@ -38,15 +38,15 @@ export const EmployersListText = () => {
                         <PortfolioText
                             key={textKey}
                             text={item.title}
-                            xPosition={20}
+                            xPosition={-28}
                             yPosition={yStart} //separate each new item in list by y-2
                             zPosition={0}
-                            yRotation={-1.570796}
+                            yRotation={Math.PI}
                             size={size}
                             modalInfo={item}
                             allListItems={allItems}
                             itemIndex={index}
-                            arrowRotation={[-0.785, 0, 1.57]}
+                            arrowRotation={[-1.57, -2.355, Math.PI]}
                             sectionType="employers"
                         />
                     )
