@@ -20,7 +20,7 @@ export default function GithubLogo() {
   let loadedTextureTwo = useTexture("/textures/blue_09_matCap.png")
 
   return (
-    <group ref={logo} rotation={[1.5708, 0, 0]} dispose={null} scale={35} >
+    <group ref={logo} position={[20, 0, 20]} rotation={[1.5708, 0, 0]} dispose={null} scale={35} >
       <mesh  geometry={nodes.Curve.geometry}>
         <meshMatcapMaterial matcap={loadedTexture} />
       </mesh>
@@ -31,4 +31,4 @@ export default function GithubLogo() {
   )
 }
 
-// useGLTF.preload('/logos/github-3d-logo-transformed.glb')
+useGLTF.preload('/logos/github-3d-logo-transformed.glb')

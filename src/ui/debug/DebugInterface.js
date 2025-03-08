@@ -4,8 +4,9 @@ export const DebugInterface = () => {
   const setOrbitControlsStatus = useStore(
     (state) => state.setOrbitControlsStatus
   );
-
   const setListPlanesStatus = useStore((state) => state.setListPlanesStatus);
+  const setPerfStatus = useStore((state) => state.setPerfStatus);
+  const setPerfMonitorStatus = useStore((state) => state.setPerfMonitorStatus);
 
   const handleClick = ({ localKey, setter }) => {
     let localValue = localStorage.getItem(localKey);
@@ -75,6 +76,40 @@ export const DebugInterface = () => {
                         handleClick({
                           localKey: "listPlanes",
                           setter: setListPlanesStatus,
+                        })
+                      }
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Perf</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      defaultChecked={getStatus({
+                        localKey: "perf",
+                      })}
+                      onClick={() =>
+                        handleClick({
+                          localKey: "perf",
+                          setter: setPerfStatus,
+                        })
+                      }
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>PerfMonitor</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      defaultChecked={getStatus({
+                        localKey: "perfMonitor",
+                      })}
+                      onClick={() =>
+                        handleClick({
+                          localKey: "perfMonitor",
+                          setter: setPerfMonitorStatus,
                         })
                       }
                     />

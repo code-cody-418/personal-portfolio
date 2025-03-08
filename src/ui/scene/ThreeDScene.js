@@ -11,7 +11,6 @@ import { MyModal } from "../modal/MyModal";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
-import { Perf } from "r3f-perf";
 import { ExperienceSection } from "./3d-text/experience/ExperienceSection";
 import { AboutMeText } from "./3d-text/AboutMeText";
 import { ContactFormText } from "./3d-text/ContactFormText";
@@ -25,6 +24,10 @@ import { EmployersTitleText } from "./EmployersTitleText";
 import { EmployersListText } from "./EmployersListText";
 import { DebugInterface } from "../debug/DebugInterface";
 import { CameraWrapper } from "./camera/CameraWrapper";
+import { PerfWrapper } from "./utils/PerfWrapper";
+import GithubLogo from "./skills-icons/Github_logo";
+import { NNSeal } from "./skills-icons/Nn-seal";
+import ReactLogo from "./skills-icons/React_logo";
 
 export const ThreeDScene = () => {
   // const [watchClicks, setWatchClicks] = useState(1);
@@ -54,9 +57,8 @@ export const ThreeDScene = () => {
 
       <Suspense>
         <Canvas gl={{ toneMapping: NoToneMapping }}>
-          {/* <Perf /> */}
           <PerformanceMonitorWrapper />
-
+          <PerfWrapper />
           <CameraWrapper />
           {/* <ambientLight intensity={1} /> */}
           <directionalLight position={[0, -10, 0]} intensity={1} />
@@ -90,11 +92,16 @@ export const ThreeDScene = () => {
 
             <EmployersTitleText />
             <EmployersListText />
+
+            <GithubLogo />
+            <NNSeal />
           </group>
 
           <group position={[0, -245, 0]}>
             <StacksTitleText />
             <StacksListText />
+
+            <ReactLogo />
           </group>
           {/* </group> */}
 

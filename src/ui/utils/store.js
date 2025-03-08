@@ -74,4 +74,16 @@ export const useStore = create((set) => ({
     set(() => {
       return { listPlaneStatus: listPlaneStatus };
     }),
+
+  perfStatus: localStorage.getItem("perf") ?? "disabled",
+  setPerfStatus: (perfStatus) =>
+    set(() => {
+      return { perfStatus: perfStatus };
+    }),
+
+  perfMonitorStatus: localStorage.getItem("perfMonitor") ?? "disabled",
+  setPerfMonitorStatus: (perfMonitorStatus) =>
+    set(() => {
+      return { perfMonitorStatus: perfMonitorStatus };
+    }),
 }));

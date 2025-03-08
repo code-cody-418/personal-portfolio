@@ -24,9 +24,9 @@ export default function ReactLogo() {
 
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 0.5;
-  responsiveData.desktopPositionX = 0;
+  responsiveData.desktopPositionX = -20;
   responsiveData.desktopPositionY = 0
-  responsiveData.desktopPositionZ = 0;
+  responsiveData.desktopPositionZ = -13;
 
   responsiveData.mobileSize = 0.5;
   responsiveData.mobilePositionX = 0;
@@ -50,4 +50,4 @@ export default function ReactLogo() {
   )
 }
 
-// useGLTF.preload('/logos/react_logo-transformed.glb')
+useGLTF.preload('/logos/react_logo-transformed.glb')
