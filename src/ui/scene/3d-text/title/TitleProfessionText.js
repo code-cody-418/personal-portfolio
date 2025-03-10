@@ -9,7 +9,7 @@ export const TitleProfessionText = () => {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 2.5;
   responsiveData.desktopPositionX = -15.5;
-  responsiveData.desktopPositionY = 0;
+  responsiveData.desktopPositionY = 2;
 
   responsiveData.mobileSize = 1;
   responsiveData.mobilePositionX = -5;

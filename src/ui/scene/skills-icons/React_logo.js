@@ -23,10 +23,10 @@ export default function ReactLogo() {
   })
 
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 0.5;
+  responsiveData.desktopSize = 0.3;
   responsiveData.desktopPositionX = -20;
-  responsiveData.desktopPositionY = 0
-  responsiveData.desktopPositionZ = -13;
+  responsiveData.desktopPositionY = 8.5
+  responsiveData.desktopPositionZ = -6;
 
   responsiveData.mobileSize = 0.5;
   responsiveData.mobilePositionX = 0;

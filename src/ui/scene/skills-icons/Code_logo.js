@@ -23,7 +23,7 @@ export function CodeLogo({ modal }) {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 2;
   responsiveData.desktopPositionX = 7;
-  responsiveData.desktopPositionY = -6
+  responsiveData.desktopPositionY = -3
   responsiveData.desktopPositionZ = -15;
 
   responsiveData.mobileSize = 1.5;

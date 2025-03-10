@@ -6,8 +6,8 @@ import { useTexture } from "@react-three/drei";
 
 export const EmployersTitleText = () => {
     const responsiveData = new Responsive();
-    responsiveData.desktopSize = 3;
-    responsiveData.desktopPositionX = -13;
+    responsiveData.desktopSize = 2;
+    responsiveData.desktopPositionX = -8;
     responsiveData.desktopPositionY = 7;
     responsiveData.desktopPositionZ = 20;
 

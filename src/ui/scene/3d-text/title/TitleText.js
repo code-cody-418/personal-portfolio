@@ -9,7 +9,7 @@ export const TitleText = () => {
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 1.5;
   responsiveData.desktopPositionX = -7;
-  responsiveData.desktopPositionY = 4;
+  responsiveData.desktopPositionY = 6.5;
   responsiveData.desktopGroupY = 0;
 
   responsiveData.mobileSize = 1.5;

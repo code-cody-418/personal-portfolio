@@ -70,12 +70,14 @@ export const ThreeDScene = () => {
           <TitleProfessionText />
           <DescriptionText
             textContent={content.hero[0].description}
-            desktopPosition={[-7, -4.5, -15]}
+            desktopPosition={[-6, -2.5, -15]}
             textRotation={[0, 0, 0]}
-            desktopSize={0.75}
-            containerWidth={20}
+            desktopSize={0.85}
+            containerWidth={15}
             mobilePosition={[0, -7, -15]}
             mobileSize={0.5}
+            textAlign={"center"}
+            backgroundShow={""}
           />
           <CodeLogo />
 

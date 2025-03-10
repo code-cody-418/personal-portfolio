@@ -8,7 +8,7 @@ export const EmployersListText = () => {
     let yStart = 6 //Value that is the first y coordinate for the map
 
     const responsiveData = new Responsive();
-    responsiveData.desktopSize = 1.5;
+    responsiveData.desktopSize = 1;
     responsiveData.desktopPositionX = 15;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 20
@@ -38,7 +38,7 @@ export const EmployersListText = () => {
                         <PortfolioText
                             key={textKey}
                             text={item.title}
-                            xPosition={-28}
+                            xPosition={-24}
                             yPosition={yStart} //separate each new item in list by y-2
                             zPosition={0}
                             yRotation={Math.PI}

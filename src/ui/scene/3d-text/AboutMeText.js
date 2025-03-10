@@ -6,9 +6,9 @@ import { content } from "./content";
 
 export const AboutMeText = () => {
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 1.5;
-  responsiveData.desktopPositionX = -23;
-  responsiveData.desktopPositionY = -8;
+  responsiveData.desktopSize = 0.8;
+  responsiveData.desktopPositionX = -13;
+  responsiveData.desktopPositionY = -6;
   responsiveData.desktopPositionZ = -15;
 
   responsiveData.mobileSize = 1;

@@ -11,6 +11,8 @@ export const DescriptionText = ({
   containerWidth,
   mobilePosition,
   mobileSize,
+  textAlign,
+  backgroundShow
 }) => {
   //set responsive values
   const responsiveData = new Responsive();
@@ -26,13 +28,15 @@ export const DescriptionText = ({
 
   const { size, positionX, positionY, positionZ } =
     useResponsive(responsiveData);
+ 
 
   const pStyle = {
     transform: `scale(${size * 4})`,
     color: "white",
     width: `${containerWidth}em`,
-    backgroundColor: "black",
+    backgroundColor: backgroundShow ?? "black",
 
+    textAlign: textAlign ?? "start",
     fontFamily: "Ariel",
     lineHeight: "1",
     letterSpacing: "0.03em",

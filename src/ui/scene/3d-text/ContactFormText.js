@@ -6,8 +6,8 @@ import { content } from "./content";
 
 export const ContactFormText = () => {
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 1.5;
-  responsiveData.desktopPositionX = -12.5;
+  responsiveData.desktopSize = 0.8;
+  responsiveData.desktopPositionX = -13;
   responsiveData.desktopPositionY = -8;
   responsiveData.desktopPositionZ = -15;
 
