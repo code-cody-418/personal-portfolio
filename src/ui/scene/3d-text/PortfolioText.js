@@ -72,7 +72,6 @@ export const PortfolioText = ({
       >
         <FontConfig
           text={" " + text} //add empty space to give arrow padding
-          fontType="/Sunmore-Slant-Free-Regular.json"
           size={size}
           texture={hoveredTexture}
         />
