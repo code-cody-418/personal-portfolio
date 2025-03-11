@@ -9,7 +9,7 @@ import { useFrame, useGraph } from "@react-three/fiber";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import * as THREE from "three";
-import { useStore } from "../utils/store";
+import { useStore } from "../../utils/store";
 
 export function Cat(props) {
   const cat = React.useRef();

@@ -10,6 +10,7 @@ export const TitleText = ({
   desktopPosition,
   mobileSize,
   mobilePosition,
+  rotation,
   texture,
   font,
 }) => {
@@ -32,7 +33,7 @@ export const TitleText = ({
 
   return (
     <>
-      <group position={[positionX, positionY, positionZ]}>
+      <group rotation={rotation} position={[positionX, positionY, positionZ]}>
         <FontConfig
           text={text}
           font={font}

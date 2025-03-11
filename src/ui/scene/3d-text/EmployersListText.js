@@ -1,8 +1,8 @@
 import React from "react";
-import { useResponsive } from "../../customHooks/useResponsive";
-import { Responsive } from "../../constructor/Responsive";
-import { PortfolioText } from "./3d-text/PortfolioText";
-import { content } from "./3d-text/content";
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { Responsive } from "../../../constructor/Responsive";
+import { PortfolioText } from "./PortfolioText";
+import { content } from "./content";
 
 export const EmployersListText = () => {
     let yStart = 6 //Value that is the first y coordinate for the map

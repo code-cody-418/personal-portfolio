@@ -1,15 +1,24 @@
-import { ExperienceTitleText } from "./ExperienceTitleText";
 import { Ipad } from "./Ipad";
 import { content } from "../content";
 import { ToshibaSatellite } from "./ToshibaSatellite";
 import { Matrix } from "./Matrix";
-import { Cat } from "../../Cat";
+import { Cat } from "../../cat/Cat";
 import { DescriptionText } from "../DescriptionText";
+import { TitleText } from "../title/TitleText";
 
 export const ExperienceSection = () => {
   return (
     <>
-      <ExperienceTitleText font={"/Philosopher_Regular.json"} />
+      <TitleText
+        text={"EXPERIENCE"}
+        desktopSize={3}
+        desktopPosition={[20, 12, -12]}
+        mobileSize={1.5}
+        mobilePosition={[20, 7, -8]}
+        rotation={[0, -1.570796, 0]}
+        texture={"/textures/purple_08_matCap.png"}
+        font={"/Philosopher_Regular.json"}
+      />
       <group position={[0, -6, 0]}>
         <Ipad experienceImage={content.experience[0].img} />
         <DescriptionText

@@ -1,7 +1,5 @@
 import React, { Suspense, useEffect } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
-import { SkillsTitleText } from "./3d-text/SkillsTitleText";
-import { StacksTitleText } from "./3d-text/StacksTitleText";
 import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { TitleProfessionText } from "./3d-text/title/TitleProfessionText";
@@ -20,8 +18,7 @@ import { ModalIcon } from "../modal/ModalIcon";
 import { content } from "./3d-text/content";
 import { Space } from "./Space";
 import { PerformanceMonitorWrapper } from "./utils/PerformanceMonitorWrapper";
-import { EmployersTitleText } from "./EmployersTitleText";
-import { EmployersListText } from "./EmployersListText";
+import { EmployersListText } from "./3d-text/EmployersListText";
 import { DebugInterface } from "../debug/DebugInterface";
 import { CameraWrapper } from "./camera/CameraWrapper";
 import { PerfWrapper } from "./utils/PerfWrapper";
@@ -72,6 +69,7 @@ export const ThreeDScene = () => {
             desktopPosition={[-7, 6.5, -15]}
             mobileSize={1.5}
             mobilePosition={[-5, 0, -15]}
+            rotation={[0, 0, 0]}
             texture={"/textures/purple_08_matCap.png"}
             font={"/Philosopher_Regular.json"}
           />
@@ -97,10 +95,28 @@ export const ThreeDScene = () => {
           </group>
 
           <group position={[0, -210, 0]}>
-            <SkillsTitleText font={"/Philosopher_Regular.json"} />
+            <TitleText
+              text={"SKILLS"}
+              desktopSize={2}
+              desktopPosition={[21, 7, 20]}
+              mobileSize={1.5}
+              mobilePosition={[6, 7, 20]}
+              rotation={[0, Math.PI, 0]}
+              texture={"/textures/purple_08_matCap.png"}
+              font={"/Philosopher_Regular.json"}
+            />
             <SkillsListText />
 
-            <EmployersTitleText font={"/Philosopher_Regular.json"} />
+            <TitleText
+              text={"EMPLOYERS"}
+              desktopSize={2}
+              desktopPosition={[-8, 7, 20]}
+              mobileSize={1.5}
+              mobilePosition={[6, 7, 20]}
+              rotation={[0, Math.PI, 0]}
+              texture={"/textures/purple_08_matCap.png"}
+              font={"/Philosopher_Regular.json"}
+            />
             <EmployersListText />
 
             <GithubLogo />
@@ -108,7 +124,16 @@ export const ThreeDScene = () => {
           </group>
 
           <group position={[0, -245, 0]}>
-            <StacksTitleText font={"/Philosopher_Regular.json"} />
+            <TitleText
+              text={"STACK"}
+              desktopSize={3}
+              desktopPosition={[-20, 7, 10]}
+              mobileSize={1.5}
+              mobilePosition={[-20, 7, 7.5]}
+              rotation={[0, 1.570796, 0]}
+              texture={"/textures/purple_08_matCap.png"}
+              font={"/Philosopher_Regular.json"}
+            />
             <StacksListText />
 
             <ReactLogo />
