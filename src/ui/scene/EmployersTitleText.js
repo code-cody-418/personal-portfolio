@@ -4,7 +4,7 @@ import { Responsive } from "../../constructor/Responsive";
 import { FontConfig } from "./3d-text/FontConfig";
 import { useTexture } from "@react-three/drei";
 
-export const EmployersTitleText = () => {
+export const EmployersTitleText = ({font}) => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 2;
     responsiveData.desktopPositionX = -8;
@@ -28,7 +28,7 @@ export const EmployersTitleText = () => {
             >
                 <FontConfig
                     text="Employers"
-                    fontType="title"
+                    font={font}
                     size={size}
                     texture={loadedTexture}
                 />

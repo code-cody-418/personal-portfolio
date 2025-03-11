@@ -9,8 +9,7 @@ import { DescriptionText } from "../DescriptionText";
 export const ExperienceSection = () => {
   return (
     <>
-      <ExperienceTitleText />
-
+      <ExperienceTitleText font={"/Philosopher_Regular.json"} />
       <group position={[0, -6, 0]}>
         <Ipad experienceImage={content.experience[0].img} />
         <DescriptionText

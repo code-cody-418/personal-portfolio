@@ -4,7 +4,7 @@ import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
 import { useTexture } from "@react-three/drei";
 
-export const StacksTitleText = () => {
+export const StacksTitleText = ({font}) => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 3;
     responsiveData.desktopPositionX = -20;
@@ -28,7 +28,7 @@ export const StacksTitleText = () => {
             >
                 <FontConfig
                     text="STACK"
-                    fontType="title"
+                    font={font}
                     size={size}
                     texture={loadedTexture}
                 />

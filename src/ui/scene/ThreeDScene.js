@@ -66,7 +66,15 @@ export const ThreeDScene = () => {
           <ExperienceLight />
 
           {/* <group onClick={handleAnalytics}> */}
-          <TitleText />
+          <TitleText
+            text={"Cody's Portfolio"}
+            desktopSize={1.5}
+            desktopPosition={[-7, 6.5, -15]}
+            mobileSize={1.5}
+            mobilePosition={[-5, 0, -15]}
+            texture={"/textures/purple_08_matCap.png"}
+            font={"/Philosopher_Regular.json"}
+          />
           <TitleProfessionText />
           <DescriptionText
             textContent={content.hero[0].description}
@@ -89,10 +97,10 @@ export const ThreeDScene = () => {
           </group>
 
           <group position={[0, -210, 0]}>
-            <SkillsTitleText />
+            <SkillsTitleText font={"/Philosopher_Regular.json"} />
             <SkillsListText />
 
-            <EmployersTitleText />
+            <EmployersTitleText font={"/Philosopher_Regular.json"} />
             <EmployersListText />
 
             <GithubLogo />
@@ -100,7 +108,7 @@ export const ThreeDScene = () => {
           </group>
 
           <group position={[0, -245, 0]}>
-            <StacksTitleText />
+            <StacksTitleText font={"/Philosopher_Regular.json"} />
             <StacksListText />
 
             <ReactLogo />

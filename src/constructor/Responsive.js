@@ -10,15 +10,11 @@ export class Responsive {
         this.desktopSubWidth = null
         this.desktopSubHeight = null
         this.desktopSubPositionZ = null
-
-        this.desktopGroupY = null
         
         this.mobileSize = null
         this.mobilePositionX = null
         this.mobilePositionY = null
         this.mobilePositionZ = null
-        this.mobileRotationY = null
-        
-        this.mobileGroupY = null
+        this.mobileRotationY = null        
     }
 }

@@ -4,34 +4,41 @@ import { Responsive } from "../../../../constructor/Responsive";
 import { FontConfig } from "../FontConfig";
 import { useTexture } from "@react-three/drei";
 
-export const TitleText = () => {
+export const TitleText = ({
+  text,
+  desktopSize,
+  desktopPosition,
+  mobileSize,
+  mobilePosition,
+  texture,
+  font,
+}) => {
   //set responsive values
   const responsiveData = new Responsive();
-  responsiveData.desktopSize = 1.5;
-  responsiveData.desktopPositionX = -7;
-  responsiveData.desktopPositionY = 6.5;
-  responsiveData.desktopGroupY = 0;
+  responsiveData.desktopSize = desktopSize;
+  responsiveData.desktopPositionX = desktopPosition[0];
+  responsiveData.desktopPositionY = desktopPosition[1];
+  responsiveData.desktopPositionZ = desktopPosition[2];
 
-  responsiveData.mobileSize = 1.5;
-  responsiveData.mobilePositionX = -5;
-  responsiveData.mobilePositionY = 4;
-  responsiveData.mobileGroupY = 5;
+  responsiveData.mobileSize = mobileSize;
+  responsiveData.mobilePositionX = mobilePosition[0];
+  responsiveData.mobilePositionY = mobilePosition[1];
+  responsiveData.mobilePositionZ = mobilePosition[2];
 
-  const { size, positionX, positionY, groupY } = useResponsive(responsiveData);
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
 
-  let loadedTexture = useTexture("/textures/purple_08_matCap.png")
-  
+  let loadedTexture = useTexture(texture);
+
   return (
     <>
-      <group position={[0, groupY, 0]}>
-        <group position={[positionX, positionY, -15]}>
-          <FontConfig
-            text="Cody's Portfolio"
-            fontType="title"
-            size={size}
-            texture={loadedTexture}
-          />
-        </group>
+      <group position={[positionX, positionY, positionZ]}>
+        <FontConfig
+          text={text}
+          font={font}
+          size={size}
+          texture={loadedTexture}
+        />
       </group>
     </>
   );

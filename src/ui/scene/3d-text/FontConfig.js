@@ -9,13 +9,9 @@ export const FontConfig = ({
   texture,
   thickness,
   segments,
+  font,
 }) => {
-  let font = null;
-  if (fontType === "title") {
-    font = "/Philosopher_Regular.json";
-  } else {
-    font = droid_sansReg;
-  }
+ 
 
   const curveSegments = useStore((state) => state.curveSegments);
 
@@ -23,7 +19,7 @@ export const FontConfig = ({
   return (
     <>
       <Text3D
-        font={font}
+        font={font ?? droid_sansReg}
         size={size}
         height={0.1}
         curveSegments={curveSegments} //change this value to lower triangles

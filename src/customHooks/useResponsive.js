@@ -22,15 +22,11 @@ export const useResponsive = (responsiveData) => {
     desktopPositionZ,
     desktopRotationY,
 
-    desktopGroupY,
-
     mobileSize,
     mobilePositionX,
     mobilePositionY,
     mobilePositionZ,
     mobileRotationY,
-
-    mobileGroupY
   } = responsiveData;
 
   const [size, setSize] = useState(desktopSize);
@@ -38,8 +34,6 @@ export const useResponsive = (responsiveData) => {
   const [positionY, setPositionY] = useState(desktopPositionY);
   const [positionZ, setPositionZ] = useState(desktopPositionZ);
   const [rotationY, setRotationY] = useState(desktopRotationY)
-
-  const [groupY, setGroupY] = useState(desktopGroupY);
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -54,8 +48,6 @@ export const useResponsive = (responsiveData) => {
         setPositionZ(desktopPositionZ);
         setRotationY(desktopRotationY)
 
-        setGroupY(desktopGroupY);
-
         setIsMobile(false)
       } else if (breakpoint > width) {
         //mobile positioning
@@ -64,8 +56,6 @@ export const useResponsive = (responsiveData) => {
         setPositionY(mobilePositionY);
         setPositionZ(mobilePositionZ);
         setRotationY(mobileRotationY)
-
-        setGroupY(mobileGroupY);
 
         setIsMobile(true)
       }
@@ -79,15 +69,11 @@ export const useResponsive = (responsiveData) => {
     desktopPositionZ,
     desktopRotationY,
 
-    desktopGroupY,
-
     mobileSize,
     mobilePositionX,
     mobilePositionY,
     mobilePositionZ,
     mobileRotationY,
-
-    mobileGroupY,
   ]);
   return {
     size,
@@ -95,8 +81,6 @@ export const useResponsive = (responsiveData) => {
     positionY,
     positionZ,
     rotationY,
-
-    groupY,
 
     isMobile
   };

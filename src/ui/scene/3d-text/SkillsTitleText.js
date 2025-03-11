@@ -4,7 +4,7 @@ import { Responsive } from "../../../constructor/Responsive";
 import { FontConfig } from "./FontConfig";
 import { useTexture } from "@react-three/drei";
 
-export const SkillsTitleText = () => {
+export const SkillsTitleText = ({font}) => {
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 2;
     responsiveData.desktopPositionX = 21;
@@ -24,7 +24,7 @@ export const SkillsTitleText = () => {
             <group position={[positionX, positionY, positionZ]} rotation={[0, Math.PI, 0]}>
                 <FontConfig
                     text="TECH SKILLS"
-                    fontType="title"
+                    font={font}
                     size={size}
                     texture={loadedTexture}
                 />
