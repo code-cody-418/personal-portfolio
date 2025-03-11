@@ -19,7 +19,16 @@ export const ExperienceSection = () => {
         texture={"/textures/purple_08_matCap.png"}
         font={"/Philosopher_Regular.json"}
       />
-      <group position={[0, -6, 0]}>
+      <group position={[0, -10, 0]}>
+        <TitleText
+          text={"Fullstack HR Portal"}
+          desktopSize={1}
+          desktopPosition={[20, 17, -23]}
+          mobileSize={1.5}
+          mobilePosition={[20, 7, -8]}
+          rotation={[0, -1.570796, 0]}
+          texture={"/textures/purple_09_matCap.png"}
+        />
         <Ipad experienceImage={content.experience[0].img} />
         <DescriptionText
           textContent={content.experience[0].description}
@@ -32,7 +41,7 @@ export const ExperienceSection = () => {
         />
       </group>
 
-      <group position={[0, -6, 30]}>
+      <group position={[0, -10, 30]}>
         <Ipad experienceImage={content.experience[1].img} />
         <DescriptionText
           textContent={content.experience[1].description}
@@ -47,7 +56,7 @@ export const ExperienceSection = () => {
 
       <DescriptionText
         textContent={content.experience[2].description}
-        desktopPosition={[23, -30, -15]}
+        desktopPosition={[23, -32, -15]}
         textRotation={[0, -1.570796, 0]}
         desktopSize={0.9}
         containerWidth={18}
@@ -57,7 +66,7 @@ export const ExperienceSection = () => {
 
       <DescriptionText
         textContent={content.experience[3].description}
-        desktopPosition={[23, -30, 20]}
+        desktopPosition={[23, -32, 20]}
         textRotation={[0, -1.570796, 0]}
         desktopSize={0.9}
         containerWidth={18}
@@ -65,7 +74,7 @@ export const ExperienceSection = () => {
         mobileSize={0.2}
       />
 
-      <group position={[0, -70, 0]}>
+      <group position={[0, -72, 0]}>
         <ToshibaSatellite experienceImage={"/toshiba_satellite/terminal.png"} />
       </group>
 
@@ -88,6 +97,7 @@ export const ExperienceSection = () => {
         </group>
 
         <DescriptionText
+          titleContent={content.experience[4].title}
           textContent={content.experience[4].description}
           desktopPosition={[20, -15, -15]}
           textRotation={[0, -1.570796, 0]}
@@ -98,6 +108,7 @@ export const ExperienceSection = () => {
         />
 
         <DescriptionText
+          titleContent={content.experience[5].title}
           textContent={content.experience[5].description}
           desktopPosition={[20, -30, 15]}
           textRotation={[0, -1.570796, 0]}
@@ -108,6 +119,7 @@ export const ExperienceSection = () => {
         />
 
         <DescriptionText
+          titleContent={content.experience[6].title}
           textContent={content.experience[6].description}
           desktopPosition={[20, -42, -15]}
           textRotation={[0, -1.570796, 0]}
@@ -118,6 +130,7 @@ export const ExperienceSection = () => {
         />
 
         <DescriptionText
+          titleContent={content.experience[7].title}
           textContent={content.experience[7].description}
           desktopPosition={[20, -58, 15]}
           textRotation={[0, -1.570796, 0]}
@@ -132,7 +145,6 @@ export const ExperienceSection = () => {
             <Cat />
           </group>
         </group>
-        {/* <EmployersListText /> */}
       </group>
     </>
   );

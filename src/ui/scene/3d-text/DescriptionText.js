@@ -4,6 +4,7 @@ import { Responsive } from "../../../constructor/Responsive";
 import { Html } from "@react-three/drei";
 
 export const DescriptionText = ({
+  titleContent,
   textContent,
   desktopPosition,
   textRotation,
@@ -12,7 +13,7 @@ export const DescriptionText = ({
   mobilePosition,
   mobileSize,
   textAlign,
-  backgroundShow
+  backgroundShow,
 }) => {
   //set responsive values
   const responsiveData = new Responsive();
@@ -28,7 +29,6 @@ export const DescriptionText = ({
 
   const { size, positionX, positionY, positionZ } =
     useResponsive(responsiveData);
- 
 
   const pStyle = {
     transform: `scale(${size * 4})`,
@@ -42,18 +42,18 @@ export const DescriptionText = ({
     letterSpacing: "0.03em",
   };
 
+  const title = titleContent ? titleContent + ": " : null;
   return (
     <>
       <group
         position={[positionX, positionY, positionZ]}
         rotation={textRotation}
       >
-        <Html
-          zIndexRange={[50, 10]}
-          transform
-          scale={size}
-        >
-          <p style={pStyle}>{textContent}</p>
+        <Html zIndexRange={[50, 10]} transform scale={size}>
+          <p style={pStyle}>
+            {title}
+            {textContent}
+          </p>
         </Html>
       </group>
     </>
