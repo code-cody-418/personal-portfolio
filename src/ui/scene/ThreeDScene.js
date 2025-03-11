@@ -2,7 +2,6 @@ import React, { Suspense, useEffect } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
 import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
-import { TitleProfessionText } from "./3d-text/title/TitleProfessionText";
 import { DescriptionText } from "./3d-text/DescriptionText";
 import { Canvas } from "@react-three/fiber";
 import { MyModal } from "../modal/MyModal";
@@ -57,7 +56,7 @@ export const ThreeDScene = () => {
           <PerformanceMonitorWrapper />
           <PerfWrapper />
           <CameraWrapper />
-          {/* <ambientLight intensity={1} /> */}
+
           <directionalLight position={[0, -10, 0]} intensity={1} />
 
           <ExperienceLight />
@@ -73,7 +72,15 @@ export const ThreeDScene = () => {
             texture={"/textures/purple_08_matCap.png"}
             font={"/Philosopher_Regular.json"}
           />
-          <TitleProfessionText />
+          <TitleText
+            text={"Software Developer"}
+            desktopSize={2.5}
+            desktopPosition={[-15.5, 2, -15]}
+            mobileSize={1}
+            mobilePosition={[-5, 0, -15]}
+            rotation={[0, 0, 0]}
+            texture={"/textures/purple_09_matCap.png"}
+          />
           <DescriptionText
             textContent={content.hero[0].description}
             desktopPosition={[-6, -2.5, -15]}
