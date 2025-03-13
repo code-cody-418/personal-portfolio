@@ -7,9 +7,16 @@ Files: i-pad.glb [2.2MB] > C:\code\personal-portfolio\public\ipad\ipad_custom\i-
 import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { DoubleSide } from "three";
-import { useStore } from "../../../utils/store";
+import { Responsive } from "../../../../constructor/Responsive";
+import { useResponsive } from "../../../../customHooks/useResponsive";
 
-export function Ipad({ experienceImage }) {
+export function Ipad({
+  experienceImage,
+  desktopSize,
+  desktopPosition,
+  mobileSize,
+  mobilePosition,
+}) {
   const { nodes, materials } = useGLTF("/ipad/i-pad-transformed.glb");
   const mat = useRef();
   let loadedTexture = useTexture(experienceImage);
@@ -20,11 +27,25 @@ export function Ipad({ experienceImage }) {
     setForceMat(true);
   }, []);
 
+  const responsiveData = new Responsive();
+  responsiveData.desktopSize = desktopSize;
+  responsiveData.desktopPositionX = desktopPosition[0];
+  responsiveData.desktopPositionY = desktopPosition[1];
+  responsiveData.desktopPositionZ = desktopPosition[2];
+
+  responsiveData.mobileSize = mobileSize;
+  responsiveData.mobilePositionX = mobilePosition[0];
+  responsiveData.mobilePositionY = mobilePosition[1];
+  responsiveData.mobilePositionZ = mobilePosition[2];
+
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
+
   return (
     <>
       <group
-        scale={0.3}
-        position={[20, -7, -15]}
+        scale={size}
+        position={[positionX, positionY, positionZ]}
         rotation={[-1.57, -1.57, -1.57]}
         dispose={null}
       >

@@ -38,7 +38,7 @@ export function NNSeal() {
   return (
     <>
       <group
-        position={[-22, 8, 20]}
+        position={[-26, 8, 20]}
         ref={logo}
         scale={4}
         rotation={[1.5708, 0, 0]}

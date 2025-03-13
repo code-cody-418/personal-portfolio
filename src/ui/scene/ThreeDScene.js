@@ -39,7 +39,7 @@ export const ThreeDScene = () => {
   const setDebugStatus = useStore((state) => state.setDebugStatus);
 
   useEffect(() => {
-    setDebugStatus(true); // set to true to enable and false to disable debug interface
+    setDebugStatus(false); // set to true to enable and false to disable debug interface
   }, [setDebugStatus]);
 
   return (
@@ -66,8 +66,8 @@ export const ThreeDScene = () => {
             text={"Cody's Portfolio"}
             desktopSize={1.5}
             desktopPosition={[-7, 6.5, -15]}
-            mobileSize={1.5}
-            mobilePosition={[-5, 0, -15]}
+            mobileSize={0.8}
+            mobilePosition={[-4, 6, -15]}
             rotation={[0, 0, 0]}
             texture={"/textures/purple_08_matCap.png"}
             font={"/Philosopher_Regular.json"}
@@ -76,8 +76,8 @@ export const ThreeDScene = () => {
             text={"Software Developer"}
             desktopSize={2.5}
             desktopPosition={[-15.5, 2, -15]}
-            mobileSize={1}
-            mobilePosition={[-5, 0, -15]}
+            mobileSize={0.85}
+            mobilePosition={[-5, 3, -15]}
             rotation={[0, 0, 0]}
             texture={"/textures/purple_09_matCap.png"}
           />
@@ -87,8 +87,8 @@ export const ThreeDScene = () => {
             textRotation={[0, 0, 0]}
             desktopSize={0.85}
             containerWidth={15}
-            mobilePosition={[0, -7, -15]}
-            mobileSize={0.5}
+            mobilePosition={[0, 1, -15]}
+            mobileSize={0.6}
             textAlign={"center"}
             backgroundShow={""}
           />

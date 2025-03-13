@@ -22,7 +22,7 @@ export default function GithubLogo() {
   return (
     <group
       ref={logo}
-      position={[3, 8, 20]}
+      position={[10, 8, 20]}
       rotation={[1.5708, 0, 0]}
       dispose={null}
       scale={17}

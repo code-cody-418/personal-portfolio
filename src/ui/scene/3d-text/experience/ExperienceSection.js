@@ -14,45 +14,54 @@ export const ExperienceSection = () => {
         desktopSize={3}
         desktopPosition={[20, 12, -12]}
         mobileSize={1.5}
-        mobilePosition={[20, 7, -8]}
+        mobilePosition={[20, 15, -6]}
         rotation={[0, -1.570796, 0]}
         texture={"/textures/purple_08_matCap.png"}
         font={"/Philosopher_Regular.json"}
       />
-      <group position={[0, -10, 0]}>
-        <TitleText
-          text={"Fullstack HR Portal"}
-          desktopSize={1}
-          desktopPosition={[20, 17, -23]}
-          mobileSize={1.5}
-          mobilePosition={[20, 7, -8]}
-          rotation={[0, -1.570796, 0]}
-          texture={"/textures/purple_09_matCap.png"}
-        />
-        <Ipad experienceImage={content.experience[0].img} />
-        <DescriptionText
-          textContent={content.experience[0].description}
-          desktopPosition={[20, -10, -15]}
-          textRotation={[0, -1.570796, 0]}
-          desktopSize={1}
-          containerWidth={10}
-          mobilePosition={[20, 7, -8]}
-          mobileSize={0.2}
-        />
-      </group>
 
-      <group position={[0, -10, 30]}>
-        <Ipad experienceImage={content.experience[1].img} />
-        <DescriptionText
-          textContent={content.experience[1].description}
-          desktopPosition={[20, -10, -15]}
-          textRotation={[0, -1.570796, 0]}
-          desktopSize={1}
-          containerWidth={10}
-          mobilePosition={[20, -7, -8]}
-          mobileSize={0.2}
-        />
-      </group>
+      <TitleText
+        text={"Fullstack HR Portal"}
+        desktopSize={1}
+        desktopPosition={[20, 7, -23]}
+        mobileSize={0.8}
+        mobilePosition={[20, 13, -8]}
+        rotation={[0, -1.570796, 0]}
+        texture={"/textures/purple_09_matCap.png"}
+      />
+      <Ipad
+        experienceImage={content.experience[0].img}
+        desktopSize={0.3}
+        desktopPosition={[20, -17, -15]}
+        mobileSize={0.25}
+        mobilePosition={[20, -8, 0]}
+      />
+      <DescriptionText
+        textContent={content.experience[0].description}
+        desktopPosition={[20, -20, -15]}
+        textRotation={[0, -1.570796, 0]}
+        desktopSize={1}
+        containerWidth={10}
+        mobilePosition={[20, -11, 0]}
+        mobileSize={0.9}
+      />
+
+      <Ipad
+        experienceImage={content.experience[1].img}
+        desktopSize={0.3}
+        desktopPosition={[20, -17, 15]}
+        mobileSize={0.25}
+        mobilePosition={[20, -35, 0]}
+      />
+      <DescriptionText
+        textContent={content.experience[1].description}
+        desktopPosition={[20, -20, 15]}
+        textRotation={[0, -1.570796, 0]}
+        desktopSize={1}
+        containerWidth={10}
+        mobilePosition={[20, -38, 0]}
+        mobileSize={0.9}
+      />
 
       <DescriptionText
         textContent={content.experience[2].description}
