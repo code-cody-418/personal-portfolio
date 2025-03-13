@@ -69,8 +69,8 @@ export const ExperienceSection = () => {
         textRotation={[0, -1.570796, 0]}
         desktopSize={0.9}
         containerWidth={18}
-        mobilePosition={[20, -7, -8]}
-        mobileSize={0.2}
+        mobilePosition={[20, -52, 0]}
+        mobileSize={0.7}
       />
 
       <DescriptionText
@@ -79,13 +79,17 @@ export const ExperienceSection = () => {
         textRotation={[0, -1.570796, 0]}
         desktopSize={0.9}
         containerWidth={18}
-        mobilePosition={[20, -7, -8]}
-        mobileSize={0.2}
+        mobilePosition={[20, -70, 0]}
+        mobileSize={0.7}
       />
 
-      <group position={[0, -72, 0]}>
-        <ToshibaSatellite experienceImage={"/toshiba_satellite/terminal.png"} />
-      </group>
+      <ToshibaSatellite
+        experienceImage={"/toshiba_satellite/terminal.png"}
+        desktopSize={4}
+        desktopPosition={[18, -72, 0]}
+        mobileSize={3.5}
+        mobilePosition={[18, -72, 0]}
+      />
 
       <group position={[2, -75, 0]}>
         <Matrix animationSpeed={1} />
@@ -112,8 +116,8 @@ export const ExperienceSection = () => {
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
           containerWidth={22}
-          mobilePosition={[20, -7, -8]}
-          mobileSize={0.2}
+          mobilePosition={[20, -15, 0]}
+          mobileSize={0.7}
         />
 
         <DescriptionText
@@ -123,8 +127,8 @@ export const ExperienceSection = () => {
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
           containerWidth={22}
-          mobilePosition={[20, -7, -8]}
-          mobileSize={0.2}
+          mobilePosition={[20, -28, 0]}
+          mobileSize={0.7}
         />
 
         <DescriptionText
@@ -134,8 +138,8 @@ export const ExperienceSection = () => {
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
           containerWidth={22}
-          mobilePosition={[20, -7, -8]}
-          mobileSize={0.2}
+          mobilePosition={[20, -40, 0]}
+          mobileSize={0.7}
         />
 
         <DescriptionText
@@ -145,15 +149,16 @@ export const ExperienceSection = () => {
           textRotation={[0, -1.570796, 0]}
           desktopSize={0.9}
           containerWidth={22}
-          mobilePosition={[20, -7, -8]}
-          mobileSize={0.2}
+          mobilePosition={[20, -50, 0]}
+          mobileSize={0.7}
         />
 
-        <group position={[20, -55, -10]}>
-          <group position={[0, -5, -2]}>
-            <Cat />
-          </group>
-        </group>
+        <Cat
+          desktopSize={8}
+          desktopPosition={[20, -60, -12]}
+          mobileSize={8}
+          mobilePosition={[20, -60, 0]}
+        />
       </group>
     </>
   );

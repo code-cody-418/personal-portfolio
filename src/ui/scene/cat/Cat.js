@@ -10,8 +10,15 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import * as THREE from "three";
 import { useStore } from "../../utils/store";
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { Responsive } from "../../../constructor/Responsive";
 
-export function Cat(props) {
+export function Cat({
+  desktopSize,
+  desktopPosition,
+  mobileSize,
+  mobilePosition,
+}) {
   const cat = React.useRef();
   const { scene, animations } = useGLTF("/cat/cat-transformed.glb");
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
@@ -80,9 +87,28 @@ export function Cat(props) {
   materials["cat_fur_.001"].transparent = false;
   materials["cat_fur_.001"].depthWrite = true;
 
+  const responsiveData = new Responsive();
+  responsiveData.desktopSize = desktopSize;
+  responsiveData.desktopPositionX = desktopPosition[0];
+  responsiveData.desktopPositionY = desktopPosition[1];
+  responsiveData.desktopPositionZ = desktopPosition[2];
+
+  responsiveData.mobileSize = mobileSize;
+  responsiveData.mobilePositionX = mobilePosition[0];
+  responsiveData.mobilePositionY = mobilePosition[1];
+  responsiveData.mobilePositionZ = mobilePosition[2];
+
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
+
   return (
-    <group ref={cat} {...props} dispose={null} visible={showCat}>
-      <group name="Scene" scale={8} rotation={[-1.57, 0, 3.6]}>
+    <group
+      ref={cat}
+      position={[positionX, positionY, positionZ]}
+      dispose={null}
+      visible={showCat}
+    >
+      <group name="Scene" scale={size} rotation={[-1.57, 0, 3.6]}>
         <group name="Object_5">
           <primitive object={nodes["DEF-spine_02"]} />
           <primitive object={nodes["DEF-tail006_0184"]} />

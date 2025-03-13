@@ -13,21 +13,38 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { DoubleSide } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useStore } from "../../../utils/store";
+import { useResponsive } from "../../../../customHooks/useResponsive";
+import { Responsive } from "../../../../constructor/Responsive";
 
-export function ToshibaSatellite({ experienceImage }) {
+export function ToshibaSatellite({
+  experienceImage,
+  desktopSize,
+  desktopPosition,
+  mobileSize,
+  mobilePosition,
+}) {
   const { nodes, materials } = useGLTF(
     "/toshiba_satellite/toshiba_satellite-transformed.glb"
   );
   const cameraHeight = useStore((state) => state.cameraHeight);
-  const [showSatellite, setShowSatellite] = useState(true)
+  const [showSatellite, setShowSatellite] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
-    if(cameraHeight <= -108) {
-      setShowSatellite(false)
-    } else if (cameraHeight > -108) {
-      setShowSatellite(true)
+    const winWidth = window.innerWidth;
+    const winHeight = window.innerHeight;
+    if (winWidth <= 800 && winHeight <= 800) {
+      setIsDesktop(false);
     }
-  }, [cameraHeight])
+  }, []);
+
+  useEffect(() => {
+    if (cameraHeight <= -108) {
+      setShowSatellite(false);
+    } else if (cameraHeight > -108) {
+      setShowSatellite(true);
+    }
+  }, [cameraHeight]);
 
   const mat = useRef();
   let loadedTexture = useTexture(experienceImage);
@@ -37,52 +54,68 @@ export function ToshibaSatellite({ experienceImage }) {
     satellite.current.rotation.z = Math.cos(clock.getElapsedTime() / 30);
   });
 
+  const responsiveData = new Responsive();
+  responsiveData.desktopSize = desktopSize;
+  responsiveData.desktopPositionX = desktopPosition[0];
+  responsiveData.desktopPositionY = desktopPosition[1];
+  responsiveData.desktopPositionZ = desktopPosition[2];
+
+  responsiveData.mobileSize = mobileSize;
+  responsiveData.mobilePositionX = mobilePosition[0];
+  responsiveData.mobilePositionY = mobilePosition[1];
+  responsiveData.mobilePositionZ = mobilePosition[2];
+
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
+
   return (
     <>
-      <group
-        visible={showSatellite}
-        dispose={null}
-        position={[18, 0, 0]}
-        rotation={[-1.57, -1.8, -1.57]}
-        scale={4}
-      >
-        <mesh
-          geometry={nodes.Cap_lockers_low002_Notebook_0.geometry}
-          material={materials.Notebook}
-          position={[2.22, 4.561, 0.768]}
-          rotation={[-1.563, 0, 0]}
-        />
-        {mat.current && (
+      <group visible={isDesktop}>
+        <group
+          visible={showSatellite}
+          dispose={null}
+          position={[positionX, positionY, positionZ]}
+          rotation={[-1.57, -1.8, -1.57]}
+          scale={size}
+        >
           <mesh
-            geometry={nodes.cap_screen.geometry}
-            material={mat.current}
-            position={[0.06, 3.67, 0.73]}
-            rotation={[-1.57, 0, 0]}
-            scale={[1.44, 1, 0.94]}
+            geometry={nodes.Cap_lockers_low002_Notebook_0.geometry}
+            material={materials.Notebook}
+            position={[2.22, 4.561, 0.768]}
+            rotation={[-1.563, 0, 0]}
           />
-        )}
-        <mesh
-          geometry={nodes.Stand_Antenn_body_0.geometry}
-          material={materials.Antenn_body}
-          position={[-0.009, 1.817, -0.565]}
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          ref={satellite}
-          geometry={nodes.Antenn_body_low001_Antenn_c_0.geometry}
-          material={materials.Antenn_c}
-          position={[-0.009, 4.273, -3.453]}
-          rotation={[-2.773, 0, 0]}
-        />
-        <mesh
-          geometry={nodes.Retranslator_low001_Antenn_0.geometry}
-          material={materials.Antenn}
-          position={[-0.009, 3.852, -2.362]}
-          rotation={[-1.202, 0, 0]}
-        />
-      </group>
+          {mat.current && (
+            <mesh
+              geometry={nodes.cap_screen.geometry}
+              material={mat.current}
+              position={[0.06, 3.67, 0.73]}
+              rotation={[-1.57, 0, 0]}
+              scale={[1.44, 1, 0.94]}
+            />
+          )}
+          <mesh
+            geometry={nodes.Stand_Antenn_body_0.geometry}
+            material={materials.Antenn_body}
+            position={[-0.009, 1.817, -0.565]}
+            rotation={[-Math.PI / 2, 0, 0]}
+          />
+          <mesh
+            ref={satellite}
+            geometry={nodes.Antenn_body_low001_Antenn_c_0.geometry}
+            material={materials.Antenn_c}
+            position={[-0.009, 4.273, -3.453]}
+            rotation={[-2.773, 0, 0]}
+          />
+          <mesh
+            geometry={nodes.Retranslator_low001_Antenn_0.geometry}
+            material={materials.Antenn}
+            position={[-0.009, 3.852, -2.362]}
+            rotation={[-1.202, 0, 0]}
+          />
+        </group>
 
-      <meshBasicMaterial side={DoubleSide} map={loadedTexture} ref={mat} />
+        <meshBasicMaterial side={DoubleSide} map={loadedTexture} ref={mat} />
+      </group>
     </>
   );
 }
