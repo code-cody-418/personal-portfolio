@@ -32,6 +32,20 @@ export function Cat({
     "Cat scratching 1-143_GRT_"
   );
 
+  const responsiveData = new Responsive();
+  responsiveData.desktopSize = desktopSize;
+  responsiveData.desktopPositionX = desktopPosition[0];
+  responsiveData.desktopPositionY = desktopPosition[1];
+  responsiveData.desktopPositionZ = desktopPosition[2];
+
+  responsiveData.mobileSize = mobileSize;
+  responsiveData.mobilePositionX = mobilePosition[0];
+  responsiveData.mobilePositionY = mobilePosition[1];
+  responsiveData.mobilePositionZ = mobilePosition[2];
+
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
+
   useEffect(() => {
     if (currentAnimation === "Cat scratching 1-143_GRT_") {
       actions[currentAnimation].clampWhenFinished = true;
@@ -63,7 +77,7 @@ export function Cat({
       if (showCatCount >= 2) {
         setShowCat(false);
       } else {
-        cat.current.position.z = 0;
+        cat.current.position.z = positionZ;
       }
     }
   });
@@ -78,7 +92,7 @@ export function Cat({
       setActivateAnimation(false);
       setShowCatCount(1);
       setShowCat(true);
-      cat.current.position.z = 0;
+      cat.current.position.z = positionZ;
     }
   }, [cameraHeight]);
 
@@ -86,20 +100,6 @@ export function Cat({
   materials.cat_body.depthWrite = true;
   materials["cat_fur_.001"].transparent = false;
   materials["cat_fur_.001"].depthWrite = true;
-
-  const responsiveData = new Responsive();
-  responsiveData.desktopSize = desktopSize;
-  responsiveData.desktopPositionX = desktopPosition[0];
-  responsiveData.desktopPositionY = desktopPosition[1];
-  responsiveData.desktopPositionZ = desktopPosition[2];
-
-  responsiveData.mobileSize = mobileSize;
-  responsiveData.mobilePositionX = mobilePosition[0];
-  responsiveData.mobilePositionY = mobilePosition[1];
-  responsiveData.mobilePositionZ = mobilePosition[2];
-
-  const { size, positionX, positionY, positionZ } =
-    useResponsive(responsiveData);
 
   return (
     <group

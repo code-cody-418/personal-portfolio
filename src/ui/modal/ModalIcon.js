@@ -4,6 +4,7 @@ export const ModalIcon = () => {
   //Modal functions to show modal and to set state of what to display
   const handleShow = useStore((state) => state.showModal);
   const setSectionLocation = useStore((state) => state.setSectionLocation);
+  const isDesktop = useStore((state) => state.isDesktop);
 
   //set the modal state when text is clicked
   const handleTextClick = () => {
@@ -17,8 +18,8 @@ export const ModalIcon = () => {
         <svg
           onClick={() => handleTextClick()}
           xmlns="http://www.w3.org/2000/svg"
-          width="64"
-          height="64"
+          width={isDesktop === true ? 64 : 32}
+          height={isDesktop === true ? 64 : 32}
           fill="white"
           viewBox="0 0 16 16"
         >
