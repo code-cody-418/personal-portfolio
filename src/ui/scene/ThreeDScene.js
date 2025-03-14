@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { TitleText } from "./3d-text/title/TitleText";
 import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
@@ -37,10 +37,24 @@ export const ThreeDScene = () => {
   const performanceGood = useStore((state) => state.performanceGood);
   const debugStatus = useStore((state) => state.debugStatus);
   const setDebugStatus = useStore((state) => state.setDebugStatus);
+  const setIsDesktop = useStore((state) => state.setIsDesktop);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     setDebugStatus(false); // set to true to enable and false to disable debug interface
   }, [setDebugStatus]);
+
+  useEffect(() => {
+    if (width <= 800) {
+      setIsDesktop(false);
+    } else {
+      setIsDesktop(true);
+    }
+
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, [setIsDesktop, width]);
 
   return (
     <>
@@ -107,7 +121,7 @@ export const ThreeDScene = () => {
               desktopSize={2}
               desktopPosition={[21, 7, 20]}
               mobileSize={1.5}
-              mobilePosition={[6, 7, 20]}
+              mobilePosition={[3, 14, 20]}
               rotation={[0, Math.PI, 0]}
               texture={"/textures/purple_08_matCap.png"}
               font={"/Philosopher_Regular.json"}
@@ -119,7 +133,7 @@ export const ThreeDScene = () => {
               desktopSize={2}
               desktopPosition={[-8, 7, 20]}
               mobileSize={1.5}
-              mobilePosition={[6, 7, 20]}
+              mobilePosition={[6, -3, 20]}
               rotation={[0, Math.PI, 0]}
               texture={"/textures/purple_08_matCap.png"}
               font={"/Philosopher_Regular.json"}

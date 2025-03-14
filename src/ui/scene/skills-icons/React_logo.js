@@ -6,48 +6,53 @@ source: https://sketchfab.com/3d-models/react-logo-76174ceeba96487f9863f974636f6
 title: React logo
 */
 
-import React, { useRef } from 'react'
-import { useGLTF, useTexture } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import { Responsive } from '../../../constructor/Responsive'
-import { useResponsive } from '../../../customHooks/useResponsive'
+import React, { useRef } from "react";
+import { useGLTF, useTexture } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { Responsive } from "../../../constructor/Responsive";
+import { useResponsive } from "../../../customHooks/useResponsive";
+import { useStore } from "../../utils/store";
 
 export default function ReactLogo() {
-  const logo = useRef()
-  const { nodes } = useGLTF('/logos/react_logo-transformed.glb')
+  const logo = useRef();
+  const { nodes } = useGLTF("/logos/react_logo-transformed.glb");
+  const isDesktop = useStore((state) => state.isDesktop);
 
   useFrame(({ clock }) => {
-    const ticks = clock.getElapsedTime()
+    const ticks = clock.getElapsedTime();
 
-    logo.current.rotation.y = ticks / 2
-  })
+    logo.current.rotation.y = ticks / 2;
+  });
 
   const responsiveData = new Responsive();
   responsiveData.desktopSize = 0.3;
   responsiveData.desktopPositionX = -20;
-  responsiveData.desktopPositionY = 8.5
+  responsiveData.desktopPositionY = 8.5;
   responsiveData.desktopPositionZ = -6;
 
   responsiveData.mobileSize = 0.5;
   responsiveData.mobilePositionX = 0;
-  responsiveData.mobilePositionY = 0
+  responsiveData.mobilePositionY = 0;
   responsiveData.mobilePositionZ = 0;
 
-  const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
+  const { size, positionX, positionY, positionZ } =
+    useResponsive(responsiveData);
 
-  let loadedTexture = useTexture("/textures/blue_02_matCap.png")
+  let loadedTexture = useTexture("/textures/blue_02_matCap.png");
 
   return (
     <group
       ref={logo}
       position={[positionX, positionY, positionZ]}
       rotation={[0, -1.570796, 1.5]}
-      scale={size}>
-      <mesh geometry={nodes['React-Logo_Material002_0'].geometry}>
+      scale={size}
+      visible={isDesktop}
+    >
+      <mesh geometry={nodes["React-Logo_Material002_0"].geometry}>
         <meshMatcapMaterial matcap={loadedTexture} />
       </mesh>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/logos/react_logo-transformed.glb')
+useGLTF.preload("/logos/react_logo-transformed.glb");

@@ -86,4 +86,11 @@ export const useStore = create((set) => ({
     set(() => {
       return { perfMonitorStatus: perfMonitorStatus };
     }),
+
+  isDesktop: true,
+  setIsDesktop: (isDesktop) => {
+    set(() => {
+      return { isDesktop: isDesktop };
+    });
+  },
 }));

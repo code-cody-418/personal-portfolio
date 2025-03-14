@@ -7,10 +7,12 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useStore } from "../../utils/store";
 
 export function NNSeal() {
   const { nodes, materials } = useGLTF("./logos/nn-seal.glb");
   const logo = useRef();
+  const isDesktop = useStore((state) => state.isDesktop);
 
   useEffect(() => {
     logo.current.traverse((child) => {
@@ -42,6 +44,7 @@ export function NNSeal() {
         ref={logo}
         scale={4}
         rotation={[1.5708, 0, 0]}
+        visible={isDesktop}
       >
         <mesh
           geometry={nodes.Curve054.geometry}

@@ -9,13 +9,13 @@ export const EmployersListText = () => {
 
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1;
-    responsiveData.desktopPositionX = 15;
+    responsiveData.desktopPositionX = -9;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 20
 
-    responsiveData.mobileSize = 1;
-    responsiveData.mobilePositionX = 6;
-    responsiveData.mobilePositionY = 0;
+    responsiveData.mobileSize = 0.8;
+    responsiveData.mobilePositionX = 7;
+    responsiveData.mobilePositionY = -9;
     responsiveData.mobilePositionZ = 20
 
     const { size, positionX, positionY, positionZ } = useResponsive(responsiveData);
@@ -38,7 +38,7 @@ export const EmployersListText = () => {
                         <PortfolioText
                             key={textKey}
                             text={item.title}
-                            xPosition={-24}
+                            xPosition={0}
                             yPosition={yStart} //separate each new item in list by y-2
                             zPosition={0}
                             yRotation={Math.PI}

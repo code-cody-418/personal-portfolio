@@ -10,13 +10,13 @@ export const SkillsListText = () => {
     //A constructor that sets the sizes and position of text for different viewports
     const responsiveData = new Responsive();
     responsiveData.desktopSize = 1;
-    responsiveData.desktopPositionX = 15;
+    responsiveData.desktopPositionX = 20;
     responsiveData.desktopPositionY = 0;
     responsiveData.desktopPositionZ = 20
 
-    responsiveData.mobileSize = 1;
-    responsiveData.mobilePositionX = 6;
-    responsiveData.mobilePositionY = 0;
+    responsiveData.mobileSize = 0.8;
+    responsiveData.mobilePositionX = 7;
+    responsiveData.mobilePositionY = 8;
     responsiveData.mobilePositionZ = 20
 
     //Passes the Values to a hook that resets the size and position as the viewport changes
@@ -39,7 +39,7 @@ export const SkillsListText = () => {
                         <PortfolioText
                             key={textKey}
                             text={item.title}
-                            xPosition={5}
+                            xPosition={0}
                             yPosition={yStart}
                             zPosition={0}
                             yRotation={Math.PI}

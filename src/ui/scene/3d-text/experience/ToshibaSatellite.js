@@ -28,15 +28,7 @@ export function ToshibaSatellite({
   );
   const cameraHeight = useStore((state) => state.cameraHeight);
   const [showSatellite, setShowSatellite] = useState(true);
-  const [isDesktop, setIsDesktop] = useState(true);
-
-  useEffect(() => {
-    const winWidth = window.innerWidth;
-    const winHeight = window.innerHeight;
-    if (winWidth <= 800 && winHeight <= 800) {
-      setIsDesktop(false);
-    }
-  }, []);
+  const isDesktop = useStore((state) => state.isDesktop);
 
   useEffect(() => {
     if (cameraHeight <= -108) {
