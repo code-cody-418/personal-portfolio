@@ -9,7 +9,7 @@ export const ModalSection = ({ content, sectionTitle }) => {
           {sectionTitle}
         </h2>
       </Row>
-      <Row xs={1} md={3} className="g-4">
+      <Row className="g-4">
         {content?.map((listItem, i) => (
           <ModalContent key={i} listItem={listItem} />
         ))}

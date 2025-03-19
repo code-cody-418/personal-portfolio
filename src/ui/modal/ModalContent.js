@@ -15,12 +15,12 @@ export const ModalContent = ({ listItem }) => {
     const currentCardHeaderHeight =
       headerRef.current.getBoundingClientRect().height;
     if (currentCardHeaderHeight > tallestCardHeaderHeight) {
-      setTallestCardHeaderHeight(currentCardHeaderHeight);
+      setTallestCardHeaderHeight(currentCardHeaderHeight + 5); // plus 5 because it would cutoff the subtitle
     }
   }, [tallestCardHeaderHeight, setTallestCardHeaderHeight]);
   return (
     <>
-      <Col className="d-flex">
+      <Col className="d-flex" xs={12} md={listItem.colSize ?? 4}>
         <Card
           bg="secondary"
           text="dark"

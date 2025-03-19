@@ -45,6 +45,7 @@ export const content = {
         "As an experienced data professional, I have honed my expertise in Extract, Transform, and Load (ETL) processes, playing a pivotal role in enabling seamless data integration. In previous jobs, I've transferred multi-million row datasets. I've extracted data from databases and files, ensuring its accuracy and completeness. With a deep understanding of data manipulation techniques, I transformed the extracted data using JavaScript to meet specific requirements. Finally, employing efficient loading mechanisms, I’ve loaded the transformed data into the target systems. With my strong understanding of ETL methodologies, I am dedicated to delivering optimized data pipelines that drive operational efficiency and foster informed decision-making.",
       img: "./skills/etl-example.png",
       roundImg: false,
+      colSize: 6,
     },
     {
       title: "REST API's",
@@ -53,6 +54,7 @@ export const content = {
         "As a skilled developer, I have extensive expertise designing and implementing RestFul API’s used for data synchronization. Data between two databases needed to synchronize, so when data changed in one place it would change in the other. This was implemented utilizing various principles like HTTP Methods, Database triggers and CRUD operations.",
       img: "./skills/rest-example.jpg",
       roundImg: false,
+      colSize: 6,
     },
     {
       title: "Frontend Development",
@@ -61,6 +63,7 @@ export const content = {
         "My experience with frontend development has given me a strong grasp of how to provide a better user experience, while providing my employers with data-driven solutions. Leveraging my expertise in design I’ve used wireframing and Adobe software to create layouts that were used to plan the release of a website with over 20 pages. Furthermore, I’ve changed static data entry tasks into dynamic data processes that saved my coworkers hours of work every single day.",
       img: "./skills/frontend-example.jpg",
       roundImg: false,
+      colSize: 6,
     },
     {
       title: "Backend Development",
@@ -70,6 +73,7 @@ export const content = {
       img: null,
       roundImg: false,
       apiCall: true,
+      colSize: 6,
     },
     {
       title: "Git & GitHub",
@@ -180,6 +184,7 @@ export const content = {
       description: "Built algorithm's to search, sort, and filter data",
       img: "/ipad/ipad-images/experience-hr-portal-job-search.png",
       roundImg: null,
+      colSize: 6,
     },
     {
       title: "Authorization and Authentication Endpoints",
@@ -187,6 +192,7 @@ export const content = {
       description: "Created frontend forms and backend API endpoints",
       img: "/ipad/ipad-images/experience-hr-portal-create-account.png",
       roundImg: null,
+      colSize: 6,
     },
     {
       title: "Built Full Stack App",
