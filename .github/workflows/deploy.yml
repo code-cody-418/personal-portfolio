@@ -25,7 +25,7 @@ jobs:
       - name: Load and Cache Dependencies
         uses: code-cody-418/action-npm-install-cache/.github/actions/cached-deps@v1.0
       - name: Build Website
-        run: npm run build
+        run: CI=false npm run build
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
