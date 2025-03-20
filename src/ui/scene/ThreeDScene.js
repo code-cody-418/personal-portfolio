@@ -24,6 +24,7 @@ import { PerfWrapper } from "./utils/PerfWrapper";
 import GithubLogo from "./skills-icons/Github_logo";
 import { NNSeal } from "./skills-icons/Nn-seal";
 import ReactLogo from "./skills-icons/React_logo";
+import { Loading } from "../loading/Loading";
 
 export const ThreeDScene = () => {
   // const [watchClicks, setWatchClicks] = useState(1);
@@ -65,7 +66,7 @@ export const ThreeDScene = () => {
 
       <ModalIcon />
 
-      <Suspense>
+      <Suspense fallback={<Loading />}>
         <Canvas gl={{ toneMapping: NoToneMapping }}>
           <PerformanceMonitorWrapper />
           <PerfWrapper />
