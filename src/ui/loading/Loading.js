@@ -5,7 +5,7 @@ export const Loading = () => {
         <>
             <div className="stars"></div>
             <div className="loading">
-                <h1>JUMPING TO LIGHT SPEED!</h1>
+                <h1>Loading...</h1>
             </div>
         </>
     )
