@@ -6,6 +6,11 @@ export const useStore = create((set) => ({
   showModal: () => set(() => ({ modalState: true })),
   closeModal: () => set(() => ({ modalState: false })),
 
+  isWebGLAvail: true,
+  setIsWebGLAvail: (isWebGLAvail) => {
+    set(() => ({ isWebGLAvail: isWebGLAvail }));
+  },
+
   // set location
   sectionLocation: null,
   setSectionLocation: (sectionLocation) =>

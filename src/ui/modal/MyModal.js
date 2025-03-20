@@ -11,6 +11,7 @@ export const MyModal = () => {
   // Opening and closing the modal
   const modalState = useStore((state) => state.modalState);
   const handleClose = useStore((state) => state.closeModal);
+  const isWebGLAvail = useStore((state) => state.isWebGLAvail);
   const setSectionLocation = useStore((state) => state.setSectionLocation);
 
   // Modal contents
@@ -25,11 +26,15 @@ export const MyModal = () => {
   return (
     <>
       <Modal
-        show={modalState}
+        show={isWebGLAvail === true ? modalState : true} // set modal to always showing if webgl isn not available
+        backdrop={isWebGLAvail}
+        fullscreen={!isWebGLAvail}
         onHide={() => {
-          handleClose();
-          // setSectionLocation to empty is used to fix a bug with navigation if the same item is clicked twice
-          setSectionLocation("");
+          if (isWebGLAvail === true) {
+            handleClose();
+            // setSectionLocation to empty is used to fix a bug with navigation if the same item is clicked twice
+            setSectionLocation("");
+          }
         }}
         size="lg"
         dialogClassName="custom-modal"

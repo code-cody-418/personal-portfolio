@@ -4,7 +4,6 @@ import { StacksListText } from "./3d-text/StacksListText";
 import { SkillsListText } from "./3d-text/SkillsListText";
 import { DescriptionText } from "./3d-text/DescriptionText";
 import { Canvas } from "@react-three/fiber";
-import { MyModal } from "../modal/MyModal";
 import { CodeLogo } from "./skills-icons/Code_logo";
 import { useStore } from "../utils/store";
 import { Analytics } from "../analytics/Analytics";
@@ -13,7 +12,6 @@ import { AboutMeText } from "./3d-text/AboutMeText";
 import { ContactFormText } from "./3d-text/ContactFormText";
 import { ExperienceLight } from "./3d-text/experience/ExperienceLight";
 import { NoToneMapping } from "three";
-import { ModalIcon } from "../modal/ModalIcon";
 import { content } from "./3d-text/content";
 import { Space } from "./Space";
 import { PerformanceMonitorWrapper } from "./utils/PerformanceMonitorWrapper";
@@ -59,12 +57,9 @@ export const ThreeDScene = () => {
 
   return (
     <>
-      <MyModal />
       <Analytics />
 
       {debugStatus === true ? <DebugInterface /> : null}
-
-      <ModalIcon />
 
       <Suspense fallback={<Loading />}>
         <Canvas gl={{ toneMapping: NoToneMapping }}>
