@@ -9,7 +9,11 @@
 ## Deployment
 - Deployment can be done automatically or manually
 - To automatic deploy simply push to the private remote that can run private github actions
-  - `git push all main`
+  - First add both the public and the private repo to a new alias. I like to call this new remote alias 'all'
+    - `git remote add all git@github.com:code-cody-418/personal-portfolio.git`
+    - `git remote set-url all --push --add git@github.com:code-cody-418/personal-portfolio-deploy-only.git`
+  - Once both are setup to be pushed you can simply push then a GitHub action will be fired on the private repo
+    - `git push all main`
 
 ## Attribution
 
