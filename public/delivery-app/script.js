@@ -4,14 +4,29 @@ const timeToDropoffInput = document.getElementById("timeToDropoff");
 const resetButton = document.getElementById("reset");
 const submitButton = document.getElementById("submit");
 const resultText = document.getElementById("result");
+const milesBtn = document.getElementById("milesBtn");
+const minutesBtn = document.getElementById("minutesBtn")
+
+window.onload = () => {
+  payInput.focus();
+};
 
 resetButton.addEventListener("click", () => {
-  console.log("reset clicked");
   payInput.value = "";
   distanceToDropoffInput.value = "";
   timeToDropoffInput.value = "";
   resultText.innerText = "";
+
+  payInput.focus();
 });
+
+milesBtn.addEventListener("click", () => {
+  distanceToDropoffInput.focus();
+});
+
+minutesBtn.addEventListener("click", () => {
+  timeToDropoffInput.focus()
+})
 
 payInput.addEventListener("input", () => {
   resultText.innerText = checkGoodOrder();
@@ -32,7 +47,9 @@ const checkNan = (value) => {
 };
 
 const checkGoodOrder = () => {
-  let totalPay, distanceToDropoff, timeToDropoff;
+  let totalPay;
+  let distanceToDropoff;
+  let timeToDropoff;
 
   totalPay = Number(payInput.value);
   distanceToDropoff = Number(distanceToDropoffInput.value);
@@ -53,7 +70,9 @@ const checkGoodOrder = () => {
 
   let timeDetermination;
   // determine time
-  if (timeToDropoff <= totalPay * 1.5) {
+  if (timeToDropoff === 0) {
+    timeDetermination = "Default";
+  } else if (timeToDropoff <= totalPay * 1.5) {
     timeDetermination = "Good";
   } else if (timeToDropoff <= totalPay * 1.75) {
     timeDetermination = "Ok";
@@ -61,19 +80,19 @@ const checkGoodOrder = () => {
     timeDetermination = "Bad";
   }
 
-  if (totalDistance < maxMiles && timeDetermination === "Good") {
+  if (
+    totalDistance < maxMiles &&
+    (timeDetermination === "Good" || timeDetermination === "Default")
+  ) {
     return "Good";
-  } else if (distanceToDropoff < maxMiles && timeDetermination === "Ok") {
+  } else if (
+    distanceToDropoff < maxMiles &&
+    (timeDetermination === "Good" ||
+      timeDetermination === "Ok" ||
+      timeDetermination === "Default")
+  ) {
     return "Ok";
   } else {
     return "Bad";
   }
-
-  // if (totalDistance < maxMiles && totalPay >= 7) {
-  //   resultText.innerText = "Good";
-  // } else if (distanceToDropoff < maxMiles && totalPay >= 7) {
-  //   resultText.innerText = "Ok";
-  // } else {
-  //   resultText.innerText = "Bad";
-  // }
 };

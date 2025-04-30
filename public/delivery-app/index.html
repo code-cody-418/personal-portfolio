@@ -17,63 +17,63 @@
     <h1>Delivery Analysis</h1>
 
     <div class="container">
-      <form>
-        <div class="row mt-3">
-          <div class="col">
-            <label for="pay" class="form-label">Pay</label>
-            <input
-              type="text"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-              class="form-control"
-              id="pay"
-              aria-describedby="payHelp"
-              placeholder="Payout"
-            />
-          </div>
-
-          <div class="col">
-            <label for="distanceToDropoff" class="form-label"
-              >Distance to Dropoff</label
-            >
-            <input
-              type="text"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-              class="form-control"
-              id="distanceToDropoff"
-              aria-describedby="distanceToDropoff"
-              placeholder="Miles"
-            />
-          </div>
+      <div class="row mt-3">
+        <div class="col">
+          <label for="pay" class="form-label">Pay</label>
+          <input
+            type="text"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            class="form-control"
+            id="pay"
+            aria-describedby="payHelp"
+            placeholder="Payout"
+          />
         </div>
 
-        <div class="row mt-3">
-          <div class="col">
-            <label for="timeToDropoff" class="form-label"
-              >Length to Dropoff</label
-            >
-            <input
-              type="text"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-              class="form-control"
-              id="timeToDropoff"
-              aria-describedby="timeToDropoff"
-              placeholder="Time"
-            />
-          </div>
+        <div class="col">
+          <label for="distanceToDropoff" class="form-label">Distance</label>
+          <input
+            type="text"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            class="form-control"
+            id="distanceToDropoff"
+            aria-describedby="distanceToDropoff"
+            placeholder="Distance"
+          />
         </div>
 
-        <div class="row mt-2">
-          <div class="col">
-            <button class="btn btn-secondary" id="reset">Reset</button>
-          </div>
+        <div class="col">
+          <label for="timeToDropoff" class="form-label">Length</label>
+          <input
+            type="text"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            class="form-control"
+            id="timeToDropoff"
+            aria-describedby="timeToDropoff"
+            placeholder="MM"
+          />
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col">
+          <button class="btn btn-secondary" id="reset">Reset</button>
         </div>
 
-        <div class="row mt-2">
-          <div class="col">
-            <p id="result">Undetermined</p>
-          </div>
+        <div class="col">
+          <button class="btn btn-primary" id="milesBtn">Miles</button>
         </div>
-      </form>
+
+        <div class="col">
+          <button class="btn btn-primary" id="minutesBtn">Minutes</button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col">
+          <p id="result">Undetermined</p>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
