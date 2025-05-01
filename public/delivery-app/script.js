@@ -5,7 +5,7 @@ const resetButton = document.getElementById("reset");
 const submitButton = document.getElementById("submit");
 const resultText = document.getElementById("result");
 const milesBtn = document.getElementById("milesBtn");
-const minutesBtn = document.getElementById("minutesBtn")
+const minutesBtn = document.getElementById("minutesBtn");
 
 window.onload = () => {
   payInput.focus();
@@ -25,8 +25,16 @@ milesBtn.addEventListener("click", () => {
 });
 
 minutesBtn.addEventListener("click", () => {
-  timeToDropoffInput.focus()
-})
+  timeToDropoffInput.focus();
+});
+
+payInput.addEventListener("input", () => {
+  distanceToDropoffInput.focus();
+});
+
+distanceToDropoffInput.addEventListener("input", () => {
+  timeToDropoffInput.focus();
+});
 
 payInput.addEventListener("input", () => {
   resultText.innerText = checkGoodOrder();
