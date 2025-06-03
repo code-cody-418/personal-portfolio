@@ -1,5 +1,4 @@
 import { Col, Image, Card } from "react-bootstrap";
-import { ExampleApiCall } from "./ExampleApiCall";
 import { useEffect, useRef } from "react";
 import { useStore } from "../utils/store";
 
@@ -63,7 +62,7 @@ export const ModalContent = ({ listItem }) => {
               </div>
             ) : null}
             <Card.Text>{listItem?.description}</Card.Text>
-            {listItem?.apiCall ? <ExampleApiCall /> : null}
+            
           </Card.Body>
         </Card>
       </Col>
