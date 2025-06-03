@@ -4,6 +4,7 @@ import WebGL from "three/addons/capabilities/WebGL.js";
 import { ModalIcon } from "../ui/modal/ModalIcon";
 import { MyModal } from "../ui/modal/MyModal";
 import { useStore } from "./utils/store";
+import { setEffectStars } from "./scene/utils/signalRGB/SetEffectStars";
 
 export const Home = () => {
   const isWebGLAvail = useStore((state) => state.isWebGLAvail);
@@ -19,6 +20,9 @@ export const Home = () => {
     }
   }, [handleShow, setIsWebGLAvail]);
 
+  useEffect(() => {
+    setEffectStars();
+  }, []);
   return (
     <>
       <ModalIcon />

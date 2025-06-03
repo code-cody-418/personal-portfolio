@@ -7,6 +7,7 @@
 - `npm run start`
 
 ## Deployment
+
 - Deployment can be done automatically or manually
 - To automatic deploy simply push to the private remote that can run private github actions
   - First add both the public and the private repo to a new alias. I like to call this new remote alias 'all'
@@ -25,3 +26,12 @@
 
 - cd to where the .glb or .gltf file is
 - run `npx gltfjsx model.gltf --transform`
+
+## SignalRGB Config
+
+- This site can interface with SignalRGB with a couple steps
+- Setup:
+  1) Ensure SignalRGB is installed on the desktop and you are signed in as a pro user
+  2) Download the effects listed below
+    - "Falling Stars"
+    - "Terminal"
