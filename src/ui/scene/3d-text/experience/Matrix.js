@@ -7,8 +7,6 @@ Files: matrix.glb [990.14KB] > C:\code\personal-portfolio\public\matrix\matrix-t
 import React, { useEffect, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useStore } from "../../../utils/store";
-import { setEffectStars } from "../../utils/signalRGB/SetEffectStars";
-import { setEffectMatrix } from "../../utils/signalRGB/SetEffectMatrix";
 
 const matrixPartialHeightStart = -90;
 const matrixPartialHeightEnd = -208;
@@ -27,10 +25,8 @@ export function Matrix({ animationSpeed }) {
       cameraHeight >= matrixPartialHeightStart ||
       cameraHeight <= matrixPartialHeightEnd
     ) {
-      setEffectStars()
       setShowPartialMatrix(false);
     } else {
-      setEffectMatrix()
       setShowPartialMatrix(true);
     }
   }, [cameraHeight]);
